@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>个人博客搭建详解（Windows和Mac通用版）</title>
+    <url>/2020/04/27/FirstNight/</url>
+    <content><![CDATA[<blockquote>
+<p>Hexo 是一个基于nodejs 的静态博客网站生成器，作者是来自台湾的 Tommy Chen</p>
+</blockquote>
+<blockquote>
+<p>body{<br>    background:url(/uploads/images/background.jpg);<br>    background-attachment: fixed;<br>cover   </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>实用</tag>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
+    <url>/2020/04/30/Markdown_02/</url>
+    <content><![CDATA[<p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要Markdown标记与HTML标记与CSS样式结合来弄。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
+<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，css是html的功能补充，但两者语法是完全不同的。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><font color=green>代码：html+css</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
+<h5 id="1-2-HTML与CSS"><a href="#1-2-HTML与CSS" class="headerlink" title="1.2 HTML与CSS"></a>1.2 HTML与CSS</h5><h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4>]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown语法之代码段(四)</title>
+    <url>/2020/04/30/Markdown_04/</url>
+    <content><![CDATA[<h4 id="Markdown中添加代码段"><a href="#Markdown中添加代码段" class="headerlink" title="Markdown中添加代码段"></a>Markdown中添加代码段</h4><p>方式： 在代码块前一行与最后一行分别添加  ```<br>效果： 默认颜色无高亮</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Markdown中代码段符号-如何打"><a href="#Markdown中代码段符号-如何打" class="headerlink" title="Markdown中代码段符号 ``` 如何打"></a>Markdown中代码段符号 ``` 如何打</h4><p>【`】符号名称: 抑音符<br>方式1：直接复制粘贴<br>方式2：搜狗输入法–符号–符号大全–标点符号–第三个表格的第三行里有这个符号，点击到最近使用<br><font color=red>方式3：英文状态下，按Esc下面的按键三下即可（shift切换中英文）</font><br><img src="/uploads/images/md/md_4_0.png" alt="image"></p>
+<h4 id="Markdown中代码段高亮显示"><a href="#Markdown中代码段高亮显示" class="headerlink" title="Markdown中代码段高亮显示"></a>Markdown中代码段高亮显示</h4><p>方式：在前一行的```后面添加语言标识关键字<br>效果：添加bash</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h4 id="Markdown中代码段标识关键字列表"><a href="#Markdown中代码段标识关键字列表" class="headerlink" title="Markdown中代码段标识关键字列表"></a>Markdown中代码段标识关键字列表</h4><table>
+<thead>
+<tr>
+<th><center>常用语言</center></th>
+<th><center>标识关键字</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><center>C</center></td>
+<td><center>c、cpp</center></td>
+</tr>
+<tr>
+<td><center>Java</center></td>
+<td><center>java</center></td>
+</tr>
+<tr>
+<td><center>Python</center></td>
+<td><center>py/python</center></td>
+</tr>
+<tr>
+<td><center>C#</center></td>
+<td><center>c#、csharp、c-sharp</center></td>
+</tr>
+<tr>
+<td><center>CSS</center></td>
+<td><center>css</center></td>
+</tr>
+<tr>
+<td><center>HTML</center></td>
+<td><center>html</center></td>
+</tr>
+<tr>
+<td><center>XML</center></td>
+<td><center>xml、xhtml、xslt、html</center></td>
+</tr>
+<tr>
+<td><center>SQL</center></td>
+<td><center>sql</center></td>
+</tr>
+<tr>
+<td><center>PHP</center></td>
+<td><center>php</center></td>
+</tr>
+<tr>
+<td><center>Shell</center></td>
+<td><center>bash、shell</center></td>
+</tr>
+<tr>
+<td><center>JavaScript</center></td>
+<td><center>js、jscript、javascript</center></td>
+</tr>
+<tr>
+<td><center>text</center></td>
+<td><center>text、plain</center></td>
+</tr>
+<tr>
+<td><center>R</center></td>
+<td><center>r、s、splus</center></td>
+</tr>
+<tr>
+<td><center>GO</center></td>
+<td><center>go、golang</center></td>
+</tr>
+<tr>
+<td><center>AppleScript</center></td>
+<td><center>applescript</center></td>
+</tr>
+<tr>
+<td><center>ActionScript 3.0</center></td>
+<td><center>actionscript3、as3</center></td>
+</tr>
+<tr>
+<td><center>ColdFusion</center></td>
+<td><center>coldfusion、cf</center></td>
+</tr>
+<tr>
+<td><center>diff&amp;patch</center></td>
+<td><center>diff patch</center></td>
+</tr>
+<tr>
+<td><center>Delphi</center></td>
+<td><center>delphi、pascal , pas</center></td>
+</tr>
+<tr>
+<td><center>Erlang</center></td>
+<td><center>erl、erlang</center></td>
+</tr>
+<tr>
+<td><center>Groovy</center></td>
+<td><center>groovy</center></td>
+</tr>
+<tr>
+<td><center>JavaFX</center></td>
+<td><center>jfx、javafx</center></td>
+</tr>
+<tr>
+<td><center>Perl</center></td>
+<td><center>perl、pl、Perl</center></td>
+</tr>
+<tr>
+<td><center>Ruby</center></td>
+<td><center>ruby、rails、ror、rb</center></td>
+</tr>
+<tr>
+<td><center>SASS&amp;SCSS</center></td>
+<td><center>sass、scss</center></td>
+</tr>
+<tr>
+<td><center>Scala</center></td>
+<td><center>scala</center></td>
+</tr>
+<tr>
+<td><center>Visual Basic</center></td>
+<td><center>vb、vbnet</center></td>
+</tr>
+<tr>
+<td><center>Objective C</center></td>
+<td><center>objc、obj-c</center></td>
+</tr>
+<tr>
+<td><center>F#</center></td>
+<td><center>f# f-sharp、fsharp</center></td>
+</tr>
+<tr>
+<td><center>matlab</center></td>
+<td><center>matlab</center></td>
+</tr>
+<tr>
+<td><center>swift</center></td>
+<td><center>swift</center></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/27/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>very very very very very long long long long long text</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><div style="width: 150pt">very very very very very lonng long long long long text</div></td>
+<td>3</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 4cm;
+}
+table th:nth-of-type(2) {
+    width: 150pt;
+}
+table th:nth-of-type(3) {
+    width: 8em;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列宽 = 3 cm</td>
+<td>列宽 = 5 cm</td>
+<td>列宽 = 8em</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 50%;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列宽 = 10% 行宽</td>
+<td>列宽 = 30% 行宽</td>
+<td>列宽 = 60% 行宽</td>
+</tr>
+</tbody></table>
+<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B64e4c18f-7b13-427e-8f9e-df1d77e09450%7D_apex-header-2020.jpg" alt="ar"></p>
+<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B8f90dfc7-b4a3-4251-a91c-65df2b040910%7D_unity-master-black.png" alt="aaa"></p>
+<style>
+table th:nth-of-type(1){width: 20%;}
+table th:nth-of-type(2){width: 20%;}
+table th:nth-of-type(3){width: 60%;}
+</style>
+
+<p><em>Java Reference Documentation</em></p>
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>他人博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Markdown是什么(一)</title>
+    <url>/2020/04/30/Markdown_01/</url>
+    <content><![CDATA[<h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
+<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
+<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
+<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
+<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
+<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
+<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
+<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
+<hr>
+<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
+<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
+<thead>
+<tr>
+<th>&emsp;</th>
+<th><center>MarkDown</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
+</tr>
+<tr>
+<td>开发者</td>
+<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
+</tr>
+<tr>
+<td>介绍</td>
+<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
+</tr>
+<tr>
+<td>编译器</td>
+<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>轻量、简单、通用、易读易写、文档快速排版</td>
+</tr>
+</tbody></table>
+<style>
+table th:nth-of-type(1){width: 10%;}
+table th:nth-of-type(2){width: 90%;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+</search>
