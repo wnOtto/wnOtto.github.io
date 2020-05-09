@@ -56,10 +56,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -82,12 +82,12 @@
 <meta name="description" content="&amp;emsp;&amp;emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要Markdown标记与HTML标记与CSS样式结合来弄。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！&amp;emsp;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown之于HTML与CSS和Markdown优缺点(二)">
-<meta property="og:url" content="http://yoursite.com/2020/04/30/Markdown_02/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/04/md_02/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要Markdown标记与HTML标记与CSS样式结合来弄。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！&amp;emsp;&amp;">
 <meta property="og:image" content="http://yoursite.com/uploads/images/md/md_2_0.png">
-<meta property="article:published_time" content="2020-04-30T07:09:30.943Z">
-<meta property="article:modified_time" content="2020-04-30T10:04:28.508Z">
+<meta property="article:published_time" content="2020-04-30T02:10:07.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:33:54.102Z">
 <meta property="article:author" content="Otto">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/30/Markdown_02/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/md_02/"/>
 
 
 
@@ -183,7 +183,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="//" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -261,6 +261,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/tools/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-wrench"></i> <br />
+            
+            个人工具
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -328,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/30/Markdown_02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/md_02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Otto">
@@ -357,7 +367,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-30T15:09:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-30T10:10:07+08:00">
                 2020-04-30
               </time>
             
@@ -450,13 +460,29 @@
       
 
       
-        <p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要Markdown标记与HTML标记与CSS样式结合来弄。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
-<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，css是html的功能补充，但两者语法是完全不同的。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
+        <p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
+<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，<strong>css是html的功能补充，但两者语法是完全不同的</strong>。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><font color=green>代码：html+css</font></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
-<h5 id="1-2-HTML与CSS"><a href="#1-2-HTML与CSS" class="headerlink" title="1.2 HTML与CSS"></a>1.2 HTML与CSS</h5><h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4>
+<h5 id="1-2-Markdown与HTML的关系"><a href="#1-2-Markdown与HTML的关系" class="headerlink" title="1.2 Markdown与HTML的关系"></a>1.2 Markdown与HTML的关系</h5><p>&emsp;&emsp;我们上面讲到HTML中M（markup）是标记的意思，而刚刚与markdown相反，那么两者关系到底是如何呢！开始划重点了！<br>&emsp;&emsp;As a matter of fact，<font color=red>我们使用markdown写的文档之所以能在网站上直接显示，是因为markdown已经转换解析为html或者说是html+css</font>，我想大家已经猜到了吧！所以，一些人说什么”markdown会取代html “，反正我是不会相信的，同样也相信大家的眼睛是雪亮的雪亮的，哈哈！我们其实可以这样理解，<font color=red>markdown就是建立在html或者说html+css之上的</font>。<br>&emsp;&emsp;<font color=red>Markdown与HTML同为标记语言</font>。虽然，标记语言本身本质上也是一门语言，但是和编程语言相比就简单很多了，所以标记语言是没有一点编程经验的小伙伴都是可以直接上手的一类语言。而html作为最早的前端网页标记语言，其目的也是如此。不过没想到的是，html虽然能够通过短时间的学习而迅速上手，但是使用这门语言的人大多数依然还是IT行业人员，因为它对专注于文章内容编辑的非程序职业人来说，使用它来编写自己的文章还不如用word等工具来的舒服！html的什么头啊，体啊，各种前后标签啊，不仅写着不舒，而且看着也不舒服，还容易出错，<font color=red>总之，我又不是搞程序的，你们自己用吧，我才不用，html(好它妈乱)就这这样应运而生了</font>。<br>&emsp;&emsp;好了，苦逼的程序猿只能自己玩了。Over time 随着时间的推移，慢慢的，程序猿也用的烦了（果然HTML好他妈乱），尤其大部分不搞网站的程序猿们，肿么办？<br>&emsp;&emsp;然后，我们的约翰·格鲁伯便在2004年便创建了MarkDown，markdown是在html的基础上创建，在兼容markdown的同时，也使自己的语言更加易读易写，使用起来就更加的方便。markdown兼容html最终更是要解析为html,也就是说，<font color=red>在markdown中是可以写html也可以写css的</font>，不过基本的markdown语法也足够用来书写内容与布局了，要想更炫酷的话就需要三者配合使用了。makerdown也因此而流行起来，深受广大程序猿的喜爱，甚至一些非程序职业的工作者也在使用起来了！</p>
+<h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4><p>&emsp;&emsp;我们都知道，不管是使用什么工具，多多少少都会有一些这样那样的优缺点，下面说说markdown.</p>
+<p><strong>优点1：易浏览，还可以直接导出为各种格式，word、PDF、图片、HTML等。</strong><br>&emsp;&emsp;我们的电脑和手机上可以没有word等工具，但一定有浏览器！网页浏览即可！在线网页工具也可以编辑！就问你方不方便，你写个word传来传去还不方便看，想让它显示到网站上查看，转换的效果还不一定好，但是由md转换为其他格式，效果挺好。</p>
+<p><strong>优点2：语法简单，易写，易读</strong><br>&emsp;&emsp;其实这个易写易读是相对的，相对于其他如html，它算是比较容易去写于于看的，但是不同人有不同的看法。做为作者，我是这样觉得的，如果你确实只用到了md语法，那么确实挺易读易写的。但是我们知道，要想花里胡哨那么对于支持html与css的md文件在内容上一般也不是那么尽如人意！所以，此处即是优点也是缺点。语法上简单也很直观，但也导致了在许多功能上的无法实现的问题！（既然绝大多数人都同作者一样觉得此处算作优点，就归于优点吧）</p>
+<p><strong>优点3：纯文本、纯键盘操作</strong><br>&emsp;&emsp;只要你是一个喜欢手不离键盘不断敲敲打打的职业人员，我想你会觉得这是优点的，毕竟它不需要你一会敲敲打打一会又这点点那选选的，让你只需专注于敲键盘，并尽情发挥你大脑的想象力、记忆力与创造力啦！（反正我是不可能纯粹只使用键盘操作的，请不要说我菜，不要说，不要说）</p>
+<p><strong>优点4：空间占用小</strong><br>&emsp;&emsp;正所谓，所见即所得，md里写的什么，存的就是什么，内容上就是这么多，但是其他编辑工具，譬如word、富文本等等工具编写的内容与存储的内容是不同的，甚至是有时是倍增的！</p>
+<p><strong>缺点1：语法简单而导致的功能缺陷</strong><br>&emsp;&emsp;为了让用户在编写创作的同时，尽可能忽略md标识，md做到了简单便捷的语法标识，但在有特殊效果需求上，md语法并不支持，需要在md中使用html+css来达到效果！</p>
+<p><strong>缺点2：纯键盘、纯文本操作导致的直观可读性</strong><br>&emsp;&emsp;虽然在编辑md时，我们就可以观察到md的显示结果了，但我们毕竟操作上都在md上，而读md也并不是特别直观，没有特殊工具编辑来的直观。（不过我想既然md能让你看起来像大神一般操作文本，来一把程序体验，从而牺牲你一点直观性也没啥问题，此缺点可忽略，忽略）</p>
+<p><strong>缺点3：有坑不填</strong><br>&emsp;&emsp;不管使用什么工具，多少都有些问题，记得不久前的毕业论文word格式排版……，那可是折磨了我们所有人相当久的一段经历啊！（不想回忆，不想回忆）至于markdown的坑，之后在说吧！</p>
+<center><font color=green>重要的事情说两遍，三遍太累!</font></center>                       
+
+
+
+
+
+
+
       
     </div>
     
@@ -518,7 +544,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/30/Markdown_01/" rel="next" title="Markdown是什么(一)">
+              <a href="/2020/04/md_01/" rel="next" title="Markdown是什么(一)">
                 <i class="fa fa-chevron-left"></i> Markdown是什么(一)
               </a>
             
@@ -528,8 +554,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/30/Markdown_04/" rel="prev" title="Markdown语法之代码段(四)">
-                Markdown语法之代码段(四) <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/md_03/" rel="prev" title="Markdown语法之基础功能(三)">
+                Markdown语法之基础功能(三) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,7 +637,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -700,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-Markdown之于HTML与CSS"><span class="nav-number">1.</span> <span class="nav-text">(一) Markdown之于HTML与CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-HTML与CSS"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 HTML与CSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-HTML与CSS"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 HTML与CSS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-Markdown优缺点"><span class="nav-number">2.</span> <span class="nav-text">(二) Markdown优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-Markdown之于HTML与CSS"><span class="nav-number">1.</span> <span class="nav-text">(一) Markdown之于HTML与CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-HTML与CSS"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 HTML与CSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-Markdown与HTML的关系"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Markdown与HTML的关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-Markdown优缺点"><span class="nav-number">2.</span> <span class="nav-text">(二) Markdown优缺点</span></a></li></ol></div>
             
 
           </div>
@@ -1235,6 +1261,22 @@
   
 
   
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
 
 </body>
 </html>

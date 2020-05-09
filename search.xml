@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>个人博客搭建详解（Windows和Mac通用版）</title>
-    <url>/2020/04/27/FirstNight/</url>
+    <url>/2020/04/FirstNight/</url>
     <content><![CDATA[<blockquote>
 <p>Hexo 是一个基于nodejs 的静态博客网站生成器，作者是来自台湾的 Tommy Chen</p>
 </blockquote>
@@ -20,15 +20,316 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
-    <url>/2020/04/30/Markdown_02/</url>
-    <content><![CDATA[<p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要Markdown标记与HTML标记与CSS样式结合来弄。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
-<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，css是html的功能补充，但两者语法是完全不同的。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><font color=green>代码：html+css</font></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
-<h5 id="1-2-HTML与CSS"><a href="#1-2-HTML与CSS" class="headerlink" title="1.2 HTML与CSS"></a>1.2 HTML与CSS</h5><h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4>]]></content>
+    <title>Hello World</title>
+    <url>/2020/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>very very very very very long long long long long text</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><div style="width: 150pt">very very very very very lonng long long long long text</div></td>
+<td>3</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 4cm;
+}
+table th:nth-of-type(2) {
+    width: 150pt;
+}
+table th:nth-of-type(3) {
+    width: 8em;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列宽 = 3 cm</td>
+<td>列宽 = 5 cm</td>
+<td>列宽 = 8em</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 50%;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列宽 = 10% 行宽</td>
+<td>列宽 = 30% 行宽</td>
+<td>列宽 = 60% 行宽</td>
+</tr>
+</tbody></table>
+<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B64e4c18f-7b13-427e-8f9e-df1d77e09450%7D_apex-header-2020.jpg" alt="ar"></p>
+<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B8f90dfc7-b4a3-4251-a91c-65df2b040910%7D_unity-master-black.png" alt="aaa"></p>
+<style>
+table th:nth-of-type(1){width: 20%;}
+table th:nth-of-type(2){width: 20%;}
+table th:nth-of-type(3){width: 60%;}
+</style>
+
+<p><em>Java Reference Documentation</em></p>
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>他人博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Font Awesome 是什么（一）</title>
+    <url>/2020/05/FA_1/</url>
+    <content><![CDATA[<!--  
+      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
+-->
+
+<p>&emsp;&emsp;Font Awesome是我在打造自己博客的学习过程中而接触到一个网站流行图标工具，故而我觉得相的相当有必要介绍一下。</p>
+<p>首先大家来看一下下面几个图标，是不是有点眼熟呢，没错就是我的博客左侧菜单栏上的图标！</p>
+<center><i class="fa fa-home"></i>&emsp;&emsp;<i class="fa fa-user"></i>&emsp;&emsp;<i class="fa fa-tags"></i>&emsp;&emsp;<i class="fa fa-th"></i>&emsp;&emsp;<i class="fa fa-archive"></i></center>
+那么，这些图标是怎么来的？又该如何使用的呢？还有没有其他的小图标使用吗？这就是我要介绍Font Awesome的起因！
+
+<h5 id="1-Font-Awesome-简介"><a href="#1-Font-Awesome-简介" class="headerlink" title="1. Font Awesome 简介"></a>1. Font Awesome 简介</h5><p><i class="fa fa-fa fa-2x"></i> Font Awesome是一套绝佳的图标字体库和CSS框架！</p>
+<blockquote>
+<p>使用CSS提供的特性可以对字体图标进行大小、颜色、旋转、阴影、组合等效果的更改！<br>一个字库，675个矢量图标，可无限缩放，无需依赖javaScript，完全免费，支持商用，亦可用于桌面系统！<br>图标不断添加，包括经典Font Awesome4 以及最新Font Awesome5</p>
+</blockquote>
+<p><i class="fa fa-home fa-2x"></i> 官方网站：网站有许多，推荐下面两个</p>
+<blockquote>
+<p>国内(直观浏览图标及名称)：<a href="https://fontawesome.dashgame.com/" target="_blank" rel="noopener"><font color=blue>https://fontawesome.dashgame.com/</font></a><br>国外(更全/图标搜索/打开网站较慢)：<a href="https://fontawesome.com/icons?d=gallery&q=th" target="_blank" rel="noopener"><font color=blue>https://fontawesome.com/icons?d=gallery&amp;q=th</font></a></p>
+</blockquote>
+<h5 id="2-Font-Awesome-使用"><a href="#2-Font-Awesome-使用" class="headerlink" title="2. Font Awesome 使用"></a>2. Font Awesome 使用</h5><p><strong>简单使用</strong><br>在这只介绍两个最简单使用方式：只需要一个html文件，写入下面代码，保存，浏览器打开即可！</p>
+<ol>
+<li><font color=red>网络加载</font><br>说明1：使用上面第一个网站中的介绍的第一个使用方式，试验无效，我觉得应该是下面的网站服务器代码托管问题！既然网络不行，个人觉得无所谓啦，没人想自己网站里的内容加载还要通过其他网站滴！就像这提供的样子，出了问题，你的网站就显示不了了。这儿只是提供了一个无用的便捷而已，做做测试罢了！<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+说明2：总觉得还是给大家弄个网络访问的吧，毕竟可以不用下载，懒货必备啊，如果其还能够提供fontawesome更新的话就更好了，所以各网站逛一圈后，测试并发现了可用的网络链接，推荐使用下面两个去替换上面的！<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--国内的CDN--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--海外的CDN--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><font color=red>本地加载</font><br>说明：在上面第一个网站下载字体压缩包并解压，在下面引入解压的文件路径即可！当然，这儿的路径可以是本地绝对路径，也可以是你的站点项目的相对路径！最简单的本地测试如下：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"E:/DesktopFile/HTML/font-awesome-4.7.0/css/font-awesome.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>具体使用</strong></p>
+<ul>
+<li><code>&lt;link&gt;</code>按要求写在html的<code>&lt;head&gt;</code>头部里</li>
+<li><code>link</code>中使用的默认的css样式链接路径，可以是font-awesome.min.css或者font-awesome.css都行</li>
+<li><code>&lt;i class=&quot;fa fa-home&quot;/&gt;</code>字体图标最简嵌入形式，i即input插入意思，fa类显示fa-图标名称，图标名称可以在上面网站上查看</li>
+</ul>
+<p>下面是特殊显示效果方法代码：</p>
+<details><summary><mark><font color=darkred>点击查看详细内容</font></mark></summary>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--这用的本地路径，可换为网络路径--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"E:/DesktopFile/HTML/font-awesome-4.7.0/css/font-awesome.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">具体使用功能效果展示：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>1.原始一行显示<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:&lt;i&gt;&lt;/i&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>2.原始换行显示<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:加&lt;br&gt;或者&lt;/br&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>3.改变固定大小<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:添加fa-lg等 是33%递增的--&gt;</span></span><br><span class="line">原始 <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro "</span>&gt;</span>原始<span class="tag">&lt;/<span class="name">i</span>&gt;</span>          <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">fa-lg <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro fa-lg"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>       <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">fa-2x <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro fa-2x"</span>&gt;</span>fa-2x<span class="tag">&lt;/<span class="name">i</span>&gt;</span>  <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">fa-3x <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro fa-3x"</span>&gt;</span>fa-3x<span class="tag">&lt;/<span class="name">i</span>&gt;</span>  <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">fa-4x <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro fa-4x"</span>&gt;</span>fa-4x<span class="tag">&lt;/<span class="name">i</span>&gt;</span>  <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">fa-5x <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera-retro fa-5x"</span>&gt;</span>fa-5x<span class="tag">&lt;/<span class="name">i</span>&gt;</span>  <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>4.1改变随意大小<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:style属性的font-size 推荐--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span>16<span class="tag">&lt;/<span class="name">i</span>&gt;</span>16</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:30px;"</span>&gt;</span>30<span class="tag">&lt;/<span class="name">i</span>&gt;</span>30</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:50px;"</span>&gt;</span>50<span class="tag">&lt;/<span class="name">i</span>&gt;</span>50</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:60px;"</span>&gt;</span>60<span class="tag">&lt;/<span class="name">i</span>&gt;</span>60</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>4.2改变随意大小<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:font的size属性,0~10值范围内随意--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">0</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">i</span>&gt;</span>0<span class="tag">&lt;/<span class="name">font</span>&gt;</span>0</span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">3</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">i</span>&gt;</span>3<span class="tag">&lt;/<span class="name">font</span>&gt;</span>3</span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">6</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">i</span>&gt;</span>6<span class="tag">&lt;/<span class="name">font</span>&gt;</span>6</span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">i</span>&gt;</span>10<span class="tag">&lt;/<span class="name">font</span>&gt;</span>10</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>5.1改变颜色<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:style属性的color 也支持16位rgb值 推荐--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:red;"</span>   &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:blue;"</span>  &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span> &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:yellow;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:gray;"</span>  &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>5.2改变颜色<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:font的color属性 也支持16位rgb值--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>    <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">blue</span>   <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">green</span>  <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">yellow</span> <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">gray</span>   <span class="attr">size</span>=<span class="string">10</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>6.动画旋转两种方式<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:使用 fa-spin 类来使任意图标旋转，现在您还可以使用 fa-pulse 来使其进行8方位旋转。尤其适合 fa-spinner、fa-refresh 和 fa-cog --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-spinner fa-spin"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-refresh fa-spin"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-circle-o-notch fa-spin"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cog fa-spin"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>       <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-spinner fa-pulse"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-refresh fa-pulse"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-circle-o-notch fa-pulse"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cog fa-pulse"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>7.旋转与翻转<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:使用 fa-rotate-* 和 fa-flip-* 类可以对图标进行任意旋转和翻转--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> normal</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield fa-rotate-90"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> fa-rotate-90</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield fa-rotate-180"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> fa-rotate-180</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield fa-rotate-270"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> fa-rotate-270</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield fa-flip-horizontal"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> fa-flip-horizontal</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-shield fa-flip-vertical"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> icon-flip-vertical</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>8.图标固定宽度<span class="tag">&lt;/<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--形式:使用 fa-fw 可以将图标设置为一个固定宽度。主要用于不同宽度图标无法对齐的情况。 尤其在列表/表格/导航时起到重要作用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>图标对齐<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home fa-fw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="symbol">&amp;nbsp;</span> Home<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-book fa-fw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="symbol">&amp;nbsp;</span> Library<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-pencil fa-fw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="symbol">&amp;nbsp;</span> Applications<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cog fa-fw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="symbol">&amp;nbsp;</span> Settings<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>9.用于列表<span class="tag">&lt;/<span class="name">br</span>&gt;</span> <span class="comment">&lt;!--形式:使用 fa-ul 和 fa-li 便可以简单的将无序列表的默认符号替换掉--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"fa-ul"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa-li fa fa-check-square"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>List icons<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa-li fa fa-check-square"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>can be used<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa-li fa fa-spinner fa-spin"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>as bullets<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa-li fa fa-square"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>in lists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>10.边框与对齐<span class="tag">&lt;/<span class="name">br</span>&gt;</span> <span class="comment">&lt;!--形式:使用 fa-border 以及 pull-right 或 pull-left 可以轻易构造出引用的特殊效果--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-quote-left fa-3x pull-left fa-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-quote-right fa-3x pull-right fa-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">...tomorrow we will run faster, stretch out our arms farther...And then one fine morning— So we beat on, boats against the current, borne back ceaselessly into the past.</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-quote-right fa-3x pull-right fa-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">...tomorrow we will run faster, stretch out our arms farther...And then one fine morning— So we beat on, boats against the current, borne back ceaselessly into the past.</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>11.组合使用<span class="tag">&lt;/<span class="name">br</span>&gt;</span> <span class="comment">&lt;!--形式:如果想要将多个图标组合起来，使用 fa-stack 类作为父容器， fa-stack-1x 作为正常比例的图标， fa-stack-2x 作为大一些的图标。还可以使用 fa-inverse 类来切换图标颜色。您可以在父容器中 通过添加 大图标 类来控制整体大小--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fa-stack fa-lg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-square-o fa-stack-2x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-twitter fa-stack-1x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">fa-twitter on fa-square-o<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fa-stack fa-lg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-circle fa-stack-2x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-flag fa-stack-1x fa-inverse"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">fa-flag on fa-circle<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fa-stack fa-lg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-square fa-stack-2x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-terminal fa-stack-1x fa-inverse"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">fa-terminal on fa-square<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fa-stack fa-lg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-camera fa-stack-1x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-ban fa-stack-2x text-danger"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span>fa-ban on fa-camera</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</details>
+
+<p><strong>效果查看</strong></p>
+<p>方式一：如果你本地已经有了Font Awesome的文件的话，复制上面代码粘贴到你的html文件中，在把link换成你本地路径即可查看效果！</p>
+<p>方式二：无须下载Font Awesome包，link地址替换为<code>https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css</code>，再复制粘贴到你的html文件中即可！</p>
+<p>方式三：无须下载Font Awesome包，无须创建html文件，head里的内容用下面替换，然后粘贴复制到<a href="https://www.runoob.com/try/try.php?filename=tryicons_awesome_intro_basic" target="_blank" rel="noopener"><font color=blue>菜鸟工具</font></a>，同样可以查看效果！</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<details><summary><mark><font color=darkred>点击查看详细内容</font></mark></summary>
+具体使用功能效果展示：
+1.原始一行显示 <!--形式:<i></i>-->
+<i class="fa fa-home"></i><i class="fa fa-camera-retro"></i><i class="fa fa-car"></i><i class="fa fa-car"></i>
+2.原始换行显示  <!--形式:加<br>或者</br>-->
+<i class="fa fa-home"></i>
+<i class="fa fa-camera-retro"></i>
+<i class="fa fa-car"></i>
+<i class="fa fa-car"></i>
+
+<p>3.改变固定大小  <!--形式:添加fa-lg等 是33%递增的--><br>原始 <i class="fa fa-camera-retro ">原始</i><br>fa-lg <i class="fa fa-camera-retro fa-lg"></i><br>fa-2x <i class="fa fa-camera-retro fa-2x">fa-2x</i><br>fa-3x <i class="fa fa-camera-retro fa-3x">fa-3x</i><br>fa-4x <i class="fa fa-camera-retro fa-4x">fa-4x</i><br>fa-5x <i class="fa fa-camera-retro fa-5x">fa-5x</i> </p>
+<p>4.1改变随意大小  <!--形式:style属性的font-size 推荐--><br><i class="fa fa-car">16</i>16<i class="fa fa-car" style="font-size:30px;">30</i>30<i class="fa fa-car" style="font-size:50px;">50</i>50<i class="fa fa-car" style="font-size:60px;">60</i>60</p>
+<p>4.2改变随意大小  <!--形式:font的size属性,0~10值范围内随意--><br><font size=0><i class="fa fa-car">0</i>0</font>0<font size=3><i class="fa fa-car">3</i>3</font>3<font size=6><i class="fa fa-car">6</i>6</font>6<font size=10><i class="fa fa-car">10</i>10</font>10</p>
+<p>5.1改变颜色  <!--形式:style属性的color 也支持16位rgb值 推荐--><br><i class="fa fa-car" style="font-size:48px;color:red;"></i><i class="fa fa-car" style="font-size:48px;color:blue;"></i><i class="fa fa-car" style="font-size:48px;color:green;"></i><i class="fa fa-car" style="font-size:48px;color:yellow;"></i><i class="fa fa-car" style="font-size:48px;color:gray;"></i></p>
+<p>5.2改变颜色  <!--形式:font的color属性 也支持16位rgb值--><br><font color=red size=10><i class="fa fa-car"></i></font><font color=blue size=10><i class="fa fa-car"></i></font><font color=green size=10><i class="fa fa-car"></i></font><font color=yellow size=10><i class="fa fa-car"></i></font><font color=gray size=10><i class="fa fa-car"></i></font></p>
+<p>6.动画旋转两种方式  <!--形式:使用 fa-spin 类来使任意图标旋转，现在您还可以使用 fa-pulse 来使其进行8方位旋转。尤其适合 fa-spinner、fa-refresh 和 fa-cog --><br><i class="fa fa-spinner fa-spin" style="font-size:48px;color:green;"></i><i class="fa fa-refresh fa-spin" style="font-size:48px;color:green;"></i><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:green;"></i><i class="fa fa-cog fa-spin" style="font-size:48px;color:green;"></i><br><i class="fa fa-spinner fa-pulse" style="font-size:48px;color:red;"></i><i class="fa fa-refresh fa-pulse" style="font-size:48px;color:red;"></i><i class="fa fa-circle-o-notch fa-pulse" style="font-size:48px;color:red;"></i><i class="fa fa-cog fa-pulse" style="font-size:48px;color:red;"></i></p>
+<p>7.旋转与翻转  <!--形式:使用 fa-rotate-* 和 fa-flip-* 类可以对图标进行任意旋转和翻转--><br><i class="fa fa-shield"></i> normal<i class="fa fa-shield fa-rotate-90"></i> fa-rotate-90<i class="fa fa-shield fa-rotate-180"></i> fa-rotate-180<i class="fa fa-shield fa-rotate-270"></i> fa-rotate-270<i class="fa fa-shield fa-flip-horizontal"></i> fa-flip-horizontal<i class="fa fa-shield fa-flip-vertical"></i> icon-flip-vertical</p>
+<p>8.图标固定宽度  <!--形式:使用 fa-fw 可以将图标设置为一个固定宽度。主要用于不同宽度图标无法对齐的情况。 尤其在列表/表格/导航时起到重要作用--></p>
+<table border="1">
+<tr><th>图标对齐</th></tr>
+<tr><td><i class="fa fa-home fa-fw"></i>&nbsp; Home</td></tr>
+<tr><td><i class="fa fa-book fa-fw"></i>&nbsp; Library</td></tr>
+<tr><td><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</td></tr>
+<tr><td><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</td></tr>
+</table> 
+
+<p>9.用于列表 <!--形式:使用 fa-ul 和 fa-li 便可以简单的将无序列表的默认符号替换掉--><br><i class="fa-ul fa fa-check-square"></i> List icons<br><i class="fa-ul fa fa-check-square"></i> can be used<br><i class="fa-ul fa fa-spinner fa-spin"></i> as bullets<br><i class="fa-ul fa fa-square"></i> in lists</p>
+<p>10.边框与对齐 <!--形式:使用 fa-border 以及 pull-right 或 pull-left 可以轻易构造出引用的特殊效果--><br><i class="fa fa-quote-left fa-3x pull-left fa-border"></i><i class="fa fa-quote-right fa-3x pull-right fa-border"></i>…tomorrow we will run faster, stretch out our arms farther…And then one fine morning— So we beat on, boats against the current, borne back ceaselessly into the past.<br><i class="fa fa-quote-right fa-3x pull-right fa-border"></i>…tomorrow we will run faster, stretch out our arms farther…And then one fine morning— So we beat on, boats against the current, borne back ceaselessly into the past.</p>
+<p>11.组合使用 <!--形式:如果想要将多个图标组合起来，使用 fa-stack 类作为父容器， fa-stack-1x 作为正常比例的图标， fa-stack-2x 作为大一些的图标。还可以使用 fa-inverse白色 类来切换图标颜色。您可以在父容器中 通过添加 大图标 类来控制整体大小--><br><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span>fa-twitter on fa-square-o<br><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-flag fa-stack-1x fa-inverse"></i></span>fa-flag on fa-circle<br><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-terminal fa-stack-1x fa-inverse"></i></span>fa-terminal on fa-square<br><span class="fa-stack fa-lg"><i class="fa fa-camera fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x text-danger"></i></span>fa-ban on fa-camera</p>
+</details>
+]]></content>
+  </entry>
+  <entry>
+    <title>Markdown语法之基础功能(三)</title>
+    <url>/2020/04/md_03/</url>
+    <content><![CDATA[<p>&emsp;&emsp;相信看过前两篇的小伙伴，对于markdown已经完全了解了，当然除了它的语法外，那么从本篇开始将会讲解markdown的基础语法与后续进阶功能效果啦！话说，自己都有点迫不及待了呢，nice!</p>
+<h5 id="Markdown文字功能！"><a href="#Markdown文字功能！" class="headerlink" title="Markdown文字功能！"></a>Markdown文字功能！</h5><p><strong>1.1 加粗、斜体、划掉、颜色、大小、字体</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗文字**</span>  或者  <span class="strong">__加粗文字__</span></span><br><span class="line"><span class="emphasis">*斜体文字*</span>    或者   <span class="emphasis">_斜体文字_</span></span><br><span class="line"><span class="strong">***粗斜文字**</span>*</span><br><span class="line">~~划掉文字~~</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">4</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">face</span>=<span class="string">"STCAIYUN"</span>&gt;</span></span>字体大小颜色自定义文字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>字体变小<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span>    </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">big</span>&gt;</span></span>字体变大<span class="xml"><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>加粗文字</strong>   <em>斜体文字</em>   <strong><em>粗斜文字</em></strong>   <del>划掉文字</del><br><font size=4 color=red face="STCAIYUN">字体大小颜色自定义文字</font> <small>变小文字</small> <big>变大文字</big></p>
+<p><strong>1.2 换行、缩进、空格</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">空格+空格+回车   换行</span><br><span class="line">&amp;ensp;&amp;ensp;    <span class="comment">//缩进一格，即两个字节（一个汉字两字节）</span></span><br><span class="line">&amp;emsp;&amp;emsp;    <span class="comment">//缩进两格，即四个字节（一个汉字两字节）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>1.3 标题</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1 标题</span></span><br><span class="line"><span class="section">## h2 标题</span></span><br><span class="line"><span class="section">### h3 标题</span></span><br><span class="line"><span class="section">#### h4 标题</span></span><br><span class="line"><span class="section">##### h5 标题</span></span><br><span class="line"><span class="section">###### h6 标题</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/images/md/md_3_0.png" alt="image"><br><strong>1.3 水平线</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">---   或者  ___  或者  ***    <span class="comment">//三个或更多-_*，必须单独一行，可含空格</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>1.4 序列之有序与无序</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">"有序序列方式一"</span></span><br><span class="line">`1.`    有序第一个</span><br><span class="line">`2.`    有序第二个</span><br><span class="line">`3.`    有序第三个</span><br><span class="line"><span class="string">"有序序列方式二"</span></span><br><span class="line">1.    有序第一个</span><br><span class="line">2.    有序第二个</span><br><span class="line">3.    有序第三个</span><br><span class="line"><span class="string">"无序序列+嵌套序列"</span></span><br><span class="line">+无序第一个</span><br><span class="line">  - 无序第二个</span><br><span class="line">    * 无序第三个</span><br><span class="line">  `+` 无序第四个</span><br><span class="line">（无序使用空格与<span class="string">"+"</span>,<span class="string">"-"</span>,<span class="string">"*"</span>任意一个符号配合使用,也可以加``）</span><br></pre></td></tr></table></figure>
+<p><code>1.</code>    有序第一个<br><code>2.</code>    有序第二个<br><code>3.</code>    有序第三个</p>
+<ol>
+<li>有序第一个</li>
+<li>有序第二个</li>
+<li>有序第三个</li>
+</ol>
+<ul>
+<li>无序第一个<ul>
+<li>无序第二个<ul>
+<li>无序第三个</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>无序第四个</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.5 文字底框与底色</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行底色文字`</span></span><br><span class="line">==多行底色文字==  //这儿不支持</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span></span>背景色yellow文字<span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line">[<span class="code">```</span>]            //去掉中括号</span><br><span class="line">代码块文字</span><br><span class="line">[<span class="code">```</span>]</span><br></pre></td></tr></table></figure>
+<p><code>单行底色文字</code></p>
+<table><tr><td bgcolor=yellow>背景色yellow文字</td></tr></table>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">代码块文字</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.6 文字注释</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: # (写注释)</span><br><span class="line"></span><br><span class="line">[^_^]:</span><br><span class="line">    写注释</span><br><span class="line"></span><br><span class="line">[^_^]:写注释</span><br></pre></td></tr></table></figure>
+<p><strong>1.7 文字对齐</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>居中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>左对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>右对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<center>居中</center>
+<p align="left">左对齐</p>
+<p align="right">右对齐</p>
+
+<p><strong>1.8 文字超链接四种方式</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">[<span class="string">Otto的个人空间</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line">[<span class="string">&lt;font color=blue&gt;Otto的个人空间&lt;/font&gt;</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">www.baidu.com</span>/&gt;</span></span></span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">str</span>]: <span class="link">https://www.baidu.com/</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客">Otto的个人空间</a>&emsp;&emsp;<a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客"><font color=blue>Otto的个人空间</font></a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
+<h5 id="Markdown图片功能！"><a href="#Markdown图片功能！" class="headerlink" title="Markdown图片功能！"></a>Markdown图片功能！</h5><p><strong>2.1 插图最基础的格式介绍</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</li>
+<li>图片链接：可以是图片的本地地址或者是网址。</li>
+<li>“optional title”：鼠标悬置于图片上会出现的标题文字，可以不写。</li>
+</ul>
+<p><strong>2.2 插图的三种添加方式</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/uploads/images/md/md_3_1.png "本地"</span>)       </span><br><span class="line">![<span class="string">img</span>](<span class="link">http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png "网络"</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">data:image/png;base64,iVBORw0...... "base64"</span>)    或者</span><br><span class="line">![<span class="string">image</span>][<span class="symbol">base64str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC "base64"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>本地插入显示<ul>
+<li>支持本地磁盘绝对路径与项目相对路径</li>
+<li>不灵活不好分享，本地图片的路径更改或丢失都会造成markdown文件调不出图。</li>
+</ul>
+</li>
+<li>网络插入显示<ul>
+<li>填写图片的网络链接地址</li>
+<li>图片存在网络服务器上，非常依赖网络。</li>
+</ul>
+</li>
+<li>base64存储显示<ul>
+<li>将图片信息用base64字符串保存起来使用，<a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener"><font color=blue>base在线转换工具</font></a></li>
+<li>base64字符串一般较长，使用变量索引方式，并将索引键值放在最后从而不影响文章</li>
+<li>支持base64即可，不依赖网络，不依赖本地</li>
+</ul>
+</li>
+</ul>
+<p><img src="/uploads/images/md/md_3_1.png" alt="img" title="本地"> <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="img" title="网络"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC" alt="image" title="base64"><br><strong>2.3 插图的大小与对齐方式</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 默认居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居左--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居右--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>markdown语法没有此功能，故上面使用html方式</li>
+<li>宽高可以直接填数值或者百分比</li>
+<li>图片默认都是居中对齐的，居左与居右然后再居中效果如下：</li>
+</ul>
+<p><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="left" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="right" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="10%" height="10%"/></p>
+<h5 id="Markdown表格功能！"><a href="#Markdown表格功能！" class="headerlink" title="Markdown表格功能！"></a>Markdown表格功能！</h5><p><strong>3.1 表格基本写法介绍</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header 1 | header 2</span><br><span class="line">---|---</span><br><span class="line">row 1 col 1 | row 1 col 2</span><br><span class="line">row 2 col 1 | row 2 col 2</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">|  header 1  |  header 2  |</span><br><span class="line">|    ---     |    ---     |</span><br><span class="line">|row 1 col 1 | row 1 col 2|</span><br><span class="line">|row 2 col 1 | row 2 col 2|</span><br></pre></td></tr></table></figure>
+<ul>
+<li>本站默认表格如下（默认表格铺满，且每列等分，内容皆左对齐）<ul>
+<li>第一行：要显示的头部标题</li>
+<li>第二行：对齐方式|:—–|左对齐，|:—–:|居中，|—–:|右对齐(这儿不支持) </li>
+<li>一般是支持每列的宽度由对应列里最长的文本来决定，与这的默认不同</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>header 1</th>
+<th>header 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row 1 col 1</td>
+<td>row 1 col 2</td>
+</tr>
+<tr>
+<td>row 2 col 1</td>
+<td>row 2 col 2</td>
+</tr>
+</tbody></table>
+]]></content>
       <categories>
         <category>实用技术</category>
         <category>个人博客</category>
@@ -41,7 +342,7 @@
   </entry>
   <entry>
     <title>Markdown语法之代码段(四)</title>
-    <url>/2020/04/30/Markdown_04/</url>
+    <url>/2020/04/md_04/</url>
     <content><![CDATA[<h4 id="Markdown中添加代码段"><a href="#Markdown中添加代码段" class="headerlink" title="Markdown中添加代码段"></a>Markdown中添加代码段</h4><p>方式： 在代码块前一行与最后一行分别添加  ```<br>效果： 默认颜色无高亮</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="Markdown中代码段符号-如何打"><a href="#Markdown中代码段符号-如何打" class="headerlink" title="Markdown中代码段符号 ``` 如何打"></a>Markdown中代码段符号 ``` 如何打</h4><p>【`】符号名称: 抑音符<br>方式1：直接复制粘贴<br>方式2：搜狗输入法–符号–符号大全–标点符号–第三个表格的第三行里有这个符号，点击到最近使用<br><font color=red>方式3：英文状态下，按Esc下面的按键三下即可（shift切换中英文）</font><br><img src="/uploads/images/md/md_4_0.png" alt="image"></p>
@@ -55,6 +356,10 @@
 </tr>
 </thead>
 <tbody><tr>
+<td><center>Markdown</center></td>
+<td><center>md、markdown</center></td>
+</tr>
+<tr>
 <td><center>C</center></td>
 <td><center>c、cpp</center></td>
 </tr>
@@ -191,131 +496,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>2</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>d</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>very very very very very long long long long long text</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>d</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td><div style="width: 150pt">very very very very very lonng long long long long text</div></td>
-<td>3</td>
-</tr>
-</tbody></table>
-<style>
-table th:first-of-type {
-    width: 4cm;
-}
-table th:nth-of-type(2) {
-    width: 150pt;
-}
-table th:nth-of-type(3) {
-    width: 8em;
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>列宽 = 3 cm</td>
-<td>列宽 = 5 cm</td>
-<td>列宽 = 8em</td>
-</tr>
-</tbody></table>
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 30%;
-}
-table th:nth-of-type(3) {
-    width: 50%;
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>列宽 = 10% 行宽</td>
-<td>列宽 = 30% 行宽</td>
-<td>列宽 = 60% 行宽</td>
-</tr>
-</tbody></table>
-<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B64e4c18f-7b13-427e-8f9e-df1d77e09450%7D_apex-header-2020.jpg" alt="ar"></p>
-<p><img src="http://images.response.unity3d.com/EloquaImages/clients/Unity/%7B8f90dfc7-b4a3-4251-a91c-65df2b040910%7D_unity-master-black.png" alt="aaa"></p>
-<style>
-table th:nth-of-type(1){width: 20%;}
-table th:nth-of-type(2){width: 20%;}
-table th:nth-of-type(3){width: 60%;}
-</style>
-
-<p><em>Java Reference Documentation</em></p>
-]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>他人博客</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Markdown是什么(一)</title>
-    <url>/2020/04/30/Markdown_01/</url>
+    <url>/2020/04/md_01/</url>
     <content><![CDATA[<h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
 <p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
 <p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
@@ -370,6 +552,42 @@ table th:nth-of-type(2){width: 90%;}
 
 
 
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
+    <url>/2020/04/md_02/</url>
+    <content><![CDATA[<p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
+<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，<strong>css是html的功能补充，但两者语法是完全不同的</strong>。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><font color=green>代码：html+css</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
+<h5 id="1-2-Markdown与HTML的关系"><a href="#1-2-Markdown与HTML的关系" class="headerlink" title="1.2 Markdown与HTML的关系"></a>1.2 Markdown与HTML的关系</h5><p>&emsp;&emsp;我们上面讲到HTML中M（markup）是标记的意思，而刚刚与markdown相反，那么两者关系到底是如何呢！开始划重点了！<br>&emsp;&emsp;As a matter of fact，<font color=red>我们使用markdown写的文档之所以能在网站上直接显示，是因为markdown已经转换解析为html或者说是html+css</font>，我想大家已经猜到了吧！所以，一些人说什么”markdown会取代html “，反正我是不会相信的，同样也相信大家的眼睛是雪亮的雪亮的，哈哈！我们其实可以这样理解，<font color=red>markdown就是建立在html或者说html+css之上的</font>。<br>&emsp;&emsp;<font color=red>Markdown与HTML同为标记语言</font>。虽然，标记语言本身本质上也是一门语言，但是和编程语言相比就简单很多了，所以标记语言是没有一点编程经验的小伙伴都是可以直接上手的一类语言。而html作为最早的前端网页标记语言，其目的也是如此。不过没想到的是，html虽然能够通过短时间的学习而迅速上手，但是使用这门语言的人大多数依然还是IT行业人员，因为它对专注于文章内容编辑的非程序职业人来说，使用它来编写自己的文章还不如用word等工具来的舒服！html的什么头啊，体啊，各种前后标签啊，不仅写着不舒，而且看着也不舒服，还容易出错，<font color=red>总之，我又不是搞程序的，你们自己用吧，我才不用，html(好它妈乱)就这这样应运而生了</font>。<br>&emsp;&emsp;好了，苦逼的程序猿只能自己玩了。Over time 随着时间的推移，慢慢的，程序猿也用的烦了（果然HTML好他妈乱），尤其大部分不搞网站的程序猿们，肿么办？<br>&emsp;&emsp;然后，我们的约翰·格鲁伯便在2004年便创建了MarkDown，markdown是在html的基础上创建，在兼容markdown的同时，也使自己的语言更加易读易写，使用起来就更加的方便。markdown兼容html最终更是要解析为html,也就是说，<font color=red>在markdown中是可以写html也可以写css的</font>，不过基本的markdown语法也足够用来书写内容与布局了，要想更炫酷的话就需要三者配合使用了。makerdown也因此而流行起来，深受广大程序猿的喜爱，甚至一些非程序职业的工作者也在使用起来了！</p>
+<h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4><p>&emsp;&emsp;我们都知道，不管是使用什么工具，多多少少都会有一些这样那样的优缺点，下面说说markdown.</p>
+<p><strong>优点1：易浏览，还可以直接导出为各种格式，word、PDF、图片、HTML等。</strong><br>&emsp;&emsp;我们的电脑和手机上可以没有word等工具，但一定有浏览器！网页浏览即可！在线网页工具也可以编辑！就问你方不方便，你写个word传来传去还不方便看，想让它显示到网站上查看，转换的效果还不一定好，但是由md转换为其他格式，效果挺好。</p>
+<p><strong>优点2：语法简单，易写，易读</strong><br>&emsp;&emsp;其实这个易写易读是相对的，相对于其他如html，它算是比较容易去写于于看的，但是不同人有不同的看法。做为作者，我是这样觉得的，如果你确实只用到了md语法，那么确实挺易读易写的。但是我们知道，要想花里胡哨那么对于支持html与css的md文件在内容上一般也不是那么尽如人意！所以，此处即是优点也是缺点。语法上简单也很直观，但也导致了在许多功能上的无法实现的问题！（既然绝大多数人都同作者一样觉得此处算作优点，就归于优点吧）</p>
+<p><strong>优点3：纯文本、纯键盘操作</strong><br>&emsp;&emsp;只要你是一个喜欢手不离键盘不断敲敲打打的职业人员，我想你会觉得这是优点的，毕竟它不需要你一会敲敲打打一会又这点点那选选的，让你只需专注于敲键盘，并尽情发挥你大脑的想象力、记忆力与创造力啦！（反正我是不可能纯粹只使用键盘操作的，请不要说我菜，不要说，不要说）</p>
+<p><strong>优点4：空间占用小</strong><br>&emsp;&emsp;正所谓，所见即所得，md里写的什么，存的就是什么，内容上就是这么多，但是其他编辑工具，譬如word、富文本等等工具编写的内容与存储的内容是不同的，甚至是有时是倍增的！</p>
+<p><strong>缺点1：语法简单而导致的功能缺陷</strong><br>&emsp;&emsp;为了让用户在编写创作的同时，尽可能忽略md标识，md做到了简单便捷的语法标识，但在有特殊效果需求上，md语法并不支持，需要在md中使用html+css来达到效果！</p>
+<p><strong>缺点2：纯键盘、纯文本操作导致的直观可读性</strong><br>&emsp;&emsp;虽然在编辑md时，我们就可以观察到md的显示结果了，但我们毕竟操作上都在md上，而读md也并不是特别直观，没有特殊工具编辑来的直观。（不过我想既然md能让你看起来像大神一般操作文本，来一把程序体验，从而牺牲你一点直观性也没啥问题，此缺点可忽略，忽略）</p>
+<p><strong>缺点3：有坑不填</strong><br>&emsp;&emsp;不管使用什么工具，多少都有些问题，记得不久前的毕业论文word格式排版……，那可是折磨了我们所有人相当久的一段经历啊！（不想回忆，不想回忆）至于markdown的坑，之后在说吧！</p>
+<center><font color=green>重要的事情说两遍，三遍太累!</font></center>                       
 
 
 
