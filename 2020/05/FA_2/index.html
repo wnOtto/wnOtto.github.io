@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="FontAwesome," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Font Awesome之于Hexo上的应用（二）">
+<meta property="og:url" content="http://yoursite.com/2020/05/FA_2/index.html">
+<meta property="og:site_name" content="Otto的个人空间">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其">
+<meta property="article:published_time" content="2020-05-07T10:19:06.000Z">
+<meta property="article:modified_time" content="2020-05-09T09:08:24.588Z">
+<meta property="article:author" content="Otto">
+<meta property="article:tag" content="FontAwesome">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/FA_2/"/>
+
+
+
+
+
+  <title>Font Awesome之于Hexo上的应用（二） | Otto的个人空间</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Otto的个人空间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            全部
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/tools/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-wrench"></i> <br />
+            
+            个人工具
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/FA_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Otto">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Otto的个人空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Font Awesome之于Hexo上的应用（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-07T18:19:06+08:00">
+                2020-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
+-->  
+<p>&emsp;&emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。<br>&emsp;&emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（<a href="https://wnotto.github.io/tags/Markdown/" target="_blank" rel="noopener"><font color=blue>了解Hexo</font></a>），没有用过的话也不影响，来吧，开搞！。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其他主题参照即可！）<br>2.简单了解Hexo、next、MarkDown、HTML、YAML（相信这对于你不是问题，可忽略）</p>
+<h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><p>&emsp;&emsp;Hexo中使用的便是Font Awesome，Hexo在创建项目过程中就包含有经典的Font Awesome 4最新文件了。也就是说，我们只用关心如何使用它即可。<br>&emsp;&emsp;相信看过前一篇的小伙伴已经会在Html中使用Font Awesome了。然而，我们的Hexo中是可以不去直接使用html的，而是在其YAML配置文件和MarkDown标记文件中使用！</p>
+<ol>
+<li>Font Awesome文件目录<br>目录位置：项目的public/lib/font-awesome<br>css引用位置：项目的public/lib/font-awesome/css/font-awesome.css</li>
+<li>_config.yml主题配置文件<br>文件位置：项目的/themes/next/_config.yml<br>YAML:配置文件用于数据结构配置，后缀.yml，注释使用#，空格使用严格，大小写严格<br>使用FontAwesome方式：|| 图标名<br>使用FontAwesome两处位置：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/||</span> <span class="string">home</span>                      <span class="comment"># 在菜单上显示 首页                    </span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/||</span> <span class="string">user</span>               <span class="comment"># 在菜单上显示 关于</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/||</span> <span class="string">tags</span>                 <span class="comment"># 在菜单上显示 标签</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">https://github.com/yourname</span> <span class="string">||</span> <span class="string">github</span>      <span class="comment"># 在社交上显示 Github </span></span><br><span class="line">  <span class="attr">E-Mail:</span> <span class="string">mailto:yourname@gmail.com</span> <span class="string">||</span> <span class="string">envelope</span>      <span class="comment"># 在社交上显示 E-Mail</span></span><br><span class="line">  <span class="attr">Google:</span> <span class="string">https://plus.google.com/yourname</span> <span class="string">||</span> <span class="string">google</span> <span class="comment"># 在社交上显示 Google</span></span><br></pre></td></tr></table></figure></li>
+<li>markdown文件<br>文件创建位置：项目的source/_posts/<br>文件创建方式：手动新建文件名.md文件 或 GitBash命令创建：$ hexo new page 文件名<br>文件作用：写我们博客文章，自动解析为html。<br>使用方式如下：直接按照其在html中的嵌入写法使用<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:blue;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-car"</span> <span class="attr">style</span>=<span class="string">"font-size:48px;color:green;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
+具体效果的使用：请参照前一篇的具体使用</li>
+</ol>
+<h3 id="图标参照与查找"><a href="#图标参照与查找" class="headerlink" title="图标参照与查找"></a>图标参照与查找</h3><blockquote>
+<p>此页面查找： ctrl + f    输入图标名称(<font color=red>必须打开下面的更多图标</font>)<br>  此站点查找： 左侧菜单栏的搜索  输入@图标名</p>
+</blockquote>
+<h4 id="手势图标"><a href="#手势图标" class="headerlink" title="手势图标"></a>手势图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-hand-grab-o"></i>&emsp;@hand-grab-o</th>
+<th><i class="fa fa-hand-lizard-o"></i>&emsp;@hand-lizard-o</th>
+<th><i class="fa fa-hand-o-down"></i>&emsp;@hand-o-down</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-hand-o-left"></i>&emsp;@hand-o-left</td>
+<td><i class="fa fa-hand-o-right"></i>&emsp;@hand-o-right</td>
+<td><i class="fa fa-hand-o-up"></i>&emsp;@hand-o-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-hand-paper-o"></i>&emsp;@hand-paper-o</td>
+<td><i class="fa fa-hand-peace-o"></i>&emsp;@hand-peace-o</td>
+<td><i class="fa fa-hand-pointer-o"></i>&emsp;@hand-pointer-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-rocket"></i>&emsp;@rocket</td>
+<td><i class="fa fa-hand-scissors-o"></i>&emsp;@hand-scissors-o</td>
+<td><i class="fa fa-hand-spock-o"></i>&emsp;@hand-spock-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-hand-stop-o"></i>&emsp;@hand-stop-o</td>
+<td><i class="fa fa-thumbs-down"></i>&emsp;@thumbs-down</td>
+<td><i class="fa fa-thumbs-o-down"></i>&emsp;@thumbs-o-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-thumbs-o-up"></i>&emsp;@thumbs-o-up</td>
+<td><i class="fa fa-thumbs-up">  </i>&emsp;@thumbs-up</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="图表图标"><a href="#图表图标" class="headerlink" title="图表图标"></a>图表图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-area-chart"></i>&emsp;@area-chart</th>
+<th><i class="fa fa-bar-chart"></i>&emsp;@bar-chart</th>
+<th><i class="fa fa-line-chart"></i>&emsp;@line-chart</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-pie-chart"></i>&emsp;@pie-chart</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<details><summary><mark><font color=darkred>点击查看更多图标</font></mark></summary>
+
+<h4 id="表单图标"><a href="#表单图标" class="headerlink" title="表单图标"></a>表单图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="性别图标"><a href="#性别图标" class="headerlink" title="性别图标"></a>性别图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="医疗图标"><a href="#医疗图标" class="headerlink" title="医疗图标"></a>医疗图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="货币图标"><a href="#货币图标" class="headerlink" title="货币图标"></a>货币图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-bitcoin"></i>&emsp;@bitcoin</th>
+<th><i class="fa fa-btc"></i>&emsp;@btc</th>
+<th><i class="fa fa-cny"></i>&emsp;@cny</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-dollar"></i>&emsp;@dollar</td>
+<td><i class="fa fa-eur"></i>&emsp;@eur</td>
+<td><i class="fa fa-euro"></i>&emsp;@euro</td>
+</tr>
+<tr>
+<td><i class="fa fa-gbp"></i>&emsp;@gbp</td>
+<td><i class="fa fa-ils"></i>&emsp;@ils</td>
+<td><i class="fa fa-inr"></i>&emsp;@inr</td>
+</tr>
+<tr>
+<td><i class="fa fa-jpy"></i>&emsp;@jpy</td>
+<td><i class="fa fa-krw"></i>&emsp;@krw</td>
+<td><i class="fa fa-money"></i>&emsp;@money</td>
+</tr>
+<tr>
+<td><i class="fa fa-rmb"></i>&emsp;@rmb</td>
+<td><i class="fa fa-rouble"></i>&emsp;@rouble</td>
+<td><i class="fa fa-rub"></i>&emsp;@rub</td>
+</tr>
+<tr>
+<td><i class="fa fa-ruble"></i>&emsp;@ruble</td>
+<td><i class="fa fa-rupee"></i>&emsp;@rupee</td>
+<td><i class="fa fa-shekel"></i>&emsp;@shekel</td>
+</tr>
+<tr>
+<td><i class="fa fa-sheqel"></i>&emsp;@sheqel</td>
+<td><i class="fa fa-try"></i>&emsp;@try</td>
+<td><i class="fa fa-yen"></i>&emsp;@yen</td>
+</tr>
+<tr>
+<td><i class="fa fa-usd"></i>&emsp;@usd</td>
+<td><i class="fa fa-try"></i>&emsp;@</td>
+<td><i class="fa fa-turkish-lira"></i>&emsp;@turkish-lira</td>
+</tr>
+<tr>
+<td><i class="fa fa-won"></i>&emsp;@won</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="方向图标"><a href="#方向图标" class="headerlink" title="方向图标"></a>方向图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-angle-double-down"></i>&emsp;@angle-double-down</th>
+<th><i class="fa fa-angle-double-left"></i>&emsp;@angle-double-left</th>
+<th><i class="fa fa-angle-double-right"></i>&emsp;@angle-double-right</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-angle-double-up"></i>&emsp;@angle-double-up</td>
+<td><i class="fa fa-angle-down"></i>&emsp;@angle-down</td>
+<td><i class="fa fa-angle-left"></i>&emsp;@angle-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-angle-right"></i>&emsp;@angle-right</td>
+<td><i class="fa fa-angle-up"></i>&emsp;@angle-up</td>
+<td><i class="fa fa-arrow-circle-down"></i>&emsp;@arrow-circle-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-arrow-circle-left"></i>&emsp;@arrow-circle-left</td>
+<td><i class="fa fa-arrow-circle-right"></i>&emsp;@arrow-circle-right</td>
+<td><i class="fa fa-arrow-circle-up"></i>&emsp;@arrow-circle-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-arrow-circle-o-down"></i>&emsp;@arrow-circle-o-down</td>
+<td><i class="fa fa-arrow-circle-o-left"></i>&emsp;@arrow-circle-o-left</td>
+<td><i class="fa fa-arrow-circle-o-right"></i>&emsp;@arrow-circle-o-right</td>
+</tr>
+<tr>
+<td><i class="fa fa-arrow-circle-o-up"></i>&emsp;@arrow-circle-o-up</td>
+<td><i class="fa fa-arrow-down"></i>&emsp;@arrow-down</td>
+<td><i class="fa fa-arrow-left"></i>&emsp;@arrow-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-arrow-right"></i>&emsp;@arrow-right</td>
+<td><i class="fa fa-arrow-up"></i>&emsp;@arrow-up</td>
+<td><i class="fa fa-arrows"></i>&emsp;@arrows</td>
+</tr>
+<tr>
+<td><i class="fa fa-arrows-alt"></i>&emsp;@arrows-alt</td>
+<td><i class="fa fa-arrows-h"></i>&emsp;@arrows-h</td>
+<td><i class="fa fa-arrows-v"></i>&emsp;@arrows-v</td>
+</tr>
+<tr>
+<td><i class="fa fa-caret-down"></i>&emsp;@caret-down</td>
+<td><i class="fa fa-caret-left"></i>&emsp;@caret-left</td>
+<td><i class="fa fa-caret-right"></i>&emsp;@caret-right</td>
+</tr>
+<tr>
+<td><i class="fa fa-caret-up"></i>&emsp;@caret-up</td>
+<td><i class="fa fa-caret-square-o-down"></i>&emsp;@caret-square-o-down</td>
+<td><i class="fa fa-caret-square-o-left"></i>&emsp;@caret-square-o-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-caret-square-o-right"></i>&emsp;@caret-square-o-right</td>
+<td><i class="fa fa-caret-square-o-up"></i>&emsp;@caret-square-o-up</td>
+<td><i class="fa fa-chevron-circle-down"></i>&emsp;@chevron-circle-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-chevron-circle-left"></i>&emsp;@chevron-circle-left</td>
+<td><i class="fa fa-chevron-circle-right"></i>&emsp;@chevron-circle-right</td>
+<td><i class="fa fa-chevron-circle-up"></i>&emsp;@chevron-circle-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-chevron-down"></i>&emsp;@chevron-down</td>
+<td><i class="fa fa-chevron-left"></i>&emsp;@chevron-left</td>
+<td><i class="fa fa-chevron-right"></i>&emsp;@chevron-right</td>
+</tr>
+<tr>
+<td><i class="fa fa-chevron-up"></i>&emsp;@chevron-up</td>
+<td><i class="fa fa-long-arrow-down"></i>&emsp;@long-arrow-down</td>
+<td><i class="fa fa-long-arrow-left"></i>&emsp;@long-arrow-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-long-arrow-right"></i>&emsp;@long-arrow-right</td>
+<td><i class="fa fa-long-arrow-up"></i>&emsp;@long-arrow-up</td>
+<td><i class="fa fa-toggle-down"></i>&emsp;@toggle-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-toggle-left"></i>&emsp;@toggle-left</td>
+<td><i class="fa fa-toggle-right"></i>&emsp;@toggle-right</td>
+<td><i class="fa fa-toggle-up"></i>&emsp;@toggle-up</td>
+</tr>
+</tbody></table>
+<h4 id="文件类型图标"><a href="#文件类型图标" class="headerlink" title="文件类型图标"></a>文件类型图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="付款图标"><a href="#付款图标" class="headerlink" title="付款图标"></a>付款图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="加载中图标"><a href="#加载中图标" class="headerlink" title="加载中图标"></a>加载中图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="文本图标"><a href="#文本图标" class="headerlink" title="文本图标"></a>文本图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="音视频图标"><a href="#音视频图标" class="headerlink" title="音视频图标"></a>音视频图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="交通工具图标"><a href="#交通工具图标" class="headerlink" title="交通工具图标"></a>交通工具图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+<h4 id="品牌图标"><a href="#品牌图标" class="headerlink" title="品牌图标"></a>品牌图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-android"></i>&emsp;@android</th>
+<th><i class="fa fa-apple"></i>&emsp;@apple</th>
+<th><i class="fa fa-github"></i>&emsp;@github</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-fa"></i>&emsp;@fa</td>
+<td><i class="fa fa-steam"></i>&emsp;@steam</td>
+<td><i class="fa fa-windows"></i>&emsp;@windows</td>
+</tr>
+<tr>
+<td><i class="fa fa-weixin"></i>&emsp;@weixin</td>
+<td><i class="fa fa-qq"></i>&emsp;@qq</td>
+<td><i class="fa fa-jsfiddle"></i>&emsp;@jsfiddle</td>
+</tr>
+<tr>
+<td><i class="fa fa-500px"></i>&emsp;@500px</td>
+<td><i class="fa fa-amazon"></i>&emsp;@amazon</td>
+<td><i class="fa fa-adn"></i>&emsp;@adn</td>
+</tr>
+<tr>
+<td><i class="fa fa-angellist"></i>&emsp;@angellist</td>
+<td><i class="fa fa-bandcamp"></i>&emsp;@bandcamp</td>
+<td><i class="fa fa-behance"></i>&emsp;@behance</td>
+</tr>
+<tr>
+<td><i class="fa fa-behance-square"></i>&emsp;@behance-square</td>
+<td><i class="fa fa-bitbucket"></i>&emsp;@bitbucket</td>
+<td><i class="fa fa-bitbucket-square"></i>&emsp;@bitbucket-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-bitcoin"></i>&emsp;@bitcoin</td>
+<td><i class="fa fa-black-tie"></i>&emsp;@black-tie</td>
+<td><i class="fa fa-bluetooth"></i>&emsp;@bluetooth</td>
+</tr>
+<tr>
+<td><i class="fa fa-bluetooth-b"></i>&emsp;@bluetooth-b</td>
+<td><i class="fa fa-btc"></i>&emsp;@btc</td>
+<td><i class="fa fa-buysellads"></i>&emsp;@buysellads</td>
+</tr>
+<tr>
+<td><i class="fa fa-cc-amex"></i>&emsp;@cc-amex</td>
+<td><i class="fa fa-cc-diners-club"></i>&emsp;@cc-diners-club</td>
+<td><i class="fa fa-cc-mastercard"></i>&emsp;@cc-mastercard</td>
+</tr>
+<tr>
+<td><i class="fa fa-cc-paypal"></i>&emsp;@cc-paypal</td>
+<td><i class="fa fa-cc-stripe"></i>&emsp;@cc-stripe</td>
+<td><i class="fa fa-cc-visa"></i>&emsp;@cc-visa</td>
+</tr>
+<tr>
+<td><i class="fa fa-chrome"></i>&emsp;@chrome</td>
+<td><i class="fa fa-codepen"></i>&emsp;@codepen</td>
+<td><i class="fa fa-codiepie"></i>&emsp;@codiepie</td>
+</tr>
+<tr>
+<td><i class="fa fa-connectdevelop"></i>&emsp;@connectdevelop</td>
+<td><i class="fa fa-contao"></i>&emsp;@contao</td>
+<td><i class="fa fa-css3"></i>&emsp;@css3</td>
+</tr>
+<tr>
+<td><i class="fa fa-dashcube"></i>&emsp;@dashcube</td>
+<td><i class="fa fa-delicious"></i>&emsp;@delicious</td>
+<td><i class="fa fa-deviantart"></i>&emsp;@deviantart</td>
+</tr>
+<tr>
+<td><i class="fa fa-digg"></i>&emsp;@digg</td>
+<td><i class="fa fa-dribbble"></i>&emsp;@dribbble</td>
+<td><i class="fa fa-dropbox"></i>&emsp;@dropbox</td>
+</tr>
+<tr>
+<td><i class="fa fa-drupal"></i>&emsp;@drupal</td>
+<td><i class="fa fa-edge"></i>&emsp;@edge</td>
+<td><i class="fa fa-eercast"></i>&emsp;@eercast</td>
+</tr>
+<tr>
+<td><i class="fa fa-empire"></i>&emsp;@empire</td>
+<td><i class="fa fa-etsy"></i>&emsp;@etsy</td>
+<td><i class="fa fa-facebook"></i>&emsp;@facebook</td>
+</tr>
+<tr>
+<td><i class="fa fa-facebook-f"></i>&emsp;@facebook-f</td>
+<td><i class="fa fa-envira"></i>&emsp;@envira</td>
+<td><i class="fa fa-expeditedssl"></i>&emsp;@expeditedssl</td>
+</tr>
+<tr>
+<td><i class="fa fa-facebook-official"></i>&emsp;@facebook-official</td>
+<td><i class="fa fa-facebook-square"></i>&emsp;@facebook-square</td>
+<td><i class="fa fa-firefox"></i>&emsp;@firefox</td>
+</tr>
+<tr>
+<td><i class="fa fa-first-order"></i>&emsp;@first-order</td>
+<td><i class="fa fa-flickr"></i>&emsp;@flickr</td>
+<td><i class="fa fa-fonticons"></i>&emsp;@fonticons</td>
+</tr>
+<tr>
+<td><i class="fa fa-fort-awesome"></i>&emsp;@fort-awesome</td>
+<td><i class="fa fa-forumbee"></i>&emsp;@forumbee</td>
+<td><i class="fa fa-foursquare"></i>&emsp;@foursquare</td>
+</tr>
+<tr>
+<td><i class="fa fa-free-code-camp"></i>&emsp;@free-code-camp</td>
+<td><i class="fa fa-ge"></i>&emsp;@ge</td>
+<td><i class="fa fa-get-pocket"></i>&emsp;@get-pocket</td>
+</tr>
+<tr>
+<td><i class="fa fa-gg"></i>&emsp;@gg</td>
+<td><i class="fa fa-gg-circle"></i>&emsp;@gg-circle</td>
+<td><i class="fa fa-git"></i>&emsp;@git</td>
+</tr>
+<tr>
+<td><i class="fa fa-git-square"></i>&emsp;@git-square</td>
+<td><i class="fa fa-github-alt"></i>&emsp;@github-alt</td>
+<td><i class="fa fa-github-square"></i>&emsp;@github-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-gitlab"></i>&emsp;@gitlab</td>
+<td><i class="fa fa-gittip"></i>&emsp;@gittip</td>
+<td><i class="fa fa-glide"></i>&emsp;@glide</td>
+</tr>
+<tr>
+<td><i class="fa fa-glide-g"></i>&emsp;@glide-g</td>
+<td><i class="fa fa-google"></i>&emsp;@google</td>
+<td><i class="fa fa-google-plus"></i>&emsp;@google-plus</td>
+</tr>
+<tr>
+<td><i class="fa fa-google-plus-circle"></i>&emsp;@google-plus-circle</td>
+<td><i class="fa fa-google-plus-official"></i>&emsp;@google-plus-official</td>
+<td><i class="fa fa-google-plus-square"></i>&emsp;@google-plus-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-google-wallet"></i>&emsp;@google-wallet</td>
+<td><i class="fa fa-gratipay"></i>&emsp;@gratipay</td>
+<td><i class="fa fa-grav"></i>&emsp;@grav</td>
+</tr>
+<tr>
+<td><i class="fa fa-hacker-news"></i>&emsp;@hacker-news</td>
+<td><i class="fa fa-houzz"></i>&emsp;@houzz</td>
+<td><i class="fa fa-html5"></i>&emsp;@html5</td>
+</tr>
+<tr>
+<td><i class="fa fa-imdb"></i>&emsp;@imdb</td>
+<td><i class="fa fa-instagram"></i>&emsp;@instagram</td>
+<td><i class="fa fa-internet-explorer"></i>&emsp;@internet-explorer</td>
+</tr>
+<tr>
+<td><i class="fa fa-ioxhost"></i>&emsp;@ioxhost</td>
+<td><i class="fa fa-joomla"></i>&emsp;@joomla</td>
+<td><i class="fa fa-jsfiddle"></i>&emsp;@jsfiddle</td>
+</tr>
+<tr>
+<td><i class="fa fa-lastfm"></i>&emsp;@lastfm</td>
+<td><i class="fa fa-lastfm-square"></i>&emsp;@lastfm-square</td>
+<td><i class="fa fa-leanpub"></i>&emsp;@leanpub</td>
+</tr>
+<tr>
+<td><i class="fa fa-linkedin"></i>&emsp;@linkedin</td>
+<td><i class="fa fa-linkedin-square"></i>&emsp;@linkedin-square</td>
+<td><i class="fa fa-linode"></i>&emsp;@linode</td>
+</tr>
+<tr>
+<td><i class="fa fa-linux"></i>&emsp;@linux</td>
+<td><i class="fa fa-maxcdn"></i>&emsp;@maxcdn</td>
+<td><i class="fa fa-meanpath"></i>&emsp;@meanpath</td>
+</tr>
+<tr>
+<td><i class="fa fa-medium"></i>&emsp;@medium</td>
+<td><i class="fa fa-meetup"></i>&emsp;@meetup</td>
+<td><i class="fa fa-mixcloud"></i>&emsp;@mixcloud</td>
+</tr>
+<tr>
+<td><i class="fa fa-modx"></i>&emsp;@modx</td>
+<td><i class="fa fa-odnoklassniki"></i>&emsp;@odnoklassniki</td>
+<td><i class="fa fa-odnoklassniki-square"></i>&emsp;@odnoklassniki-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-opencart"></i>&emsp;@opencart</td>
+<td><i class="fa fa-openid"></i>&emsp;@openid</td>
+<td><i class="fa fa-opera"></i>&emsp;@opera</td>
+</tr>
+<tr>
+<td><i class="fa fa-optin-monster"></i>&emsp;@optin-monster</td>
+<td><i class="fa fa-pagelines"></i>&emsp;@pagelines</td>
+<td><i class="fa fa-paypal"></i>&emsp;@paypal</td>
+</tr>
+<tr>
+<td><i class="fa fa-pied-piper"></i>&emsp;@pied-piper</td>
+<td><i class="fa fa-pied-piper-alt"></i>&emsp;@pied-piper-alt</td>
+<td><i class="fa fa-pinterest"></i>&emsp;@pinterest</td>
+</tr>
+<tr>
+<td><i class="fa fa-pinterest-p"></i>&emsp;@pinterest-p</td>
+<td><i class="fa fa-pinterest-square"></i>&emsp;@pinterest-square</td>
+<td><i class="fa fa-product-hunt"></i>&emsp;@product-hunt</td>
+</tr>
+<tr>
+<td><i class="fa fa-quora"></i>&emsp;@quora</td>
+<td><i class="fa fa-ra"></i>&emsp;@ra</td>
+<td><i class="fa fa-ravelry"></i>&emsp;@ravelry</td>
+</tr>
+<tr>
+<td><i class="fa fa-rebel"></i>&emsp;@rebel</td>
+<td><i class="fa fa-reddit"></i>&emsp;@reddit</td>
+<td><i class="fa fa-reddit-alien"></i>&emsp;@reddit-alien</td>
+</tr>
+<tr>
+<td><i class="fa fa-reddit-square"></i>&emsp;@reddit-square</td>
+<td><i class="fa fa-renren"></i>&emsp;@renren</td>
+<td><i class="fa fa-safari"></i>&emsp;@safari</td>
+</tr>
+<tr>
+<td><i class="fa fa-scribd"></i>&emsp;@scribd</td>
+<td><i class="fa fa-sellsy"></i>&emsp;@sellsy</td>
+<td><i class="fa fa-share-alt"></i>&emsp;@share-alt</td>
+</tr>
+<tr>
+<td><i class="fa fa-share-alt-square"></i>&emsp;@share-alt-square</td>
+<td><i class="fa fa-shirtsinbulk"></i>&emsp;@shirtsinbulk</td>
+<td><i class="fa fa-snapchat"></i>&emsp;@snapchat</td>
+</tr>
+<tr>
+<td><i class="fa fa-snapchat-square"></i>&emsp;@snapchat-square</td>
+<td><i class="fa fa-simplybuilt"></i>&emsp;@simplybuilt</td>
+<td><i class="fa fa-skyatlas"></i>&emsp;@skyatlas</td>
+</tr>
+<tr>
+<td><i class="fa fa-skype"></i>&emsp;@skype</td>
+<td><i class="fa fa-slack"></i>&emsp;@slack</td>
+<td><i class="fa fa-slideshare"></i>&emsp;@slideshare</td>
+</tr>
+<tr>
+<td><i class="fa fa-soundcloud"></i>&emsp;@soundcloud</td>
+<td><i class="fa fa-spotify"></i>&emsp;@spotify</td>
+<td><i class="fa fa-stack-exchange"></i>&emsp;@stack-exchange</td>
+</tr>
+<tr>
+<td><i class="fa fa-stack-overflow"></i>&emsp;@stack-overflow</td>
+<td><i class="fa fa-stumbleupon"></i>&emsp;@stumbleupon</td>
+<td><i class="fa fa-stumbleupon-circle"></i>&emsp;@stumbleupon-circle</td>
+</tr>
+<tr>
+<td><i class="fa fa-steam-square"></i>&emsp;@steam-square</td>
+<td><i class="fa fa-superpowers"></i>&emsp;@superpowers</td>
+<td><i class="fa fa-superpowers"></i>&emsp;@superpowers</td>
+</tr>
+<tr>
+<td><i class="fa fa-telegram"></i>&emsp;@telegram</td>
+<td><i class="fa fa-tencent-weibo"></i>&emsp;@tencent-weibo</td>
+<td><i class="fa fa-themeisle"></i>&emsp;@themeisle</td>
+</tr>
+<tr>
+<td><i class="fa fa-trello"></i>&emsp;@trello</td>
+<td><i class="fa fa-tripadvisor"></i>&emsp;@tripadvisor</td>
+<td><i class="fa fa-tumblr"></i>&emsp;@tumblr</td>
+</tr>
+<tr>
+<td><i class="fa fa-tumblr-square"></i>&emsp;@tumblr-square</td>
+<td><i class="fa fa-twitch"></i>&emsp;@twitch</td>
+<td><i class="fa fa-twitter"></i>&emsp;@twitter</td>
+</tr>
+<tr>
+<td><i class="fa fa-twitter-square"></i>&emsp;@twitter-square</td>
+<td><i class="fa fa-viacoin"></i>&emsp;@viacoin</td>
+<td><i class="fa fa-usb"></i>&emsp;@usb</td>
+</tr>
+<tr>
+<td><i class="fa fa-viadeo"></i>&emsp;@viadeo</td>
+<td><i class="fa fa-viadeo-square"></i>&emsp;@viadeo-square</td>
+<td><i class="fa fa-vimeo"></i>&emsp;@vimeo</td>
+</tr>
+<tr>
+<td><i class="fa fa-vimeo-square"></i>&emsp;@vimeo-square</td>
+<td><i class="fa fa-vine"></i>&emsp;@vine</td>
+<td><i class="fa fa-vk"></i>&emsp;@vk</td>
+</tr>
+<tr>
+<td><i class="fa fa-weibo"></i>&emsp;@weibo</td>
+<td><i class="fa fa-wechat"></i>&emsp;@wechat</td>
+<td><i class="fa fa-weibo"></i>&emsp;@weibo</td>
+</tr>
+<tr>
+<td><i class="fa fa-whatsapp"></i>&emsp;@whatsapp</td>
+<td><i class="fa fa-wikipedia-w"></i>&emsp;@wikipedia-w</td>
+<td><i class="fa fa-wordpress"></i>&emsp;@wordpress</td>
+</tr>
+<tr>
+<td><i class="fa fa-wpbeginner"></i>&emsp;@wpbeginner</td>
+<td><i class="fa fa-xing"></i>&emsp;@xing</td>
+<td><i class="fa fa-xing-square"></i>&emsp;@xing-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-xing-square"></i>&emsp;@xing-square</td>
+<td><i class="fa fa-wpexplorer"></i>&emsp;@wpexplorer</td>
+<td><i class="fa fa-wpforms"></i>&emsp;@wpforms</td>
+</tr>
+<tr>
+<td><i class="fa fa-yahoo"></i>&emsp;@yahoo</td>
+<td><i class="fa fa-yelp"></i>&emsp;@yelp</td>
+<td><i class="fa fa-yoast"></i>&emsp;@yoast</td>
+</tr>
+<tr>
+<td><i class="fa fa-youtube"></i>&emsp;@youtube</td>
+<td><i class="fa fa-youtube-play"></i>&emsp;@youtube-play</td>
+<td><i class="fa fa-youtube-square"></i>&emsp;@youtube-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-yc"></i>&emsp;@yc</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="web应用图标"><a href="#web应用图标" class="headerlink" title="web应用图标"></a>web应用图标</h4><table>
+<thead>
+<tr>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-"></i>&emsp;@</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+<tr>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-"></i>&emsp;@</td>
+</tr>
+</tbody></table>
+</details>
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/images/avatar.jpg" alt="Otto wechat" style="width: 200px; max-width: 100%;"/>
+    <div>作者： Otto</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/avatar.jpg" alt="Otto 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/FontAwesome/" rel="tag"># FontAwesome</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/FA_1/" rel="next" title="Font Awesome 是什么（一）">
+                <i class="fa fa-chevron-left"></i> Font Awesome 是什么（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/FA_3/" rel="prev" title="FA_3">
+                FA_3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.jpg"
+                alt="Otto" />
+            
+              <p class="site-author-name" itemprop="name">Otto</p>
+              <p class="site-description motion-element" itemprop="description">授人以鱼不如授人以渔</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:yourname?call|chat" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/users/0ad0a0afc409/latest_articles" title="DIY-green简书" target="_blank">DIY-green简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://diy-green.github.io/" title="DIY-green博客" target="_blank">DIY-green博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用实例"><span class="nav-number">2.</span> <span class="nav-text">应用实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标参照与查找"><span class="nav-number">3.</span> <span class="nav-text">图标参照与查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#手势图标"><span class="nav-number">3.1.</span> <span class="nav-text">手势图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图表图标"><span class="nav-number">3.2.</span> <span class="nav-text">图表图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单图标"><span class="nav-number">3.3.</span> <span class="nav-text">表单图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性别图标"><span class="nav-number">3.4.</span> <span class="nav-text">性别图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#医疗图标"><span class="nav-number">3.5.</span> <span class="nav-text">医疗图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#货币图标"><span class="nav-number">3.6.</span> <span class="nav-text">货币图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方向图标"><span class="nav-number">3.7.</span> <span class="nav-text">方向图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件类型图标"><span class="nav-number">3.8.</span> <span class="nav-text">文件类型图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#付款图标"><span class="nav-number">3.9.</span> <span class="nav-text">付款图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载中图标"><span class="nav-number">3.10.</span> <span class="nav-text">加载中图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本图标"><span class="nav-number">3.11.</span> <span class="nav-text">文本图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#音视频图标"><span class="nav-number">3.12.</span> <span class="nav-text">音视频图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交通工具图标"><span class="nav-number">3.13.</span> <span class="nav-text">交通工具图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#品牌图标"><span class="nav-number">3.14.</span> <span class="nav-text">品牌图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web应用图标"><span class="nav-number">3.15.</span> <span class="nav-text">web应用图标</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Otto</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+</body>
+</html>
