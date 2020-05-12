@@ -79,12 +79,14 @@
 
 
 
+<meta name="description" content="点击下载 复制文章        function copyArticle(event){         const range &#x3D; document.createRange();                     &#x2F;&#x2F;1.创建range复制区域对象         range.selectNode(document.getElementById(&#39;article&#39;));     &#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FA_3">
 <meta property="og:url" content="http://yoursite.com/2020/05/FA_3/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
+<meta property="og:description" content="点击下载 复制文章        function copyArticle(event){         const range &#x3D; document.createRange();                     &#x2F;&#x2F;1.创建range复制区域对象         range.selectNode(document.getElementById(&#39;article&#39;));     &#x2F;&#x2F;">
 <meta property="article:published_time" content="2020-05-07T10:20:23.000Z">
-<meta property="article:modified_time" content="2020-05-09T09:06:24.997Z">
+<meta property="article:modified_time" content="2020-05-11T10:26:14.208Z">
 <meta property="article:author" content="Otto">
 <meta name="twitter:card" content="summary">
 
@@ -132,7 +134,10 @@
 
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -409,6 +414,96 @@
       例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
 -->
 
+<p><a href="/download/Text/FirstNight.md" download="FirstNight.md">点击下载</a></p>
+<p><button id="copy">复制文章</button></p>
+<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
+
+<script>
+    function copyArticle(event){
+        const range = document.createRange();                     //1.创建range复制区域对象
+        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
+        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
+        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
+        selection.addRange(range);                                //5.selection中添加range
+        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
+    }                                                             
+    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
+</script>
+
+<article id="article">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
+</article>
+
+<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
+<p>1<br>2<br>wwwww<br>wwww</p>
+<pre><code class="javascript">/* 创建range对象   */
+const range = document.createRange();
+range.selectNode(element);    // 设定range包含的节点对象 
+
+/* 窗口的selection对象，表示用户选择的文本 */
+const selection = window.getSelection();
+if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
+selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
+
+document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
+
+</code></pre>
+
+
+
+
+        <div id="aplayer-BQKCuzsC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-BQKCuzsC"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "她的睫毛",
+              author: "周杰伦",
+              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
+              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+
+
+    <div id="aplayer-YSPXUvcf" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+    <div id="aplayer-nyhcfPIi" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
     
@@ -473,6 +568,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/hexo_01/" rel="prev" title="Hexo进阶之音视频功能插入(一)">
+                Hexo进阶之音视频功能插入(一) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,7 +643,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -566,7 +665,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1169,5 +1268,8 @@
     document.body.addEventListener('input', POWERMODE);
   </script>
 
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 </body>
 </html>

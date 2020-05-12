@@ -3,7 +3,7 @@
   <entry>
     <title>个人博客搭建详解（Windows和Mac通用版）</title>
     <url>/2020/04/FirstNight/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>Hexo 是一个基于nodejs 的静态博客网站生成器，作者是来自台湾的 Tommy Chen</p>
 </blockquote>
 <blockquote>
@@ -22,7 +22,7 @@
   <entry>
     <title>Hello World</title>
     <url>/2020/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
@@ -143,22 +143,44 @@ table th:nth-of-type(3){width: 60%;}
       </categories>
   </entry>
   <entry>
-    <title>FA_3</title>
-    <url>/2020/05/FA_3/</url>
-    <content><![CDATA[<!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+    <title>几何凸包算法</title>
+    <url>/2020/05/al_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——人生有涯，学海无涯！ 那么，我该去找我的海了？<br><img title="我们的征途是星辰大海！" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3558312413,3027554637&fm=26&gp=0.jpg" width="150%" /></p>
+<h3 id="一-概念"><a href="#一-概念" class="headerlink" title="一.概念"></a>一.概念</h3><p>凸包（Convex Hull）是一个计算几何（图形学）中的概念。<br>在一个实数向量空间V中，对于给定集合X，所有包含X的凸集的交集S被称为X的凸包。<br>X的凸包可以用X内所有点(X1，…Xn)的线性组合来构造.<br>在二维欧几里得空间中，凸包可想象为一条刚好包著所有点的橡皮圈。<br>用不严谨的话来讲，给定二维平面上的点集，凸包就是将最外层的点连接起来构成的凸多边型，它能包含点集中所有的点。<br>例子：假设平面上有p0~p12共13个点，过某些点作一个多边形，使这个多边形能把所有点都“包”起来。当这个多边形是凸多边形的时候，我们就叫它“凸包”。如下图：<br><img src="http://img.blog.csdn.net/20150529181415457" alt="img"></p>
+<h3 id="二-解法："><a href="#二-解法：" class="headerlink" title="二.解法："></a>二.解法：</h3><p><strong>Graham扫描法</strong><br>时间复杂度：O(n㏒n)<br>思路：Graham扫描的思想是先找到凸包上的一个点，然后从那个点开始按逆时针方向逐个找凸包上的点，实际上就是进行极角排序，然后对其查询使用。<br><img src="http://img.blog.csdn.net/20150530151346608" alt="img"><br>步骤：</p>
+<ol>
+<li>把所有点放在二维坐标系中，则纵坐标最小的点一定是凸包上的点，如图中的P0。</li>
+<li>把所有点的坐标平移一下，使 P0 作为原点，如上图。</li>
+<li>计算各个点相对于 P0 的幅角 α ，按从小到大的顺序对各个点排序。当 α 相同时，距离 P0 比较近的排在前面。例如上图得到的结果为 P1，P2，P3，P4，P5，P6，P7，P8。我们由几何知识可以知道，结果中第一个点 P1 和最后一个点 P8 一定是凸包上的点。<br>（以上是准备步骤，以下开始求凸包）<br>以上，我们已经知道了凸包上的第一个点 P0 和第二个点 P1，我们把它们放在栈里面。现在从步骤3求得的那个结果里，把 P1 后面的那个点拿出来做当前点，即 P2 。接下来开始找第三个点：</li>
+<li>连接P0和栈顶的那个点，得到直线 L 。看当前点是在直线 L 的右边还是左边。如果在直线的右边就执行步骤5；如果在直线上，或者在直线的左边就执行步骤6。</li>
+<li>如果在右边，则栈顶的那个元素不是凸包上的点，把栈顶元素出栈。执行步骤4。</li>
+<li>当前点是凸包上的点，把它压入栈，执行步骤7。</li>
+<li>检查当前的点 P2 是不是步骤3那个结果的最后一个元素。是最后一个元素的话就结束。如果不是的话就把 P2 后面那个点做当前点，返回步骤4。</li>
+<li>最后，栈中的元素就是凸包上的点了。 </li>
+</ol>
+<p>以下为用Graham扫描法动态求解的过程：<br><img src="https://img-blog.csdn.net/20150530145453912" alt="img"></p>
+<h3 id="三-模板-C"><a href="#三-模板-C" class="headerlink" title="三.模板(C++)"></a>三.模板(C++)</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926535</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">node vex[<span class="number">1000</span>];<span class="comment">//存入的所有的点</span></span><br><span class="line">node stackk[<span class="number">1000</span>];<span class="comment">//凸包中所有的点</span></span><br><span class="line"><span class="keyword">int</span> xx,yy;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node a,node b)</span><span class="comment">//排序找第一个点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.y==b.y)</span><br><span class="line">        <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cross</span><span class="params">(node a,node b,node c)</span><span class="comment">//计算叉积</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (b.x-a.x)*(c.y-a.y)-(c.x-a.x)*(b.y-a.y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(node a,node b)</span><span class="comment">//计算距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)*<span class="number">1.0</span>+(a.y-b.y)*(a.y-b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node a,node b)</span><span class="comment">//极角排序另一种方法，速度快</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">atan2</span>(a.y-yy,a.x-xx)!=<span class="built_in">atan2</span>(b.y-yy,b.x-xx))</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">atan2</span>(a.y-yy,a.x-xx))&lt;(<span class="built_in">atan2</span>(b.y-yy,b.x-xx));</span><br><span class="line">    <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span><span class="comment">//极角排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m=cross(vex[<span class="number">0</span>],a,b);</span><br><span class="line">    <span class="keyword">if</span>(m&gt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(m==<span class="number">0</span>&amp;&amp;dis(vex[<span class="number">0</span>],a)-dis(vex[<span class="number">0</span>],b)&lt;=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*if(m==0)</span></span><br><span class="line"><span class="comment">        return dis(vex[0],a)-dis(vex[0],b)&lt;=0?true:false;</span></span><br><span class="line"><span class="comment">    else</span></span><br><span class="line"><span class="comment">        return m&gt;0?true:false;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,L;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t),t)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;t; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;vex[i].x,&amp;vex[i].y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t==<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,<span class="number">0.00</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">2</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,dis(vex[<span class="number">0</span>],vex[<span class="number">1</span>]));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">memset</span>(stackk,<span class="number">0</span>,<span class="keyword">sizeof</span>(stackk));</span><br><span class="line">            sort(vex,vex+t,cmp1);</span><br><span class="line">            stackk[<span class="number">0</span>]=vex[<span class="number">0</span>];</span><br><span class="line">            xx=stackk[<span class="number">0</span>].x;</span><br><span class="line">            yy=stackk[<span class="number">0</span>].y;</span><br><span class="line">            sort(vex+<span class="number">1</span>,vex+t,cmp2);<span class="comment">//cmp2是更快的，cmp更容易理解</span></span><br><span class="line">            stackk[<span class="number">1</span>]=vex[<span class="number">1</span>];<span class="comment">//将凸包中的第两个点存入凸包的结构体中</span></span><br><span class="line">            <span class="keyword">int</span> top=<span class="number">1</span>;<span class="comment">//最后凸包中拥有点的个数</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;t; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(i&gt;=<span class="number">1</span>&amp;&amp;cross(stackk[top<span class="number">-1</span>],stackk[top],vex[i])&lt;<span class="number">0</span>)   <span class="comment">//对使用极角排序的i&gt;=1有时可以不用，但加上总是好的</span></span><br><span class="line">                    top--;</span><br><span class="line">                stackk[++top]=vex[i];                                    <span class="comment">//控制&lt;0或&lt;=0可以控制重点，共线的，具体视题目而定。</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">double</span> s=<span class="number">0</span>;</span><br><span class="line">            <span class="comment">//for(i=1; i&lt;=top; i++)//输出凸包上的点</span></span><br><span class="line">            <span class="comment">//cout&lt;&lt;stackk[i].x&lt;&lt;" "&lt;&lt;stackk[i].y&lt;&lt;endl;</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=top; i++)   <span class="comment">//计算凸包的周长</span></span><br><span class="line">                s+=dis(stackk[i<span class="number">-1</span>],stackk[i]);</span><br><span class="line">            s+=dis(stackk[top],vex[<span class="number">0</span>]);<span class="comment">//最后一个点和第一个点之间的距离</span></span><br><span class="line">            <span class="comment">/*s+=2*PI*L;</span></span><br><span class="line"><span class="comment">            int ans=s+0.5;//四舍五入</span></span><br><span class="line"><span class="comment">            printf("%d\n",ans);*/</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>eg_01</title>
+    <url>/2020/05/eg_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
       1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
       2. -p 或 --path  自定义新文章的路径
       3. postpath为项目source的_post的相对路径,没有会直接创建
       4. fileName 为文件名，会直接创建对应.md文件
       5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
 -->
 ]]></content>
   </entry>
   <entry>
     <title>Font Awesome之于Hexo上的应用（二）</title>
     <url>/2020/05/FA_2/</url>
-    <content><![CDATA[<!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
       1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
       2. -p 或 --path  自定义新文章的路径
       3. postpath为项目source的_post的相对路径,没有会直接创建
@@ -1224,9 +1246,186 @@ table th:nth-of-type(3){width: 60%;}
       </tags>
   </entry>
   <entry>
+    <title>FA_3</title>
+    <url>/2020/05/FA_3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
+-->
+
+<p><a href="/download/Text/FirstNight.md" download="FirstNight.md">点击下载</a></p>
+<p><button id="copy">复制文章</button></p>
+<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
+
+<script>
+    function copyArticle(event){
+        const range = document.createRange();                     //1.创建range复制区域对象
+        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
+        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
+        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
+        selection.addRange(range);                                //5.selection中添加range
+        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
+    }                                                             
+    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
+</script>
+
+<article id="article">
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
+</article>
+
+<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
+<p>1<br>2<br>wwwww<br>wwww</p>
+<pre><code class="javascript">/* 创建range对象   */
+const range = document.createRange();
+range.selectNode(element);    // 设定range包含的节点对象 
+
+/* 窗口的selection对象，表示用户选择的文本 */
+const selection = window.getSelection();
+if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
+selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
+
+document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
+
+</code></pre>
+
+
+
+
+        <div id="aplayer-BQKCuzsC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-BQKCuzsC"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "她的睫毛",
+              author: "周杰伦",
+              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
+              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+
+
+    <div id="aplayer-YSPXUvcf" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+    <div id="aplayer-nyhcfPIi" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Markdown是什么(一)</title>
+    <url>/2020/04/md_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
+<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
+<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
+<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
+<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
+<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
+<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
+<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
+<hr>
+<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
+<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
+<thead>
+<tr>
+<th>&emsp;</th>
+<th><center>MarkDown</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
+</tr>
+<tr>
+<td>开发者</td>
+<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
+</tr>
+<tr>
+<td>介绍</td>
+<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
+</tr>
+<tr>
+<td>编译器</td>
+<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>轻量、简单、通用、易读易写、文档快速排版</td>
+</tr>
+</tbody></table>
+<style>
+table th:nth-of-type(1){width: 10%;}
+table th:nth-of-type(2){width: 90%;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Font Awesome 是什么（一）</title>
     <url>/2020/05/FA_1/</url>
-    <content><![CDATA[<!--  
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  
       例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
 -->
 
@@ -1301,83 +1500,9 @@ table th:nth-of-type(3){width: 60%;}
       </tags>
   </entry>
   <entry>
-    <title>Markdown是什么(一)</title>
-    <url>/2020/04/md_01/</url>
-    <content><![CDATA[<h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
-<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
-<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
-<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
-<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
-<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
-<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
-<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
-<hr>
-<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
-<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
-<thead>
-<tr>
-<th>&emsp;</th>
-<th><center>MarkDown</center></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>名称</td>
-<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
-</tr>
-<tr>
-<td>开发者</td>
-<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
-</tr>
-<tr>
-<td>介绍</td>
-<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
-</tr>
-<tr>
-<td>应用</td>
-<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
-</tr>
-<tr>
-<td>编译器</td>
-<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>轻量、简单、通用、易读易写、文档快速排版</td>
-</tr>
-</tbody></table>
-<style>
-table th:nth-of-type(1){width: 10%;}
-table th:nth-of-type(2){width: 90%;}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>个人博客</category>
-        <category>标记语言</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
     <url>/2020/04/md_02/</url>
-    <content><![CDATA[<p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
 <h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，<strong>css是html的功能补充，但两者语法是完全不同的</strong>。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><font color=green>代码：html+css</font></p>
@@ -1411,9 +1536,159 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
+    <title>try_01</title>
+    <url>/2020/05/try_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+]]></content>
+  </entry>
+  <entry>
+    <title>u3d_01</title>
+    <url>/2020/05/u3d_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+]]></content>
+  </entry>
+  <entry>
+    <title>Markdown语法之基础功能(三)</title>
+    <url>/2020/04/md_03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;相信看过前两篇的小伙伴，对于markdown已经完全了解了，当然除了它的语法外，那么从本篇开始将会讲解markdown的基础语法与后续进阶功能效果啦！话说，自己都有点迫不及待了呢，nice!</p>
+<h5 id="Markdown文字功能！"><a href="#Markdown文字功能！" class="headerlink" title="Markdown文字功能！"></a>Markdown文字功能！</h5><p><strong>1.1 加粗、斜体、划掉、颜色、大小、字体</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗文字**</span>  或者  <span class="strong">__加粗文字__</span></span><br><span class="line"><span class="emphasis">*斜体文字*</span>    或者   <span class="emphasis">_斜体文字_</span></span><br><span class="line"><span class="strong">***粗斜文字**</span>*</span><br><span class="line">~~划掉文字~~</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">4</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">face</span>=<span class="string">"STCAIYUN"</span>&gt;</span></span>字体大小颜色自定义文字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>字体变小<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span>    </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">big</span>&gt;</span></span>字体变大<span class="xml"><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>加粗文字</strong>   <em>斜体文字</em>   <strong><em>粗斜文字</em></strong>   <del>划掉文字</del><br><font size=4 color=red face="STCAIYUN">字体大小颜色自定义文字</font> <small>变小文字</small> <big>变大文字</big></p>
+<p><strong>1.2 换行、缩进、空格</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">空格+空格+回车   换行</span><br><span class="line">&amp;ensp;&amp;ensp;    <span class="comment">//缩进一格，即两个字节（一个汉字两字节）</span></span><br><span class="line">&amp;emsp;&amp;emsp;    <span class="comment">//缩进两格，即四个字节（一个汉字两字节）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>1.3 标题</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1 标题</span></span><br><span class="line"><span class="section">## h2 标题</span></span><br><span class="line"><span class="section">### h3 标题</span></span><br><span class="line"><span class="section">#### h4 标题</span></span><br><span class="line"><span class="section">##### h5 标题</span></span><br><span class="line"><span class="section">###### h6 标题</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/images/md/md_3_0.png" alt="image"><br><strong>1.3 水平线</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">---   或者  ___  或者  ***    <span class="comment">//三个或更多-_*，必须单独一行，可含空格</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>1.4 序列之有序与无序</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">"有序序列方式一"</span></span><br><span class="line">`1.`    有序第一个</span><br><span class="line">`2.`    有序第二个</span><br><span class="line">`3.`    有序第三个</span><br><span class="line"><span class="string">"有序序列方式二"</span></span><br><span class="line">1.    有序第一个</span><br><span class="line">2.    有序第二个</span><br><span class="line">3.    有序第三个</span><br><span class="line"><span class="string">"无序序列+嵌套序列"</span></span><br><span class="line">+无序第一个</span><br><span class="line">  - 无序第二个</span><br><span class="line">    * 无序第三个</span><br><span class="line">  `+` 无序第四个</span><br><span class="line">（无序使用空格与<span class="string">"+"</span>,<span class="string">"-"</span>,<span class="string">"*"</span>任意一个符号配合使用,也可以加``）</span><br></pre></td></tr></table></figure>
+<p><code>1.</code>    有序第一个<br><code>2.</code>    有序第二个<br><code>3.</code>    有序第三个</p>
+<ol>
+<li>有序第一个</li>
+<li>有序第二个</li>
+<li>有序第三个</li>
+</ol>
+<ul>
+<li>无序第一个<ul>
+<li>无序第二个<ul>
+<li>无序第三个</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>无序第四个</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.5 文字底框与底色</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行底色文字`</span></span><br><span class="line">==多行底色文字==  //这儿不支持</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span></span>背景色yellow文字<span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line">[<span class="code">```</span>]            //去掉中括号</span><br><span class="line">代码块文字</span><br><span class="line">[<span class="code">```</span>]</span><br></pre></td></tr></table></figure>
+<p><code>单行底色文字</code></p>
+<table><tr><td bgcolor=yellow>背景色yellow文字</td></tr></table>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">代码块文字</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.6 文字注释</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: # (写注释)</span><br><span class="line"></span><br><span class="line">[^_^]:</span><br><span class="line">    写注释</span><br><span class="line"></span><br><span class="line">[^_^]:写注释</span><br></pre></td></tr></table></figure>
+<p><strong>1.7 文字对齐</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>居中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>左对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>右对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<center>居中</center>
+<p align="left">左对齐</p>
+<p align="right">右对齐</p>
+
+<p><strong>1.8 文字超链接四种方式</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">[<span class="string">Otto的个人空间</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line">[<span class="string">&lt;font color=blue&gt;Otto的个人空间&lt;/font&gt;</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">www.baidu.com</span>/&gt;</span></span></span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">str</span>]: <span class="link">https://www.baidu.com/</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客">Otto的个人空间</a>&emsp;&emsp;<a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客"><font color=blue>Otto的个人空间</font></a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
+<h5 id="Markdown图片功能！"><a href="#Markdown图片功能！" class="headerlink" title="Markdown图片功能！"></a>Markdown图片功能！</h5><p><strong>2.1 插图最基础的格式介绍</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</li>
+<li>图片链接：可以是图片的本地地址或者是网址。</li>
+<li>“optional title”：鼠标悬置于图片上会出现的标题文字，可以不写。</li>
+</ul>
+<p><strong>2.2 插图的三种添加方式</strong></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/uploads/images/md/md_3_1.png "本地"</span>)       </span><br><span class="line">![<span class="string">img</span>](<span class="link">http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png "网络"</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">data:image/png;base64,iVBORw0...... "base64"</span>)    或者</span><br><span class="line">![<span class="string">image</span>][<span class="symbol">base64str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC "base64"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>本地插入显示<ul>
+<li>支持本地磁盘绝对路径与项目相对路径</li>
+<li>不灵活不好分享，本地图片的路径更改或丢失都会造成markdown文件调不出图。</li>
+</ul>
+</li>
+<li>网络插入显示<ul>
+<li>填写图片的网络链接地址</li>
+<li>图片存在网络服务器上，非常依赖网络。</li>
+</ul>
+</li>
+<li>base64存储显示<ul>
+<li>将图片信息用base64字符串保存起来使用，<a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener"><font color=blue>base在线转换工具</font></a></li>
+<li>base64字符串一般较长，使用变量索引方式，并将索引键值放在最后从而不影响文章</li>
+<li>支持base64即可，不依赖网络，不依赖本地</li>
+</ul>
+</li>
+</ul>
+<p><img src="/uploads/images/md/md_3_1.png" alt="img" title="本地"> <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="img" title="网络"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC" alt="image" title="base64"><br><strong>2.3 插图的大小与对齐方式</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 默认居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居左--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居右--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>markdown语法没有此功能，故上面使用html方式</li>
+<li>宽高可以直接填数值或者百分比</li>
+<li>图片默认都是居中对齐的，居左与居右然后再居中效果如下：</li>
+</ul>
+<p><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="left" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="right" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="10%" height="10%"/></p>
+<h5 id="Markdown表格功能！"><a href="#Markdown表格功能！" class="headerlink" title="Markdown表格功能！"></a>Markdown表格功能！</h5><p><strong>3.1 表格基本写法介绍</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header 1 | header 2</span><br><span class="line">---|---</span><br><span class="line">row 1 col 1 | row 1 col 2</span><br><span class="line">row 2 col 1 | row 2 col 2</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">|  header 1  |  header 2  |</span><br><span class="line">|    ---     |    ---     |</span><br><span class="line">|row 1 col 1 | row 1 col 2|</span><br><span class="line">|row 2 col 1 | row 2 col 2|</span><br></pre></td></tr></table></figure>
+<ul>
+<li>本站默认表格如下（默认表格铺满，且每列等分，内容皆左对齐）<ul>
+<li>第一行：要显示的头部标题</li>
+<li>第二行：对齐方式|:—–|左对齐，|:—–:|居中，|—–:|右对齐(这儿不支持) </li>
+<li>一般是支持每列的宽度由对应列里最长的文本来决定，与这的默认不同</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>header 1</th>
+<th>header 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row 1 col 1</td>
+<td>row 1 col 2</td>
+</tr>
+<tr>
+<td>row 2 col 1</td>
+<td>row 2 col 2</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown语法之代码段(四)</title>
     <url>/2020/04/md_04/</url>
-    <content><![CDATA[<h4 id="Markdown中添加代码段"><a href="#Markdown中添加代码段" class="headerlink" title="Markdown中添加代码段"></a>Markdown中添加代码段</h4><p>方式： 在代码块前一行与最后一行分别添加  ```<br>效果： 默认颜色无高亮</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="Markdown中添加代码段"><a href="#Markdown中添加代码段" class="headerlink" title="Markdown中添加代码段"></a>Markdown中添加代码段</h4><p>方式： 在代码块前一行与最后一行分别添加  ```<br>效果： 默认颜色无高亮</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="Markdown中代码段符号-如何打"><a href="#Markdown中代码段符号-如何打" class="headerlink" title="Markdown中代码段符号 ``` 如何打"></a>Markdown中代码段符号 ``` 如何打</h4><p>【`】符号名称: 抑音符<br>方式1：直接复制粘贴<br>方式2：搜狗输入法–符号–符号大全–标点符号–第三个表格的第三行里有这个符号，点击到最近使用<br><font color=red>方式3：英文状态下，按Esc下面的按键三下即可（shift切换中英文）</font><br><img src="/uploads/images/md/md_4_0.png" alt="image"></p>
 <h4 id="Markdown中代码段高亮显示"><a href="#Markdown中代码段高亮显示" class="headerlink" title="Markdown中代码段高亮显示"></a>Markdown中代码段高亮显示</h4><p>方式：在前一行的```后面添加语言标识关键字<br>效果：添加bash</p>
@@ -1566,127 +1841,120 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
-    <title>Markdown语法之基础功能(三)</title>
-    <url>/2020/04/md_03/</url>
-    <content><![CDATA[<p>&emsp;&emsp;相信看过前两篇的小伙伴，对于markdown已经完全了解了，当然除了它的语法外，那么从本篇开始将会讲解markdown的基础语法与后续进阶功能效果啦！话说，自己都有点迫不及待了呢，nice!</p>
-<h5 id="Markdown文字功能！"><a href="#Markdown文字功能！" class="headerlink" title="Markdown文字功能！"></a>Markdown文字功能！</h5><p><strong>1.1 加粗、斜体、划掉、颜色、大小、字体</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗文字**</span>  或者  <span class="strong">__加粗文字__</span></span><br><span class="line"><span class="emphasis">*斜体文字*</span>    或者   <span class="emphasis">_斜体文字_</span></span><br><span class="line"><span class="strong">***粗斜文字**</span>*</span><br><span class="line">~~划掉文字~~</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">4</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">face</span>=<span class="string">"STCAIYUN"</span>&gt;</span></span>字体大小颜色自定义文字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>字体变小<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span>    </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">big</span>&gt;</span></span>字体变大<span class="xml"><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>加粗文字</strong>   <em>斜体文字</em>   <strong><em>粗斜文字</em></strong>   <del>划掉文字</del><br><font size=4 color=red face="STCAIYUN">字体大小颜色自定义文字</font> <small>变小文字</small> <big>变大文字</big></p>
-<p><strong>1.2 换行、缩进、空格</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">空格+空格+回车   换行</span><br><span class="line">&amp;ensp;&amp;ensp;    <span class="comment">//缩进一格，即两个字节（一个汉字两字节）</span></span><br><span class="line">&amp;emsp;&amp;emsp;    <span class="comment">//缩进两格，即四个字节（一个汉字两字节）</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>1.3 标题</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1 标题</span></span><br><span class="line"><span class="section">## h2 标题</span></span><br><span class="line"><span class="section">### h3 标题</span></span><br><span class="line"><span class="section">#### h4 标题</span></span><br><span class="line"><span class="section">##### h5 标题</span></span><br><span class="line"><span class="section">###### h6 标题</span></span><br></pre></td></tr></table></figure>
-<p><img src="/uploads/images/md/md_3_0.png" alt="image"><br><strong>1.3 水平线</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">---   或者  ___  或者  ***    <span class="comment">//三个或更多-_*，必须单独一行，可含空格</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>1.4 序列之有序与无序</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">"有序序列方式一"</span></span><br><span class="line">`1.`    有序第一个</span><br><span class="line">`2.`    有序第二个</span><br><span class="line">`3.`    有序第三个</span><br><span class="line"><span class="string">"有序序列方式二"</span></span><br><span class="line">1.    有序第一个</span><br><span class="line">2.    有序第二个</span><br><span class="line">3.    有序第三个</span><br><span class="line"><span class="string">"无序序列+嵌套序列"</span></span><br><span class="line">+无序第一个</span><br><span class="line">  - 无序第二个</span><br><span class="line">    * 无序第三个</span><br><span class="line">  `+` 无序第四个</span><br><span class="line">（无序使用空格与<span class="string">"+"</span>,<span class="string">"-"</span>,<span class="string">"*"</span>任意一个符号配合使用,也可以加``）</span><br></pre></td></tr></table></figure>
-<p><code>1.</code>    有序第一个<br><code>2.</code>    有序第二个<br><code>3.</code>    有序第三个</p>
-<ol>
-<li>有序第一个</li>
-<li>有序第二个</li>
-<li>有序第三个</li>
-</ol>
-<ul>
-<li>无序第一个<ul>
-<li>无序第二个<ul>
-<li>无序第三个</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>无序第四个</li>
-</ul>
-</li>
-</ul>
-<p><strong>1.5 文字底框与底色</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行底色文字`</span></span><br><span class="line">==多行底色文字==  //这儿不支持</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span></span>背景色yellow文字<span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line">[<span class="code">```</span>]            //去掉中括号</span><br><span class="line">代码块文字</span><br><span class="line">[<span class="code">```</span>]</span><br></pre></td></tr></table></figure>
-<p><code>单行底色文字</code></p>
-<table><tr><td bgcolor=yellow>背景色yellow文字</td></tr></table>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">代码块文字</span><br></pre></td></tr></table></figure>
-
-<p><strong>1.6 文字注释</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: # (写注释)</span><br><span class="line"></span><br><span class="line">[^_^]:</span><br><span class="line">    写注释</span><br><span class="line"></span><br><span class="line">[^_^]:写注释</span><br></pre></td></tr></table></figure>
-<p><strong>1.7 文字对齐</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>居中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>左对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>右对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<center>居中</center>
-<p align="left">左对齐</p>
-<p align="right">右对齐</p>
-
-<p><strong>1.8 文字超链接四种方式</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">[<span class="string">Otto的个人空间</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line">[<span class="string">&lt;font color=blue&gt;Otto的个人空间&lt;/font&gt;</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">www.baidu.com</span>/&gt;</span></span></span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">str</span>]: <span class="link">https://www.baidu.com/</span></span><br></pre></td></tr></table></figure>
-<p><a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客">Otto的个人空间</a>&emsp;&emsp;<a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客"><font color=blue>Otto的个人空间</font></a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
-<h5 id="Markdown图片功能！"><a href="#Markdown图片功能！" class="headerlink" title="Markdown图片功能！"></a>Markdown图片功能！</h5><p><strong>2.1 插图最基础的格式介绍</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</li>
-<li>图片链接：可以是图片的本地地址或者是网址。</li>
-<li>“optional title”：鼠标悬置于图片上会出现的标题文字，可以不写。</li>
-</ul>
-<p><strong>2.2 插图的三种添加方式</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/uploads/images/md/md_3_1.png "本地"</span>)       </span><br><span class="line">![<span class="string">img</span>](<span class="link">http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png "网络"</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">data:image/png;base64,iVBORw0...... "base64"</span>)    或者</span><br><span class="line">![<span class="string">image</span>][<span class="symbol">base64str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC "base64"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>本地插入显示<ul>
-<li>支持本地磁盘绝对路径与项目相对路径</li>
-<li>不灵活不好分享，本地图片的路径更改或丢失都会造成markdown文件调不出图。</li>
-</ul>
-</li>
-<li>网络插入显示<ul>
-<li>填写图片的网络链接地址</li>
-<li>图片存在网络服务器上，非常依赖网络。</li>
-</ul>
-</li>
-<li>base64存储显示<ul>
-<li>将图片信息用base64字符串保存起来使用，<a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener"><font color=blue>base在线转换工具</font></a></li>
-<li>base64字符串一般较长，使用变量索引方式，并将索引键值放在最后从而不影响文章</li>
-<li>支持base64即可，不依赖网络，不依赖本地</li>
-</ul>
-</li>
-</ul>
-<p><img src="/uploads/images/md/md_3_1.png" alt="img" title="本地"> <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="img" title="网络"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC" alt="image" title="base64"><br><strong>2.3 插图的大小与对齐方式</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 默认居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居左--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居右--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>markdown语法没有此功能，故上面使用html方式</li>
-<li>宽高可以直接填数值或者百分比</li>
-<li>图片默认都是居中对齐的，居左与居右然后再居中效果如下：</li>
-</ul>
-<p><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="left" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="right" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="10%" height="10%"/></p>
-<h5 id="Markdown表格功能！"><a href="#Markdown表格功能！" class="headerlink" title="Markdown表格功能！"></a>Markdown表格功能！</h5><p><strong>3.1 表格基本写法介绍</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header 1 | header 2</span><br><span class="line">---|---</span><br><span class="line">row 1 col 1 | row 1 col 2</span><br><span class="line">row 2 col 1 | row 2 col 2</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">|  header 1  |  header 2  |</span><br><span class="line">|    ---     |    ---     |</span><br><span class="line">|row 1 col 1 | row 1 col 2|</span><br><span class="line">|row 2 col 1 | row 2 col 2|</span><br></pre></td></tr></table></figure>
-<ul>
-<li>本站默认表格如下（默认表格铺满，且每列等分，内容皆左对齐）<ul>
-<li>第一行：要显示的头部标题</li>
-<li>第二行：对齐方式|:—–|左对齐，|:—–:|居中，|—–:|右对齐(这儿不支持) </li>
-<li>一般是支持每列的宽度由对应列里最长的文本来决定，与这的默认不同</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>header 1</th>
-<th>header 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>row 1 col 1</td>
-<td>row 1 col 2</td>
-</tr>
-<tr>
-<td>row 2 col 1</td>
-<td>row 2 col 2</td>
-</tr>
-</tbody></table>
+    <title>yml_1</title>
+    <url>/2020/05/yml_1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
 ]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>个人博客</category>
-        <category>标记语言</category>
-        <category>Markdown</category>
-      </categories>
+  </entry>
+  <entry>
+    <title>Hexo进阶之音视频功能插入(一)</title>
+    <url>/2020/05/hexo_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+<p><strong>背景</strong></p>
+<blockquote>
+<p> 用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。</p>
+</blockquote>
+<p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
+<h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
+<li>一种通用式音视频插入方式，使用音乐平台各自的外链代码！</li>
+<li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
+<li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
+</ol>
+<p>外链代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--iframe音频插件--&gt;</span><br><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=430 height=86 </span><br><span class="line"> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=114389&amp;auto=0&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br><span class="line"> &lt;!--flash视频插件--&gt;</span><br><span class="line"> &lt;embed src=<span class="string">"//music.163.com/style/swf/widget.swf?sid=114389&amp;type=2&amp;auto=1&amp;width=320&amp;height=66"</span> </span><br><span class="line"> width=<span class="string">"340"</span> height=<span class="string">"86"</span>  allowNetworking=<span class="string">"all"</span>&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
+ src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
+
+<p><embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
+ width="340" height="86"  allowNetworking="all"></embed></p>
+<p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
+<h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
+<h4 id="2-音频插件使用"><a href="#2-音频插件使用" class="headerlink" title="2.音频插件使用"></a>2.音频插件使用</h4><p>说明：md兼容html，可直接使用下面方法！<br><strong>方法一：aplayer简单使用（基本标签）</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "她的睫毛" "周杰伦"   </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3"  </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/jay.jpg" %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
+</ul>
+
+    <div id="aplayer-tzDZWvQW" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关aplayer的选项列表如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>title: 曲目标题<br>author: 曲目作者<br>url: 音乐文件 URL 地址<br>picture_url: (可选) 音乐对应的图片地址<br>narrow: （可选）播放器袖珍风格<br>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能<br>width:xxx: (可选) 播放器宽度 (默认: 100%)<br>lrc:xxx: （可选）歌词文件 URL 地址</p>
+</blockquote>
+<p><strong>方法二：支持MetingJS引入使用</strong><br>&emsp;&emsp;MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。<br>&emsp;&emsp;如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;接着就可以通过meting在文章中使用 MetingJS 播放器了：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- 进阶示例 --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+
+    <div id="aplayer-dgkagzVr" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关meting的选项列表如下</li>
+</ul>
+<blockquote>
+<p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
+</blockquote>
+<h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
+<li>代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/若能绽放光芒.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/若能绽放光芒.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果：<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">mode</span>=<span class="string">"transparent"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<video width="480" height="320" controls>
+<source src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66">
+</video>
+
+<ul>
+<li>补充</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">暂无</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>javascript 标签举例</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><vedio>标签举例</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>markdown代码禁用解析<br>其自带的MarkDown解析器会将代码直接解析为文本. 解决方案是在代码前加入 , 代码结尾处加入 标签以禁用MarkDown解析.</p>
+]]></content>
       <tags>
-        <tag>Markdown</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
