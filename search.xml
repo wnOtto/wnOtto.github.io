@@ -143,6 +143,19 @@ table th:nth-of-type(3){width: 60%;}
       </categories>
   </entry>
   <entry>
+    <title>eg_01</title>
+    <url>/2020/05/eg_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+]]></content>
+  </entry>
+  <entry>
     <title>几何凸包算法</title>
     <url>/2020/05/al_01/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——人生有涯，学海无涯！ 那么，我该去找我的海了？<br><img title="我们的征途是星辰大海！" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3558312413,3027554637&fm=26&gp=0.jpg" width="150%" /></p>
@@ -158,10 +171,41 @@ table th:nth-of-type(3){width: 60%;}
 <li>检查当前的点 P2 是不是步骤3那个结果的最后一个元素。是最后一个元素的话就结束。如果不是的话就把 P2 后面那个点做当前点，返回步骤4。</li>
 <li>最后，栈中的元素就是凸包上的点了。 </li>
 </ol>
-<p>以下为用Graham扫描法动态求解的过程：<br><img src="https://img-blog.csdn.net/20150530145453912" alt="img"></p>
+<p>以下为用Graham扫描法动态求解的过程：<br><img src="https://img-blog.csdn.net/20150530145453912" alt="avg"></p>
 <h3 id="三-模板-C"><a href="#三-模板-C" class="headerlink" title="三.模板(C++)"></a>三.模板(C++)</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926535</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">node vex[<span class="number">1000</span>];<span class="comment">//存入的所有的点</span></span><br><span class="line">node stackk[<span class="number">1000</span>];<span class="comment">//凸包中所有的点</span></span><br><span class="line"><span class="keyword">int</span> xx,yy;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node a,node b)</span><span class="comment">//排序找第一个点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.y==b.y)</span><br><span class="line">        <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cross</span><span class="params">(node a,node b,node c)</span><span class="comment">//计算叉积</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (b.x-a.x)*(c.y-a.y)-(c.x-a.x)*(b.y-a.y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(node a,node b)</span><span class="comment">//计算距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)*<span class="number">1.0</span>+(a.y-b.y)*(a.y-b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node a,node b)</span><span class="comment">//极角排序另一种方法，速度快</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">atan2</span>(a.y-yy,a.x-xx)!=<span class="built_in">atan2</span>(b.y-yy,b.x-xx))</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">atan2</span>(a.y-yy,a.x-xx))&lt;(<span class="built_in">atan2</span>(b.y-yy,b.x-xx));</span><br><span class="line">    <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span><span class="comment">//极角排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m=cross(vex[<span class="number">0</span>],a,b);</span><br><span class="line">    <span class="keyword">if</span>(m&gt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(m==<span class="number">0</span>&amp;&amp;dis(vex[<span class="number">0</span>],a)-dis(vex[<span class="number">0</span>],b)&lt;=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*if(m==0)</span></span><br><span class="line"><span class="comment">        return dis(vex[0],a)-dis(vex[0],b)&lt;=0?true:false;</span></span><br><span class="line"><span class="comment">    else</span></span><br><span class="line"><span class="comment">        return m&gt;0?true:false;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,L;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t),t)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;t; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;vex[i].x,&amp;vex[i].y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t==<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,<span class="number">0.00</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">2</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,dis(vex[<span class="number">0</span>],vex[<span class="number">1</span>]));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">memset</span>(stackk,<span class="number">0</span>,<span class="keyword">sizeof</span>(stackk));</span><br><span class="line">            sort(vex,vex+t,cmp1);</span><br><span class="line">            stackk[<span class="number">0</span>]=vex[<span class="number">0</span>];</span><br><span class="line">            xx=stackk[<span class="number">0</span>].x;</span><br><span class="line">            yy=stackk[<span class="number">0</span>].y;</span><br><span class="line">            sort(vex+<span class="number">1</span>,vex+t,cmp2);<span class="comment">//cmp2是更快的，cmp更容易理解</span></span><br><span class="line">            stackk[<span class="number">1</span>]=vex[<span class="number">1</span>];<span class="comment">//将凸包中的第两个点存入凸包的结构体中</span></span><br><span class="line">            <span class="keyword">int</span> top=<span class="number">1</span>;<span class="comment">//最后凸包中拥有点的个数</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;t; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(i&gt;=<span class="number">1</span>&amp;&amp;cross(stackk[top<span class="number">-1</span>],stackk[top],vex[i])&lt;<span class="number">0</span>)   <span class="comment">//对使用极角排序的i&gt;=1有时可以不用，但加上总是好的</span></span><br><span class="line">                    top--;</span><br><span class="line">                stackk[++top]=vex[i];                                    <span class="comment">//控制&lt;0或&lt;=0可以控制重点，共线的，具体视题目而定。</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">double</span> s=<span class="number">0</span>;</span><br><span class="line">            <span class="comment">//for(i=1; i&lt;=top; i++)//输出凸包上的点</span></span><br><span class="line">            <span class="comment">//cout&lt;&lt;stackk[i].x&lt;&lt;" "&lt;&lt;stackk[i].y&lt;&lt;endl;</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=top; i++)   <span class="comment">//计算凸包的周长</span></span><br><span class="line">                s+=dis(stackk[i<span class="number">-1</span>],stackk[i]);</span><br><span class="line">            s+=dis(stackk[top],vex[<span class="number">0</span>]);<span class="comment">//最后一个点和第一个点之间的距离</span></span><br><span class="line">            <span class="comment">/*s+=2*PI*L;</span></span><br><span class="line"><span class="comment">            int ans=s+0.5;//四舍五入</span></span><br><span class="line"><span class="comment">            printf("%d\n",ans);*/</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo基础之常用命令详解</title>
+    <url>/2020/05/hexo_02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 框架可以帮助我们快速创建一个属于自己的博客网站，那么熟悉 Hexo 框架提供的命令有利于我们管理博客！</p>
+<h4 id="1-hexo-init命令"><a href="#1-hexo-init命令" class="headerlink" title="1.hexo init命令"></a>1.hexo init命令</h4><p>描述：初始化本地文件夹为网站的根目录</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">init</span> <span class="string">[folder]</span></span><br><span class="line"><span class="comment"># folder：可选参数，用以指定初始化目录的路径，若无指定则默认为当前目录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-hexo-new命令"><a href="#2-hexo-new命令" class="headerlink" title="2.hexo new命令"></a>2.hexo new命令</h4><p>描述：新建.md文章，一般可以简写为 hexo n，可嵌套-p -i选项</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">[file]</span> <span class="string">"title"</span></span><br><span class="line"><span class="comment"># layout: 可选参数，用以指定文章类型(post、page、draft)，若无指定则默认由配置文件中的 default_layout 选项决定</span></span><br><span class="line"><span class="comment"># file:   可选参数，用以指定文章文件名，若无指定同上</span></span><br><span class="line"><span class="comment"># title:  可选参数，用以指定文章标题名，如果参数值中含有空格，则需要使用双引号包围，若无指定同上</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-p</span> <span class="string">[path/file]</span>  <span class="string">"title"</span> </span><br><span class="line"><span class="comment"># -p选项： 可以指定创建文件路径path，无则创建  </span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-i</span> <span class="string">[path/file]</span>  <span class="string">"title"</span></span><br><span class="line"><span class="comment"># -i选项： 替换相同的file.md文件</span></span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">post</span> <span class="string">-p</span> <span class="string">-i</span> <span class="string">myLanguage/Java/java_01</span>  <span class="string">"Java语言讲解第一篇"</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-hexo-generate命令"><a href="#3-hexo-generate命令" class="headerlink" title="3.hexo generate命令"></a>3.hexo generate命令</h4><p>描述：生成静态文件，一般可以简写为 hexo g，可嵌套-d选项名表示生成后部署</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-hexo-deploy命令"><a href="#4-hexo-deploy命令" class="headerlink" title="4.hexo deploy命令"></a>4.hexo deploy命令</h4><p>描述：部署网站，一般可以简写为 hexo d，可嵌套-g选项同样表示生成后部署</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span> <span class="string">-g</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-hexo-server命令"><a href="#5-hexo-server命令" class="headerlink" title="5.hexo server命令"></a>5.hexo server命令</h4><p>描述：启动本地服务器，一般可以简写为 hexo s，可嵌套-p、-i、-s选项</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span> </span><br><span class="line"><span class="comment"># -p选项： 指定服务器端口，默认为 4000</span></span><br><span class="line"><span class="comment"># -i选项： 指定服务器 IP 地址，默认为 0.0.0.0</span></span><br><span class="line"><span class="comment"># -s选项： 静态模式 ，仅提供 public 文件夹中的文件并禁用文件监视</span></span><br></pre></td></tr></table></figure>
+<p>说明：有个hexo-server 插件 <code>$ npm install hexo-server --save</code>（需不需要安装记不清了）</p>
+<h4 id="6-hexo-clean命令"><a href="#6-hexo-clean命令" class="headerlink" title="6.hexo clean命令"></a>6.hexo clean命令</h4><p>描述：清理缓存文件，是一个比较常用的命令</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="comment"># 网站显示异常时可尝试此操作</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-hexo-–save命令"><a href="#7-hexo-–save命令" class="headerlink" title="7.hexo –save命令"></a>7.hexo –save命令</h4><p>描述：hexo插件安装</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+<h4 id="8-hexo-–safe命令"><a href="#8-hexo-–safe命令" class="headerlink" title="8.hexo –safe命令"></a>8.hexo –safe命令</h4><p>描述：表示安全模式，用于禁用加载插件和脚本</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--safe</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-hexo-–debug命令"><a href="#9-hexo-–debug命令" class="headerlink" title="9.hexo –debug命令"></a>9.hexo –debug命令</h4><p>描述：表示调试模式，用于将消息详细记录到终端和 debug.log 文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--debug</span></span><br></pre></td></tr></table></figure>
+<h4 id="10-hexo-–silent命令"><a href="#10-hexo-–silent命令" class="headerlink" title="10.hexo –silent命令"></a>10.hexo –silent命令</h4><p>描述：表示静默模式，用于静默输出到终端</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--silent</span></span><br></pre></td></tr></table></figure>
+<h4 id="11-amp-amp"><a href="#11-amp-amp" class="headerlink" title="11.&amp;&amp;"></a>11.&amp;&amp;</h4><p>描述：表示命令相继执行</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">d</span></span><br><span class="line"><span class="comment"># 本地测试无误后，用于提交部署到服务器</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -240,122 +284,6 @@ table th:nth-of-type(3){width: 60%;}
       <tags>
         <tag>FontAwesome</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>eg_01</title>
-    <url>/2020/05/eg_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
-]]></content>
-  </entry>
-  <entry>
-    <title>FA_3</title>
-    <url>/2020/05/FA_3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
--->
-
-<p><a href="/download/Text/FirstNight.md" download="FirstNight.md">点击下载</a></p>
-<p><button id="copy">复制文章</button></p>
-<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
-
-<script>
-    function copyArticle(event){
-        const range = document.createRange();                     //1.创建range复制区域对象
-        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
-        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
-        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
-        selection.addRange(range);                                //5.selection中添加range
-        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
-    }                                                             
-    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
-</script>
-
-<article id="article">
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
-</article>
-
-<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
-<p>1<br>2<br>wwwww<br>wwww</p>
-<pre><code class="javascript">/* 创建range对象   */
-const range = document.createRange();
-range.selectNode(element);    // 设定range包含的节点对象 
-
-/* 窗口的selection对象，表示用户选择的文本 */
-const selection = window.getSelection();
-if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
-selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
-
-document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
-
-</code></pre>
-
-
-
-
-        <div id="aplayer-epyQZWzG" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
-            <pre class="aplayer-lrc-content"></pre>
-        </div>
-        <script>
-          var ap = new APlayer({
-            element: document.getElementById("aplayer-epyQZWzG"),
-            narrow: false,
-            autoplay: false,
-            showlrc: false,
-            music: {
-              title: "她的睫毛",
-              author: "周杰伦",
-              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
-              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
-              lrc: ""
-            }
-          });
-          window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
-        </script>
-
-
-
-    <div id="aplayer-AuMSDAQJ" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
-    ></div>
-
-
-
-    <div id="aplayer-InVODPrQ" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
-    ></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
   </entry>
   <entry>
     <title>Font Awesome之于Hexo上的应用（二）</title>
@@ -1426,184 +1354,6 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
       </tags>
   </entry>
   <entry>
-    <title>Hexo进阶之音视频功能插入(一)</title>
-    <url>/2020/05/hexo_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
-<p><strong>背景</strong></p>
-<blockquote>
-<p> 用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。</p>
-</blockquote>
-<p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
-<h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
-<li>一种通用式音视频插入方式，使用音乐平台各自的外链代码！</li>
-<li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
-<li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
-</ol>
-<p>外链代码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--iframe音频插件--&gt;</span><br><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=430 height=86 </span><br><span class="line"> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=114389&amp;auto=0&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br><span class="line"> &lt;!--flash视频插件--&gt;</span><br><span class="line"> &lt;embed src=<span class="string">"//music.163.com/style/swf/widget.swf?sid=114389&amp;type=2&amp;auto=1&amp;width=320&amp;height=66"</span> </span><br><span class="line"> width=<span class="string">"340"</span> height=<span class="string">"86"</span>  allowNetworking=<span class="string">"all"</span>&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
-<p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
- src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
-
-<p><embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
- width="340" height="86"  allowNetworking="all"></embed></p>
-<p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
-<h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
-<h4 id="2-音频插件使用"><a href="#2-音频插件使用" class="headerlink" title="2.音频插件使用"></a>2.音频插件使用</h4><p>说明：md兼容html，可直接使用下面方法！<br><strong>方法一：aplayer简单使用（基本标签）</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "她的睫毛" "周杰伦"   </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3"  </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/jay.jpg" %&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
-</ul>
-
-    <div id="aplayer-otgtpTGT" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-<ul>
-<li>补充：有关aplayer的选项列表如下</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>title: 曲目标题<br>author: 曲目作者<br>url: 音乐文件 URL 地址<br>picture_url: (可选) 音乐对应的图片地址<br>narrow: （可选）播放器袖珍风格<br>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能<br>width:xxx: (可选) 播放器宽度 (默认: 100%)<br>lrc:xxx: （可选）歌词文件 URL 地址</p>
-</blockquote>
-<p><strong>方法二：支持MetingJS引入使用</strong><br>&emsp;&emsp;MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。<br>&emsp;&emsp;如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;接着就可以通过meting在文章中使用 MetingJS 播放器了：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- 进阶示例 --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：</li>
-</ul>
-
-    <div id="aplayer-hwqkemPQ" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-<ul>
-<li>补充：有关meting的选项列表如下</li>
-</ul>
-<blockquote>
-<p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
-</blockquote>
-<h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
-<li>代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/若能绽放光芒.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/若能绽放光芒.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
-<li>效果：<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-
-
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">mode</span>=<span class="string">"transparent"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果</li>
-</ul>
-<video width="480" height="320" controls>
-<source src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66">
-</video>
-
-<ul>
-<li>补充</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">暂无</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>javascript 标签举例</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><vedio>标签举例</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>markdown代码禁用解析<br>其自带的MarkDown解析器会将代码直接解析为文本. 解决方案是在代码前加入 , 代码结尾处加入 标签以禁用MarkDown解析.</p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown是什么(一)</title>
-    <url>/2020/04/md_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
-<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
-<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
-<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
-<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
-<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
-<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
-<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
-<hr>
-<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
-<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
-<thead>
-<tr>
-<th>&emsp;</th>
-<th><center>MarkDown</center></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>名称</td>
-<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
-</tr>
-<tr>
-<td>开发者</td>
-<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
-</tr>
-<tr>
-<td>介绍</td>
-<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
-</tr>
-<tr>
-<td>应用</td>
-<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
-</tr>
-<tr>
-<td>编译器</td>
-<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>轻量、简单、通用、易读易写、文档快速排版</td>
-</tr>
-</tbody></table>
-<style>
-table th:nth-of-type(1){width: 10%;}
-table th:nth-of-type(2){width: 90%;}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>个人博客</category>
-        <category>标记语言</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
     <url>/2020/04/md_02/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
@@ -1764,6 +1514,166 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
+    <title>谷歌告别Flash</title>
+    <url>/2020/05/try_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>2020年12月底，Chrome将停止支持Falsh</p>
+<p>安东尼·拉福格:Google Chrome产品经理于2017年7月25日发布的原文翻译如下：</p>
+<blockquote>
+<p>&emsp;&emsp;今天，Adobe宣布了其计划在2020年底停止支持Flash的计划。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;20年来，Flash一直帮助您塑造游戏，观看视频和在网络上运行应用程序的方式。但是在最近几年中，Flash变得不那么普遍了。三年前，每天有80％的桌面Chrome用户访问带有Flash的网站。如今，使用量仅为17％，并且继续下降。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;这种趋势表明，网站正在迁移到开放式Web技术，该技术比Flash更快，更节能。它们也更安全，因此您在购物，银行业务或阅读敏感文档时可以更安全。它们还可以在移动设备和台式机上使用，因此您可以在任何地方访问自己喜欢的网站。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;去年下半年，当网站开始需要您的许可才能运行Flash时，这些开放的网络技术已成为Chrome 的默认体验。Chrome会在接下来的几年中继续淘汰Flash，首先会征求您在更多情况下运行Flash的许可，然后默认将其禁用。到2020年底，我们将彻底从Chrome移除Flash。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;如果您今天定期访问使用Flash的网站，您可能想知道这会对您有何影响。如果该网站迁移到开放的Web标准，则除了应该再也看不到在该网站上运行Flash的提示之外，您应该不会注意到太大的差异。如果该站点继续使用Flash，并且您授予该站点运行Flash的权限，则该站点将在2020年底前正常工作。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;与Adobe，其他浏览器和主要发行商进行了许多紧密合作，以确保网络准备好不使用Flash。我们支持Adobe今天的公告，我们期待与大家合作，使网络变得更加完善。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>2020大事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown是什么(一)</title>
+    <url>/2020/04/md_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
+<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
+<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
+<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
+<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
+<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
+<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
+<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
+<hr>
+<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
+<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
+<thead>
+<tr>
+<th>&emsp;</th>
+<th><center>MarkDown</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
+</tr>
+<tr>
+<td>开发者</td>
+<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
+</tr>
+<tr>
+<td>介绍</td>
+<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
+</tr>
+<tr>
+<td>编译器</td>
+<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>轻量、简单、通用、易读易写、文档快速排版</td>
+</tr>
+</tbody></table>
+<style>
+table th:nth-of-type(1){width: 10%;}
+table th:nth-of-type(2){width: 90%;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>台湾将何去何从</title>
+    <url>/2020/05/try_03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>台湾问题是我国一直以来难以解决的问题，其本质上为我国内政问题，实则已经上升到中美问题！</p>
+<p>新冠肺炎成为台湾问题进一步恶化的导火索，台湾民进党代表蔡英文借助此次疫情紧跟美国，加快台湾与大陆两岸关系恶化！大陆是时候有所行动了！</p>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"https://shortv.cdp.qq.com/szg_2192_50001_0b6bkyaa4aaazyaf2xnr5vpfcvwdbzlaadsa.f622.mp4?dis_k=19794bfecdb6c12c0bb0e5530279721c&dis_t=1589428851&bid=oppo&seqid=1589428851094038&network=1"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<p>千年复兴，机遇难得，将强未强，将成未成之际！武统台湾是否可行！</p>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://voppo3.go2yd.com/user_upload/15890208325432c0667b6e6ac8b82302a790117b50c1c.mp4_bd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+
+]]></content>
+      <tags>
+        <tag>2020大事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国天眼验收运行</title>
+    <url>/2020/05/try_02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>中国天眼：500米口径球面射电望远镜，简称FAST，用于外太空探索。</p>
+<ul>
+<li>地点：中国贵州</li>
+<li>提出者：我国天文学家南仁东1994年提出建造</li>
+<li>开始建造：1998年</li>
+<li>结束建造：2020年验收，正式运行</li>
+<li>历经：22年</li>
+</ul>
+<div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"theme":"#FADFA3","video":{"url":"https://content.cc.heytapmobi.com/resource/interact/playurl302?source=qie&outId=RcscPwYEWT82qBjPKA--dlxh9J_a5erpxap05isyQBIjju2cY1PyLV3duzhz2a7anmimLMbfYP5k5c4UdaKaTW25LCUduoHi0g2"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+      <tags>
+        <tag>2020大事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>u3d_01</title>
+    <url>/2020/05/u3d_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+]]></content>
+  </entry>
+  <entry>
+    <title>yml_1</title>
+    <url>/2020/05/yml_1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+]]></content>
+  </entry>
+  <entry>
     <title>Markdown语法之代码段(四)</title>
     <url>/2020/04/md_04/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="Markdown中添加代码段"><a href="#Markdown中添加代码段" class="headerlink" title="Markdown中添加代码段"></a>Markdown中添加代码段</h4><p>方式： 在代码块前一行与最后一行分别添加  ```<br>效果： 默认颜色无高亮</p>
@@ -1919,8 +1829,8 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
-    <title>u3d_01</title>
-    <url>/2020/05/u3d_01/</url>
+    <title>Hexo进阶之音视频功能插入(一)</title>
+    <url>/2020/05/hexo_01/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
       1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
       2. -p 或 --path  自定义新文章的路径
@@ -1929,32 +1839,200 @@ table th:nth-of-type(2){width: 90%;}
       5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
       例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
 -->
+<p><strong>背景</strong></p>
+<blockquote>
+<p> 用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。</p>
+</blockquote>
+<p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
+<h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
+<li>一种通用式音视频插入方式，使用音乐平台各自的外链代码！</li>
+<li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
+<li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
+</ol>
+<p>外链代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--iframe音频插件--&gt;</span><br><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=430 height=86 </span><br><span class="line"> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=114389&amp;auto=0&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br><span class="line"> &lt;!--flash视频插件--&gt;</span><br><span class="line"> &lt;embed src=<span class="string">"//music.163.com/style/swf/widget.swf?sid=114389&amp;type=2&amp;auto=1&amp;width=320&amp;height=66"</span> </span><br><span class="line"> width=<span class="string">"340"</span> height=<span class="string">"86"</span>  allowNetworking=<span class="string">"all"</span>&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
+ src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
+
+<p><embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
+ width="340" height="86"  allowNetworking="all"></embed></p>
+<p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
+<h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
+<h4 id="2-音频插件使用"><a href="#2-音频插件使用" class="headerlink" title="2.音频插件使用"></a>2.音频插件使用</h4><p>说明：md兼容html，可直接使用下面方法！<br><strong>方法一：aplayer简单使用（基本标签）</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "她的睫毛" "周杰伦"   </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3"  </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/jay.jpg" %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
+</ul>
+
+    <div id="aplayer-JLtXJSUW" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关aplayer的选项列表如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>title: 曲目标题<br>author: 曲目作者<br>url: 音乐文件 URL 地址<br>picture_url: (可选) 音乐对应的图片地址<br>narrow: （可选）播放器袖珍风格<br>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能<br>width:xxx: (可选) 播放器宽度 (默认: 100%)<br>lrc:xxx: （可选）歌词文件 URL 地址</p>
+</blockquote>
+<p><strong>方法二：支持MetingJS引入使用</strong><br>&emsp;&emsp;MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。<br>&emsp;&emsp;如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;接着就可以通过meting在文章中使用 MetingJS 播放器了：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- 进阶示例 --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+
+    <div id="aplayer-KFUJpdsR" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关meting的选项列表如下</li>
+</ul>
+<blockquote>
+<p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
+</blockquote>
+<h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
+<li>代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/若能绽放光芒.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/若能绽放光芒.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果：<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">mode</span>=<span class="string">"transparent"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<video width="480" height="320" controls>
+<source src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66">
+</video>
+
+<ul>
+<li>补充</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">暂无</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>javascript 标签举例</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><vedio>标签举例</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>markdown代码禁用解析<br>其自带的MarkDown解析器会将代码直接解析为文本. 解决方案是在代码前加入 , 代码结尾处加入 标签以禁用MarkDown解析.</p>
 ]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
-    <title>try_01</title>
-    <url>/2020/05/try_01/</url>
+    <title>FA_3</title>
+    <url>/2020/05/FA_3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
       1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
       2. -p 或 --path  自定义新文章的路径
       3. postpath为项目source的_post的相对路径,没有会直接创建
       4. fileName 为文件名，会直接创建对应.md文件
       5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
 -->
-]]></content>
-  </entry>
-  <entry>
-    <title>yml_1</title>
-    <url>/2020/05/yml_1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
+
+<p><a href="/download/Text/FirstNight.md" download="FirstNight.md">点击下载</a></p>
+<p><button id="copy">复制文章</button></p>
+<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
+
+<script>
+    function copyArticle(event){
+        const range = document.createRange();                     //1.创建range复制区域对象
+        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
+        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
+        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
+        selection.addRange(range);                                //5.selection中添加range
+        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
+    }                                                             
+    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
+</script>
+
+<article id="article">
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
+</article>
+
+<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
+<p>1<br>2<br>wwwww<br>wwww</p>
+<pre><code class="javascript">/* 创建range对象   */
+const range = document.createRange();
+range.selectNode(element);    // 设定range包含的节点对象 
+
+/* 窗口的selection对象，表示用户选择的文本 */
+const selection = window.getSelection();
+if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
+selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
+
+document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
+
+</code></pre>
+
+
+
+
+        <div id="aplayer-rcLLhwBy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-rcLLhwBy"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "她的睫毛",
+              author: "周杰伦",
+              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
+              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+
+
+    <div id="aplayer-eZGXrbwN" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+    <div id="aplayer-UUFpLkjp" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
   </entry>
 </search>
