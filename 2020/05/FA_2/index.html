@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其">
+<meta name="description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的以及图标归总，正如前篇说到的，Hexo中会经常用到此图标，一些插件的中也基于这一套图标使用，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Font Awesome之于Hexo上的应用（二）">
 <meta property="og:url" content="http://yoursite.com/2020/05/FA_2/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的以及图标归总，正如前篇说到的，Hexo中会经常用到此图标，一些插件的中也基于这一套图标使用，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。&amp;emsp;&amp;emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（了解Hexo），没有用过的话也不影响，来吧，开搞！。 准备工作1.">
 <meta property="article:published_time" content="2020-05-07T10:19:06.000Z">
-<meta property="article:modified_time" content="2020-05-09T09:08:24.588Z">
+<meta property="article:modified_time" content="2020-05-14T08:14:49.750Z">
 <meta property="article:author" content="Otto">
 <meta property="article:tag" content="FontAwesome">
 <meta name="twitter:card" content="summary">
@@ -379,6 +379,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/FA_2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/FA_2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -416,7 +426,7 @@
       5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
       例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
 -->  
-<p>&emsp;&emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。<br>&emsp;&emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（<a href="https://wnotto.github.io/tags/Markdown/" target="_blank" rel="noopener"><font color=blue>了解Hexo</font></a>），没有用过的话也不影响，来吧，开搞！。</p>
+<p>&emsp;&emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的以及图标归总，正如前篇说到的，Hexo中会经常用到此图标，一些插件的中也基于这一套图标使用，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。<br>&emsp;&emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（<a href="https://wnotto.github.io/tags/Markdown/" target="_blank" rel="noopener"><font color=blue>了解Hexo</font></a>），没有用过的话也不影响，来吧，开搞！。</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其他主题参照即可！）<br>2.简单了解Hexo、next、MarkDown、HTML、YAML（相信这对于你不是问题，可忽略）</p>
 <h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><p>&emsp;&emsp;Hexo中使用的便是Font Awesome，Hexo在创建项目过程中就包含有经典的Font Awesome 4最新文件了。也就是说，我们只用关心如何使用它即可。<br>&emsp;&emsp;相信看过前一篇的小伙伴已经会在Html中使用Font Awesome了。然而，我们的Hexo中是可以不去直接使用html的，而是在其YAML配置文件和MarkDown标记文件中使用！</p>
 <ol>
@@ -481,163 +491,78 @@
 <h4 id="表单图标"><a href="#表单图标" class="headerlink" title="表单图标"></a>表单图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-check-square"></i>&emsp;@check-square</th>
+<th><i class="fa fa-check-square-o"></i>&emsp;@check-square-o</th>
+<th><i class="fa fa-circle"></i>&emsp;@circle</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-circle-o"></i>&emsp;@circle-o</td>
+<td><i class="fa fa-dot-circle-o"></i>&emsp;@dot-circle-o</td>
+<td><i class="fa fa-minus-square"></i>&emsp;@minus-square</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-minus-square-o"></i>&emsp;@minus-square-o</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+<td><i class="fa fa-plus-square-o"></i>&emsp;@plus-square-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-square"></i>&emsp;@square</td>
+<td><i class="fa fa-square-o"></i>&emsp;@square-o</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="性别图标"><a href="#性别图标" class="headerlink" title="性别图标"></a>性别图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-genderless"></i>&emsp;@genderless</th>
+<th><i class="fa fa-intersex"></i>&emsp;@intersex</th>
+<th><i class="fa fa-mars"></i>&emsp;@mars</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-mars-double"></i>&emsp;@mars-double</td>
+<td><i class="fa fa-mars-stroke"></i>&emsp;@mars-stroke</td>
+<td><i class="fa fa-mars-stroke-h"></i>&emsp;@mars-stroke-h</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-mars-stroke-v"></i>&emsp;@mars-stroke-v</td>
+<td><i class="fa fa-mercury"></i>&emsp;@mercury</td>
+<td><i class="fa fa-neuter"></i>&emsp;@neuter</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-transgender"></i>&emsp;@transgender</td>
+<td><i class="fa fa-transgender-alt"></i>&emsp;@transgender-alt</td>
+<td><i class="fa fa-venus"></i>&emsp;@venus</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-venus-double"></i>&emsp;@venus-double</td>
+<td><i class="fa fa-venus-mars"></i>&emsp;@venus-mars</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="医疗图标"><a href="#医疗图标" class="headerlink" title="医疗图标"></a>医疗图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-ambulance"></i>&emsp;@ambulance</th>
+<th><i class="fa fa-h-square"></i>&emsp;@h-square</th>
+<th><i class="fa fa-heart"></i>&emsp;@heart</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-heartbeat"></i>&emsp;@heartbeat</td>
+<td><i class="fa fa-heart-o"></i>&emsp;@heart-o</td>
+<td><i class="fa fa-hospital-o"></i>&emsp;@hospital-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-medkit"></i>&emsp;@medkit</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+<td><i class="fa fa-stethoscope"></i>&emsp;@stethoscope</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-user-md"></i>&emsp;@user-md</td>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="货币图标"><a href="#货币图标" class="headerlink" title="货币图标"></a>货币图标</h4><table>
@@ -776,325 +701,235 @@
 <h4 id="文件类型图标"><a href="#文件类型图标" class="headerlink" title="文件类型图标"></a>文件类型图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-file"></i>&emsp;@file</th>
+<th><i class="fa fa-file-archive-o"></i>&emsp;@file-archive-o</th>
+<th><i class="fa fa-file-audio-o"></i>&emsp;@file-audio-o</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-code-o"></i>&emsp;@file-code-o</td>
+<td><i class="fa fa-file-excel-o"></i>&emsp;@file-excel-o</td>
+<td><i class="fa fa-file-image-o"></i>&emsp;@file-image-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-movie-o"></i>&emsp;@file-movie-o</td>
+<td><i class="fa fa-file-o"></i>&emsp;@file-o</td>
+<td><i class="fa fa-file-pdf-o"></i>&emsp;@file-pdf-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-photo-o"></i>&emsp;@file-photo-o</td>
+<td><i class="fa fa-file-picture-o"></i>&emsp;@file-picture-o</td>
+<td><i class="fa fa-file-powerpoint-o"></i>&emsp;@file-powerpoint-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-text"></i>&emsp;@file-text</td>
+<td><i class="fa fa-file-text-o"></i>&emsp;@file-text-o</td>
+<td><i class="fa fa-file-video-o"></i>&emsp;@file-video-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-word-o"></i>&emsp;@file-word-o</td>
+<td><i class="fa fa-file-zip-o"></i>&emsp;@file-zip-o</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="付款图标"><a href="#付款图标" class="headerlink" title="付款图标"></a>付款图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-cc-amex"></i>&emsp;@cc-amex</th>
+<th><i class="fa fa-cc-diners-club"></i>&emsp;@cc-diners-club</th>
+<th><i class="fa fa-cc-discover"></i>&emsp;@cc-discover</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-cc-jcb"></i>&emsp;@cc-jcb</td>
+<td><i class="fa fa-cc-mastercard"></i>&emsp;@cc-mastercard</td>
+<td><i class="fa fa-cc-paypal"></i>&emsp;@cc-paypal</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-cc-stripe"></i>&emsp;@cc-stripe</td>
+<td><i class="fa fa-cc-visa"></i>&emsp;@cc-visa</td>
+<td><i class="fa fa-credit-card"></i>&emsp;@credit-card</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-google-wallet"></i>&emsp;@google-wallet</td>
+<td><i class="fa fa-paypal"></i>&emsp;@paypal</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="加载中图标"><a href="#加载中图标" class="headerlink" title="加载中图标"></a>加载中图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-circle-o-notch"></i>&emsp;@circle-o-notch</th>
+<th><i class="fa fa-cog"></i>&emsp;@cog</th>
+<th><i class="fa fa-gear"></i>&emsp;@gear</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-refresh"></i>&emsp;@refresh</td>
+<td><i class="fa fa-spinner"></i>&emsp;@spinner</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="文本图标"><a href="#文本图标" class="headerlink" title="文本图标"></a>文本图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-align-center"></i>&emsp;@align-center</th>
+<th><i class="fa fa-align-justify"></i>&emsp;@align-justify</th>
+<th><i class="fa fa-align-left"></i>&emsp;@align-left</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-align-right"></i>&emsp;@align-right</td>
+<td><i class="fa fa-bold"></i>&emsp;@bold</td>
+<td><i class="fa fa-chain"></i>&emsp;@chain</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-chain-broken"></i>&emsp;@chain-broken</td>
+<td><i class="fa fa-clipboard"></i>&emsp;@clipboard</td>
+<td><i class="fa fa-columns"></i>&emsp;@columns</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-copy"></i>&emsp;@copy</td>
+<td><i class="fa fa-cut"></i>&emsp;@cut</td>
+<td><i class="fa fa-dedent"></i>&emsp;@dedent</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-eraser"></i>&emsp;@eraser</td>
+<td><i class="fa fa-file"></i>&emsp;@file</td>
+<td><i class="fa fa-file-o"></i>&emsp;@file-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-text"></i>&emsp;@file-text</td>
+<td><i class="fa fa-file-text-o"></i>&emsp;@file-text-o</td>
+<td><i class="fa fa-files-o"></i>&emsp;@files-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-floppy-o"></i>&emsp;@floppy-o</td>
+<td><i class="fa fa-font"></i>&emsp;@font</td>
+<td><i class="fa fa-header"></i>&emsp;@header</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-indent"></i>&emsp;@indent</td>
+<td><i class="fa fa-italic"></i>&emsp;@italic</td>
+<td><i class="fa fa-link"></i>&emsp;@link</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-list"></i>&emsp;@list</td>
+<td><i class="fa fa-list-alt"></i>&emsp;@list-alt</td>
+<td><i class="fa fa-list-ol"></i>&emsp;@list-ol</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-list-ul"></i>&emsp;@list-ul</td>
+<td><i class="fa fa-outdent"></i>&emsp;@outdent</td>
+<td><i class="fa fa-paperclip"></i>&emsp;@paperclip</td>
+</tr>
+<tr>
+<td><i class="fa fa-paragraph"></i>&emsp;@paragraph</td>
+<td><i class="fa fa-paste"></i>&emsp;@paste</td>
+<td><i class="fa fa-repeat"></i>&emsp;@repeat</td>
+</tr>
+<tr>
+<td><i class="fa fa-rotate-left"></i>&emsp;@rotate-left</td>
+<td><i class="fa fa-rotate-right"></i>&emsp;@rotate-right</td>
+<td><i class="fa fa-save"></i>&emsp;@save</td>
+</tr>
+<tr>
+<td><i class="fa fa-scissors"></i>&emsp;@scissors</td>
+<td><i class="fa fa-strikethrough"></i>&emsp;@strikethrough</td>
+<td><i class="fa fa-subscript"></i>&emsp;@subscript</td>
+</tr>
+<tr>
+<td><i class="fa fa-superscript"></i>&emsp;@superscript</td>
+<td><i class="fa fa-table"></i>&emsp;@table</td>
+<td><i class="fa fa-text-height"></i>&emsp;@text-height</td>
+</tr>
+<tr>
+<td><i class="fa fa-text-width"></i>&emsp;@text-width</td>
+<td><i class="fa fa-th"></i>&emsp;@th</td>
+<td><i class="fa fa-th-large"></i>&emsp;@th-large</td>
+</tr>
+<tr>
+<td><i class="fa fa-th-list"></i>&emsp;@th-list</td>
+<td><i class="fa fa-underline"></i>&emsp;@underline</td>
+<td><i class="fa fa-undo"></i>&emsp;@undo</td>
+</tr>
+<tr>
+<td><i class="fa fa-unlink"></i>&emsp;@unlink</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="音视频图标"><a href="#音视频图标" class="headerlink" title="音视频图标"></a>音视频图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-arrows-alt"></i>&emsp;@arrows-alt</th>
+<th><i class="fa fa-backward"></i>&emsp;@backward</th>
+<th><i class="fa fa-compress"></i>&emsp;@compress</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-eject"></i>&emsp;@eject</td>
+<td><i class="fa fa-expand"></i>&emsp;@expand</td>
+<td><i class="fa fa-fast-backward"></i>&emsp;@fast-backward</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-fast-forward"></i>&emsp;@fast-forward</td>
+<td><i class="fa fa-forward"></i>&emsp;@forward</td>
+<td><i class="fa fa-pause"></i>&emsp;@pause</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-pause-circle"></i>&emsp;@pause-circle</td>
+<td><i class="fa fa-pause-circle-o"></i>&emsp;@pause-circle-o</td>
+<td><i class="fa fa-play"></i>&emsp;@play</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-play-circle"></i>&emsp;@play-circle</td>
+<td><i class="fa fa-play-circle-o"></i>&emsp;@play-circle-o</td>
+<td><i class="fa fa-step-backward"></i>&emsp;@step-backward</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-step-forward"></i>&emsp;@step-forward</td>
+<td><i class="fa fa-stop"></i>&emsp;@stop</td>
+<td><i class="fa fa-stop-circle"></i>&emsp;@stop-circle</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-stop-circle-o"></i>&emsp;@stop-circle-o</td>
+<td><i class="fa fa-youtube-play"></i>&emsp;@youtube-play</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="交通工具图标"><a href="#交通工具图标" class="headerlink" title="交通工具图标"></a>交通工具图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-ambulance"></i>&emsp;@ambulance</th>
+<th><i class="fa fa-automobile"></i>&emsp;@automobile</th>
+<th><i class="fa fa-bicycle"></i>&emsp;@bicycle</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-bus"></i>&emsp;@bus</td>
+<td><i class="fa fa-cab"></i>&emsp;@cab</td>
+<td><i class="fa fa-car"></i>&emsp;@car</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-fighter-jet"></i>&emsp;@fighter-jet</td>
+<td><i class="fa fa-motorcycle"></i>&emsp;@motorcycle</td>
+<td><i class="fa fa-plane"></i>&emsp;@plane</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-rocket"></i>&emsp;@rocket</td>
+<td><i class="fa fa-ship"></i>&emsp;@ship</td>
+<td><i class="fa fa-space-shuttle"></i>&emsp;@space-shuttle</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-subway"></i>&emsp;@subway</td>
+<td><i class="fa fa-taxi"></i>&emsp;@taxi</td>
+<td><i class="fa fa-train"></i>&emsp;@train</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-truck"></i>&emsp;@truck</td>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="品牌图标"><a href="#品牌图标" class="headerlink" title="品牌图标"></a>品牌图标</h4><table>
@@ -1414,55 +1249,740 @@
 <h4 id="web应用图标"><a href="#web应用图标" class="headerlink" title="web应用图标"></a>web应用图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-address-book"></i>&emsp;@address-book</th>
+<th><i class="fa fa-address-book-o"></i>&emsp;@address-book-o</th>
+<th><i class="fa fa-address-card"></i>&emsp;@address-card</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-address-card-o"></i>&emsp;@address-card-o</td>
+<td><i class="fa fa-adjust"></i>&emsp;@adjust</td>
 <td><i class="fa fa-"></i>&emsp;@</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-american-sign-language-interpreting"></i>&emsp;@american-sign-language-interpreting</td>
+<td><i class="fa fa-anchor"></i>&emsp;@anchor</td>
+<td><i class="fa fa-archive"></i>&emsp;@archive</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-area-chart"></i>&emsp;@area-chart</td>
+<td><i class="fa fa-arrows"></i>&emsp;@arrows</td>
+<td><i class="fa fa-arrows-h"></i>&emsp;@arrows-h</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-arrows-v"></i>&emsp;@arrows-v</td>
+<td><i class="fa fa-asl-interpreting"></i>&emsp;@asl-interpreting</td>
+<td><i class="fa fa-beer"></i>&emsp;@beer</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-asterisk"></i>&emsp;@asterisk</td>
+<td><i class="fa fa-at"></i>&emsp;@at</td>
+<td><i class="fa fa-automobile"></i>&emsp;@automobile</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-audio-description"></i>&emsp;@audio-description</td>
+<td><i class="fa fa-balance-scale"></i>&emsp;@balance-scale</td>
+<td><i class="fa fa-ban"></i>&emsp;@ban</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-bank"></i>&emsp;@bank</td>
+<td><i class="fa fa-bar-chart"></i>&emsp;@bar-chart</td>
+<td><i class="fa fa-bar-chart"></i>&emsp;@bar-chart</td>
 </tr>
 <tr>
+<td><i class="fa fa-bar-chart-o"></i>&emsp;@bar-chart-o</td>
+<td><i class="fa fa-barcode"></i>&emsp;@barcode</td>
+<td><i class="fa fa-bars"></i>&emsp;@bars</td>
+</tr>
+<tr>
+<td><i class="fa fa-bath"></i>&emsp;@bath</td>
+<td><i class="fa fa-bathtub"></i>&emsp;@bathtub</td>
+<td><i class="fa fa-battery-0"></i>&emsp;@battery-0</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-1"></i>&emsp;@battery-1</td>
+<td><i class="fa fa-battery-2"></i>&emsp;@battery-2</td>
+<td><i class="fa fa-battery-3"></i>&emsp;@battery-3</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-4"></i>&emsp;@battery-4</td>
+<td><i class="fa fa-battery-empty"></i>&emsp;@battery-empty</td>
+<td><i class="fa fa-battery-full"></i>&emsp;@battery-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-half"></i>&emsp;@battery-half</td>
+<td><i class="fa fa-battery-quarter"></i>&emsp;@battery-quarter</td>
+<td><i class="fa fa-bed"></i>&emsp;@bed</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-three-quarters"></i>&emsp;@battery-three-quarters</td>
+<td><i class="fa fa-assistive-listening-systems"></i>&emsp;@assistive-listening-systems</td>
+<td><i class="fa fa-bell"></i>&emsp;@bell</td>
+</tr>
+<tr>
+<td><i class="fa fa-bell-o"></i>&emsp;@bell-o</td>
+<td><i class="fa fa-bell-slash"></i>&emsp;@bell-slash</td>
+<td><i class="fa fa-bell-slash-o"></i>&emsp;@bell-slash-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-bicycle"></i>&emsp;@bicycle</td>
+<td><i class="fa fa-binoculars"></i>&emsp;@binoculars</td>
+<td><i class="fa fa-birthday-cake"></i>&emsp;@birthday-cake</td>
+</tr>
+<tr>
+<td><i class="fa fa-blind"></i>&emsp;@blind</td>
+<td><i class="fa fa-bolt"></i>&emsp;@bolt</td>
+<td><i class="fa fa-bomb"></i>&emsp;@bomb</td>
+</tr>
+<tr>
+<td><i class="fa fa-book"></i>&emsp;@book</td>
+<td><i class="fa fa-bookmark"></i>&emsp;@bookmark</td>
+<td><i class="fa fa-bookmark-o"></i>&emsp;@bookmark-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-braille"></i>&emsp;@braille</td>
+<td><i class="fa fa-briefcase"></i>&emsp;@briefcase</td>
+<td><i class="fa fa-bug"></i>&emsp;@bug</td>
+</tr>
+<tr>
+<td><i class="fa fa-building"></i>&emsp;@building</td>
+<td><i class="fa fa-building-o"></i>&emsp;@building-o</td>
+<td><i class="fa fa-bullhorn"></i>&emsp;@bullhorn</td>
+</tr>
+<tr>
+<td><i class="fa fa-bullseye"></i>&emsp;@bullseye</td>
+<td><i class="fa fa-bus"></i>&emsp;@bus</td>
+<td><i class="fa fa-cab"></i>&emsp;@cab</td>
+</tr>
+<tr>
+<td><i class="fa fa-calculator"></i>&emsp;@calculator</td>
+<td><i class="fa fa-calendar"></i>&emsp;@calendar</td>
+<td><i class="fa fa-calendar-o"></i>&emsp;@calendar-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-calendar-check-o"></i>&emsp;@calendar-check-o</td>
+<td><i class="fa fa-calendar-minus-o"></i>&emsp;@calendar-minus-o</td>
+<td><i class="fa fa-calendar-plus-o"></i>&emsp;@calendar-plus-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-calendar-times-o"></i>&emsp;@calendar-times-o</td>
+<td><i class="fa fa-camera"></i>&emsp;@camera</td>
+<td><i class="fa fa-camera-retro"></i>&emsp;@camera-retro</td>
+</tr>
+<tr>
+<td><i class="fa fa-car"></i>&emsp;@car</td>
+<td><i class="fa fa-caret-square-o-down"></i>&emsp;@caret-square-o-down</td>
+<td><i class="fa fa-caret-square-o-left"></i>&emsp;@caret-square-o-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-caret-square-o-right"></i>&emsp;@caret-square-o-right</td>
+<td><i class="fa fa-caret-square-o-up"></i>&emsp;@caret-square-o-up</td>
+<td><i class="fa fa-cart-arrow-down"></i>&emsp;@cart-arrow-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-cart-plus"></i>&emsp;@cart-plus</td>
+<td><i class="fa fa-cc"></i>&emsp;@cc</td>
+<td><i class="fa fa-certificate"></i>&emsp;@certificate</td>
+</tr>
+<tr>
+<td><i class="fa fa-check"></i>&emsp;@check</td>
+<td><i class="fa fa-check-circle"></i>&emsp;@check-circle</td>
+<td><i class="fa fa-check-circle-o"></i>&emsp;@check-circle-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-check-square"></i>&emsp;@check-square</td>
+<td><i class="fa fa-check-square-o"></i>&emsp;@check-square-o</td>
+<td><i class="fa fa-child"></i>&emsp;@child</td>
+</tr>
+<tr>
+<td><i class="fa fa-circle"></i>&emsp;@circle</td>
+<td><i class="fa fa-circle-o"></i>&emsp;@circle-o</td>
+<td><i class="fa fa-circle-o-notch"></i>&emsp;@circle-o-notch</td>
+</tr>
+<tr>
+<td><i class="fa fa-circle-thin"></i>&emsp;@circle-thin</td>
+<td><i class="fa fa-clock-o"></i>&emsp;@clock-o</td>
+<td><i class="fa fa-clone"></i>&emsp;@clone</td>
+</tr>
+<tr>
+<td><i class="fa fa-close"></i>&emsp;@close</td>
+<td><i class="fa fa-cloud"></i>&emsp;@cloud</td>
+<td><i class="fa fa-cloud-download"></i>&emsp;@cloud-download</td>
+</tr>
+<tr>
+<td><i class="fa fa-cloud-upload"></i>&emsp;@cloud-upload</td>
+<td><i class="fa fa-code"></i>&emsp;@code</td>
+<td><i class="fa fa-code-fork"></i>&emsp;@code-fork</td>
+</tr>
+<tr>
+<td><i class="fa fa-coffee"></i>&emsp;@coffee</td>
+<td><i class="fa fa-cog"></i>&emsp;@cog</td>
+<td><i class="fa fa-cogs"></i>&emsp;@cogs</td>
+</tr>
+<tr>
+<td><i class="fa fa-comment"></i>&emsp;@comment</td>
+<td><i class="fa fa-comment-o"></i>&emsp;@comment-o</td>
+<td><i class="fa fa-comments"></i>&emsp;@comments</td>
+</tr>
+<tr>
+<td><i class="fa fa-comments-o"></i>&emsp;@comments-o</td>
+<td><i class="fa fa-commenting"></i>&emsp;@commenting</td>
+<td><i class="fa fa-commenting-o"></i>&emsp;@commenting-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-compass"></i>&emsp;@compass</td>
+<td><i class="fa fa-copyright"></i>&emsp;@copyright</td>
+<td><i class="fa fa-credit-card"></i>&emsp;@credit-card</td>
+</tr>
+<tr>
+<td><i class="fa fa-credit-card-alt"></i>&emsp;@credit-card-alt</td>
+<td><i class="fa fa-creative-commons"></i>&emsp;@creative-commons</td>
+<td><i class="fa fa-crop"></i>&emsp;@crop</td>
+</tr>
+<tr>
+<td><i class="fa fa-crosshairs"></i>&emsp;@crosshairs</td>
+<td><i class="fa fa-cube"></i>&emsp;@cube</td>
+<td><i class="fa fa-cubes"></i>&emsp;@cubes</td>
+</tr>
+<tr>
+<td><i class="fa fa-cutlery"></i>&emsp;@cutlery</td>
+<td><i class="fa fa-dashboard"></i>&emsp;@dashboard</td>
+<td><i class="fa fa-database"></i>&emsp;@database</td>
+</tr>
+<tr>
+<td><i class="fa fa-deaf"></i>&emsp;@deaf</td>
+<td><i class="fa fa-deafness"></i>&emsp;@deafness</td>
+<td><i class="fa fa-desktop"></i>&emsp;@desktop</td>
+</tr>
+<tr>
+<td><i class="fa fa-diamond"></i>&emsp;@diamond</td>
+<td><i class="fa fa-dot-circle-o"></i>&emsp;@dot-circle-o</td>
+<td><i class="fa fa-download"></i>&emsp;@download</td>
+</tr>
+<tr>
+<td><i class="fa fa-drivers-license"></i>&emsp;@drivers-license</td>
+<td><i class="fa fa-drivers-license-o"></i>&emsp;@drivers-license-o</td>
+<td><i class="fa fa-edit"></i>&emsp;@edit</td>
+</tr>
+<tr>
+<td><i class="fa fa-ellipsis-h"></i>&emsp;@ellipsis-h</td>
+<td><i class="fa fa-ellipsis-v"></i>&emsp;@ellipsis-v</td>
+<td><i class="fa fa-envelope"></i>&emsp;@envelope</td>
+</tr>
+<tr>
+<td><i class="fa fa-envelope-o"></i>&emsp;@envelope-o</td>
+<td><i class="fa fa-envelope-open"></i>&emsp;@envelope-open</td>
+<td><i class="fa fa-envelope-open-o"></i>&emsp;@envelope-open-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-envelope-square"></i>&emsp;@envelope-square</td>
+<td><i class="fa fa-eraser"></i>&emsp;@eraser</td>
+<td><i class="fa fa-exchange"></i>&emsp;@exchange</td>
+</tr>
+<tr>
+<td><i class="fa fa-exclamation"></i>&emsp;@exclamation</td>
+<td><i class="fa fa-exclamation-circle"></i>&emsp;@exclamation-circle</td>
+<td><i class="fa fa-exclamation-triangle"></i>&emsp;@exclamation-triangle</td>
+</tr>
+<tr>
+<td><i class="fa fa-external-link"></i>&emsp;@external-link</td>
+<td><i class="fa fa-external-link-square"></i>&emsp;@external-link-square</td>
+<td><i class="fa fa-eye"></i>&emsp;@eye</td>
+</tr>
+<tr>
+<td><i class="fa fa-eye-slash"></i>&emsp;@eye-slash</td>
+<td><i class="fa fa-eyedropper"></i>&emsp;@eyedropper</td>
+<td><i class="fa fa-fax"></i>&emsp;@fax</td>
+</tr>
+<tr>
+<td><i class="fa fa-female"></i>&emsp;@female</td>
+<td><i class="fa fa-fighter-jet"></i>&emsp;@fighter-jet</td>
+<td><i class="fa fa-file-archive-o"></i>&emsp;@file-archive-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-audio-o"></i>&emsp;@file-audio-o</td>
+<td><i class="fa fa-file-code-o"></i>&emsp;@file-code-o</td>
+<td><i class="fa fa-file-excel-o"></i>&emsp;@file-excel-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-image-o"></i>&emsp;@file-image-o</td>
+<td><i class="fa fa-file-movie-o"></i>&emsp;@file-movie-o</td>
+<td><i class="fa fa-file-pdf-o"></i>&emsp;@file-pdf-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-photo-o"></i>&emsp;@file-photo-o</td>
+<td><i class="fa fa-file-picture-o"></i>&emsp;@file-picture-o</td>
+<td><i class="fa fa-file-powerpoint-o"></i>&emsp;@file-powerpoint-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-sound-o"></i>&emsp;@file-sound-o</td>
+<td><i class="fa fa-file-video-o"></i>&emsp;@file-video-o</td>
+<td><i class="fa fa-file-word-o"></i>&emsp;@file-word-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-zip-o"></i>&emsp;@file-zip-o</td>
+<td><i class="fa fa-film"></i>&emsp;@film</td>
+<td><i class="fa fa-filter"></i>&emsp;@filter</td>
+</tr>
+<tr>
+<td><i class="fa fa-fire"></i>&emsp;@fire</td>
+<td><i class="fa fa-fire-extinguisher"></i>&emsp;@fire-extinguisher</td>
+<td><i class="fa fa-flag"></i>&emsp;@flag</td>
+</tr>
+<tr>
+<td><i class="fa fa-flag-checkered"></i>&emsp;@flag-checkered</td>
+<td><i class="fa fa-flag-o"></i>&emsp;@flag-o</td>
+<td><i class="fa fa-flash"></i>&emsp;@flash</td>
+</tr>
+<tr>
+<td><i class="fa fa-flask"></i>&emsp;@flask</td>
+<td><i class="fa fa-folder"></i>&emsp;@folder</td>
+<td><i class="fa fa-folder-o"></i>&emsp;@folder-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-folder-open"></i>&emsp;@folder-open</td>
+<td><i class="fa fa-folder-open-o"></i>&emsp;@folder-open-o</td>
+<td><i class="fa fa-frown-o"></i>&emsp;@frown-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-futbol-o"></i>&emsp;@futbol-o</td>
+<td><i class="fa fa-gamepad"></i>&emsp;@gamepad</td>
+<td><i class="fa fa-gavel"></i>&emsp;@gavel</td>
+</tr>
+<tr>
+<td><i class="fa fa-gear"></i>&emsp;@gear</td>
+<td><i class="fa fa-gears"></i>&emsp;@gears</td>
+<td><i class="fa fa-genderless"></i>&emsp;@genderless</td>
+</tr>
+<tr>
+<td><i class="fa fa-gift"></i>&emsp;@gift</td>
+<td><i class="fa fa-glass"></i>&emsp;@glass</td>
+<td><i class="fa fa-globe"></i>&emsp;@globe</td>
+</tr>
+<tr>
+<td><i class="fa fa-graduation-cap"></i>&emsp;@graduation-cap</td>
+<td><i class="fa fa-group"></i>&emsp;@group</td>
+<td><i class="fa fa-hard-of-hearing"></i>&emsp;@hard-of-hearing</td>
+</tr>
+<tr>
+<td><i class="fa fa-hdd-o"></i>&emsp;@hdd-o</td>
+<td><i class="fa fa-handshake-o"></i>&emsp;@handshake-o</td>
+<td><i class="fa fa-hashtag"></i>&emsp;@hashtag</td>
+</tr>
+<tr>
+<td><i class="fa fa-headphones"></i>&emsp;@headphones</td>
+<td><i class="fa fa-heart"></i>&emsp;@heart</td>
+<td><i class="fa fa-heart-o"></i>&emsp;@heart-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-heartbeat"></i>&emsp;@heartbeat</td>
+<td><i class="fa fa-history"></i>&emsp;@history</td>
+<td><i class="fa fa-home"></i>&emsp;@home</td>
+</tr>
+<tr>
+<td><i class="fa fa-hotel"></i>&emsp;@hotel</td>
+<td><i class="fa fa-hourglass"></i>&emsp;@hourglass</td>
+<td><i class="fa fa-hourglass-1"></i>&emsp;@hourglass-1</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass-2"></i>&emsp;@hourglass-2</td>
+<td><i class="fa fa-hourglass-3"></i>&emsp;@hourglass-3</td>
+<td><i class="fa fa-hourglass-end"></i>&emsp;@hourglass-end</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass-half"></i>&emsp;@hourglass-half</td>
+<td><i class="fa fa-hourglass-o"></i>&emsp;@hourglass-o</td>
+<td><i class="fa fa-hourglass-start"></i>&emsp;@hourglass-start</td>
+</tr>
+<tr>
+<td><i class="fa fa-i-cursor"></i>&emsp;@i-cursor</td>
+<td><i class="fa fa-id-badge"></i>&emsp;@id-badge</td>
+<td><i class="fa fa-id-card"></i>&emsp;@id-card</td>
+</tr>
+<tr>
+<td><i class="fa fa-id-card-o"></i>&emsp;@id-card-o</td>
+<td><i class="fa fa-image"></i>&emsp;@image</td>
+<td><i class="fa fa-inbox"></i>&emsp;@inbox</td>
+</tr>
+<tr>
+<td><i class="fa fa-industry"></i>&emsp;@industry</td>
+<td><i class="fa fa-info"></i>&emsp;@info</td>
+<td><i class="fa fa-info-circle"></i>&emsp;@info-circle</td>
+</tr>
+<tr>
+<td><i class="fa fa-institution"></i>&emsp;@institution</td>
+<td><i class="fa fa-key"></i>&emsp;@key</td>
+<td><i class="fa fa-keyboard-o"></i>&emsp;@keyboard-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-language"></i>&emsp;@language</td>
+<td><i class="fa fa-laptop"></i>&emsp;@laptop</td>
+<td><i class="fa fa-leaf"></i>&emsp;@leaf</td>
+</tr>
+<tr>
+<td><i class="fa fa-legal"></i>&emsp;@legal</td>
+<td><i class="fa fa-lemon-o"></i>&emsp;@lemon-o</td>
+<td><i class="fa fa-level-down"></i>&emsp;@level-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-level-up"></i>&emsp;@level-up</td>
+<td><i class="fa fa-life-bouy"></i>&emsp;@life-bouy</td>
+<td><i class="fa fa-life-buoy"></i>&emsp;@life-buoy</td>
+</tr>
+<tr>
+<td><i class="fa fa-life-ring"></i>&emsp;@life-ring</td>
+<td><i class="fa fa-life-saver"></i>&emsp;@life-saver</td>
+<td><i class="fa fa-lightbulb-o"></i>&emsp;@lightbulb-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-line-chart"></i>&emsp;@line-chart</td>
+<td><i class="fa fa-location-arrow"></i>&emsp;@location-arrow</td>
+<td><i class="fa fa-lock"></i>&emsp;@lock</td>
+</tr>
+<tr>
+<td><i class="fa fa-low-vision"></i>&emsp;@low-vision</td>
+<td><i class="fa fa-magic"></i>&emsp;@magic</td>
+<td><i class="fa fa-magnet"></i>&emsp;@magnet</td>
+</tr>
+<tr>
+<td><i class="fa fa-mail-forward"></i>&emsp;@mail-forward</td>
+<td><i class="fa fa-mail-reply"></i>&emsp;@mail-reply</td>
+<td><i class="fa fa-mail-reply-all"></i>&emsp;@mail-reply-all</td>
+</tr>
+<tr>
+<td><i class="fa fa-male"></i>&emsp;@male</td>
+<td><i class="fa fa-map"></i>&emsp;@map</td>
+<td><i class="fa fa-map-o"></i>&emsp;@map-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-map-pin"></i>&emsp;@map-pin</td>
+<td><i class="fa fa-map-signs"></i>&emsp;@map-signs</td>
+<td><i class="fa fa-map-marker"></i>&emsp;@map-marker</td>
+</tr>
+<tr>
+<td><i class="fa fa-meh-o"></i>&emsp;@meh-o</td>
+<td><i class="fa fa-microchip"></i>&emsp;@microchip</td>
+<td><i class="fa fa-microphone"></i>&emsp;@microphone</td>
+</tr>
+<tr>
+<td><i class="fa fa-microphone-slash"></i>&emsp;@microphone-slash</td>
 <td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-minus"></i>&emsp;@minus</td>
+</tr>
+<tr>
+<td><i class="fa fa-minus-circle"></i>&emsp;@minus-circle</td>
+<td><i class="fa fa-minus-square"></i>&emsp;@minus-square</td>
+<td><i class="fa fa-minus-square-o"></i>&emsp;@minus-square-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-mobile"></i>&emsp;@mobile</td>
+<td><i class="fa fa-mobile-phone"></i>&emsp;@mobile-phone</td>
+<td><i class="fa fa-money"></i>&emsp;@money</td>
+</tr>
+<tr>
+<td><i class="fa fa-moon-o"></i>&emsp;@moon-o</td>
+<td><i class="fa fa-mortar-board"></i>&emsp;@mortar-board</td>
+<td><i class="fa fa-motorcycle"></i>&emsp;@motorcycle</td>
+</tr>
+<tr>
+<td><i class="fa fa-mouse-pointer"></i>&emsp;@mouse-pointer</td>
+<td><i class="fa fa-music"></i>&emsp;@music</td>
+<td><i class="fa fa-navicon"></i>&emsp;@navicon</td>
+</tr>
+<tr>
+<td><i class="fa fa-newspaper-o"></i>&emsp;@newspaper-o</td>
+<td><i class="fa fa-object-group"></i>&emsp;@object-group</td>
+<td><i class="fa fa-object-ungroup"></i>&emsp;@object-ungroup</td>
+</tr>
+<tr>
+<td><i class="fa fa-paint-brush"></i>&emsp;@paint-brush</td>
+<td><i class="fa fa-paper-plane"></i>&emsp;@paper-plane</td>
+<td><i class="fa fa-paper-plane-o"></i>&emsp;@paper-plane-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-paw"></i>&emsp;@paw</td>
+<td><i class="fa fa-pencil"></i>&emsp;@pencil</td>
+<td><i class="fa fa-pencil-square"></i>&emsp;@pencil-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-pencil-square-o"></i>&emsp;@pencil-square-o</td>
+<td><i class="fa fa-percent"></i>&emsp;@percent</td>
+<td><i class="fa fa-phone"></i>&emsp;@phone</td>
+</tr>
+<tr>
+<td><i class="fa fa-phone-square"></i>&emsp;@phone-square</td>
+<td><i class="fa fa-photo"></i>&emsp;@photo</td>
+<td><i class="fa fa-picture-o"></i>&emsp;@picture-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-pie-chart"></i>&emsp;@pie-chart</td>
+<td><i class="fa fa-plane"></i>&emsp;@plane</td>
+<td><i class="fa fa-plug"></i>&emsp;@plug</td>
+</tr>
+<tr>
+<td><i class="fa fa-plus"></i>&emsp;@plus</td>
+<td><i class="fa fa-plus-circle"></i>&emsp;@plus-circle</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-plus-square-o"></i>&emsp;@plus-square-o</td>
+<td><i class="fa fa-podcast"></i>&emsp;@podcast</td>
+<td><i class="fa fa-power-off"></i>&emsp;@power-off</td>
+</tr>
+<tr>
+<td><i class="fa fa-print"></i>&emsp;@print</td>
+<td><i class="fa fa-puzzle-piece"></i>&emsp;@puzzle-piece</td>
+<td><i class="fa fa-qrcode"></i>&emsp;@qrcode</td>
+</tr>
+<tr>
+<td><i class="fa fa-question"></i>&emsp;@question</td>
+<td><i class="fa fa-question-circle"></i>&emsp;@question-circle</td>
+<td><i class="fa fa-question-circle-o"></i>&emsp;@question-circle-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-quote-left"></i>&emsp;@quote-left</td>
+<td><i class="fa fa-quote-right"></i>&emsp;@quote-right</td>
+<td><i class="fa fa-random"></i>&emsp;@random</td>
+</tr>
+<tr>
+<td><i class="fa fa-recycle"></i>&emsp;@recycle</td>
+<td><i class="fa fa-refresh"></i>&emsp;@refresh</td>
+<td><i class="fa fa-registered"></i>&emsp;@registered</td>
+</tr>
+<tr>
+<td><i class="fa fa-remove"></i>&emsp;@remove</td>
+<td><i class="fa fa-reorder"></i>&emsp;@reorder</td>
+<td><i class="fa fa-reply"></i>&emsp;@reply</td>
+</tr>
+<tr>
+<td><i class="fa fa-reply-all"></i>&emsp;@reply-all</td>
+<td><i class="fa fa-retweet"></i>&emsp;@retweet</td>
+<td><i class="fa fa-road"></i>&emsp;@road</td>
+</tr>
+<tr>
+<td><i class="fa fa-rocket"></i>&emsp;@rocket</td>
+<td><i class="fa fa-rss"></i>&emsp;@rss</td>
+<td><i class="fa fa-rss-square"></i>&emsp;@rss-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-s15"></i>&emsp;@s15</td>
+<td><i class="fa fa-search"></i>&emsp;@search</td>
+<td><i class="fa fa-search-minus"></i>&emsp;@search-minus</td>
+</tr>
+<tr>
+<td><i class="fa fa-search-plus"></i>&emsp;@search-plus</td>
+<td><i class="fa fa-send"></i>&emsp;@send</td>
+<td><i class="fa fa-send-o"></i>&emsp;@send-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-server"></i>&emsp;@server</td>
+<td><i class="fa fa-share-alt"></i>&emsp;@share-alt</td>
+<td><i class="fa fa-share-alt-square"></i>&emsp;@share-alt-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-share-square"></i>&emsp;@share-square</td>
+<td><i class="fa fa-share"></i>&emsp;@share</td>
+<td><i class="fa fa-share-square-o"></i>&emsp;@share-square-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-shield"></i>&emsp;@shield</td>
+<td><i class="fa fa-ship"></i>&emsp;@ship</td>
+<td><i class="fa fa-shopping-bag"></i>&emsp;@shopping-bag</td>
+</tr>
+<tr>
+<td><i class="fa fa-shopping-basket"></i>&emsp;@shopping-basket</td>
+<td><i class="fa fa-shopping-cart"></i>&emsp;@shopping-cart</td>
+<td><i class="fa fa-shower"></i>&emsp;@shower</td>
+</tr>
+<tr>
+<td><i class="fa fa-sign-in"></i>&emsp;@sign-in</td>
+<td><i class="fa fa-sign-out"></i>&emsp;@sign-out</td>
+<td><i class="fa fa-sign-language"></i>&emsp;@sign-language</td>
+</tr>
+<tr>
+<td><i class="fa fa-signal"></i>&emsp;@signal</td>
+<td><i class="fa fa-signing"></i>&emsp;@signing</td>
+<td><i class="fa fa-sitemap"></i>&emsp;@sitemap</td>
+</tr>
+<tr>
+<td><i class="fa fa-sliders"></i>&emsp;@sliders</td>
+<td><i class="fa fa-smile-o"></i>&emsp;@smile-o</td>
+<td><i class="fa fa-snowflake-o"></i>&emsp;@snowflake-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-soccer-ball-o"></i>&emsp;@soccer-ball-o</td>
+<td><i class="fa fa-sort"></i>&emsp;@sort</td>
+<td><i class="fa fa-sort-alpha-asc"></i>&emsp;@sort-alpha-asc</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-alpha-desc"></i>&emsp;@sort-alpha-desc</td>
+<td><i class="fa fa-sort-amount-asc"></i>&emsp;@sort-amount-asc</td>
+<td><i class="fa fa-sort-amount-desc"></i>&emsp;@sort-amount-desc</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-asc"></i>&emsp;@sort-asc</td>
+<td><i class="fa fa-sort-desc"></i>&emsp;@sort-desc</td>
+<td><i class="fa fa-sort-down"></i>&emsp;@sort-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-numeric-asc"></i>&emsp;@sort-numeric-asc</td>
+<td><i class="fa fa-sort-numeric-desc"></i>&emsp;@sort-numeric-desc</td>
+<td><i class="fa fa-sort-up"></i>&emsp;@sort-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-space-shuttle"></i>&emsp;@space-shuttle</td>
+<td><i class="fa fa-spinner"></i>&emsp;@spinner</td>
+<td><i class="fa fa-spoon"></i>&emsp;@spoon</td>
+</tr>
+<tr>
+<td><i class="fa fa-square"></i>&emsp;@square</td>
+<td><i class="fa fa-square-o"></i>&emsp;@square-o</td>
+<td><i class="fa fa-star"></i>&emsp;@star</td>
+</tr>
+<tr>
+<td><i class="fa fa-star-half"></i>&emsp;@star-half</td>
+<td><i class="fa fa-star-half-empty"></i>&emsp;@star-half-empty</td>
+<td><i class="fa fa-star-half-full"></i>&emsp;@star-half-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-star-half-o"></i>&emsp;@star-half-o</td>
+<td><i class="fa fa-star-o"></i>&emsp;@star-o</td>
+<td><i class="fa fa-sticky-note"></i>&emsp;@sticky-note</td>
+</tr>
+<tr>
+<td><i class="fa fa-sticky-note-o"></i>&emsp;@sticky-note-o</td>
+<td><i class="fa fa-street-view"></i>&emsp;@street-view</td>
+<td><i class="fa fa-suitcase"></i>&emsp;@suitcase</td>
+</tr>
+<tr>
+<td><i class="fa fa-sun-o"></i>&emsp;@sun-o</td>
+<td><i class="fa fa-support"></i>&emsp;@support</td>
+<td><i class="fa fa-tablet"></i>&emsp;@tablet</td>
+</tr>
+<tr>
+<td><i class="fa fa-tachometer"></i>&emsp;@tachometer</td>
+<td><i class="fa fa-tag"></i>&emsp;@tag</td>
+<td><i class="fa fa-tags"></i>&emsp;@tags</td>
+</tr>
+<tr>
+<td><i class="fa fa-tasks"></i>&emsp;@tasks</td>
+<td><i class="fa fa-taxi"></i>&emsp;@taxi</td>
+<td><i class="fa fa-television"></i>&emsp;@television</td>
+</tr>
+<tr>
+<td><i class="fa fa-terminal"></i>&emsp;@terminal</td>
+<td><i class="fa fa-thermometer"></i>&emsp;@thermometer</td>
+<td><i class="fa fa-thermometer-0"></i>&emsp;@thermometer-0</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-1"></i>&emsp;@thermometer-1</td>
+<td><i class="fa fa-thermometer-2"></i>&emsp;@thermometer-2</td>
+<td><i class="fa fa-thermometer-3"></i>&emsp;@thermometer-3</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-4"></i>&emsp;@thermometer-4</td>
+<td><i class="fa fa-thermometer-empty"></i>&emsp;@thermometer-empty</td>
+<td><i class="fa fa-thermometer-full"></i>&emsp;@thermometer-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-half"></i>&emsp;@thermometer-half</td>
+<td><i class="fa fa-thermometer-quarter"></i>&emsp;@thermometer-quarter</td>
+<td><i class="fa fa-thermometer-three-quarters"></i>&emsp;@thermometer-three-quarters</td>
+</tr>
+<tr>
+<td><i class="fa fa-thumb-tack"></i>&emsp;@thumb-tack</td>
+<td><i class="fa fa-thumbs-down"></i>&emsp;@thumbs-down</td>
+<td><i class="fa fa-thumbs-o-up"></i>&emsp;@thumbs-o-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-thumbs-up"></i>&emsp;@thumbs-up</td>
+<td><i class="fa fa-ticket"></i>&emsp;@ticket</td>
+<td><i class="fa fa-times"></i>&emsp;@times</td>
+</tr>
+<tr>
+<td><i class="fa fa-times-circle"></i>&emsp;@times-circle</td>
+<td><i class="fa fa-times-circle-o"></i>&emsp;@times-circle-o</td>
+<td><i class="fa fa-times-rectangle"></i>&emsp;@times-rectangle</td>
+</tr>
+<tr>
+<td><i class="fa fa-times-rectangle-o"></i>&emsp;@times-rectangle-o</td>
+<td><i class="fa fa-tint"></i>&emsp;@tint</td>
+<td><i class="fa fa-toggle-down"></i>&emsp;@toggle-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-toggle-left"></i>&emsp;@toggle-left</td>
+<td><i class="fa fa-toggle-right"></i>&emsp;@toggle-right</td>
+<td><i class="fa fa-toggle-up"></i>&emsp;@toggle-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-toggle-off"></i>&emsp;@toggle-off</td>
+<td><i class="fa fa-toggle-on"></i>&emsp;@toggle-on</td>
+<td><i class="fa fa-trademark"></i>&emsp;@trademark</td>
+</tr>
+<tr>
+<td><i class="fa fa-trash"></i>&emsp;@trash</td>
+<td><i class="fa fa-trash-o"></i>&emsp;@trash-o</td>
+<td><i class="fa fa-tree"></i>&emsp;@tree</td>
+</tr>
+<tr>
+<td><i class="fa fa-trophy"></i>&emsp;@trophy</td>
+<td><i class="fa fa-truck"></i>&emsp;@truck</td>
+<td><i class="fa fa-tty"></i>&emsp;@tty</td>
+</tr>
+<tr>
+<td><i class="fa fa-tv"></i>&emsp;@tv</td>
+<td><i class="fa fa-umbrella"></i>&emsp;@umbrella</td>
+<td><i class="fa fa-universal-access"></i>&emsp;@universal-access</td>
+</tr>
+<tr>
+<td><i class="fa fa-university"></i>&emsp;@university</td>
+<td><i class="fa fa-unlock"></i>&emsp;@unlock</td>
+<td><i class="fa fa-unlock-alt"></i>&emsp;@unlock-alt</td>
+</tr>
+<tr>
+<td><i class="fa fa-unsorted"></i>&emsp;@unsorted</td>
+<td><i class="fa fa-upload"></i>&emsp;@upload</td>
+<td><i class="fa fa-user"></i>&emsp;@user</td>
+</tr>
+<tr>
+<td><i class="fa fa-user-circle"></i>&emsp;@user-circle</td>
+<td><i class="fa fa-user-circle-o"></i>&emsp;@user-circle-o</td>
+<td><i class="fa fa-user-o"></i>&emsp;@user-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-user-plus"></i>&emsp;@user-plus</td>
+<td><i class="fa fa-user-secret"></i>&emsp;@user-secret</td>
+<td><i class="fa fa-user-times"></i>&emsp;@user-times</td>
+</tr>
+<tr>
+<td><i class="fa fa-users"></i>&emsp;@users</td>
+<td><i class="fa fa-vcard"></i>&emsp;@vcard</td>
+<td><i class="fa fa-vcard-o"></i>&emsp;@vcard-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-video-camera"></i>&emsp;@video-camera</td>
+<td><i class="fa fa-volume-control-phone"></i>&emsp;@volume-control-phone</td>
+<td><i class="fa fa-volume-down"></i>&emsp;@volume-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-volume-off"></i>&emsp;@volume-off</td>
+<td><i class="fa fa-volume-up"></i>&emsp;@volume-up</td>
+<td><i class="fa fa-warning"></i>&emsp;@warning</td>
+</tr>
+<tr>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td><i class="fa fa-wheelchair-alt"></i>&emsp;@wheelchair-alt</td>
+<td><i class="fa fa-window-close"></i>&emsp;@window-close</td>
+</tr>
+<tr>
+<td><i class="fa fa-window-close-o"></i>&emsp;@window-close-o</td>
+<td><i class="fa fa-window-maximize"></i>&emsp;@window-maximize</td>
+<td><i class="fa fa-window-maximize"></i>&emsp;@window-maximize</td>
+</tr>
+<tr>
+<td><i class="fa fa-window-restore"></i>&emsp;@window-restore</td>
+<td><i class="fa fa-wifi"></i>&emsp;@wifi</td>
+<td><i class="fa fa-wrench"></i>&emsp;@wrench</td>
 </tr>
 </tbody></table>
 </details>
@@ -1572,6 +2092,9 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -1623,7 +2146,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1645,7 +2168,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1920,6 +2443,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'cdMEdKodr4MeOFAdJYiz6A5U-MdYXbMMI',
+        appKey: 'BEaUouFM8BY0KfF489fUO5D7',
+        placeholder: '欢迎畅所欲言，留下你的足迹！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

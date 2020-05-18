@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Otto的个人空间">
 <meta property="og:description" content="背景   用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。  说明&amp;emsp;&amp;emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！ 一、">
 <meta property="article:published_time" content="2020-05-11T03:39:59.000Z">
-<meta property="article:modified_time" content="2020-05-11T11:06:13.568Z">
+<meta property="article:modified_time" content="2020-05-16T03:38:18.479Z">
 <meta property="article:author" content="Otto">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -135,10 +135,10 @@
 
 
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<meta name="generator" content="Hexo 4.2.0"><script src="/assets/js/DPlayer.min.js"></script><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 <script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
-<script src="/assets/js/DPlayer.min.js"></script></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -382,6 +382,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/hexo_01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/hexo_01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -425,7 +435,7 @@
 </blockquote>
 <p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
 <h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
-<li>一种通用式音视频插入方式，使用音乐平台各自的外链代码！</li>
+<li>一种外链式音视频插入方式，使用音乐平台各自的外链代码（一般为iframe和embed标签）！</li>
 <li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
 <li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
 </ol>
@@ -434,9 +444,10 @@
 <p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
  src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
+说明：如果你的浏览器没有安装Falsh或者不支持Falsh的话，点击后是没有视频效果的！
+<embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
+ width="340" height="86"  allowNetworking="all"></embed>
 
-<p><embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
- width="340" height="86"  allowNetworking="all"></embed></p>
 <p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
 <h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
@@ -446,7 +457,7 @@
 <li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
 </ul>
 
-    <div id="aplayer-JLtXJSUW" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-KhKglDlP" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <ul>
@@ -464,7 +475,7 @@
 <li>效果：</li>
 </ul>
 
-    <div id="aplayer-KFUJpdsR" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ujBgbVeg" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <ul>
@@ -474,40 +485,21 @@
 <p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
 </blockquote>
 <h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
-<li>代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/若能绽放光芒.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/若能绽放光芒.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
-<li>效果：<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-
+<li>代码：（此代码已经失效，建议您保存任意视频至本地，然后使用本地链接地址）<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/极乐净土.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/极乐净土.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果：<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4","pic":"https://fp1.fghrsh.net/2016/08/01/d2540b5902a88a64c513f0027253985a.jpg"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">mode</span>=<span class="string">"transparent"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="三、音视频普通插入"><a href="#三、音视频普通插入" class="headerlink" title="三、音视频普通插入"></a>三、音视频普通插入</h3><p>video标签举例： </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>script标签举例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>效果</li>
+<li>video效果</li>
 </ul>
 <video width="480" height="320" controls>
-<source src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66">
+<source src="//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4">
 </video>
-
-<ul>
-<li>补充</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">暂无</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>javascript 标签举例</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><vedio>标签举例</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>markdown代码禁用解析<br>其自带的MarkDown解析器会将代码直接解析为文本. 解决方案是在代码前加入 , 代码结尾处加入 标签以禁用MarkDown解析.</p>
-
       
     </div>
     
@@ -579,8 +571,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/yml_1/" rel="prev" title="yml_1">
-                yml_1 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/05/yml_1/" rel="prev" title="YAML介绍">
+                YAML介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,6 +602,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -662,7 +657,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -751,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、音视频外链式插入"><span class="nav-text">一、音视频外链式插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、音视频插件式插入"><span class="nav-text">二、音视频插件式插入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-音频插件使用"><span class="nav-text">2.音频插件使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-视频插件使用"><span class="nav-text">3.视频插件使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、音视频外链式插入"><span class="nav-text">一、音视频外链式插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、音视频插件式插入"><span class="nav-text">二、音视频插件式插入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-音频插件使用"><span class="nav-text">2.音频插件使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-视频插件使用"><span class="nav-text">3.视频插件使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、音视频普通插入"><span class="nav-text">三、音视频普通插入</span></a></li></ol></div>
             
 
           </div>
@@ -959,6 +954,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'cdMEdKodr4MeOFAdJYiz6A5U-MdYXbMMI',
+        appKey: 'BEaUouFM8BY0KfF489fUO5D7',
+        placeholder: '欢迎畅所欲言，留下你的足迹！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

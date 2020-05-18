@@ -143,17 +143,13 @@ table th:nth-of-type(3){width: 60%;}
       </categories>
   </entry>
   <entry>
-    <title>eg_01</title>
+    <title>白鹭开篇（一）</title>
     <url>/2020/05/eg_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>白鹭开始。。。。。。。。。</p>
 ]]></content>
+      <tags>
+        <tag>Egret</tag>
+      </tags>
   </entry>
   <entry>
     <title>几何凸包算法</title>
@@ -296,7 +292,7 @@ table th:nth-of-type(3){width: 60%;}
       5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
       例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
 -->  
-<p>&emsp;&emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的，正如前篇说到的，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。<br>&emsp;&emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（<a href="https://wnotto.github.io/tags/Markdown/" target="_blank" rel="noopener"><font color=blue>了解Hexo</font></a>），没有用过的话也不影响，来吧，开搞！。</p>
+<p>&emsp;&emsp;本篇主要讲述在Hexo中Font Awesome 4是如何去使用的以及图标归总，正如前篇说到的，Hexo中会经常用到此图标，一些插件的中也基于这一套图标使用，我的博客就是使用Hexo来生成的，自己也是在学以致用的状态中。。。。。。<br>&emsp;&emsp;相信对此篇感兴趣的小伙伴，已经有使用过Hexo啦（<a href="https://wnotto.github.io/tags/Markdown/" target="_blank" rel="noopener"><font color=blue>了解Hexo</font></a>），没有用过的话也不影响，来吧，开搞！。</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.使用Hexo创建项目并完成主题配置（我配置的是next主题，便以其为例，其他主题参照即可！）<br>2.简单了解Hexo、next、MarkDown、HTML、YAML（相信这对于你不是问题，可忽略）</p>
 <h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><p>&emsp;&emsp;Hexo中使用的便是Font Awesome，Hexo在创建项目过程中就包含有经典的Font Awesome 4最新文件了。也就是说，我们只用关心如何使用它即可。<br>&emsp;&emsp;相信看过前一篇的小伙伴已经会在Html中使用Font Awesome了。然而，我们的Hexo中是可以不去直接使用html的，而是在其YAML配置文件和MarkDown标记文件中使用！</p>
 <ol>
@@ -361,163 +357,78 @@ table th:nth-of-type(3){width: 60%;}
 <h4 id="表单图标"><a href="#表单图标" class="headerlink" title="表单图标"></a>表单图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-check-square"></i>&emsp;@check-square</th>
+<th><i class="fa fa-check-square-o"></i>&emsp;@check-square-o</th>
+<th><i class="fa fa-circle"></i>&emsp;@circle</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-circle-o"></i>&emsp;@circle-o</td>
+<td><i class="fa fa-dot-circle-o"></i>&emsp;@dot-circle-o</td>
+<td><i class="fa fa-minus-square"></i>&emsp;@minus-square</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-minus-square-o"></i>&emsp;@minus-square-o</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+<td><i class="fa fa-plus-square-o"></i>&emsp;@plus-square-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-square"></i>&emsp;@square</td>
+<td><i class="fa fa-square-o"></i>&emsp;@square-o</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="性别图标"><a href="#性别图标" class="headerlink" title="性别图标"></a>性别图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-genderless"></i>&emsp;@genderless</th>
+<th><i class="fa fa-intersex"></i>&emsp;@intersex</th>
+<th><i class="fa fa-mars"></i>&emsp;@mars</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-mars-double"></i>&emsp;@mars-double</td>
+<td><i class="fa fa-mars-stroke"></i>&emsp;@mars-stroke</td>
+<td><i class="fa fa-mars-stroke-h"></i>&emsp;@mars-stroke-h</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-mars-stroke-v"></i>&emsp;@mars-stroke-v</td>
+<td><i class="fa fa-mercury"></i>&emsp;@mercury</td>
+<td><i class="fa fa-neuter"></i>&emsp;@neuter</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-transgender"></i>&emsp;@transgender</td>
+<td><i class="fa fa-transgender-alt"></i>&emsp;@transgender-alt</td>
+<td><i class="fa fa-venus"></i>&emsp;@venus</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-venus-double"></i>&emsp;@venus-double</td>
+<td><i class="fa fa-venus-mars"></i>&emsp;@venus-mars</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="医疗图标"><a href="#医疗图标" class="headerlink" title="医疗图标"></a>医疗图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-ambulance"></i>&emsp;@ambulance</th>
+<th><i class="fa fa-h-square"></i>&emsp;@h-square</th>
+<th><i class="fa fa-heart"></i>&emsp;@heart</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-heartbeat"></i>&emsp;@heartbeat</td>
+<td><i class="fa fa-heart-o"></i>&emsp;@heart-o</td>
+<td><i class="fa fa-hospital-o"></i>&emsp;@hospital-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-medkit"></i>&emsp;@medkit</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+<td><i class="fa fa-stethoscope"></i>&emsp;@stethoscope</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-user-md"></i>&emsp;@user-md</td>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="货币图标"><a href="#货币图标" class="headerlink" title="货币图标"></a>货币图标</h4><table>
@@ -656,325 +567,235 @@ table th:nth-of-type(3){width: 60%;}
 <h4 id="文件类型图标"><a href="#文件类型图标" class="headerlink" title="文件类型图标"></a>文件类型图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-file"></i>&emsp;@file</th>
+<th><i class="fa fa-file-archive-o"></i>&emsp;@file-archive-o</th>
+<th><i class="fa fa-file-audio-o"></i>&emsp;@file-audio-o</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-code-o"></i>&emsp;@file-code-o</td>
+<td><i class="fa fa-file-excel-o"></i>&emsp;@file-excel-o</td>
+<td><i class="fa fa-file-image-o"></i>&emsp;@file-image-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-movie-o"></i>&emsp;@file-movie-o</td>
+<td><i class="fa fa-file-o"></i>&emsp;@file-o</td>
+<td><i class="fa fa-file-pdf-o"></i>&emsp;@file-pdf-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-photo-o"></i>&emsp;@file-photo-o</td>
+<td><i class="fa fa-file-picture-o"></i>&emsp;@file-picture-o</td>
+<td><i class="fa fa-file-powerpoint-o"></i>&emsp;@file-powerpoint-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-text"></i>&emsp;@file-text</td>
+<td><i class="fa fa-file-text-o"></i>&emsp;@file-text-o</td>
+<td><i class="fa fa-file-video-o"></i>&emsp;@file-video-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-word-o"></i>&emsp;@file-word-o</td>
+<td><i class="fa fa-file-zip-o"></i>&emsp;@file-zip-o</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="付款图标"><a href="#付款图标" class="headerlink" title="付款图标"></a>付款图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-cc-amex"></i>&emsp;@cc-amex</th>
+<th><i class="fa fa-cc-diners-club"></i>&emsp;@cc-diners-club</th>
+<th><i class="fa fa-cc-discover"></i>&emsp;@cc-discover</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-cc-jcb"></i>&emsp;@cc-jcb</td>
+<td><i class="fa fa-cc-mastercard"></i>&emsp;@cc-mastercard</td>
+<td><i class="fa fa-cc-paypal"></i>&emsp;@cc-paypal</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-cc-stripe"></i>&emsp;@cc-stripe</td>
+<td><i class="fa fa-cc-visa"></i>&emsp;@cc-visa</td>
+<td><i class="fa fa-credit-card"></i>&emsp;@credit-card</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-google-wallet"></i>&emsp;@google-wallet</td>
+<td><i class="fa fa-paypal"></i>&emsp;@paypal</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="加载中图标"><a href="#加载中图标" class="headerlink" title="加载中图标"></a>加载中图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-circle-o-notch"></i>&emsp;@circle-o-notch</th>
+<th><i class="fa fa-cog"></i>&emsp;@cog</th>
+<th><i class="fa fa-gear"></i>&emsp;@gear</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-refresh"></i>&emsp;@refresh</td>
+<td><i class="fa fa-spinner"></i>&emsp;@spinner</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="文本图标"><a href="#文本图标" class="headerlink" title="文本图标"></a>文本图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-align-center"></i>&emsp;@align-center</th>
+<th><i class="fa fa-align-justify"></i>&emsp;@align-justify</th>
+<th><i class="fa fa-align-left"></i>&emsp;@align-left</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-align-right"></i>&emsp;@align-right</td>
+<td><i class="fa fa-bold"></i>&emsp;@bold</td>
+<td><i class="fa fa-chain"></i>&emsp;@chain</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-chain-broken"></i>&emsp;@chain-broken</td>
+<td><i class="fa fa-clipboard"></i>&emsp;@clipboard</td>
+<td><i class="fa fa-columns"></i>&emsp;@columns</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-copy"></i>&emsp;@copy</td>
+<td><i class="fa fa-cut"></i>&emsp;@cut</td>
+<td><i class="fa fa-dedent"></i>&emsp;@dedent</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-eraser"></i>&emsp;@eraser</td>
+<td><i class="fa fa-file"></i>&emsp;@file</td>
+<td><i class="fa fa-file-o"></i>&emsp;@file-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-file-text"></i>&emsp;@file-text</td>
+<td><i class="fa fa-file-text-o"></i>&emsp;@file-text-o</td>
+<td><i class="fa fa-files-o"></i>&emsp;@files-o</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-floppy-o"></i>&emsp;@floppy-o</td>
+<td><i class="fa fa-font"></i>&emsp;@font</td>
+<td><i class="fa fa-header"></i>&emsp;@header</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-indent"></i>&emsp;@indent</td>
+<td><i class="fa fa-italic"></i>&emsp;@italic</td>
+<td><i class="fa fa-link"></i>&emsp;@link</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-list"></i>&emsp;@list</td>
+<td><i class="fa fa-list-alt"></i>&emsp;@list-alt</td>
+<td><i class="fa fa-list-ol"></i>&emsp;@list-ol</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-list-ul"></i>&emsp;@list-ul</td>
+<td><i class="fa fa-outdent"></i>&emsp;@outdent</td>
+<td><i class="fa fa-paperclip"></i>&emsp;@paperclip</td>
+</tr>
+<tr>
+<td><i class="fa fa-paragraph"></i>&emsp;@paragraph</td>
+<td><i class="fa fa-paste"></i>&emsp;@paste</td>
+<td><i class="fa fa-repeat"></i>&emsp;@repeat</td>
+</tr>
+<tr>
+<td><i class="fa fa-rotate-left"></i>&emsp;@rotate-left</td>
+<td><i class="fa fa-rotate-right"></i>&emsp;@rotate-right</td>
+<td><i class="fa fa-save"></i>&emsp;@save</td>
+</tr>
+<tr>
+<td><i class="fa fa-scissors"></i>&emsp;@scissors</td>
+<td><i class="fa fa-strikethrough"></i>&emsp;@strikethrough</td>
+<td><i class="fa fa-subscript"></i>&emsp;@subscript</td>
+</tr>
+<tr>
+<td><i class="fa fa-superscript"></i>&emsp;@superscript</td>
+<td><i class="fa fa-table"></i>&emsp;@table</td>
+<td><i class="fa fa-text-height"></i>&emsp;@text-height</td>
+</tr>
+<tr>
+<td><i class="fa fa-text-width"></i>&emsp;@text-width</td>
+<td><i class="fa fa-th"></i>&emsp;@th</td>
+<td><i class="fa fa-th-large"></i>&emsp;@th-large</td>
+</tr>
+<tr>
+<td><i class="fa fa-th-list"></i>&emsp;@th-list</td>
+<td><i class="fa fa-underline"></i>&emsp;@underline</td>
+<td><i class="fa fa-undo"></i>&emsp;@undo</td>
+</tr>
+<tr>
+<td><i class="fa fa-unlink"></i>&emsp;@unlink</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="音视频图标"><a href="#音视频图标" class="headerlink" title="音视频图标"></a>音视频图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-arrows-alt"></i>&emsp;@arrows-alt</th>
+<th><i class="fa fa-backward"></i>&emsp;@backward</th>
+<th><i class="fa fa-compress"></i>&emsp;@compress</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-eject"></i>&emsp;@eject</td>
+<td><i class="fa fa-expand"></i>&emsp;@expand</td>
+<td><i class="fa fa-fast-backward"></i>&emsp;@fast-backward</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-fast-forward"></i>&emsp;@fast-forward</td>
+<td><i class="fa fa-forward"></i>&emsp;@forward</td>
+<td><i class="fa fa-pause"></i>&emsp;@pause</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-pause-circle"></i>&emsp;@pause-circle</td>
+<td><i class="fa fa-pause-circle-o"></i>&emsp;@pause-circle-o</td>
+<td><i class="fa fa-play"></i>&emsp;@play</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-play-circle"></i>&emsp;@play-circle</td>
+<td><i class="fa fa-play-circle-o"></i>&emsp;@play-circle-o</td>
+<td><i class="fa fa-step-backward"></i>&emsp;@step-backward</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-step-forward"></i>&emsp;@step-forward</td>
+<td><i class="fa fa-stop"></i>&emsp;@stop</td>
+<td><i class="fa fa-stop-circle"></i>&emsp;@stop-circle</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-stop-circle-o"></i>&emsp;@stop-circle-o</td>
+<td><i class="fa fa-youtube-play"></i>&emsp;@youtube-play</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="交通工具图标"><a href="#交通工具图标" class="headerlink" title="交通工具图标"></a>交通工具图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-ambulance"></i>&emsp;@ambulance</th>
+<th><i class="fa fa-automobile"></i>&emsp;@automobile</th>
+<th><i class="fa fa-bicycle"></i>&emsp;@bicycle</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-bus"></i>&emsp;@bus</td>
+<td><i class="fa fa-cab"></i>&emsp;@cab</td>
+<td><i class="fa fa-car"></i>&emsp;@car</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-fighter-jet"></i>&emsp;@fighter-jet</td>
+<td><i class="fa fa-motorcycle"></i>&emsp;@motorcycle</td>
+<td><i class="fa fa-plane"></i>&emsp;@plane</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-rocket"></i>&emsp;@rocket</td>
+<td><i class="fa fa-ship"></i>&emsp;@ship</td>
+<td><i class="fa fa-space-shuttle"></i>&emsp;@space-shuttle</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-subway"></i>&emsp;@subway</td>
+<td><i class="fa fa-taxi"></i>&emsp;@taxi</td>
+<td><i class="fa fa-train"></i>&emsp;@train</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-truck"></i>&emsp;@truck</td>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td></td>
 </tr>
 </tbody></table>
 <h4 id="品牌图标"><a href="#品牌图标" class="headerlink" title="品牌图标"></a>品牌图标</h4><table>
@@ -1294,55 +1115,740 @@ table th:nth-of-type(3){width: 60%;}
 <h4 id="web应用图标"><a href="#web应用图标" class="headerlink" title="web应用图标"></a>web应用图标</h4><table>
 <thead>
 <tr>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
-<th><i class="fa fa-"></i>&emsp;@</th>
+<th><i class="fa fa-address-book"></i>&emsp;@address-book</th>
+<th><i class="fa fa-address-book-o"></i>&emsp;@address-book-o</th>
+<th><i class="fa fa-address-card"></i>&emsp;@address-card</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-</tr>
-<tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-address-card-o"></i>&emsp;@address-card-o</td>
+<td><i class="fa fa-adjust"></i>&emsp;@adjust</td>
 <td><i class="fa fa-"></i>&emsp;@</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-american-sign-language-interpreting"></i>&emsp;@american-sign-language-interpreting</td>
+<td><i class="fa fa-anchor"></i>&emsp;@anchor</td>
+<td><i class="fa fa-archive"></i>&emsp;@archive</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-area-chart"></i>&emsp;@area-chart</td>
+<td><i class="fa fa-arrows"></i>&emsp;@arrows</td>
+<td><i class="fa fa-arrows-h"></i>&emsp;@arrows-h</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-arrows-v"></i>&emsp;@arrows-v</td>
+<td><i class="fa fa-asl-interpreting"></i>&emsp;@asl-interpreting</td>
+<td><i class="fa fa-beer"></i>&emsp;@beer</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-asterisk"></i>&emsp;@asterisk</td>
+<td><i class="fa fa-at"></i>&emsp;@at</td>
+<td><i class="fa fa-automobile"></i>&emsp;@automobile</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-audio-description"></i>&emsp;@audio-description</td>
+<td><i class="fa fa-balance-scale"></i>&emsp;@balance-scale</td>
+<td><i class="fa fa-ban"></i>&emsp;@ban</td>
 </tr>
 <tr>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-bank"></i>&emsp;@bank</td>
+<td><i class="fa fa-bar-chart"></i>&emsp;@bar-chart</td>
+<td><i class="fa fa-bar-chart"></i>&emsp;@bar-chart</td>
 </tr>
 <tr>
+<td><i class="fa fa-bar-chart-o"></i>&emsp;@bar-chart-o</td>
+<td><i class="fa fa-barcode"></i>&emsp;@barcode</td>
+<td><i class="fa fa-bars"></i>&emsp;@bars</td>
+</tr>
+<tr>
+<td><i class="fa fa-bath"></i>&emsp;@bath</td>
+<td><i class="fa fa-bathtub"></i>&emsp;@bathtub</td>
+<td><i class="fa fa-battery-0"></i>&emsp;@battery-0</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-1"></i>&emsp;@battery-1</td>
+<td><i class="fa fa-battery-2"></i>&emsp;@battery-2</td>
+<td><i class="fa fa-battery-3"></i>&emsp;@battery-3</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-4"></i>&emsp;@battery-4</td>
+<td><i class="fa fa-battery-empty"></i>&emsp;@battery-empty</td>
+<td><i class="fa fa-battery-full"></i>&emsp;@battery-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-half"></i>&emsp;@battery-half</td>
+<td><i class="fa fa-battery-quarter"></i>&emsp;@battery-quarter</td>
+<td><i class="fa fa-bed"></i>&emsp;@bed</td>
+</tr>
+<tr>
+<td><i class="fa fa-battery-three-quarters"></i>&emsp;@battery-three-quarters</td>
+<td><i class="fa fa-assistive-listening-systems"></i>&emsp;@assistive-listening-systems</td>
+<td><i class="fa fa-bell"></i>&emsp;@bell</td>
+</tr>
+<tr>
+<td><i class="fa fa-bell-o"></i>&emsp;@bell-o</td>
+<td><i class="fa fa-bell-slash"></i>&emsp;@bell-slash</td>
+<td><i class="fa fa-bell-slash-o"></i>&emsp;@bell-slash-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-bicycle"></i>&emsp;@bicycle</td>
+<td><i class="fa fa-binoculars"></i>&emsp;@binoculars</td>
+<td><i class="fa fa-birthday-cake"></i>&emsp;@birthday-cake</td>
+</tr>
+<tr>
+<td><i class="fa fa-blind"></i>&emsp;@blind</td>
+<td><i class="fa fa-bolt"></i>&emsp;@bolt</td>
+<td><i class="fa fa-bomb"></i>&emsp;@bomb</td>
+</tr>
+<tr>
+<td><i class="fa fa-book"></i>&emsp;@book</td>
+<td><i class="fa fa-bookmark"></i>&emsp;@bookmark</td>
+<td><i class="fa fa-bookmark-o"></i>&emsp;@bookmark-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-braille"></i>&emsp;@braille</td>
+<td><i class="fa fa-briefcase"></i>&emsp;@briefcase</td>
+<td><i class="fa fa-bug"></i>&emsp;@bug</td>
+</tr>
+<tr>
+<td><i class="fa fa-building"></i>&emsp;@building</td>
+<td><i class="fa fa-building-o"></i>&emsp;@building-o</td>
+<td><i class="fa fa-bullhorn"></i>&emsp;@bullhorn</td>
+</tr>
+<tr>
+<td><i class="fa fa-bullseye"></i>&emsp;@bullseye</td>
+<td><i class="fa fa-bus"></i>&emsp;@bus</td>
+<td><i class="fa fa-cab"></i>&emsp;@cab</td>
+</tr>
+<tr>
+<td><i class="fa fa-calculator"></i>&emsp;@calculator</td>
+<td><i class="fa fa-calendar"></i>&emsp;@calendar</td>
+<td><i class="fa fa-calendar-o"></i>&emsp;@calendar-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-calendar-check-o"></i>&emsp;@calendar-check-o</td>
+<td><i class="fa fa-calendar-minus-o"></i>&emsp;@calendar-minus-o</td>
+<td><i class="fa fa-calendar-plus-o"></i>&emsp;@calendar-plus-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-calendar-times-o"></i>&emsp;@calendar-times-o</td>
+<td><i class="fa fa-camera"></i>&emsp;@camera</td>
+<td><i class="fa fa-camera-retro"></i>&emsp;@camera-retro</td>
+</tr>
+<tr>
+<td><i class="fa fa-car"></i>&emsp;@car</td>
+<td><i class="fa fa-caret-square-o-down"></i>&emsp;@caret-square-o-down</td>
+<td><i class="fa fa-caret-square-o-left"></i>&emsp;@caret-square-o-left</td>
+</tr>
+<tr>
+<td><i class="fa fa-caret-square-o-right"></i>&emsp;@caret-square-o-right</td>
+<td><i class="fa fa-caret-square-o-up"></i>&emsp;@caret-square-o-up</td>
+<td><i class="fa fa-cart-arrow-down"></i>&emsp;@cart-arrow-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-cart-plus"></i>&emsp;@cart-plus</td>
+<td><i class="fa fa-cc"></i>&emsp;@cc</td>
+<td><i class="fa fa-certificate"></i>&emsp;@certificate</td>
+</tr>
+<tr>
+<td><i class="fa fa-check"></i>&emsp;@check</td>
+<td><i class="fa fa-check-circle"></i>&emsp;@check-circle</td>
+<td><i class="fa fa-check-circle-o"></i>&emsp;@check-circle-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-check-square"></i>&emsp;@check-square</td>
+<td><i class="fa fa-check-square-o"></i>&emsp;@check-square-o</td>
+<td><i class="fa fa-child"></i>&emsp;@child</td>
+</tr>
+<tr>
+<td><i class="fa fa-circle"></i>&emsp;@circle</td>
+<td><i class="fa fa-circle-o"></i>&emsp;@circle-o</td>
+<td><i class="fa fa-circle-o-notch"></i>&emsp;@circle-o-notch</td>
+</tr>
+<tr>
+<td><i class="fa fa-circle-thin"></i>&emsp;@circle-thin</td>
+<td><i class="fa fa-clock-o"></i>&emsp;@clock-o</td>
+<td><i class="fa fa-clone"></i>&emsp;@clone</td>
+</tr>
+<tr>
+<td><i class="fa fa-close"></i>&emsp;@close</td>
+<td><i class="fa fa-cloud"></i>&emsp;@cloud</td>
+<td><i class="fa fa-cloud-download"></i>&emsp;@cloud-download</td>
+</tr>
+<tr>
+<td><i class="fa fa-cloud-upload"></i>&emsp;@cloud-upload</td>
+<td><i class="fa fa-code"></i>&emsp;@code</td>
+<td><i class="fa fa-code-fork"></i>&emsp;@code-fork</td>
+</tr>
+<tr>
+<td><i class="fa fa-coffee"></i>&emsp;@coffee</td>
+<td><i class="fa fa-cog"></i>&emsp;@cog</td>
+<td><i class="fa fa-cogs"></i>&emsp;@cogs</td>
+</tr>
+<tr>
+<td><i class="fa fa-comment"></i>&emsp;@comment</td>
+<td><i class="fa fa-comment-o"></i>&emsp;@comment-o</td>
+<td><i class="fa fa-comments"></i>&emsp;@comments</td>
+</tr>
+<tr>
+<td><i class="fa fa-comments-o"></i>&emsp;@comments-o</td>
+<td><i class="fa fa-commenting"></i>&emsp;@commenting</td>
+<td><i class="fa fa-commenting-o"></i>&emsp;@commenting-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-compass"></i>&emsp;@compass</td>
+<td><i class="fa fa-copyright"></i>&emsp;@copyright</td>
+<td><i class="fa fa-credit-card"></i>&emsp;@credit-card</td>
+</tr>
+<tr>
+<td><i class="fa fa-credit-card-alt"></i>&emsp;@credit-card-alt</td>
+<td><i class="fa fa-creative-commons"></i>&emsp;@creative-commons</td>
+<td><i class="fa fa-crop"></i>&emsp;@crop</td>
+</tr>
+<tr>
+<td><i class="fa fa-crosshairs"></i>&emsp;@crosshairs</td>
+<td><i class="fa fa-cube"></i>&emsp;@cube</td>
+<td><i class="fa fa-cubes"></i>&emsp;@cubes</td>
+</tr>
+<tr>
+<td><i class="fa fa-cutlery"></i>&emsp;@cutlery</td>
+<td><i class="fa fa-dashboard"></i>&emsp;@dashboard</td>
+<td><i class="fa fa-database"></i>&emsp;@database</td>
+</tr>
+<tr>
+<td><i class="fa fa-deaf"></i>&emsp;@deaf</td>
+<td><i class="fa fa-deafness"></i>&emsp;@deafness</td>
+<td><i class="fa fa-desktop"></i>&emsp;@desktop</td>
+</tr>
+<tr>
+<td><i class="fa fa-diamond"></i>&emsp;@diamond</td>
+<td><i class="fa fa-dot-circle-o"></i>&emsp;@dot-circle-o</td>
+<td><i class="fa fa-download"></i>&emsp;@download</td>
+</tr>
+<tr>
+<td><i class="fa fa-drivers-license"></i>&emsp;@drivers-license</td>
+<td><i class="fa fa-drivers-license-o"></i>&emsp;@drivers-license-o</td>
+<td><i class="fa fa-edit"></i>&emsp;@edit</td>
+</tr>
+<tr>
+<td><i class="fa fa-ellipsis-h"></i>&emsp;@ellipsis-h</td>
+<td><i class="fa fa-ellipsis-v"></i>&emsp;@ellipsis-v</td>
+<td><i class="fa fa-envelope"></i>&emsp;@envelope</td>
+</tr>
+<tr>
+<td><i class="fa fa-envelope-o"></i>&emsp;@envelope-o</td>
+<td><i class="fa fa-envelope-open"></i>&emsp;@envelope-open</td>
+<td><i class="fa fa-envelope-open-o"></i>&emsp;@envelope-open-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-envelope-square"></i>&emsp;@envelope-square</td>
+<td><i class="fa fa-eraser"></i>&emsp;@eraser</td>
+<td><i class="fa fa-exchange"></i>&emsp;@exchange</td>
+</tr>
+<tr>
+<td><i class="fa fa-exclamation"></i>&emsp;@exclamation</td>
+<td><i class="fa fa-exclamation-circle"></i>&emsp;@exclamation-circle</td>
+<td><i class="fa fa-exclamation-triangle"></i>&emsp;@exclamation-triangle</td>
+</tr>
+<tr>
+<td><i class="fa fa-external-link"></i>&emsp;@external-link</td>
+<td><i class="fa fa-external-link-square"></i>&emsp;@external-link-square</td>
+<td><i class="fa fa-eye"></i>&emsp;@eye</td>
+</tr>
+<tr>
+<td><i class="fa fa-eye-slash"></i>&emsp;@eye-slash</td>
+<td><i class="fa fa-eyedropper"></i>&emsp;@eyedropper</td>
+<td><i class="fa fa-fax"></i>&emsp;@fax</td>
+</tr>
+<tr>
+<td><i class="fa fa-female"></i>&emsp;@female</td>
+<td><i class="fa fa-fighter-jet"></i>&emsp;@fighter-jet</td>
+<td><i class="fa fa-file-archive-o"></i>&emsp;@file-archive-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-audio-o"></i>&emsp;@file-audio-o</td>
+<td><i class="fa fa-file-code-o"></i>&emsp;@file-code-o</td>
+<td><i class="fa fa-file-excel-o"></i>&emsp;@file-excel-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-image-o"></i>&emsp;@file-image-o</td>
+<td><i class="fa fa-file-movie-o"></i>&emsp;@file-movie-o</td>
+<td><i class="fa fa-file-pdf-o"></i>&emsp;@file-pdf-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-photo-o"></i>&emsp;@file-photo-o</td>
+<td><i class="fa fa-file-picture-o"></i>&emsp;@file-picture-o</td>
+<td><i class="fa fa-file-powerpoint-o"></i>&emsp;@file-powerpoint-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-sound-o"></i>&emsp;@file-sound-o</td>
+<td><i class="fa fa-file-video-o"></i>&emsp;@file-video-o</td>
+<td><i class="fa fa-file-word-o"></i>&emsp;@file-word-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-file-zip-o"></i>&emsp;@file-zip-o</td>
+<td><i class="fa fa-film"></i>&emsp;@film</td>
+<td><i class="fa fa-filter"></i>&emsp;@filter</td>
+</tr>
+<tr>
+<td><i class="fa fa-fire"></i>&emsp;@fire</td>
+<td><i class="fa fa-fire-extinguisher"></i>&emsp;@fire-extinguisher</td>
+<td><i class="fa fa-flag"></i>&emsp;@flag</td>
+</tr>
+<tr>
+<td><i class="fa fa-flag-checkered"></i>&emsp;@flag-checkered</td>
+<td><i class="fa fa-flag-o"></i>&emsp;@flag-o</td>
+<td><i class="fa fa-flash"></i>&emsp;@flash</td>
+</tr>
+<tr>
+<td><i class="fa fa-flask"></i>&emsp;@flask</td>
+<td><i class="fa fa-folder"></i>&emsp;@folder</td>
+<td><i class="fa fa-folder-o"></i>&emsp;@folder-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-folder-open"></i>&emsp;@folder-open</td>
+<td><i class="fa fa-folder-open-o"></i>&emsp;@folder-open-o</td>
+<td><i class="fa fa-frown-o"></i>&emsp;@frown-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-futbol-o"></i>&emsp;@futbol-o</td>
+<td><i class="fa fa-gamepad"></i>&emsp;@gamepad</td>
+<td><i class="fa fa-gavel"></i>&emsp;@gavel</td>
+</tr>
+<tr>
+<td><i class="fa fa-gear"></i>&emsp;@gear</td>
+<td><i class="fa fa-gears"></i>&emsp;@gears</td>
+<td><i class="fa fa-genderless"></i>&emsp;@genderless</td>
+</tr>
+<tr>
+<td><i class="fa fa-gift"></i>&emsp;@gift</td>
+<td><i class="fa fa-glass"></i>&emsp;@glass</td>
+<td><i class="fa fa-globe"></i>&emsp;@globe</td>
+</tr>
+<tr>
+<td><i class="fa fa-graduation-cap"></i>&emsp;@graduation-cap</td>
+<td><i class="fa fa-group"></i>&emsp;@group</td>
+<td><i class="fa fa-hard-of-hearing"></i>&emsp;@hard-of-hearing</td>
+</tr>
+<tr>
+<td><i class="fa fa-hdd-o"></i>&emsp;@hdd-o</td>
+<td><i class="fa fa-handshake-o"></i>&emsp;@handshake-o</td>
+<td><i class="fa fa-hashtag"></i>&emsp;@hashtag</td>
+</tr>
+<tr>
+<td><i class="fa fa-headphones"></i>&emsp;@headphones</td>
+<td><i class="fa fa-heart"></i>&emsp;@heart</td>
+<td><i class="fa fa-heart-o"></i>&emsp;@heart-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-heartbeat"></i>&emsp;@heartbeat</td>
+<td><i class="fa fa-history"></i>&emsp;@history</td>
+<td><i class="fa fa-home"></i>&emsp;@home</td>
+</tr>
+<tr>
+<td><i class="fa fa-hotel"></i>&emsp;@hotel</td>
+<td><i class="fa fa-hourglass"></i>&emsp;@hourglass</td>
+<td><i class="fa fa-hourglass-1"></i>&emsp;@hourglass-1</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass-2"></i>&emsp;@hourglass-2</td>
+<td><i class="fa fa-hourglass-3"></i>&emsp;@hourglass-3</td>
+<td><i class="fa fa-hourglass-end"></i>&emsp;@hourglass-end</td>
+</tr>
+<tr>
+<td><i class="fa fa-hourglass-half"></i>&emsp;@hourglass-half</td>
+<td><i class="fa fa-hourglass-o"></i>&emsp;@hourglass-o</td>
+<td><i class="fa fa-hourglass-start"></i>&emsp;@hourglass-start</td>
+</tr>
+<tr>
+<td><i class="fa fa-i-cursor"></i>&emsp;@i-cursor</td>
+<td><i class="fa fa-id-badge"></i>&emsp;@id-badge</td>
+<td><i class="fa fa-id-card"></i>&emsp;@id-card</td>
+</tr>
+<tr>
+<td><i class="fa fa-id-card-o"></i>&emsp;@id-card-o</td>
+<td><i class="fa fa-image"></i>&emsp;@image</td>
+<td><i class="fa fa-inbox"></i>&emsp;@inbox</td>
+</tr>
+<tr>
+<td><i class="fa fa-industry"></i>&emsp;@industry</td>
+<td><i class="fa fa-info"></i>&emsp;@info</td>
+<td><i class="fa fa-info-circle"></i>&emsp;@info-circle</td>
+</tr>
+<tr>
+<td><i class="fa fa-institution"></i>&emsp;@institution</td>
+<td><i class="fa fa-key"></i>&emsp;@key</td>
+<td><i class="fa fa-keyboard-o"></i>&emsp;@keyboard-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-language"></i>&emsp;@language</td>
+<td><i class="fa fa-laptop"></i>&emsp;@laptop</td>
+<td><i class="fa fa-leaf"></i>&emsp;@leaf</td>
+</tr>
+<tr>
+<td><i class="fa fa-legal"></i>&emsp;@legal</td>
+<td><i class="fa fa-lemon-o"></i>&emsp;@lemon-o</td>
+<td><i class="fa fa-level-down"></i>&emsp;@level-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-level-up"></i>&emsp;@level-up</td>
+<td><i class="fa fa-life-bouy"></i>&emsp;@life-bouy</td>
+<td><i class="fa fa-life-buoy"></i>&emsp;@life-buoy</td>
+</tr>
+<tr>
+<td><i class="fa fa-life-ring"></i>&emsp;@life-ring</td>
+<td><i class="fa fa-life-saver"></i>&emsp;@life-saver</td>
+<td><i class="fa fa-lightbulb-o"></i>&emsp;@lightbulb-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-line-chart"></i>&emsp;@line-chart</td>
+<td><i class="fa fa-location-arrow"></i>&emsp;@location-arrow</td>
+<td><i class="fa fa-lock"></i>&emsp;@lock</td>
+</tr>
+<tr>
+<td><i class="fa fa-low-vision"></i>&emsp;@low-vision</td>
+<td><i class="fa fa-magic"></i>&emsp;@magic</td>
+<td><i class="fa fa-magnet"></i>&emsp;@magnet</td>
+</tr>
+<tr>
+<td><i class="fa fa-mail-forward"></i>&emsp;@mail-forward</td>
+<td><i class="fa fa-mail-reply"></i>&emsp;@mail-reply</td>
+<td><i class="fa fa-mail-reply-all"></i>&emsp;@mail-reply-all</td>
+</tr>
+<tr>
+<td><i class="fa fa-male"></i>&emsp;@male</td>
+<td><i class="fa fa-map"></i>&emsp;@map</td>
+<td><i class="fa fa-map-o"></i>&emsp;@map-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-map-pin"></i>&emsp;@map-pin</td>
+<td><i class="fa fa-map-signs"></i>&emsp;@map-signs</td>
+<td><i class="fa fa-map-marker"></i>&emsp;@map-marker</td>
+</tr>
+<tr>
+<td><i class="fa fa-meh-o"></i>&emsp;@meh-o</td>
+<td><i class="fa fa-microchip"></i>&emsp;@microchip</td>
+<td><i class="fa fa-microphone"></i>&emsp;@microphone</td>
+</tr>
+<tr>
+<td><i class="fa fa-microphone-slash"></i>&emsp;@microphone-slash</td>
 <td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
-<td><i class="fa fa-"></i>&emsp;@</td>
+<td><i class="fa fa-minus"></i>&emsp;@minus</td>
+</tr>
+<tr>
+<td><i class="fa fa-minus-circle"></i>&emsp;@minus-circle</td>
+<td><i class="fa fa-minus-square"></i>&emsp;@minus-square</td>
+<td><i class="fa fa-minus-square-o"></i>&emsp;@minus-square-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-mobile"></i>&emsp;@mobile</td>
+<td><i class="fa fa-mobile-phone"></i>&emsp;@mobile-phone</td>
+<td><i class="fa fa-money"></i>&emsp;@money</td>
+</tr>
+<tr>
+<td><i class="fa fa-moon-o"></i>&emsp;@moon-o</td>
+<td><i class="fa fa-mortar-board"></i>&emsp;@mortar-board</td>
+<td><i class="fa fa-motorcycle"></i>&emsp;@motorcycle</td>
+</tr>
+<tr>
+<td><i class="fa fa-mouse-pointer"></i>&emsp;@mouse-pointer</td>
+<td><i class="fa fa-music"></i>&emsp;@music</td>
+<td><i class="fa fa-navicon"></i>&emsp;@navicon</td>
+</tr>
+<tr>
+<td><i class="fa fa-newspaper-o"></i>&emsp;@newspaper-o</td>
+<td><i class="fa fa-object-group"></i>&emsp;@object-group</td>
+<td><i class="fa fa-object-ungroup"></i>&emsp;@object-ungroup</td>
+</tr>
+<tr>
+<td><i class="fa fa-paint-brush"></i>&emsp;@paint-brush</td>
+<td><i class="fa fa-paper-plane"></i>&emsp;@paper-plane</td>
+<td><i class="fa fa-paper-plane-o"></i>&emsp;@paper-plane-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-paw"></i>&emsp;@paw</td>
+<td><i class="fa fa-pencil"></i>&emsp;@pencil</td>
+<td><i class="fa fa-pencil-square"></i>&emsp;@pencil-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-pencil-square-o"></i>&emsp;@pencil-square-o</td>
+<td><i class="fa fa-percent"></i>&emsp;@percent</td>
+<td><i class="fa fa-phone"></i>&emsp;@phone</td>
+</tr>
+<tr>
+<td><i class="fa fa-phone-square"></i>&emsp;@phone-square</td>
+<td><i class="fa fa-photo"></i>&emsp;@photo</td>
+<td><i class="fa fa-picture-o"></i>&emsp;@picture-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-pie-chart"></i>&emsp;@pie-chart</td>
+<td><i class="fa fa-plane"></i>&emsp;@plane</td>
+<td><i class="fa fa-plug"></i>&emsp;@plug</td>
+</tr>
+<tr>
+<td><i class="fa fa-plus"></i>&emsp;@plus</td>
+<td><i class="fa fa-plus-circle"></i>&emsp;@plus-circle</td>
+<td><i class="fa fa-plus-square"></i>&emsp;@plus-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-plus-square-o"></i>&emsp;@plus-square-o</td>
+<td><i class="fa fa-podcast"></i>&emsp;@podcast</td>
+<td><i class="fa fa-power-off"></i>&emsp;@power-off</td>
+</tr>
+<tr>
+<td><i class="fa fa-print"></i>&emsp;@print</td>
+<td><i class="fa fa-puzzle-piece"></i>&emsp;@puzzle-piece</td>
+<td><i class="fa fa-qrcode"></i>&emsp;@qrcode</td>
+</tr>
+<tr>
+<td><i class="fa fa-question"></i>&emsp;@question</td>
+<td><i class="fa fa-question-circle"></i>&emsp;@question-circle</td>
+<td><i class="fa fa-question-circle-o"></i>&emsp;@question-circle-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-quote-left"></i>&emsp;@quote-left</td>
+<td><i class="fa fa-quote-right"></i>&emsp;@quote-right</td>
+<td><i class="fa fa-random"></i>&emsp;@random</td>
+</tr>
+<tr>
+<td><i class="fa fa-recycle"></i>&emsp;@recycle</td>
+<td><i class="fa fa-refresh"></i>&emsp;@refresh</td>
+<td><i class="fa fa-registered"></i>&emsp;@registered</td>
+</tr>
+<tr>
+<td><i class="fa fa-remove"></i>&emsp;@remove</td>
+<td><i class="fa fa-reorder"></i>&emsp;@reorder</td>
+<td><i class="fa fa-reply"></i>&emsp;@reply</td>
+</tr>
+<tr>
+<td><i class="fa fa-reply-all"></i>&emsp;@reply-all</td>
+<td><i class="fa fa-retweet"></i>&emsp;@retweet</td>
+<td><i class="fa fa-road"></i>&emsp;@road</td>
+</tr>
+<tr>
+<td><i class="fa fa-rocket"></i>&emsp;@rocket</td>
+<td><i class="fa fa-rss"></i>&emsp;@rss</td>
+<td><i class="fa fa-rss-square"></i>&emsp;@rss-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-s15"></i>&emsp;@s15</td>
+<td><i class="fa fa-search"></i>&emsp;@search</td>
+<td><i class="fa fa-search-minus"></i>&emsp;@search-minus</td>
+</tr>
+<tr>
+<td><i class="fa fa-search-plus"></i>&emsp;@search-plus</td>
+<td><i class="fa fa-send"></i>&emsp;@send</td>
+<td><i class="fa fa-send-o"></i>&emsp;@send-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-server"></i>&emsp;@server</td>
+<td><i class="fa fa-share-alt"></i>&emsp;@share-alt</td>
+<td><i class="fa fa-share-alt-square"></i>&emsp;@share-alt-square</td>
+</tr>
+<tr>
+<td><i class="fa fa-share-square"></i>&emsp;@share-square</td>
+<td><i class="fa fa-share"></i>&emsp;@share</td>
+<td><i class="fa fa-share-square-o"></i>&emsp;@share-square-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-shield"></i>&emsp;@shield</td>
+<td><i class="fa fa-ship"></i>&emsp;@ship</td>
+<td><i class="fa fa-shopping-bag"></i>&emsp;@shopping-bag</td>
+</tr>
+<tr>
+<td><i class="fa fa-shopping-basket"></i>&emsp;@shopping-basket</td>
+<td><i class="fa fa-shopping-cart"></i>&emsp;@shopping-cart</td>
+<td><i class="fa fa-shower"></i>&emsp;@shower</td>
+</tr>
+<tr>
+<td><i class="fa fa-sign-in"></i>&emsp;@sign-in</td>
+<td><i class="fa fa-sign-out"></i>&emsp;@sign-out</td>
+<td><i class="fa fa-sign-language"></i>&emsp;@sign-language</td>
+</tr>
+<tr>
+<td><i class="fa fa-signal"></i>&emsp;@signal</td>
+<td><i class="fa fa-signing"></i>&emsp;@signing</td>
+<td><i class="fa fa-sitemap"></i>&emsp;@sitemap</td>
+</tr>
+<tr>
+<td><i class="fa fa-sliders"></i>&emsp;@sliders</td>
+<td><i class="fa fa-smile-o"></i>&emsp;@smile-o</td>
+<td><i class="fa fa-snowflake-o"></i>&emsp;@snowflake-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-soccer-ball-o"></i>&emsp;@soccer-ball-o</td>
+<td><i class="fa fa-sort"></i>&emsp;@sort</td>
+<td><i class="fa fa-sort-alpha-asc"></i>&emsp;@sort-alpha-asc</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-alpha-desc"></i>&emsp;@sort-alpha-desc</td>
+<td><i class="fa fa-sort-amount-asc"></i>&emsp;@sort-amount-asc</td>
+<td><i class="fa fa-sort-amount-desc"></i>&emsp;@sort-amount-desc</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-asc"></i>&emsp;@sort-asc</td>
+<td><i class="fa fa-sort-desc"></i>&emsp;@sort-desc</td>
+<td><i class="fa fa-sort-down"></i>&emsp;@sort-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-sort-numeric-asc"></i>&emsp;@sort-numeric-asc</td>
+<td><i class="fa fa-sort-numeric-desc"></i>&emsp;@sort-numeric-desc</td>
+<td><i class="fa fa-sort-up"></i>&emsp;@sort-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-space-shuttle"></i>&emsp;@space-shuttle</td>
+<td><i class="fa fa-spinner"></i>&emsp;@spinner</td>
+<td><i class="fa fa-spoon"></i>&emsp;@spoon</td>
+</tr>
+<tr>
+<td><i class="fa fa-square"></i>&emsp;@square</td>
+<td><i class="fa fa-square-o"></i>&emsp;@square-o</td>
+<td><i class="fa fa-star"></i>&emsp;@star</td>
+</tr>
+<tr>
+<td><i class="fa fa-star-half"></i>&emsp;@star-half</td>
+<td><i class="fa fa-star-half-empty"></i>&emsp;@star-half-empty</td>
+<td><i class="fa fa-star-half-full"></i>&emsp;@star-half-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-star-half-o"></i>&emsp;@star-half-o</td>
+<td><i class="fa fa-star-o"></i>&emsp;@star-o</td>
+<td><i class="fa fa-sticky-note"></i>&emsp;@sticky-note</td>
+</tr>
+<tr>
+<td><i class="fa fa-sticky-note-o"></i>&emsp;@sticky-note-o</td>
+<td><i class="fa fa-street-view"></i>&emsp;@street-view</td>
+<td><i class="fa fa-suitcase"></i>&emsp;@suitcase</td>
+</tr>
+<tr>
+<td><i class="fa fa-sun-o"></i>&emsp;@sun-o</td>
+<td><i class="fa fa-support"></i>&emsp;@support</td>
+<td><i class="fa fa-tablet"></i>&emsp;@tablet</td>
+</tr>
+<tr>
+<td><i class="fa fa-tachometer"></i>&emsp;@tachometer</td>
+<td><i class="fa fa-tag"></i>&emsp;@tag</td>
+<td><i class="fa fa-tags"></i>&emsp;@tags</td>
+</tr>
+<tr>
+<td><i class="fa fa-tasks"></i>&emsp;@tasks</td>
+<td><i class="fa fa-taxi"></i>&emsp;@taxi</td>
+<td><i class="fa fa-television"></i>&emsp;@television</td>
+</tr>
+<tr>
+<td><i class="fa fa-terminal"></i>&emsp;@terminal</td>
+<td><i class="fa fa-thermometer"></i>&emsp;@thermometer</td>
+<td><i class="fa fa-thermometer-0"></i>&emsp;@thermometer-0</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-1"></i>&emsp;@thermometer-1</td>
+<td><i class="fa fa-thermometer-2"></i>&emsp;@thermometer-2</td>
+<td><i class="fa fa-thermometer-3"></i>&emsp;@thermometer-3</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-4"></i>&emsp;@thermometer-4</td>
+<td><i class="fa fa-thermometer-empty"></i>&emsp;@thermometer-empty</td>
+<td><i class="fa fa-thermometer-full"></i>&emsp;@thermometer-full</td>
+</tr>
+<tr>
+<td><i class="fa fa-thermometer-half"></i>&emsp;@thermometer-half</td>
+<td><i class="fa fa-thermometer-quarter"></i>&emsp;@thermometer-quarter</td>
+<td><i class="fa fa-thermometer-three-quarters"></i>&emsp;@thermometer-three-quarters</td>
+</tr>
+<tr>
+<td><i class="fa fa-thumb-tack"></i>&emsp;@thumb-tack</td>
+<td><i class="fa fa-thumbs-down"></i>&emsp;@thumbs-down</td>
+<td><i class="fa fa-thumbs-o-up"></i>&emsp;@thumbs-o-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-thumbs-up"></i>&emsp;@thumbs-up</td>
+<td><i class="fa fa-ticket"></i>&emsp;@ticket</td>
+<td><i class="fa fa-times"></i>&emsp;@times</td>
+</tr>
+<tr>
+<td><i class="fa fa-times-circle"></i>&emsp;@times-circle</td>
+<td><i class="fa fa-times-circle-o"></i>&emsp;@times-circle-o</td>
+<td><i class="fa fa-times-rectangle"></i>&emsp;@times-rectangle</td>
+</tr>
+<tr>
+<td><i class="fa fa-times-rectangle-o"></i>&emsp;@times-rectangle-o</td>
+<td><i class="fa fa-tint"></i>&emsp;@tint</td>
+<td><i class="fa fa-toggle-down"></i>&emsp;@toggle-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-toggle-left"></i>&emsp;@toggle-left</td>
+<td><i class="fa fa-toggle-right"></i>&emsp;@toggle-right</td>
+<td><i class="fa fa-toggle-up"></i>&emsp;@toggle-up</td>
+</tr>
+<tr>
+<td><i class="fa fa-toggle-off"></i>&emsp;@toggle-off</td>
+<td><i class="fa fa-toggle-on"></i>&emsp;@toggle-on</td>
+<td><i class="fa fa-trademark"></i>&emsp;@trademark</td>
+</tr>
+<tr>
+<td><i class="fa fa-trash"></i>&emsp;@trash</td>
+<td><i class="fa fa-trash-o"></i>&emsp;@trash-o</td>
+<td><i class="fa fa-tree"></i>&emsp;@tree</td>
+</tr>
+<tr>
+<td><i class="fa fa-trophy"></i>&emsp;@trophy</td>
+<td><i class="fa fa-truck"></i>&emsp;@truck</td>
+<td><i class="fa fa-tty"></i>&emsp;@tty</td>
+</tr>
+<tr>
+<td><i class="fa fa-tv"></i>&emsp;@tv</td>
+<td><i class="fa fa-umbrella"></i>&emsp;@umbrella</td>
+<td><i class="fa fa-universal-access"></i>&emsp;@universal-access</td>
+</tr>
+<tr>
+<td><i class="fa fa-university"></i>&emsp;@university</td>
+<td><i class="fa fa-unlock"></i>&emsp;@unlock</td>
+<td><i class="fa fa-unlock-alt"></i>&emsp;@unlock-alt</td>
+</tr>
+<tr>
+<td><i class="fa fa-unsorted"></i>&emsp;@unsorted</td>
+<td><i class="fa fa-upload"></i>&emsp;@upload</td>
+<td><i class="fa fa-user"></i>&emsp;@user</td>
+</tr>
+<tr>
+<td><i class="fa fa-user-circle"></i>&emsp;@user-circle</td>
+<td><i class="fa fa-user-circle-o"></i>&emsp;@user-circle-o</td>
+<td><i class="fa fa-user-o"></i>&emsp;@user-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-user-plus"></i>&emsp;@user-plus</td>
+<td><i class="fa fa-user-secret"></i>&emsp;@user-secret</td>
+<td><i class="fa fa-user-times"></i>&emsp;@user-times</td>
+</tr>
+<tr>
+<td><i class="fa fa-users"></i>&emsp;@users</td>
+<td><i class="fa fa-vcard"></i>&emsp;@vcard</td>
+<td><i class="fa fa-vcard-o"></i>&emsp;@vcard-o</td>
+</tr>
+<tr>
+<td><i class="fa fa-video-camera"></i>&emsp;@video-camera</td>
+<td><i class="fa fa-volume-control-phone"></i>&emsp;@volume-control-phone</td>
+<td><i class="fa fa-volume-down"></i>&emsp;@volume-down</td>
+</tr>
+<tr>
+<td><i class="fa fa-volume-off"></i>&emsp;@volume-off</td>
+<td><i class="fa fa-volume-up"></i>&emsp;@volume-up</td>
+<td><i class="fa fa-warning"></i>&emsp;@warning</td>
+</tr>
+<tr>
+<td><i class="fa fa-wheelchair"></i>&emsp;@wheelchair</td>
+<td><i class="fa fa-wheelchair-alt"></i>&emsp;@wheelchair-alt</td>
+<td><i class="fa fa-window-close"></i>&emsp;@window-close</td>
+</tr>
+<tr>
+<td><i class="fa fa-window-close-o"></i>&emsp;@window-close-o</td>
+<td><i class="fa fa-window-maximize"></i>&emsp;@window-maximize</td>
+<td><i class="fa fa-window-maximize"></i>&emsp;@window-maximize</td>
+</tr>
+<tr>
+<td><i class="fa fa-window-restore"></i>&emsp;@window-restore</td>
+<td><i class="fa fa-wifi"></i>&emsp;@wifi</td>
+<td><i class="fa fa-wrench"></i>&emsp;@wrench</td>
 </tr>
 </tbody></table>
 </details>
@@ -1393,19 +1899,15 @@ table th:nth-of-type(3){width: 60%;}
     <title>Markdown语法之基础功能(三)</title>
     <url>/2020/04/md_03/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;相信看过前两篇的小伙伴，对于markdown已经完全了解了，当然除了它的语法外，那么从本篇开始将会讲解markdown的基础语法与后续进阶功能效果啦！话说，自己都有点迫不及待了呢，nice!</p>
-<h5 id="Markdown文字功能！"><a href="#Markdown文字功能！" class="headerlink" title="Markdown文字功能！"></a>Markdown文字功能！</h5><p><strong>1.1 加粗、斜体、划掉、颜色、大小、字体</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗文字**</span>  或者  <span class="strong">__加粗文字__</span></span><br><span class="line"><span class="emphasis">*斜体文字*</span>    或者   <span class="emphasis">_斜体文字_</span></span><br><span class="line"><span class="strong">***粗斜文字**</span>*</span><br><span class="line">~~划掉文字~~</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">4</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">face</span>=<span class="string">"STCAIYUN"</span>&gt;</span></span>字体大小颜色自定义文字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>字体变小<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span>    </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">big</span>&gt;</span></span>字体变大<span class="xml"><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="Markdown文字功能！"><a href="#Markdown文字功能！" class="headerlink" title="Markdown文字功能！"></a>Markdown文字功能！</h3><h5 id="1-1-加粗、斜体、划掉、颜色、大小、字体"><a href="#1-1-加粗、斜体、划掉、颜色、大小、字体" class="headerlink" title="1.1 加粗、斜体、划掉、颜色、大小、字体"></a>1.1 加粗、斜体、划掉、颜色、大小、字体</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗文字**</span>  或者  <span class="strong">__加粗文字__</span></span><br><span class="line"><span class="emphasis">*斜体文字*</span>    或者   <span class="emphasis">_斜体文字_</span></span><br><span class="line"><span class="strong">***粗斜文字**</span>*</span><br><span class="line">~~划掉文字~~</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">4</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">face</span>=<span class="string">"STCAIYUN"</span>&gt;</span></span>字体大小颜色自定义文字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>字体变小<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span>    </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">big</span>&gt;</span></span>字体变大<span class="xml"><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p><strong>加粗文字</strong>   <em>斜体文字</em>   <strong><em>粗斜文字</em></strong>   <del>划掉文字</del><br><font size=4 color=red face="STCAIYUN">字体大小颜色自定义文字</font> <small>变小文字</small> <big>变大文字</big></p>
-<p><strong>1.2 换行、缩进、空格</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">空格+空格+回车   换行</span><br><span class="line">&amp;ensp;&amp;ensp;    <span class="comment">//缩进一格，即两个字节（一个汉字两字节）</span></span><br><span class="line">&amp;emsp;&amp;emsp;    <span class="comment">//缩进两格，即四个字节（一个汉字两字节）</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-2-换行、缩进、空格"><a href="#1-2-换行、缩进、空格" class="headerlink" title="1.2 换行、缩进、空格"></a>1.2 换行、缩进、空格</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">空格+空格+回车   换行</span><br><span class="line">&amp;ensp;&amp;ensp;    <span class="comment">//缩进一格，即两个字节（一个汉字两字节）</span></span><br><span class="line">&amp;emsp;&amp;emsp;    <span class="comment">//缩进两格，即四个字节（一个汉字两字节）</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>1.3 标题</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1 标题</span></span><br><span class="line"><span class="section">## h2 标题</span></span><br><span class="line"><span class="section">### h3 标题</span></span><br><span class="line"><span class="section">#### h4 标题</span></span><br><span class="line"><span class="section">##### h5 标题</span></span><br><span class="line"><span class="section">###### h6 标题</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-3-标题"><a href="#1-3-标题" class="headerlink" title="1.3 标题"></a>1.3 标题</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1 标题</span></span><br><span class="line"><span class="section">## h2 标题</span></span><br><span class="line"><span class="section">### h3 标题</span></span><br><span class="line"><span class="section">#### h4 标题</span></span><br><span class="line"><span class="section">##### h5 标题</span></span><br><span class="line"><span class="section">###### h6 标题</span></span><br></pre></td></tr></table></figure>
 <p><img src="/uploads/images/md/md_3_0.png" alt="image"><br><strong>1.3 水平线</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">---   或者  ___  或者  ***    <span class="comment">//三个或更多-_*，必须单独一行，可含空格</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p><strong>1.4 序列之有序与无序</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">"有序序列方式一"</span></span><br><span class="line">`1.`    有序第一个</span><br><span class="line">`2.`    有序第二个</span><br><span class="line">`3.`    有序第三个</span><br><span class="line"><span class="string">"有序序列方式二"</span></span><br><span class="line">1.    有序第一个</span><br><span class="line">2.    有序第二个</span><br><span class="line">3.    有序第三个</span><br><span class="line"><span class="string">"无序序列+嵌套序列"</span></span><br><span class="line">+无序第一个</span><br><span class="line">  - 无序第二个</span><br><span class="line">    * 无序第三个</span><br><span class="line">  `+` 无序第四个</span><br><span class="line">（无序使用空格与<span class="string">"+"</span>,<span class="string">"-"</span>,<span class="string">"*"</span>任意一个符号配合使用,也可以加``）</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-序列之有序与无序"><a href="#1-4-序列之有序与无序" class="headerlink" title="1.4 序列之有序与无序"></a>1.4 序列之有序与无序</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">"有序序列方式一"</span></span><br><span class="line">`1.`    有序第一个</span><br><span class="line">`2.`    有序第二个</span><br><span class="line">`3.`    有序第三个</span><br><span class="line"><span class="string">"有序序列方式二"</span></span><br><span class="line">1.    有序第一个</span><br><span class="line">2.    有序第二个</span><br><span class="line">3.    有序第三个</span><br><span class="line"><span class="string">"无序序列+嵌套序列"</span></span><br><span class="line">+无序第一个</span><br><span class="line">  - 无序第二个</span><br><span class="line">    * 无序第三个</span><br><span class="line">  `+` 无序第四个</span><br><span class="line">（无序使用空格与<span class="string">"+"</span>,<span class="string">"-"</span>,<span class="string">"*"</span>任意一个符号配合使用,也可以加``）</span><br></pre></td></tr></table></figure>
 <p><code>1.</code>    有序第一个<br><code>2.</code>    有序第二个<br><code>3.</code>    有序第三个</p>
 <ol>
 <li>有序第一个</li>
@@ -1420,36 +1922,29 @@ table th:nth-of-type(3){width: 60%;}
 </li>
 </ul>
 <ul>
-<li>无序第四个</li>
+<li>无序第四个<h5 id="1-5-文字底框与底色"><a href="#1-5-文字底框与底色" class="headerlink" title="1.5 文字底框与底色"></a>1.5 文字底框与底色</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行底色文字`</span></span><br><span class="line">==多行底色文字==  //这儿不支持</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span></span>背景色yellow文字<span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line">[<span class="code">```</span>]            //去掉中括号</span><br><span class="line">代码块文字</span><br><span class="line">[<span class="code">```</span>]</span><br></pre></td></tr></table></figure>
+<code>单行底色文字</code><table><tr><td bgcolor=yellow>背景色yellow文字</td></tr></table>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">代码块文字</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 </li>
 </ul>
-<p><strong>1.5 文字底框与底色</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行底色文字`</span></span><br><span class="line">==多行底色文字==  //这儿不支持</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">yellow</span>&gt;</span></span>背景色yellow文字<span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line">[<span class="code">```</span>]            //去掉中括号</span><br><span class="line">代码块文字</span><br><span class="line">[<span class="code">```</span>]</span><br></pre></td></tr></table></figure>
-<p><code>单行底色文字</code></p>
-<table><tr><td bgcolor=yellow>背景色yellow文字</td></tr></table>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">代码块文字</span><br></pre></td></tr></table></figure>
-
-<p><strong>1.6 文字注释</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: # (写注释)</span><br><span class="line"></span><br><span class="line">[^_^]:</span><br><span class="line">    写注释</span><br><span class="line"></span><br><span class="line">[^_^]:写注释</span><br></pre></td></tr></table></figure>
-<p><strong>1.7 文字对齐</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>居中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>左对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>右对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="1-6-文字注释"><a href="#1-6-文字注释" class="headerlink" title="1.6 文字注释"></a>1.6 文字注释</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[comment]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: &lt;&gt; (写注释)</span><br><span class="line">[&#x2F;&#x2F;]: # (写注释)</span><br><span class="line">&lt;!-- (写注释)  --&gt;</span><br><span class="line"></span><br><span class="line">[^_^]:</span><br><span class="line">    写注释</span><br><span class="line"></span><br><span class="line">[^_^]:写注释</span><br></pre></td></tr></table></figure>
+<h5 id="1-7-文字对齐"><a href="#1-7-文字对齐" class="headerlink" title="1.7 文字对齐"></a>1.7 文字对齐</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>居中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>左对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>右对齐<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <center>居中</center>
 <p align="left">左对齐</p>
 <p align="right">右对齐</p>
 
-<p><strong>1.8 文字超链接四种方式</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">[<span class="string">Otto的个人空间</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line">[<span class="string">&lt;font color=blue&gt;Otto的个人空间&lt;/font&gt;</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">www.baidu.com</span>/&gt;</span></span></span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">str</span>]: <span class="link">https://www.baidu.com/</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-8-文字超链接四种方式"><a href="#1-8-文字超链接四种方式" class="headerlink" title="1.8 文字超链接四种方式"></a>1.8 文字超链接四种方式</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">[<span class="string">Otto的个人空间</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line">[<span class="string">&lt;font color=blue&gt;Otto的个人空间&lt;/font&gt;</span>](<span class="link">https://wnotto.github.io/ "Otto博客"</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">www.baidu.com</span>/&gt;</span></span></span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">str</span>]: <span class="link">https://www.baidu.com/</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客">Otto的个人空间</a>&emsp;&emsp;<a href="https://wnotto.github.io/" target="_blank" rel="noopener" title="Otto博客"><font color=blue>Otto的个人空间</font></a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a>&emsp;&emsp;<a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
-<h5 id="Markdown图片功能！"><a href="#Markdown图片功能！" class="headerlink" title="Markdown图片功能！"></a>Markdown图片功能！</h5><p><strong>2.1 插图最基础的格式介绍</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Markdown图片功能！"><a href="#Markdown图片功能！" class="headerlink" title="Markdown图片功能！"></a>Markdown图片功能！</h3><h5 id="2-1-插图最基础的格式介绍"><a href="#2-1-插图最基础的格式介绍" class="headerlink" title="2.1 插图最基础的格式介绍"></a>2.1 插图最基础的格式介绍</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</li>
 <li>图片链接：可以是图片的本地地址或者是网址。</li>
 <li>“optional title”：鼠标悬置于图片上会出现的标题文字，可以不写。</li>
 </ul>
-<p><strong>2.2 插图的三种添加方式</strong></p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/uploads/images/md/md_3_1.png "本地"</span>)       </span><br><span class="line">![<span class="string">img</span>](<span class="link">http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png "网络"</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">data:image/png;base64,iVBORw0...... "base64"</span>)    或者</span><br><span class="line">![<span class="string">image</span>][<span class="symbol">base64str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC "base64"</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-2-插图的三种添加方式"><a href="#2-2-插图的三种添加方式" class="headerlink" title="2.2 插图的三种添加方式"></a>2.2 插图的三种添加方式</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/uploads/images/md/md_3_1.png "本地"</span>)       </span><br><span class="line">![<span class="string">img</span>](<span class="link">http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png "网络"</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">data:image/png;base64,iVBORw0...... "base64"</span>)    或者</span><br><span class="line">![<span class="string">image</span>][<span class="symbol">base64str</span>]</span><br><span class="line"></span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC "base64"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>本地插入显示<ul>
 <li>支持本地磁盘绝对路径与项目相对路径</li>
@@ -1468,16 +1963,15 @@ table th:nth-of-type(3){width: 60%;}
 </ul>
 </li>
 </ul>
-<p><img src="/uploads/images/md/md_3_1.png" alt="img" title="本地"> <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="img" title="网络"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC" alt="image" title="base64"><br><strong>2.3 插图的大小与对齐方式</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 默认居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居左--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居右--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/images/md/md_3_1.png" alt="img" title="本地"> <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="img" title="网络"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA5CAYAAABj2ui7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABhSURBVGhD7c8xEcAwDMDAtEDMn2W6lIR8/4tmPTNzz2Lv37UM1hmsM1hnsM5gncE6g3UG6wzWGawzWGewzmCdwTqDdQbrDNYZrDNYZ7DOYJ3BOoN1BusM1hmsM1i3fPCcD909Actx/jdPAAAAAElFTkSuQmCC" alt="image" title="base64"></p>
+<h5 id="2-3-插图的大小与对齐方式"><a href="#2-3-插图的大小与对齐方式" class="headerlink" title="2.3 插图的大小与对齐方式"></a>2.3 插图的大小与对齐方式</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 默认居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居左--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居右--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置居中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">height</span>=<span class="string">"10%"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>markdown语法没有此功能，故上面使用html方式</li>
 <li>宽高可以直接填数值或者百分比</li>
 <li>图片默认都是居中对齐的，居左与居右然后再居中效果如下：</li>
 </ul>
 <p><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="left" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" align="right" width="10%" height="10%"/><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="10%" height="10%"/></p>
-<h5 id="Markdown表格功能！"><a href="#Markdown表格功能！" class="headerlink" title="Markdown表格功能！"></a>Markdown表格功能！</h5><p><strong>3.1 表格基本写法介绍</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header 1 | header 2</span><br><span class="line">---|---</span><br><span class="line">row 1 col 1 | row 1 col 2</span><br><span class="line">row 2 col 1 | row 2 col 2</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">|  header 1  |  header 2  |</span><br><span class="line">|    ---     |    ---     |</span><br><span class="line">|row 1 col 1 | row 1 col 2|</span><br><span class="line">|row 2 col 1 | row 2 col 2|</span><br></pre></td></tr></table></figure>
+<h3 id="Markdown表格功能！"><a href="#Markdown表格功能！" class="headerlink" title="Markdown表格功能！"></a>Markdown表格功能！</h3><h5 id="3-1-表格基本写法介绍"><a href="#3-1-表格基本写法介绍" class="headerlink" title="3.1 表格基本写法介绍"></a>3.1 表格基本写法介绍</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header 1 | header 2</span><br><span class="line">---|---</span><br><span class="line">row 1 col 1 | row 1 col 2</span><br><span class="line">row 2 col 1 | row 2 col 2</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">|  header 1  |  header 2  |</span><br><span class="line">|    ---     |    ---     |</span><br><span class="line">|row 1 col 1 | row 1 col 2|</span><br><span class="line">|row 2 col 1 | row 2 col 2|</span><br></pre></td></tr></table></figure>
 <ul>
 <li>本站默认表格如下（默认表格铺满，且每列等分，内容皆左对齐）<ul>
 <li>第一行：要显示的头部标题</li>
@@ -1502,6 +1996,12 @@ table th:nth-of-type(3){width: 60%;}
 <td>row 2 col 2</td>
 </tr>
 </tbody></table>
+<h5 id="3-2-表格进阶自定义式样"><a href="#3-2-表格进阶自定义式样" class="headerlink" title="3.2 表格进阶自定义式样"></a>3.2 表格进阶自定义式样</h5><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># 如下可以改变一篇文章使用得表格样式</span></span><br><span class="line"></span><br><span class="line">| a | b | c |</span><br><span class="line">|---|---|---|</span><br><span class="line">| 列宽 = 10% 行宽| 列宽 = 30% 行宽 |列宽 = 60% 行宽 |</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">table th:nth-of-type(1)&#123;width: 20%;&#125;</span><br><span class="line">table th:nth-of-type(2)&#123;width: 20%;&#125;</span><br><span class="line">table th:nth-of-type(3)&#123;width: 60%;&#125;</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Markdown折叠功能！"><a href="#Markdown折叠功能！" class="headerlink" title="Markdown折叠功能！"></a>Markdown折叠功能！</h3><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">开头加 <span class="xml"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">mark</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">darkred</span>&gt;</span></span>点击切换折叠<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line">结尾加 <span class="xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Markdown纯文本功能！"><a href="#Markdown纯文本功能！" class="headerlink" title="Markdown纯文本功能！"></a>Markdown纯文本功能！</h3><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">开头加&#123;% raw %&#125;</span><br><span class="line">结尾加&#123;% endraw%&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>实用技术</category>
@@ -1648,30 +2148,69 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
-    <title>u3d_01</title>
+    <title>U3D开篇（一）</title>
     <url>/2020/05/u3d_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Unity3D开始………….</p>
 ]]></content>
+      <tags>
+        <tag>Unity3D</tag>
+      </tags>
   </entry>
   <entry>
-    <title>yml_1</title>
+    <title>YAML介绍</title>
     <url>/2020/05/yml_1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;YAML其实是一种配置文件语言。<br>&emsp;&emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。<br>&emsp;&emsp;YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。<br>&emsp;&emsp;YAML 的配置文件后缀为 .yml，如：config.yml 。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进不允许使用tab，只允许空格</li>
+<li>缩进的空格数不重要，只要相同层级的元素左对齐即可</li>
+<li>‘#’表示注释</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>YAML 支持以下几种数据类型：</p>
+<ul>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li>纯量（scalars）：单个的、不可再分的值</li>
+</ul>
+<h3 id="YAML-对象"><a href="#YAML-对象" class="headerlink" title="YAML 对象"></a>YAML 对象</h3><p>对象键值对使用冒号结构表示 key: value，冒号后面要加一个空格。<br>也可以使用 key:{key1: value1, key2: value2, …}。<br>还可以使用缩进表示层级关系；</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
+<p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
+<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
+<h3 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h3><p>以 - 开头的行表示构成一个数组：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+<p>YAML 支持多维数组，可以使用行内表示：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="string">[value1,</span> <span class="string">value2,</span> <span class="string">...]</span></span><br></pre></td></tr></table></figure>
+<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+<p>一个相对复杂的例子：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
+<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。<br>数组也可以使用流式(flow)的方式表示：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span> <span class="string">[&#123;id:</span> <span class="number">1</span><span class="string">,name:</span> <span class="string">company1,price:</span> <span class="string">200W&#125;,&#123;id:</span> <span class="number">2</span><span class="string">,name:</span> <span class="string">company2,price:</span> <span class="string">500W&#125;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h3><p>数组和对象可以构成复合结构，例：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
+<p>转换为 json 为：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ 'Ruby', 'Perl', 'Python'],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: 'yaml.org',</span><br><span class="line">    Ruby: 'ruby-lang.org',</span><br><span class="line">    Python: 'python.org',</span><br><span class="line">    Perl: 'use.perl.org' </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h3><p>纯量是最基本的，不可再分的值，包括：</p>
+<ul>
+<li><font color=red>字符串布尔值、整数、浮点数、Null、时间、日期</font></li>
+</ul>
+<p>使用一个例子来快速了解纯量的基本使用：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">'node'</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'Hello world'</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018</span><span class="number">-02</span><span class="number">-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018</span><span class="number">-02</span><span class="string">-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&amp; 锚点和 * 别名，可以用来引用:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+<p>相当于:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">defaults:</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">development:</span><br><span class="line">  database: myapp_development</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">  database: myapp_test</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br></pre></td></tr></table></figure>
+<p>&amp; 用来建立锚点（defaults），&lt;&lt; 表示合并到当前数据，* 用来引用锚点。<br>下面是另一个例子:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="meta">*showell</span></span><br></pre></td></tr></table></figure>
+<p>转为 JavaScript 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">[ <span class="string">'Steve'</span>, <span class="string">'Clark'</span>, <span class="string">'Brian'</span>, <span class="string">'Oren'</span>, <span class="string">'Steve'</span> ]</span><br></pre></td></tr></table></figure>
+<p>参考地址：<a href="https://www.runoob.com/w3cnote/yaml-intro.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/yaml-intro.html</a></p>
 ]]></content>
+      <tags>
+        <tag>配置文件</tag>
+      </tags>
   </entry>
   <entry>
     <title>Markdown语法之代码段(四)</title>
@@ -1845,7 +2384,7 @@ table th:nth-of-type(2){width: 90%;}
 </blockquote>
 <p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
 <h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
-<li>一种通用式音视频插入方式，使用音乐平台各自的外链代码！</li>
+<li>一种外链式音视频插入方式，使用音乐平台各自的外链代码（一般为iframe和embed标签）！</li>
 <li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
 <li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
 </ol>
@@ -1854,9 +2393,10 @@ table th:nth-of-type(2){width: 90%;}
 <p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
  src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
+说明：如果你的浏览器没有安装Falsh或者不支持Falsh的话，点击后是没有视频效果的！
+<embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
+ width="340" height="86"  allowNetworking="all"></embed>
 
-<p><embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
- width="340" height="86"  allowNetworking="all"></embed></p>
 <p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
 <h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
@@ -1866,7 +2406,7 @@ table th:nth-of-type(2){width: 90%;}
 <li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
 </ul>
 
-    <div id="aplayer-JLtXJSUW" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-KhKglDlP" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <ul>
@@ -1884,7 +2424,7 @@ table th:nth-of-type(2){width: 90%;}
 <li>效果：</li>
 </ul>
 
-    <div id="aplayer-KFUJpdsR" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ujBgbVeg" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <ul>
@@ -1894,40 +2434,21 @@ table th:nth-of-type(2){width: 90%;}
 <p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
 </blockquote>
 <h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
-<li>代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/若能绽放光芒.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/若能绽放光芒.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
-<li>效果：<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-
+<li>代码：（此代码已经失效，建议您保存任意视频至本地，然后使用本地链接地址）<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/极乐净土.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/极乐净土.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果：<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4","pic":"https://fp1.fghrsh.net/2016/08/01/d2540b5902a88a64c513f0027253985a.jpg"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">mode</span>=<span class="string">"transparent"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="三、音视频普通插入"><a href="#三、音视频普通插入" class="headerlink" title="三、音视频普通插入"></a>三、音视频普通插入</h3><p>video标签举例： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>script标签举例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>效果</li>
+<li>video效果</li>
 </ul>
 <video width="480" height="320" controls>
-<source src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66">
-</video>
-
-<ul>
-<li>补充</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">暂无</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>javascript 标签举例</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><vedio>标签举例</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>markdown代码禁用解析<br>其自带的MarkDown解析器会将代码直接解析为文本. 解决方案是在代码前加入 , 代码结尾处加入 标签以禁用MarkDown解析.</p>
-]]></content>
+<source src="//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4">
+</video>]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>
@@ -2034,5 +2555,28 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
 
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hexo添加评论系统</title>
+    <url>/2020/05/hexo_03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 在Next主题下配置Valine评论系统，三步轻松搞定！</p>
+<blockquote>
+<p>为什么选择Valine，我觉得我的需求就是方便，简洁，最重要一点是要支持Markdown ，对比之下，最终选定了这款Valine，当然，如果你不喜欢这样简洁的，可以参考 <a href="https://www.zhihu.com/question/267598518" target="_blank" rel="noopener">Hexo（NexT 主题）评论系统哪个好？</a></p>
+</blockquote>
+<h3 id="第一步，注册LeanClound，获取APP-ID-和-APP-Key"><a href="#第一步，注册LeanClound，获取APP-ID-和-APP-Key" class="headerlink" title="第一步，注册LeanClound，获取APP ID 和 APP Key"></a>第一步，注册LeanClound，获取APP ID 和 APP Key</h3><p>Valine 是基于 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud官网</a>作为数据存储的，所以需要注册一个账号，注册完成后，我们找到创建应用<br><img src="https://upload-images.jianshu.io/upload_images/17704372-79093a94b8d92b82.png?imageMogr2/auto-orient/strip|imageView2/2/w/601/format/webp" /><br>创建完成后，打开应用，点击左边的存储，查看是否有Comment和 Counter，如没有则创建，权限默认设为所有用户。创建完成后，如下图：<br><img  src="https://upload-images.jianshu.io/upload_images/17704372-0cf9a82b7ab02ad0.png?imageMogr2/auto-orient/strip|imageView2/2/w/946/format/webp" /></p>
+<blockquote>
+<p>说明：如没有创建，那么在显示 post 页面时，请求 LeanCloud 的 api 接口，可能会返回 error code=101</p>
+</blockquote>
+<p>点击设置 → 安全中心 ,将除了数据存储的服务全部关闭，并绑定web安全域名，防止恶意调用。<br><img src="https://upload-images.jianshu.io/upload_images/17704372-e8399847d4ec850c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1133/format/webp" /><br>最后点击 应用 Keys，等一会过来复制 AppID 和 Appkey。</p>
+<h3 id="第二步，在Hexo你的个人主题中配置"><a href="#第二步，在Hexo你的个人主题中配置" class="headerlink" title="第二步，在Hexo你的个人主题中配置"></a>第二步，在Hexo你的个人主题中配置</h3><p>我的在next主题下_config.yml里配置！搜索valine，参考配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>                 <span class="comment"># 开启 </span></span><br><span class="line">  <span class="attr">appid:</span>                       <span class="comment"># 你的appid</span></span><br><span class="line">  <span class="attr">appkey:</span>                      <span class="comment"># 你的appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span>                <span class="comment"># 邮件提醒</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span>                <span class="comment"># Verification code </span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">请留下你的评论</span>  </span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span>                   <span class="comment"># 默认头像设置</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-cn</span>              <span class="comment"># 语言，设为zh-cn                              </span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span>               <span class="comment"># 是否开启当前文章阅读量统计</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">serverURLs:</span></span><br></pre></td></tr></table></figure>
+<p>next现在已经默认能使用最新的valine.min.js了，这一步可以忽略。如果你的仍需要设置，那么打开 <a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">https://www.jsdelivr.com/package/npm/valine</a> 获取最新 valine.min.js 的cdn地址，然后在下面位置设置<br><img src="https://upload-images.jianshu.io/upload_images/17704372-747948fb934a7a2e.png?imageMogr2/auto-orient/strip|imageView2/2/w/784/format/webp" /></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 没有下面这几行的话，则的不必设置</span><br><span class="line"># valine</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;xCss&#x2F;Valine</span><br><span class="line">  # Example:                           </span><br><span class="line">  # valine: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1&#x2F;dist&#x2F;Valine.min.js</span><br><span class="line">  # valine: &#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;valine&#x2F;1.3.4&#x2F;Valine.min.js</span><br><span class="line">  valine: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1.3.9&#x2F;dist&#x2F;Valine.min.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步，测试valine评论"><a href="#第三步，测试valine评论" class="headerlink" title="第三步，测试valine评论"></a>第三步，测试valine评论</h3><p>进入你的post文章页面最下方，开始发表评论！<br>回到你的LeanCloud查看评论数据，在这管理。<br>现在的page选项页面，如：归档、标签、分类的下方应该不会出现评论，之前的next会出现，那么可以通过comments属性设置true或false控制该页面或者是文章的评论功能是否打开，如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tags</span><br><span class="line">date: 2020-5-14 16:10:19</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
 </search>

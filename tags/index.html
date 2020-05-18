@@ -340,10 +340,10 @@
         
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                目前共计 7 个标签
+                目前共计 10 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/2020%E5%A4%A7%E4%BA%8B%E4%BB%B6/" style="font-size: 24px; color: #4f4f4f">2020大事件</a> <a href="/tags/FontAwesome/" style="font-size: 18px; color: #8e8e8e">FontAwesome</a> <a href="/tags/Hexo/" style="font-size: 18px; color: #8e8e8e">Hexo</a> <a href="/tags/Markdown/" style="font-size: 30px; color: #111">Markdown</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #ccc">个人博客</a> <a href="/tags/%E5%AE%9E%E7%94%A8/" style="font-size: 12px; color: #ccc">实用</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">算法</a>
+              <a href="/tags/2020%E5%A4%A7%E4%BA%8B%E4%BB%B6/" style="font-size: 24px; color: #4f4f4f">2020大事件</a> <a href="/tags/Egret/" style="font-size: 12px; color: #ccc">Egret</a> <a href="/tags/FontAwesome/" style="font-size: 18px; color: #8e8e8e">FontAwesome</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #4f4f4f">Hexo</a> <a href="/tags/Markdown/" style="font-size: 30px; color: #111">Markdown</a> <a href="/tags/Unity3D/" style="font-size: 12px; color: #ccc">Unity3D</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #ccc">个人博客</a> <a href="/tags/%E5%AE%9E%E7%94%A8/" style="font-size: 12px; color: #ccc">实用</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">算法</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 12px; color: #ccc">配置文件</a>
             </div>
           </div>
         
@@ -403,7 +403,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -425,7 +425,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -684,6 +684,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'cdMEdKodr4MeOFAdJYiz6A5U-MdYXbMMI',
+        appKey: 'BEaUouFM8BY0KfF489fUO5D7',
+        placeholder: '欢迎畅所欲言，留下你的足迹！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

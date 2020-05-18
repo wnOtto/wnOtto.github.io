@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Unity3D," />
 
 
 
@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="Unity3D开始………….">
 <meta property="og:type" content="article">
-<meta property="og:title" content="u3d_01">
+<meta property="og:title" content="U3D开篇（一）">
 <meta property="og:url" content="http://yoursite.com/2020/05/u3d_01/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
+<meta property="og:description" content="Unity3D开始………….">
 <meta property="article:published_time" content="2020-05-12T02:37:35.000Z">
-<meta property="article:modified_time" content="2020-05-12T02:37:35.566Z">
+<meta property="article:modified_time" content="2020-05-16T04:02:32.651Z">
 <meta property="article:author" content="Otto">
+<meta property="article:tag" content="Unity3D">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,7 +125,7 @@
 
 
 
-  <title>u3d_01 | Otto的个人空间</title>
+  <title>U3D开篇（一） | Otto的个人空间</title>
   
 
 
@@ -350,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">u3d_01</h1>
+          <h1 class="post-title" itemprop="name headline">U3D开篇（一）</h1>
         
 
         <div class="post-meta">
@@ -375,6 +378,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/u3d_01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/u3d_01/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -405,14 +418,7 @@
       
 
       
-        <!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
+        <p>Unity3D开始………….</p>
 
       
     </div>
@@ -460,6 +466,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Unity3D/" rel="tag"># Unity3D</a>
+          
+        </div>
+      
 
       
       
@@ -469,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/eg_01/" rel="next" title="eg_01">
-                <i class="fa fa-chevron-left"></i> eg_01
+              <a href="/2020/05/eg_01/" rel="next" title="白鹭开篇（一）">
+                <i class="fa fa-chevron-left"></i> 白鹭开篇（一）
               </a>
             
           </div>
@@ -510,6 +522,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -553,7 +568,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +590,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -834,6 +849,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'cdMEdKodr4MeOFAdJYiz6A5U-MdYXbMMI',
+        appKey: 'BEaUouFM8BY0KfF489fUO5D7',
+        placeholder: '欢迎畅所欲言，留下你的足迹！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
