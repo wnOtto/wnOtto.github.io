@@ -2579,4 +2579,27 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>三种字符编码的理解</title>
+    <url>/2020/05/ce_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——&ensp;好事将在下一个转身！</p>
+<center><font color="red" size=15>ASCII&emsp;Unicode&emsp;UTF-8</font> </center>
+
+<ol>
+<li>ASCII 是最早的一种只有大小写英文字符的编码</li>
+<li>Unicode 避免各国语言编码混乱的国际统一编码，包含各国语言，计算机存储编码（硬盘、内存均采用的语言）</li>
+<li>UTF-8  可变长编码传输协议，在Unicode编码的基础上的编码，主要用来对编码转化优化节约内存占用，包含Unicode中除去各国的一小部分生僻字符</li>
+<li>UTF-16 同上用于优化字符传输转化，但包含Unicode全部字符</li>
+</ol>
+<hr>
+<h4 id="什么是字符编码？"><a href="#什么是字符编码？" class="headerlink" title="什么是字符编码？"></a>什么是字符编码？</h4><p>计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。</p>
+<h4 id="ASCII编码"><a href="#ASCII编码" class="headerlink" title="ASCII编码"></a>ASCII编码</h4><p>由于计算机是美国人发明的，因此，最早只有127个字母被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母 A 的编码是65，小写字母 z 的编码是122。<br>但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了GB2312编码，用来把中文编进去。<br>全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。</p>
+<h4 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h4><p>因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p>
+<h4 id="ASCII编码和Unicode编码的区别"><a href="#ASCII编码和Unicode编码的区别" class="headerlink" title="ASCII编码和Unicode编码的区别"></a>ASCII编码和Unicode编码的区别</h4><p>1）ASCII编码是1个字节，而Unicode编码通常是2个字节，举例如下。<br>字母 A 用ASCII编码是十进制的65，二进制的01000001；<br>字符 0 用ASCII编码是十进制的48，二进制的00110000，注意字符 ‘0’ 和整数 0 是不同的；<br>汉字 中 已经超出了ASCII编码的范围，用Unicode编码是十进制的20013，二进制的01001110 00101101。<br>如果把ASCII编码的 A 用Unicode编码，只需要在前面补0就可以，因此， A 的Unicode编码是00000000 01000001。</p>
+<h4 id="UTF-8编码"><a href="#UTF-8编码" class="headerlink" title="UTF-8编码"></a>UTF-8编码</h4><p>新问题的出现：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。<br>因此，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/5F24B81624EC40829D678AA9CE6DDD31/394219" alt="img"><br>从上面的表格可以发现UTF-8编码一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。<br>谢谢清香白莲素还真的点评，强调一下，unicode是一种编码方式，和ascii是同一个概念，而UTF-8，UTF-16等是一种存储方式，在存储和传输上节约空间、提高性能的一种编码形式。<br>计算机系统通用的字符编码工作方式：<br>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。<br>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/72A1823827324130B6C33FE31348D45E/394218" alt="img"><br>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/1D69DC2C667041639DC23FF4FB3008A6/394220" alt="img"><br>所以很多网页的源码上会有类似<meta charset="UTF-8" />的信息，表示该网页正是用的UTF-8编码。</p>
+]]></content>
+      <tags>
+        <tag>字符编码</tag>
+      </tags>
+  </entry>
 </search>
