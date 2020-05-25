@@ -155,17 +155,9 @@ ToDay，Otto成功搭建起了一个属于自己的博客站点，心里莫名�
       </tags>
   </entry>
   <entry>
-    <title>FA_3</title>
+    <title>加密文章测试</title>
     <url>/2020/05/FA_3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -p fontawesome/FA_1 "FA_1" && hexo g
--->
-
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文密码：123456</p>
 <p><a href="/download/Text/Test.text" download="Test.text">点击下载</a></p>
 <p><a id="download" href="/download/Text/Test.text" download="Test.text"><i class="fa fa-download"></i><span> Download Now</span> </a></p>
 <p><button id="copy">复制文章</button></p>
@@ -205,12 +197,12 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
 
 
 
-        <div id="aplayer-hEygUvYr" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-sjAnAnOb" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-hEygUvYr"),
+            element: document.getElementById("aplayer-sjAnAnOb"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -228,13 +220,13 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
 
 
 
-    <div id="aplayer-ITTwruSV" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ccBQOYin" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
     ></div>
 
 
 
-    <div id="aplayer-SHrFpIMc" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-HNOEQqQE" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
     ></div>
 
@@ -2635,7 +2627,7 @@ table th:nth-of-type(2){width: 90%;}
 <h4 id="UTF-8编码"><a href="#UTF-8编码" class="headerlink" title="UTF-8编码"></a>UTF-8编码</h4><p>新问题的出现：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。<br>因此，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/5F24B81624EC40829D678AA9CE6DDD31/394219" alt="img"><br>从上面的表格可以发现UTF-8编码一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。<br>强调一下，unicode是一种编码方式，和ascii是同一个概念，而UTF-8，UTF-16等是一种存储方式，在存储和传输上节约空间、提高性能的一种编码形式。<br>计算机系统通用的字符编码工作方式：<br>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。<br>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/72A1823827324130B6C33FE31348D45E/394218" alt="img"><br>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：<br><img src="https://note.youdao.com/yws/public/resource/74f73e24ddcf02a7bc62ace1289ab396/xmlnote/1D69DC2C667041639DC23FF4FB3008A6/394220" alt="img"><br>所以很多网页的源码上会有类似<meta charset="UTF-8" />的信息，表示该网页正是用的UTF-8编码。</p>
 ]]></content>
       <tags>
-        <tag>字符编码</tag>
+        <tag>扩展必备</tag>
       </tags>
   </entry>
   <entry>
@@ -2660,5 +2652,29 @@ table th:nth-of-type(2){width: 90%;}
 <p>前端语言：</p>
 <p>后端语言：</p>
 ]]></content>
+      <tags>
+        <tag>扩展必备</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>七大设计原则与八大设计模式</title>
+    <url>/2020/05/fr_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>—— 只知其然，不知其所以然！</p>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><strong>什么是设计原则与设计模式?</strong><br>&emsp;&emsp;我们知道对于很多数学问题，经常会有多种不同的解法，而且这其中可能会有一种比较通用简便高效的方法，我们在遇到类似的问题或者同一性质的问题时，也往往采用这一种通用的解法。<br><strong>将话题转移到程序设计中来!</strong><br>&emsp;&emsp;对于软件开发人员， 在软件开发过程中， 面临的一般问题的解决方案就是设计模式（准确的说是OOP中）。当然，如同数学的解题思路一样，设计模式并不是公式一样的存在<br>&emsp;&emsp;设计模式（Design pattern）代表了最佳的实践，是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的宝贵经验，是解决问题的一种思路（思想）。<br>&emsp;&emsp;设计原则是从设计模式中总结演化出来的行为准则，是设计模式的根本，也称面向对象（OOP）设计原则。</p>
+<img title="理解配图" src="http://qal0b1j3s.bkt.clouddn.com/static/img/frame/frame_01.png">
+<h2 id="二、起源"><a href="#二、起源" class="headerlink" title="二、起源"></a>二、起源</h2><p>&emsp;&emsp;随着面向对象编程语言的发展，以及软件开发规模的不断扩大，编写良好的OOP程序变得困难，而编写可复用的OOP程序则更是困难。<br>&emsp;&emsp;在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用面向对象软件的基础）的书，该书首次提到了软件开发中设计模式的概念。 四位作者合称 GOF（四人帮，全拼 Gang of Four），这就是设计模式四个字的起源。<br>&emsp;&emsp;当然，即使在这本书出版之前，肯定也已经有很多有经验的OOP程序员已经在使用自己的经验(设计模式)了，但是这本书将OOP的设计经验作为设计模式记录下来，使我们能够更加简单方便的复用成功的设计经验和体系结构。 </p>
+<h2 id="三、常用七大设计原则"><a href="#三、常用七大设计原则" class="headerlink" title="三、常用七大设计原则"></a>三、常用七大设计原则</h2><p>目的：1.适应变化&emsp;2.提高代码复用率&emsp;3.可维护性&emsp;4.扩展性<br>关系：<br>&emsp;&emsp;1.开闭原则为根本目标原则，其次里氏代换、迪米特。<br>&emsp;&emsp;2.单一职责、接口分隔、依赖倒置、合成复用为基础原则。</p>
+<h5 id="开闭原则（OCP）"><a href="#开闭原则（OCP）" class="headerlink" title="开闭原则（OCP）"></a>开闭原则（OCP）</h5><p>也称开放关闭原则，字如其意，对扩展开放，对修改关闭！<br>解释：一个软件实体应当对扩展开放，对修改关闭，即软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
+<h5 id="里式替换（LSP）"><a href="#里式替换（LSP）" class="headerlink" title="里式替换（LSP）"></a>里式替换（LSP）</h5><p>所有引用基类的地方必须能透明地使用其子类的对象！<br>解释：继承复用的基石，在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常。子类要做到可以完全替代父类，使其继承体系保留基类完整性。（比如：避免子类方法覆盖父类）</p>
+<h4 id="迪米特原则（PLK）"><a href="#迪米特原则（PLK）" class="headerlink" title="迪米特原则（PLK）"></a>迪米特原则（PLK）</h4><p>也叫最小知识原则，让一个类不要过多的依赖牵扯其他的类，减少影响降低耦合度<br>解释：一个软件实体应当尽可能少地与其他实体发生相互作用，也就是一个对象应当对其他对象有尽可能少的了解，避免一个模块的修改影响另一模块的修改。</p>
+<h5 id="单一职责（SRP）"><a href="#单一职责（SRP）" class="headerlink" title="单一职责（SRP）"></a>单一职责（SRP）</h5><p>单一职责，即一个类应该有专用职责！<br>解释：这里的类不光指类，也适用于接口和方法：类的设计尽量做到只有一个原因可以引起它的改变。接口一定做到单一职责。一个方法实现一个功能。</p>
+<h5 id="接口隔离（ISP）"><a href="#接口隔离（ISP）" class="headerlink" title="接口隔离（ISP）"></a>接口隔离（ISP）</h5><p>其实就是接口中的单一原则！<br>解释：使用多个专门的接口，而不使用单一的总接口，即细化接口、单一化接口的意思，一个接口只服务于一个子模块或业务逻辑，不要建立庞大臃肿的接口，尽量细化接口，接口中的方法尽量少。</p>
+<h5 id="依赖倒置（SRP）"><a href="#依赖倒置（SRP）" class="headerlink" title="依赖倒置（SRP）"></a>依赖倒置（SRP）</h5><p>依赖抽象而不依赖具体<br>解释：就是针对接口编程，而不是针对实现编程。由面向过程中，高层模块依赖低层模块，到面向对象的倒置依赖(低层模块依赖高层模块)，二者都不应该去依赖具体，而是去依赖抽象。<br>抽象接口是对低层模块的抽象，低层模块继承或实现该抽象接口。（体现：多态）<br>这样，高层模块不直接依赖低层模块，而是依赖抽象接口层。抽象接口也不依赖低层模块的实现细节，而是低层模块依赖（继承或实现）抽象接口。</p>
+<h5 id="合成复用（CRP）"><a href="#合成复用（CRP）" class="headerlink" title="合成复用（CRP）"></a>合成复用（CRP）</h5><p>合成复用（CRP）又称聚合复用（ARP），能使用现有的类组合 ，就不要创造新的类<br>解释：多用组合复用{对现有类进行引用组合}，少用继承复用{继承会继承到父类的一切，造成一些没必要的浪费，甚至可能导致类膨胀}</p>
+<h2 id="四、常用八大设计模式"><a href="#四、常用八大设计模式" class="headerlink" title="四、常用八大设计模式"></a>四、常用八大设计模式</h2><p>单例模式：<br>代理模式：<br>观察者模式：<br>策略模：<br>工厂模式：<br>中介者模式：<br>门面模式（外观模式）：<br> 组合模式：</p>
+]]></content>
+      <tags>
+        <tag>扩展必备</tag>
+      </tags>
   </entry>
 </search>
