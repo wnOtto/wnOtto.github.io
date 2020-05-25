@@ -53,56 +53,6 @@ ToDay，Otto成功搭建起了一个属于自己的博客站点，心里莫名�
       </tags>
   </entry>
   <entry>
-    <title>算法之时间复杂度</title>
-    <url>/2020/05/al_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——一个好的程序员应该是那种过单行线都要往两边看的人。<br><img title="我们的征途是星辰大海！" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3558312413,3027554637&fm=26&gp=0.jpg" width="150%" /></p>
-<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>算法评估（运行正确性&emsp;&emsp;运行效率性）</p>
-<p>程序是用来解决问题的，是由多个步骤或过程组成的，这些步骤和过程就是解决问题的算法。解决一个问题有多种方法，也就有多种算法。每一种算法都可以达到解决问题的目的，但花费的成本和时间不尽相同，从节约成本和时间的角度考虑，需要找出最优算法。那么，如何衡量一个算法的好坏呢？</p>
-<p>考虑：<font color=purple><br>（1）算法在执行过程中所消耗的时间；<br>（2）算法在执行过程中所占资源的大小，例如，占用内存空间的大小；<br>（3）算法的易理解性、易实现性和易验证性等等。 </font></p>
-<p>然而，往往一个看起来很简便的算法，其运行时间要比一个形式上复杂的算法慢的多；而一个运行时间较短的算法往往占用较多的资源。因此，在不同情况下需要选择不同的算法。在实时系统中，对系统响应时间要求高，则尽量选用执行时间少的算法；当数据处理量大，而存储空间较少时，则尽量选用节省空间的算法。</p>
-<h3 id="二、由来"><a href="#二、由来" class="headerlink" title="二、由来"></a>二、由来</h3><p><strong>一个算法在执行过程中所消耗的时间取决于下面的因素：</strong><br>（1）算法所需数据输入的时间；<br>（2）算法编译为可执行程序的时间；<br>（3）计算机执行每条指令所需的时间；<font color=purple><br>（4）算法语句重复执行的次数。</font><br>其中（1）依赖于输入设备的性能，若是脱机输入，则输入数据的时间可以忽略不计。（2）（3）取决于计算机本身执行的速度和编译程序的性能。<strong>因此，习惯上将算法语句重复执行的次数作为算法的时间量度。</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* x = x + 1;这个语句执行的次数 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> x</span>)</span>&#123;</span><br><span class="line">  x = x + <span class="number">1</span>;                  <span class="comment">//执行1次</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nadd</span>(<span class="params"><span class="keyword">int</span> x,<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    x = x + <span class="number">1</span>;                <span class="comment">//执行n次</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loopadd</span>(<span class="params"><span class="keyword">int</span> x,<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">	  x = x + <span class="number">1</span>;          <span class="comment">//执行n*n次</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的例子并没有把循环本身执行的次数算进去，下面给出2个执行次数计算较为精确的例子。</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span>(<span class="params"><span class="keyword">int</span> arr[],<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,total=<span class="number">0</span>;          <span class="comment">// 1   次</span></span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n;i++)       <span class="comment">// n+1 次</span></span><br><span class="line">    total+=arr[i];        <span class="comment">// n   次</span></span><br><span class="line">  <span class="keyword">return</span> total;           <span class="comment">// 1   次</span></span><br><span class="line">&#125;                         </span><br><span class="line"><span class="comment">//上面程序执行次数为2n+3次，再看看下面矩阵相加的例子：假设两矩阵a,b皆为n*n矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> a[][],<span class="keyword">int</span> b[][],<span class="keyword">int</span> c[][],<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;                             <span class="comment">//1</span></span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)                     <span class="comment">//n+1</span></span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++)               <span class="comment">//n(n+1)</span></span><br><span class="line">	  c[i][j] = a[i][j] + b[i][j]; <span class="comment">//n*n</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行总次数：2n^2+2n+2</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;一般情况下，n为问题规模（大小）的量度，如数组的长度、矩阵的阶、图中的顶点数等等。<br>&emsp;&emsp;对于前面add函数来说，问题规模量度为常数（1）；对于数组排序问题来说，问题规模量度为输入数组的长度（记为n）；对于n阶矩阵相加来说，问题规模量度为矩阵阶数的平方（记为n^2）。<br>&emsp;&emsp;<font color=purple>为了给出算法通用的时间量度，用数学概念来描述算法的执行次数，可以把一个算法中语句的执行次数称为语句频度或时间频度，记为T(n)。</font>当问题规模n不断变化时，时间频度T(n)也会不断变化，我们需要评估当n不断变化时，时间频度T(n)的变化规律。<br>&emsp;&emsp;<font color=red>若有某个辅助函数f(n)，当n趋向于无穷大时，如果T(n)/ f(n)的极限为不等于零的常数，则认为T(n)与f(n)是同量级的函数，记作：T(n) =O(f(n))，O(f(n))称为算法的渐进时间复杂度，简称时间复杂度。</font></p>
-<h3 id="三、表示意义"><a href="#三、表示意义" class="headerlink" title="三、表示意义"></a>三、表示意义</h3><ul>
-<li>（1）在较复杂的算法中，进行精确分析是非常复杂的；</li>
-<li>（2）一般来说，我们并不关心T(n)的精确度量，而只是关心其量级。</li>
-</ul>
-<p>T(n) = O(f(n)) 表示存在一个常数C，当n趋于正无穷大时，总有T(n) ≤ C * f(n)，其意义是T(n)在n趋于正无穷大时跟f(n)基本接近，因此完全可以用f(n)来表示T(n)。<br>O(f(n))通常取执行次数中最高次方或最大指数部分的项。例如：</p>
-<ul>
-<li>（1）阵列元素相加为2n+3 = O(n)</li>
-<li>（2）矩阵相加为2n^2+2n+1 = O(n^2)</li>
-<li>（3）矩阵相乘为2n^3+4n^2+2n+2 = O(n^3)</li>
-</ul>
-<p>在各种不同的算法中，若算法语句的执行次数为常数，则算法的时间复杂度为O(1)，按数量级递增排列，常见的时间复杂度量有：</p>
-<ul>
-<li>（1）O(1)：常量阶，运行时间为常量</li>
-<li>（2）O(logn)：对数阶，如二分搜索算法</li>
-<li>（3）O(n)：线性阶，如n个数内找最大值</li>
-<li>（4）O(nlogn)：对数阶，如快速排序算法</li>
-<li>（5）O(n^2)：平方阶，如选择排序，冒泡排序</li>
-<li>（6）O(n^3)：立方阶，如两个n阶矩阵的乘法运算</li>
-<li>（7）O(2^n)：指数阶，如n个元素集合的所有子集的算法</li>
-<li>（8）O(n!)：阶乘阶，如n个元素全部排列的算法</li>
-</ul>
-<p>下图给出了随着n的变化，不同量级的时间复杂度变化曲线。</p>
-<img title="变化曲线" src="http://qal0b1j3s.bkt.clouddn.com/static/img/algorithm/al1_1.jpg?imageView2/2/w/300">
-<h3 id="四、评估计算"><a href="#四、评估计算" class="headerlink" title="四、评估计算"></a>四、评估计算</h3><p>评估算法时间复杂度的具体步骤是：<font color=red></p>
-<ul>
-<li>（1）找出算法中重复执行次数最多的语句的频度来估算算法的时间复杂度；</li>
-<li>（2）保留算法的最高次幂，忽略所有低次幂和高次幂的系数；</li>
-<li>（3）将算法执行次数的数量级放入大Ο记号中。 </font></li>
-</ul>
-<p>例如，下列三个简单的程序段：</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">(a)  x=x+<span class="number">1</span>;</span><br><span class="line">(b)  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++) x=x+<span class="number">1</span>;</span><br><span class="line">(c)  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	   <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++) </span><br><span class="line">	     x=x+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在程序段（a）中，语句x=x+1不在任何一个循环体内，则它的时间频度为1，其执行时间是个常量；而（b）中，同一语句被重复执行n次，其时间频度为n；显然在（c）中，该语句的频度为n^2。由此，这三个程序段的时间复杂度为O(1)、O(n)、O(n^2)。分别为常量、线性阶和平方阶。<br>&emsp;&emsp;对于较为复杂的算法，可以将它们分割成容易估算的几个部分，然后利用O的求和原则得到整个算法的时间复杂度。例如，若算法的两个部分的时间复杂度分别为T1(n)=O(f(n))和T2(n)=O(g(n))，则总的时间复杂度为:<br>T(n)= T1(n)+ T2(n)=O(max(f(n), g(n)))<br>&emsp;&emsp;然而，很多算法的运行时间不仅依赖于问题的规模，也与处理的数据集有关。例如，有的排序算法对某些原始数据（如自小至大有序），则其时间复杂度为O(n)，而对另一些数据可达O(n^2)。因此，在估算算法的时间复杂度时，均以数据集中最坏的情况来估算。<br><strong>小结</strong><br>评估算法时间复杂度的要点是：<font color=green>如果一个算法的执行次数是 T(n)，那么只保留最高次项，同时忽略最高项的系数后得到函数 f(n)，此时算法的时间复杂度就是 O(f(n))。</font></p>
-]]></content>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>几何凸包算法</title>
     <url>/2020/05/al_02/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——人生有涯，学海无涯！ 那么，我该去找我的海了？<br><img title="我们的征途是星辰大海！" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3558312413,3027554637&fm=26&gp=0.jpg" width="150%" /></p>
@@ -155,109 +105,53 @@ ToDay，Otto成功搭建起了一个属于自己的博客站点，心里莫名�
       </tags>
   </entry>
   <entry>
-    <title>加密文章测试</title>
-    <url>/2020/05/FA_3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文密码：123456</p>
-<p><a href="/download/Text/Test.text" download="Test.text">点击下载</a></p>
-<p><a id="download" href="/download/Text/Test.text" download="Test.text"><i class="fa fa-download"></i><span> Download Now</span> </a></p>
-<p><button id="copy">复制文章</button></p>
-<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
-
-<script>
-    function copyArticle(event){
-        const range = document.createRange();                     //1.创建range复制区域对象
-        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
-        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
-        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
-        selection.addRange(range);                                //5.selection中添加range
-        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
-    }                                                             
-    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
-</script>
-
-<article id="article">
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
-</article>
-
-<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
-<p>1<br>2<br>wwwww<br>wwww</p>
-<pre><code class="javascript">/* 创建range对象   */
-const range = document.createRange();
-range.selectNode(element);    // 设定range包含的节点对象 
-
-/* 窗口的selection对象，表示用户选择的文本 */
-const selection = window.getSelection();
-if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
-selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
-
-document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
-
-</code></pre>
-
-
-
-
-        <div id="aplayer-sjAnAnOb" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
-            <pre class="aplayer-lrc-content"></pre>
-        </div>
-        <script>
-          var ap = new APlayer({
-            element: document.getElementById("aplayer-sjAnAnOb"),
-            narrow: false,
-            autoplay: false,
-            showlrc: false,
-            music: {
-              title: "她的睫毛",
-              author: "周杰伦",
-              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
-              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
-              lrc: ""
-            }
-          });
-          window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
-        </script>
-
-
-
-    <div id="aplayer-ccBQOYin" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
-    ></div>
-
-
-
-    <div id="aplayer-HNOEQqQE" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
-    ></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <title>算法之时间复杂度</title>
+    <url>/2020/05/al_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>——一个好的程序员应该是那种过单行线都要往两边看的人。<br><img title="我们的征途是星辰大海！" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3558312413,3027554637&fm=26&gp=0.jpg" width="150%" /></p>
+<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>算法评估（运行正确性&emsp;&emsp;运行效率性）</p>
+<p>程序是用来解决问题的，是由多个步骤或过程组成的，这些步骤和过程就是解决问题的算法。解决一个问题有多种方法，也就有多种算法。每一种算法都可以达到解决问题的目的，但花费的成本和时间不尽相同，从节约成本和时间的角度考虑，需要找出最优算法。那么，如何衡量一个算法的好坏呢？</p>
+<p>考虑：<font color=purple><br>（1）算法在执行过程中所消耗的时间；<br>（2）算法在执行过程中所占资源的大小，例如，占用内存空间的大小；<br>（3）算法的易理解性、易实现性和易验证性等等。 </font></p>
+<p>然而，往往一个看起来很简便的算法，其运行时间要比一个形式上复杂的算法慢的多；而一个运行时间较短的算法往往占用较多的资源。因此，在不同情况下需要选择不同的算法。在实时系统中，对系统响应时间要求高，则尽量选用执行时间少的算法；当数据处理量大，而存储空间较少时，则尽量选用节省空间的算法。</p>
+<h3 id="二、由来"><a href="#二、由来" class="headerlink" title="二、由来"></a>二、由来</h3><p><strong>一个算法在执行过程中所消耗的时间取决于下面的因素：</strong><br>（1）算法所需数据输入的时间；<br>（2）算法编译为可执行程序的时间；<br>（3）计算机执行每条指令所需的时间；<font color=purple><br>（4）算法语句重复执行的次数。</font><br>其中（1）依赖于输入设备的性能，若是脱机输入，则输入数据的时间可以忽略不计。（2）（3）取决于计算机本身执行的速度和编译程序的性能。<strong>因此，习惯上将算法语句重复执行的次数作为算法的时间量度。</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* x = x + 1;这个语句执行的次数 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> x</span>)</span>&#123;</span><br><span class="line">  x = x + <span class="number">1</span>;                  <span class="comment">//执行1次</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nadd</span>(<span class="params"><span class="keyword">int</span> x,<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    x = x + <span class="number">1</span>;                <span class="comment">//执行n次</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loopadd</span>(<span class="params"><span class="keyword">int</span> x,<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">	  x = x + <span class="number">1</span>;          <span class="comment">//执行n*n次</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子并没有把循环本身执行的次数算进去，下面给出2个执行次数计算较为精确的例子。</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span>(<span class="params"><span class="keyword">int</span> arr[],<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,total=<span class="number">0</span>;          <span class="comment">// 1   次</span></span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n;i++)       <span class="comment">// n+1 次</span></span><br><span class="line">    total+=arr[i];        <span class="comment">// n   次</span></span><br><span class="line">  <span class="keyword">return</span> total;           <span class="comment">// 1   次</span></span><br><span class="line">&#125;                         </span><br><span class="line"><span class="comment">//上面程序执行次数为2n+3次，再看看下面矩阵相加的例子：假设两矩阵a,b皆为n*n矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> a[][],<span class="keyword">int</span> b[][],<span class="keyword">int</span> c[][],<span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;                             <span class="comment">//1</span></span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)                     <span class="comment">//n+1</span></span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++)               <span class="comment">//n(n+1)</span></span><br><span class="line">	  c[i][j] = a[i][j] + b[i][j]; <span class="comment">//n*n</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行总次数：2n^2+2n+2</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;一般情况下，n为问题规模（大小）的量度，如数组的长度、矩阵的阶、图中的顶点数等等。<br>&emsp;&emsp;对于前面add函数来说，问题规模量度为常数（1）；对于数组排序问题来说，问题规模量度为输入数组的长度（记为n）；对于n阶矩阵相加来说，问题规模量度为矩阵阶数的平方（记为n^2）。<br>&emsp;&emsp;<font color=purple>为了给出算法通用的时间量度，用数学概念来描述算法的执行次数，可以把一个算法中语句的执行次数称为语句频度或时间频度，记为T(n)。</font>当问题规模n不断变化时，时间频度T(n)也会不断变化，我们需要评估当n不断变化时，时间频度T(n)的变化规律。<br>&emsp;&emsp;<font color=red>若有某个辅助函数f(n)，当n趋向于无穷大时，如果T(n)/ f(n)的极限为不等于零的常数，则认为T(n)与f(n)是同量级的函数，记作：T(n) =O(f(n))，O(f(n))称为算法的渐进时间复杂度，简称时间复杂度。</font></p>
+<h3 id="三、表示意义"><a href="#三、表示意义" class="headerlink" title="三、表示意义"></a>三、表示意义</h3><ul>
+<li>（1）在较复杂的算法中，进行精确分析是非常复杂的；</li>
+<li>（2）一般来说，我们并不关心T(n)的精确度量，而只是关心其量级。</li>
+</ul>
+<p>T(n) = O(f(n)) 表示存在一个常数C，当n趋于正无穷大时，总有T(n) ≤ C * f(n)，其意义是T(n)在n趋于正无穷大时跟f(n)基本接近，因此完全可以用f(n)来表示T(n)。<br>O(f(n))通常取执行次数中最高次方或最大指数部分的项。例如：</p>
+<ul>
+<li>（1）阵列元素相加为2n+3 = O(n)</li>
+<li>（2）矩阵相加为2n^2+2n+1 = O(n^2)</li>
+<li>（3）矩阵相乘为2n^3+4n^2+2n+2 = O(n^3)</li>
+</ul>
+<p>在各种不同的算法中，若算法语句的执行次数为常数，则算法的时间复杂度为O(1)，按数量级递增排列，常见的时间复杂度量有：</p>
+<ul>
+<li>（1）O(1)：常量阶，运行时间为常量</li>
+<li>（2）O(logn)：对数阶，如二分搜索算法</li>
+<li>（3）O(n)：线性阶，如n个数内找最大值</li>
+<li>（4）O(nlogn)：对数阶，如快速排序算法</li>
+<li>（5）O(n^2)：平方阶，如选择排序，冒泡排序</li>
+<li>（6）O(n^3)：立方阶，如两个n阶矩阵的乘法运算</li>
+<li>（7）O(2^n)：指数阶，如n个元素集合的所有子集的算法</li>
+<li>（8）O(n!)：阶乘阶，如n个元素全部排列的算法</li>
+</ul>
+<p>下图给出了随着n的变化，不同量级的时间复杂度变化曲线。</p>
+<img title="变化曲线" src="http://qal0b1j3s.bkt.clouddn.com/static/img/algorithm/al1_1.jpg?imageView2/2/w/300">
+<h3 id="四、评估计算"><a href="#四、评估计算" class="headerlink" title="四、评估计算"></a>四、评估计算</h3><p>评估算法时间复杂度的具体步骤是：<font color=red></p>
+<ul>
+<li>（1）找出算法中重复执行次数最多的语句的频度来估算算法的时间复杂度；</li>
+<li>（2）保留算法的最高次幂，忽略所有低次幂和高次幂的系数；</li>
+<li>（3）将算法执行次数的数量级放入大Ο记号中。 </font></li>
+</ul>
+<p>例如，下列三个简单的程序段：</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">(a)  x=x+<span class="number">1</span>;</span><br><span class="line">(b)  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++) x=x+<span class="number">1</span>;</span><br><span class="line">(c)  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	   <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++) </span><br><span class="line">	     x=x+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在程序段（a）中，语句x=x+1不在任何一个循环体内，则它的时间频度为1，其执行时间是个常量；而（b）中，同一语句被重复执行n次，其时间频度为n；显然在（c）中，该语句的频度为n^2。由此，这三个程序段的时间复杂度为O(1)、O(n)、O(n^2)。分别为常量、线性阶和平方阶。<br>&emsp;&emsp;对于较为复杂的算法，可以将它们分割成容易估算的几个部分，然后利用O的求和原则得到整个算法的时间复杂度。例如，若算法的两个部分的时间复杂度分别为T1(n)=O(f(n))和T2(n)=O(g(n))，则总的时间复杂度为:<br>T(n)= T1(n)+ T2(n)=O(max(f(n), g(n)))<br>&emsp;&emsp;然而，很多算法的运行时间不仅依赖于问题的规模，也与处理的数据集有关。例如，有的排序算法对某些原始数据（如自小至大有序），则其时间复杂度为O(n)，而对另一些数据可达O(n^2)。因此，在估算算法的时间复杂度时，均以数据集中最坏的情况来估算。<br><strong>小结</strong><br>评估算法时间复杂度的要点是：<font color=green>如果一个算法的执行次数是 T(n)，那么只保留最高次项，同时忽略最高项的系数后得到函数 f(n)，此时算法的时间复杂度就是 O(f(n))。</font></p>
 ]]></content>
-      <categories>
-        <category>影音</category>
-        <category>影视</category>
-      </categories>
       <tags>
-        <tag>影音</tag>
-        <tag>电影</tag>
-        <tag>电视剧</tag>
-        <tag>动画</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1916,66 +1810,109 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
       </tags>
   </entry>
   <entry>
-    <title>Shader开篇</title>
-    <url>/2020/05/shader_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><span id="inline-green">Shader开篇。。。。</span><br><span id="inline-yellow">Shader开篇。。。。</span><br><span id="inline-blue">Shader开篇。。。。</span><br><span id="inline-purple">Shader开篇。。。。</span></p>
-]]></content>
-      <tags>
-        <tag>Shader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo添加评论系统</title>
-    <url>/2020/05/hexo_03/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 在Next主题下配置Valine评论系统，三步轻松搞定！</p>
-<blockquote>
-<p>为什么选择Valine，我觉得我的需求就是方便，简洁，最重要一点是要支持Markdown ，对比之下，最终选定了这款Valine，当然，如果你不喜欢这样简洁的，可以参考 <a href="https://www.zhihu.com/question/267598518" target="_blank" rel="noopener">Hexo（NexT 主题）评论系统哪个好？</a></p>
-</blockquote>
-<h3 id="第一步，注册LeanClound，获取APP-ID-和-APP-Key"><a href="#第一步，注册LeanClound，获取APP-ID-和-APP-Key" class="headerlink" title="第一步，注册LeanClound，获取APP ID 和 APP Key"></a>第一步，注册LeanClound，获取APP ID 和 APP Key</h3><p>Valine 是基于 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud官网</a>作为数据存储的，所以需要注册一个账号，注册完成后，我们找到创建应用<br><img src="https://upload-images.jianshu.io/upload_images/17704372-79093a94b8d92b82.png?imageMogr2/auto-orient/strip|imageView2/2/w/601/format/webp" /><br>创建完成后，打开应用，点击左边的存储，查看是否有Comment和 Counter，如没有则创建，权限默认设为所有用户。创建完成后，如下图：<br><img  src="https://upload-images.jianshu.io/upload_images/17704372-0cf9a82b7ab02ad0.png?imageMogr2/auto-orient/strip|imageView2/2/w/946/format/webp" /></p>
-<blockquote>
-<p>说明：如没有创建，那么在显示 post 页面时，请求 LeanCloud 的 api 接口，可能会返回 error code=101</p>
-</blockquote>
-<p>点击设置 → 安全中心 ,将除了数据存储的服务全部关闭，并绑定web安全域名，防止恶意调用。<br><img src="https://upload-images.jianshu.io/upload_images/17704372-e8399847d4ec850c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1133/format/webp" /><br>最后点击 应用 Keys，等一会过来复制 AppID 和 Appkey。</p>
-<h3 id="第二步，在Hexo你的个人主题中配置"><a href="#第二步，在Hexo你的个人主题中配置" class="headerlink" title="第二步，在Hexo你的个人主题中配置"></a>第二步，在Hexo你的个人主题中配置</h3><p>我的在next主题下_config.yml里配置！搜索valine，参考配置如下：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>                 <span class="comment"># 开启 </span></span><br><span class="line">  <span class="attr">appid:</span>                       <span class="comment"># 你的appid</span></span><br><span class="line">  <span class="attr">appkey:</span>                      <span class="comment"># 你的appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span>                <span class="comment"># 邮件提醒</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span>                <span class="comment"># Verification code </span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">请留下你的评论</span>  </span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span>                   <span class="comment"># 默认头像设置</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-cn</span>              <span class="comment"># 语言，设为zh-cn                              </span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span>               <span class="comment"># 是否开启当前文章阅读量统计</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">serverURLs:</span></span><br></pre></td></tr></table></figure>
-<p>next现在已经默认能使用最新的valine.min.js了，这一步可以忽略。如果你的仍需要设置，那么打开 <a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">https://www.jsdelivr.com/package/npm/valine</a> 获取最新 valine.min.js 的cdn地址，然后在下面位置设置<br><img src="https://upload-images.jianshu.io/upload_images/17704372-747948fb934a7a2e.png?imageMogr2/auto-orient/strip|imageView2/2/w/784/format/webp" /></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 没有下面这几行的话，则的不必设置</span><br><span class="line"># valine</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;xCss&#x2F;Valine</span><br><span class="line">  # Example:                           </span><br><span class="line">  # valine: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1&#x2F;dist&#x2F;Valine.min.js</span><br><span class="line">  # valine: &#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;valine&#x2F;1.3.4&#x2F;Valine.min.js</span><br><span class="line">  valine: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1.3.9&#x2F;dist&#x2F;Valine.min.js</span><br></pre></td></tr></table></figure>
+    <title>加密文章测试</title>
+    <url>/2020/05/FA_3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文密码：123456</p>
+<p><a href="/download/Text/Test.text" download="Test.text">点击下载</a></p>
+<p><a id="download" href="/download/Text/Test.text" download="Test.text"><i class="fa fa-download"></i><span> Download Now</span> </a></p>
+<p><button id="copy">复制文章</button></p>
+<!--<textarea style="width: 500px;height: 100px;" placeholder="试一试ctrl + v"></textarea>-->
 
-<h3 id="第三步，测试valine评论"><a href="#第三步，测试valine评论" class="headerlink" title="第三步，测试valine评论"></a>第三步，测试valine评论</h3><p>进入你的post文章页面最下方，开始发表评论！<br>回到你的LeanCloud查看评论数据，在这管理。<br>现在的page选项页面，如：归档、标签、分类的下方应该不会出现评论，之前的next会出现，那么可以通过comments属性设置true或false控制该页面或者是文章的评论功能是否打开，如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tags</span><br><span class="line">date: 2020-5-14 16:10:19</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+<script>
+    function copyArticle(event){
+        const range = document.createRange();                     //1.创建range复制区域对象
+        range.selectNode(document.getElementById('article'));     //2.设置range的包含节点
+        const selection = window.getSelection();                  //3.获取系统文本粘贴选择对象selection
+        if(selection.rangeCount > 0) selection.removeAllRanges(); //4.selection中已有内容的话清除
+        selection.addRange(range);                                //5.selection中添加range
+        document.execCommand('copy');                             //5.执行copy命令，copy选择的文本
+    }                                                             
+    document.getElementById('copy').addEventListener('click', copyArticle, true); //绑定按钮
+</script>
+
+<article id="article">
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wwwww</span><br><span class="line">wwww</span><br></pre></td></tr></table></figure>
+</article>
+
+<p>公园一日游<br>2016.8.15 星期二<br>今天风和日丽，我和小红去了人民公园，玩了滑梯、打雪仗、划船，真是愉快的一天啊。</p>
+<p>1<br>2<br>wwwww<br>wwww</p>
+<pre><code class="javascript">/* 创建range对象   */
+const range = document.createRange();
+range.selectNode(element);    // 设定range包含的节点对象 
+
+/* 窗口的selection对象，表示用户选择的文本 */
+const selection = window.getSelection();
+if(selection.rangeCount &gt; 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
+selection.addRange(range);// 将要复制的区域的range对象添加到selection对象中
+
+document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
+
+</code></pre>
+
+
+
+
+        <div id="aplayer-RUpuBbij" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-RUpuBbij"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "她的睫毛",
+              author: "周杰伦",
+              url: "http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3",
+              pic: "http://home.ustc.edu.cn/~mmmwhy/jay.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+
+
+    <div id="aplayer-xncpshSQ" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="3986040" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+    <div id="aplayer-eVUysxrp" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="627070825" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>影音</category>
+        <category>影视</category>
+      </categories>
       <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo基础之常用命令详解</title>
-    <url>/2020/05/hexo_02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 框架可以帮助我们快速创建一个属于自己的博客网站，那么熟悉 Hexo 框架提供的命令有利于我们管理博客！</p>
-<h4 id="1-hexo-init命令"><a href="#1-hexo-init命令" class="headerlink" title="1.hexo init命令"></a>1.hexo init命令</h4><p>描述：初始化本地文件夹为网站的根目录</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">init</span> <span class="string">[folder]</span></span><br><span class="line"><span class="comment"># folder：可选参数，用以指定初始化目录的路径，若无指定则默认为当前目录</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-hexo-new命令"><a href="#2-hexo-new命令" class="headerlink" title="2.hexo new命令"></a>2.hexo new命令</h4><p>描述：新建.md文章，一般可以简写为 hexo n，可嵌套-p -i选项</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">[file]</span> <span class="string">"title"</span></span><br><span class="line"><span class="comment"># layout: 可选参数，用以指定文章类型(post、page、draft)，若无指定则默认由配置文件中的 default_layout 选项决定</span></span><br><span class="line"><span class="comment"># file:   可选参数，用以指定文章文件名，若无指定同上</span></span><br><span class="line"><span class="comment"># title:  可选参数，用以指定文章标题名，如果参数值中含有空格，则需要使用双引号包围，若无指定同上</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-p</span> <span class="string">[path/file]</span>  <span class="string">"title"</span> </span><br><span class="line"><span class="comment"># -p选项： 可以指定创建文件路径path，无则创建  </span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-i</span> <span class="string">[path/file]</span>  <span class="string">"title"</span></span><br><span class="line"><span class="comment"># -i选项： 替换相同的file.md文件</span></span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">post</span> <span class="string">-p</span> <span class="string">-i</span> <span class="string">myLanguage/Java/java_01</span>  <span class="string">"Java语言讲解第一篇"</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-hexo-generate命令"><a href="#3-hexo-generate命令" class="headerlink" title="3.hexo generate命令"></a>3.hexo generate命令</h4><p>描述：生成静态文件，一般可以简写为 hexo g，可嵌套-d选项名表示生成后部署</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-hexo-deploy命令"><a href="#4-hexo-deploy命令" class="headerlink" title="4.hexo deploy命令"></a>4.hexo deploy命令</h4><p>描述：部署网站，一般可以简写为 hexo d，可嵌套-g选项同样表示生成后部署</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span> <span class="string">-g</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-hexo-server命令"><a href="#5-hexo-server命令" class="headerlink" title="5.hexo server命令"></a>5.hexo server命令</h4><p>描述：启动本地服务器，一般可以简写为 hexo s，可嵌套-p、-i、-s选项</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span> </span><br><span class="line"><span class="comment"># -p选项： 指定服务器端口，默认为 4000</span></span><br><span class="line"><span class="comment"># -i选项： 指定服务器 IP 地址，默认为 0.0.0.0</span></span><br><span class="line"><span class="comment"># -s选项： 静态模式 ，仅提供 public 文件夹中的文件并禁用文件监视</span></span><br></pre></td></tr></table></figure>
-<p>说明：有个hexo-server 插件 <code>$ npm install hexo-server --save</code>（需不需要安装记不清了）</p>
-<h4 id="6-hexo-clean命令"><a href="#6-hexo-clean命令" class="headerlink" title="6.hexo clean命令"></a>6.hexo clean命令</h4><p>描述：清理缓存文件，是一个比较常用的命令</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="comment"># 网站显示异常时可尝试此操作</span></span><br></pre></td></tr></table></figure>
-<h4 id="7-hexo-–save命令"><a href="#7-hexo-–save命令" class="headerlink" title="7.hexo –save命令"></a>7.hexo –save命令</h4><p>描述：hexo插件安装</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
-<h4 id="8-hexo-–safe命令"><a href="#8-hexo-–safe命令" class="headerlink" title="8.hexo –safe命令"></a>8.hexo –safe命令</h4><p>描述：表示安全模式，用于禁用加载插件和脚本</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--safe</span></span><br></pre></td></tr></table></figure>
-<h4 id="9-hexo-–debug命令"><a href="#9-hexo-–debug命令" class="headerlink" title="9.hexo –debug命令"></a>9.hexo –debug命令</h4><p>描述：表示调试模式，用于将消息详细记录到终端和 debug.log 文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--debug</span></span><br></pre></td></tr></table></figure>
-<h4 id="10-hexo-–silent命令"><a href="#10-hexo-–silent命令" class="headerlink" title="10.hexo –silent命令"></a>10.hexo –silent命令</h4><p>描述：表示静默模式，用于静默输出到终端</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--silent</span></span><br></pre></td></tr></table></figure>
-<h4 id="11-amp-amp"><a href="#11-amp-amp" class="headerlink" title="11.&amp;&amp;"></a>11.&amp;&amp;</h4><p>描述：表示命令相继执行</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">d</span></span><br><span class="line"><span class="comment"># 本地测试无误后，用于提交部署到服务器</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Hexo</tag>
+        <tag>影音</tag>
+        <tag>电影</tag>
+        <tag>电视剧</tag>
+        <tag>动画</tag>
       </tags>
   </entry>
   <entry>
@@ -2014,47 +1951,140 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
       </tags>
   </entry>
   <entry>
-    <title>谷歌告别Flash</title>
-    <url>/2020/05/try_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>2020年12月底，Chrome将停止支持Falsh</p>
-<p>安东尼·拉福格:Google Chrome产品经理于2017年7月25日发布的原文翻译如下：</p>
+    <title>Hexo添加评论系统</title>
+    <url>/2020/05/hexo_03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 在Next主题下配置Valine评论系统，三步轻松搞定！</p>
 <blockquote>
-<p>&emsp;&emsp;今天，Adobe宣布了其计划在2020年底停止支持Flash的计划。</p>
+<p>为什么选择Valine，我觉得我的需求就是方便，简洁，最重要一点是要支持Markdown ，对比之下，最终选定了这款Valine，当然，如果你不喜欢这样简洁的，可以参考 <a href="https://www.zhihu.com/question/267598518" target="_blank" rel="noopener">Hexo（NexT 主题）评论系统哪个好？</a></p>
 </blockquote>
+<h3 id="第一步，注册LeanClound，获取APP-ID-和-APP-Key"><a href="#第一步，注册LeanClound，获取APP-ID-和-APP-Key" class="headerlink" title="第一步，注册LeanClound，获取APP ID 和 APP Key"></a>第一步，注册LeanClound，获取APP ID 和 APP Key</h3><p>Valine 是基于 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud官网</a>作为数据存储的，所以需要注册一个账号，注册完成后，我们找到创建应用<br><img src="https://upload-images.jianshu.io/upload_images/17704372-79093a94b8d92b82.png?imageMogr2/auto-orient/strip|imageView2/2/w/601/format/webp" /><br>创建完成后，打开应用，点击左边的存储，查看是否有Comment和 Counter，如没有则创建，权限默认设为所有用户。创建完成后，如下图：<br><img  src="https://upload-images.jianshu.io/upload_images/17704372-0cf9a82b7ab02ad0.png?imageMogr2/auto-orient/strip|imageView2/2/w/946/format/webp" /></p>
 <blockquote>
-<p>&emsp;&emsp;20年来，Flash一直帮助您塑造游戏，观看视频和在网络上运行应用程序的方式。但是在最近几年中，Flash变得不那么普遍了。三年前，每天有80％的桌面Chrome用户访问带有Flash的网站。如今，使用量仅为17％，并且继续下降。</p>
+<p>说明：如没有创建，那么在显示 post 页面时，请求 LeanCloud 的 api 接口，可能会返回 error code=101</p>
 </blockquote>
-<blockquote>
-<p>&emsp;&emsp;这种趋势表明，网站正在迁移到开放式Web技术，该技术比Flash更快，更节能。它们也更安全，因此您在购物，银行业务或阅读敏感文档时可以更安全。它们还可以在移动设备和台式机上使用，因此您可以在任何地方访问自己喜欢的网站。</p>
-</blockquote>
-<blockquote>
-<p>&emsp;&emsp;去年下半年，当网站开始需要您的许可才能运行Flash时，这些开放的网络技术已成为Chrome 的默认体验。Chrome会在接下来的几年中继续淘汰Flash，首先会征求您在更多情况下运行Flash的许可，然后默认将其禁用。到2020年底，我们将彻底从Chrome移除Flash。</p>
-</blockquote>
-<blockquote>
-<p>&emsp;&emsp;如果您今天定期访问使用Flash的网站，您可能想知道这会对您有何影响。如果该网站迁移到开放的Web标准，则除了应该再也看不到在该网站上运行Flash的提示之外，您应该不会注意到太大的差异。如果该站点继续使用Flash，并且您授予该站点运行Flash的权限，则该站点将在2020年底前正常工作。</p>
-</blockquote>
-<blockquote>
-<p>&emsp;&emsp;与Adobe，其他浏览器和主要发行商进行了许多紧密合作，以确保网络准备好不使用Flash。我们支持Adobe今天的公告，我们期待与大家合作，使网络变得更加完善。</p>
-</blockquote>
-]]></content>
+<p>点击设置 → 安全中心 ,将除了数据存储的服务全部关闭，并绑定web安全域名，防止恶意调用。<br><img src="https://upload-images.jianshu.io/upload_images/17704372-e8399847d4ec850c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1133/format/webp" /><br>最后点击 应用 Keys，等一会过来复制 AppID 和 Appkey。</p>
+<h3 id="第二步，在Hexo你的个人主题中配置"><a href="#第二步，在Hexo你的个人主题中配置" class="headerlink" title="第二步，在Hexo你的个人主题中配置"></a>第二步，在Hexo你的个人主题中配置</h3><p>我的在next主题下_config.yml里配置！搜索valine，参考配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>                 <span class="comment"># 开启 </span></span><br><span class="line">  <span class="attr">appid:</span>                       <span class="comment"># 你的appid</span></span><br><span class="line">  <span class="attr">appkey:</span>                      <span class="comment"># 你的appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span>                <span class="comment"># 邮件提醒</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span>                <span class="comment"># Verification code </span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">请留下你的评论</span>  </span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span>                   <span class="comment"># 默认头像设置</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-cn</span>              <span class="comment"># 语言，设为zh-cn                              </span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span>               <span class="comment"># 是否开启当前文章阅读量统计</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">serverURLs:</span></span><br></pre></td></tr></table></figure>
+<p>next现在已经默认能使用最新的valine.min.js了，这一步可以忽略。如果你的仍需要设置，那么打开 <a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">https://www.jsdelivr.com/package/npm/valine</a> 获取最新 valine.min.js 的cdn地址，然后在下面位置设置<br><img src="https://upload-images.jianshu.io/upload_images/17704372-747948fb934a7a2e.png?imageMogr2/auto-orient/strip|imageView2/2/w/784/format/webp" /></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 没有下面这几行的话，则的不必设置</span><br><span class="line"># valine</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;xCss&#x2F;Valine</span><br><span class="line">  # Example:                           </span><br><span class="line">  # valine: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1&#x2F;dist&#x2F;Valine.min.js</span><br><span class="line">  # valine: &#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;valine&#x2F;1.3.4&#x2F;Valine.min.js</span><br><span class="line">  valine: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;valine@1.3.9&#x2F;dist&#x2F;Valine.min.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步，测试valine评论"><a href="#第三步，测试valine评论" class="headerlink" title="第三步，测试valine评论"></a>第三步，测试valine评论</h3><p>进入你的post文章页面最下方，开始发表评论！<br>回到你的LeanCloud查看评论数据，在这管理。<br>现在的page选项页面，如：归档、标签、分类的下方应该不会出现评论，之前的next会出现，那么可以通过comments属性设置true或false控制该页面或者是文章的评论功能是否打开，如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tags</span><br><span class="line">date: 2020-5-14 16:10:19</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>2020大事件</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>中国天眼验收运行</title>
-    <url>/2020/05/try_02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>中国天眼：500米口径球面射电望远镜，简称FAST，用于外太空探索。</p>
-<ul>
-<li>地点：中国贵州</li>
-<li>提出者：我国天文学家南仁东1994年提出建造</li>
-<li>开始建造：1998年</li>
-<li>结束建造：2020年验收，正式运行</li>
-<li>历经：22年</li>
-</ul>
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"https://content.cc.heytapmobi.com/resource/interact/playurl302?source=qie&outId=RcscPwYEWT82qBjPKA--dlxh9J_a5erpxap05isyQBIjju2cY1PyLV3duzhz2a7anmimLMbfYP5k5c4UdaKaTW25LCUduoHi0g2"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+    <title>Markdown是什么(一)</title>
+    <url>/2020/04/md_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
+<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
+<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
+<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
+<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
+<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
+<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
+<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
+<hr>
+<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
+<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
+<thead>
+<tr>
+<th>&emsp;</th>
+<th><center>MarkDown</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
+</tr>
+<tr>
+<td>开发者</td>
+<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
+</tr>
+<tr>
+<td>介绍</td>
+<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
+</tr>
+<tr>
+<td>编译器</td>
+<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>轻量、简单、通用、易读易写、文档快速排版</td>
+</tr>
+</tbody></table>
+<style>
+table th:nth-of-type(1){width: 10%;}
+table th:nth-of-type(2){width: 90%;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
       <tags>
-        <tag>2020大事件</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo基础之常用命令详解</title>
+    <url>/2020/05/hexo_02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Hexo 框架可以帮助我们快速创建一个属于自己的博客网站，那么熟悉 Hexo 框架提供的命令有利于我们管理博客！</p>
+<h4 id="1-hexo-init命令"><a href="#1-hexo-init命令" class="headerlink" title="1.hexo init命令"></a>1.hexo init命令</h4><p>描述：初始化本地文件夹为网站的根目录</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">init</span> <span class="string">[folder]</span></span><br><span class="line"><span class="comment"># folder：可选参数，用以指定初始化目录的路径，若无指定则默认为当前目录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-hexo-new命令"><a href="#2-hexo-new命令" class="headerlink" title="2.hexo new命令"></a>2.hexo new命令</h4><p>描述：新建.md文章，一般可以简写为 hexo n，可嵌套-p -i选项</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">[file]</span> <span class="string">"title"</span></span><br><span class="line"><span class="comment"># layout: 可选参数，用以指定文章类型(post、page、draft)，若无指定则默认由配置文件中的 default_layout 选项决定</span></span><br><span class="line"><span class="comment"># file:   可选参数，用以指定文章文件名，若无指定同上</span></span><br><span class="line"><span class="comment"># title:  可选参数，用以指定文章标题名，如果参数值中含有空格，则需要使用双引号包围，若无指定同上</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-p</span> <span class="string">[path/file]</span>  <span class="string">"title"</span> </span><br><span class="line"><span class="comment"># -p选项： 可以指定创建文件路径path，无则创建  </span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">[layout]</span> <span class="string">-i</span> <span class="string">[path/file]</span>  <span class="string">"title"</span></span><br><span class="line"><span class="comment"># -i选项： 替换相同的file.md文件</span></span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">new</span> <span class="string">post</span> <span class="string">-p</span> <span class="string">-i</span> <span class="string">myLanguage/Java/java_01</span>  <span class="string">"Java语言讲解第一篇"</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-hexo-generate命令"><a href="#3-hexo-generate命令" class="headerlink" title="3.hexo generate命令"></a>3.hexo generate命令</h4><p>描述：生成静态文件，一般可以简写为 hexo g，可嵌套-d选项名表示生成后部署</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-hexo-deploy命令"><a href="#4-hexo-deploy命令" class="headerlink" title="4.hexo deploy命令"></a>4.hexo deploy命令</h4><p>描述：部署网站，一般可以简写为 hexo d，可嵌套-g选项同样表示生成后部署</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span>  </span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">d</span> <span class="string">-g</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-hexo-server命令"><a href="#5-hexo-server命令" class="headerlink" title="5.hexo server命令"></a>5.hexo server命令</h4><p>描述：启动本地服务器，一般可以简写为 hexo s，可嵌套-p、-i、-s选项</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span> </span><br><span class="line"><span class="comment"># -p选项： 指定服务器端口，默认为 4000</span></span><br><span class="line"><span class="comment"># -i选项： 指定服务器 IP 地址，默认为 0.0.0.0</span></span><br><span class="line"><span class="comment"># -s选项： 静态模式 ，仅提供 public 文件夹中的文件并禁用文件监视</span></span><br></pre></td></tr></table></figure>
+<p>说明：有个hexo-server 插件 <code>$ npm install hexo-server --save</code>（需不需要安装记不清了）</p>
+<h4 id="6-hexo-clean命令"><a href="#6-hexo-clean命令" class="headerlink" title="6.hexo clean命令"></a>6.hexo clean命令</h4><p>描述：清理缓存文件，是一个比较常用的命令</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="comment"># 网站显示异常时可尝试此操作</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-hexo-–save命令"><a href="#7-hexo-–save命令" class="headerlink" title="7.hexo –save命令"></a>7.hexo –save命令</h4><p>描述：hexo插件安装</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+<h4 id="8-hexo-–safe命令"><a href="#8-hexo-–safe命令" class="headerlink" title="8.hexo –safe命令"></a>8.hexo –safe命令</h4><p>描述：表示安全模式，用于禁用加载插件和脚本</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--safe</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-hexo-–debug命令"><a href="#9-hexo-–debug命令" class="headerlink" title="9.hexo –debug命令"></a>9.hexo –debug命令</h4><p>描述：表示调试模式，用于将消息详细记录到终端和 debug.log 文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--debug</span></span><br></pre></td></tr></table></figure>
+<h4 id="10-hexo-–silent命令"><a href="#10-hexo-–silent命令" class="headerlink" title="10.hexo –silent命令"></a>10.hexo –silent命令</h4><p>描述：表示静默模式，用于静默输出到终端</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">--silent</span></span><br></pre></td></tr></table></figure>
+<h4 id="11-amp-amp"><a href="#11-amp-amp" class="headerlink" title="11.&amp;&amp;"></a>11.&amp;&amp;</h4><p>描述：表示命令相继执行</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">d</span></span><br><span class="line"><span class="comment"># 本地测试无误后，用于提交部署到服务器</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shader开篇</title>
+    <url>/2020/05/shader_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><span id="inline-green">Shader开篇。。。。</span><br><span id="inline-yellow">Shader开篇。。。。</span><br><span id="inline-blue">Shader开篇。。。。</span><br><span id="inline-purple">Shader开篇。。。。</span></p>
+]]></content>
+      <tags>
+        <tag>Shader</tag>
       </tags>
   </entry>
   <entry>
@@ -2176,113 +2206,223 @@ document.execCommand('copy'); // 执行copy命令，copy用户选择的文本
       </tags>
   </entry>
   <entry>
-    <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
-    <url>/2020/04/md_02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
-<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，<strong>css是html的功能补充，但两者语法是完全不同的</strong>。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><font color=green>代码：html+css</font></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
-<h5 id="1-2-Markdown与HTML的关系"><a href="#1-2-Markdown与HTML的关系" class="headerlink" title="1.2 Markdown与HTML的关系"></a>1.2 Markdown与HTML的关系</h5><p>&emsp;&emsp;我们上面讲到HTML中M（markup）是标记的意思，而刚刚与markdown相反，那么两者关系到底是如何呢！开始划重点了！<br>&emsp;&emsp;As a matter of fact，<font color=red>我们使用markdown写的文档之所以能在网站上直接显示，是因为markdown已经转换解析为html或者说是html+css</font>，我想大家已经猜到了吧！所以，一些人说什么”markdown会取代html “，反正我是不会相信的，同样也相信大家的眼睛是雪亮的雪亮的，哈哈！我们其实可以这样理解，<font color=red>markdown就是建立在html或者说html+css之上的</font>。<br>&emsp;&emsp;<font color=red>Markdown与HTML同为标记语言</font>。虽然，标记语言本身本质上也是一门语言，但是和编程语言相比就简单很多了，所以标记语言是没有一点编程经验的小伙伴都是可以直接上手的一类语言。而html作为最早的前端网页标记语言，其目的也是如此。不过没想到的是，html虽然能够通过短时间的学习而迅速上手，但是使用这门语言的人大多数依然还是IT行业人员，因为它对专注于文章内容编辑的非程序职业人来说，使用它来编写自己的文章还不如用word等工具来的舒服！html的什么头啊，体啊，各种前后标签啊，不仅写着不舒，而且看着也不舒服，还容易出错，<font color=red>总之，我又不是搞程序的，你们自己用吧，我才不用，html(好它妈乱)就这这样应运而生了</font>。<br>&emsp;&emsp;好了，苦逼的程序猿只能自己玩了。Over time 随着时间的推移，慢慢的，程序猿也用的烦了（果然HTML好他妈乱），尤其大部分不搞网站的程序猿们，肿么办？<br>&emsp;&emsp;然后，我们的约翰·格鲁伯便在2004年便创建了MarkDown，markdown是在html的基础上创建，在兼容markdown的同时，也使自己的语言更加易读易写，使用起来就更加的方便。markdown兼容html最终更是要解析为html,也就是说，<font color=red>在markdown中是可以写html也可以写css的</font>，不过基本的markdown语法也足够用来书写内容与布局了，要想更炫酷的话就需要三者配合使用了。makerdown也因此而流行起来，深受广大程序猿的喜爱，甚至一些非程序职业的工作者也在使用起来了！</p>
-<h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4><p>&emsp;&emsp;我们都知道，不管是使用什么工具，多多少少都会有一些这样那样的优缺点，下面说说markdown.</p>
-<p><strong>优点1：易浏览，还可以直接导出为各种格式，word、PDF、图片、HTML等。</strong><br>&emsp;&emsp;我们的电脑和手机上可以没有word等工具，但一定有浏览器！网页浏览即可！在线网页工具也可以编辑！就问你方不方便，你写个word传来传去还不方便看，想让它显示到网站上查看，转换的效果还不一定好，但是由md转换为其他格式，效果挺好。</p>
-<p><strong>优点2：语法简单，易写，易读</strong><br>&emsp;&emsp;其实这个易写易读是相对的，相对于其他如html，它算是比较容易去写于于看的，但是不同人有不同的看法。做为作者，我是这样觉得的，如果你确实只用到了md语法，那么确实挺易读易写的。但是我们知道，要想花里胡哨那么对于支持html与css的md文件在内容上一般也不是那么尽如人意！所以，此处即是优点也是缺点。语法上简单也很直观，但也导致了在许多功能上的无法实现的问题！（既然绝大多数人都同作者一样觉得此处算作优点，就归于优点吧）</p>
-<p><strong>优点3：纯文本、纯键盘操作</strong><br>&emsp;&emsp;只要你是一个喜欢手不离键盘不断敲敲打打的职业人员，我想你会觉得这是优点的，毕竟它不需要你一会敲敲打打一会又这点点那选选的，让你只需专注于敲键盘，并尽情发挥你大脑的想象力、记忆力与创造力啦！（反正我是不可能纯粹只使用键盘操作的，请不要说我菜，不要说，不要说）</p>
-<p><strong>优点4：空间占用小</strong><br>&emsp;&emsp;正所谓，所见即所得，md里写的什么，存的就是什么，内容上就是这么多，但是其他编辑工具，譬如word、富文本等等工具编写的内容与存储的内容是不同的，甚至是有时是倍增的！</p>
-<p><strong>缺点1：语法简单而导致的功能缺陷</strong><br>&emsp;&emsp;为了让用户在编写创作的同时，尽可能忽略md标识，md做到了简单便捷的语法标识，但在有特殊效果需求上，md语法并不支持，需要在md中使用html+css来达到效果！</p>
-<p><strong>缺点2：纯键盘、纯文本操作导致的直观可读性</strong><br>&emsp;&emsp;虽然在编辑md时，我们就可以观察到md的显示结果了，但我们毕竟操作上都在md上，而读md也并不是特别直观，没有特殊工具编辑来的直观。（不过我想既然md能让你看起来像大神一般操作文本，来一把程序体验，从而牺牲你一点直观性也没啥问题，此缺点可忽略，忽略）</p>
-<p><strong>缺点3：有坑不填</strong><br>&emsp;&emsp;不管使用什么工具，多少都有些问题，记得不久前的毕业论文word格式排版……，那可是折磨了我们所有人相当久的一段经历啊！（不想回忆，不想回忆）至于markdown的坑，之后在说吧！</p>
-<center><font color=green>重要的事情说两遍，三遍太累!</font></center>                       
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>个人博客</category>
-        <category>标记语言</category>
-        <category>Markdown</category>
-      </categories>
+    <title>中国天眼验收运行</title>
+    <url>/2020/05/try_02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>中国天眼：500米口径球面射电望远镜，简称FAST，用于外太空探索。</p>
+<ul>
+<li>地点：中国贵州</li>
+<li>提出者：我国天文学家南仁东1994年提出建造</li>
+<li>开始建造：1998年</li>
+<li>结束建造：2020年验收，正式运行</li>
+<li>历经：22年</li>
+</ul>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"https://content.cc.heytapmobi.com/resource/interact/playurl302?source=qie&outId=RcscPwYEWT82qBjPKA--dlxh9J_a5erpxap05isyQBIjju2cY1PyLV3duzhz2a7anmimLMbfYP5k5c4UdaKaTW25LCUduoHi0g2"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <tags>
-        <tag>Markdown</tag>
+        <tag>2020大事件</tag>
       </tags>
   </entry>
   <entry>
-    <title>Markdown是什么(一)</title>
-    <url>/2020/04/md_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="一-Markdown简介"><a href="#一-Markdown简介" class="headerlink" title="(一) Markdown简介"></a>(一) Markdown简介</h4><p>&emsp;&emsp;对于一个完全没有听说过<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener"><font color=blue>Markdown</font></a>的人来讲的话，其实，它就是帮文章布局的一个文本工具，本身是<a href="https://baike.baidu.com/item/标记语言/5964436?fr=aladdin" target="_blank" rel="noopener"><font color=blue>标记语言</font></a>之一，易读易写。</p>
-<p>&emsp;&emsp;如果你还不理解的话，拿个word举个例子吧！有如下这样一段文本:</p>
-<p><img src="/uploads/images/md/md_1_0.png" alt="image"></p>
-<p></br>&emsp;&emsp;当然这样的显示完全不是我们想要的效果，那么我们就会使用Word上面的一些工具来布局结构，譬如下面这种显示：</p>
-<p><img src="/uploads/images/md/md_1_1.png" alt="image"></p>
-<p>&emsp;&emsp;这样虽然可以区分对话，但是看着还是不太舒服，可以继续布局</p>
-<p><img src="/uploads/images/md/md_1_2.png" alt="image"></p>
-<p>&emsp;&emsp;所以，我们在使用word上面的工具，就相当于在使用word制定的一套布局排布方式，而markdown也是有的，并且可以以标记语言的形式写在文本中，就像html、xml，然后使用时会直接显结果。</p>
-<hr>
-<p><font color=green>例子：</font>使用markdown文本布局（注：我用的是有道MarkDown，新手可以使用下面推荐的编译器）<center>左边: markdown文本&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;右边: 布局效果显示</center><br><img src="/uploads/images/md/md_1_3.png" alt="image"><br><font color=green>Markdown文本：</font>粘贴如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;你好！My name is &lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot; size&#x3D;5&gt;Otto&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;blue face&#x3D;&quot;微软雅黑&quot;&gt;, 你呢？ &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;你好，我是&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red size&#x3D;5&gt;Fank&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;red&gt;，很高兴认识你 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red face&#x3D;&quot;STCAIYUN&quot;&gt;我中文不是太好 !&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;br&gt;&lt;font color&#x3D;red&gt;what are you from ?&lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;p&gt;&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;table&gt;&lt;td&gt;</span><br><span class="line">&lt;font color&#x3D;blue&gt;I’m from China! &lt;&#x2F;font&gt;</span><br><span class="line">&lt;&#x2F;td&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;看着这些md标记,你可能会有疑问（写起来内容好多啊）！其实，我这里是针对纯文本来做个举例，为了效果明显及美观，所以会看上去挺多。实际上做布局根本不会标记这么细致！一般繁琐效果贴一张图片展示不就ok了吗？小伙伴们你们说是不是呢！<br><br>&emsp;&emsp;也就是说，<font color=red>md是方便我们对文章页面整体布局的一个工具，是现如今很多文本编辑都在支持的一种轻量级标记语言！</font></p>
-<h4 id="二-Markdown详细介绍"><a href="#二-Markdown详细介绍" class="headerlink" title="(二) Markdown详细介绍"></a>(二) Markdown详细介绍</h4><table>
-<thead>
-<tr>
-<th>&emsp;</th>
-<th><center>MarkDown</center></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>名称</td>
-<td>英文名：MarkDown&emsp;&emsp;中文称：md或MD</td>
-</tr>
-<tr>
-<td>开发者</td>
-<td>2004 由约翰·格鲁伯（英语：John Gruber）创建</td>
-</tr>
-<tr>
-<td>介绍</td>
-<td>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 编写的文档可以导出 HTML 、Word、图片、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</td>
-</tr>
-<tr>
-<td>应用</td>
-<td>博客网站、有道云笔记、印象笔记、Gitbook、GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等</td>
-</tr>
-<tr>
-<td>编译器</td>
-<td>&emsp;&emsp;支持Markdown的应用均可当做编辑器使用，不同应用间Markdown标记方式也许有不同的地方，因为有的应用会对Markdown做扩展等改变，但基本功能不变！<br>编辑器:需要下载安装使用&emsp;&emsp;<a href="https://typora.io/" target="_blank" rel="noopener"><font color=blue>Typora</font></a>和RStudio等皆支持MacOS 、Windows、Linux平台。<br>博客网站:需要登录注册使用&emsp;&emsp; 如：CSDN、简书等。<br>在线转换网站：直接使用&emsp;&emsp; 推荐：<a href="https://c.runoob.com/front-end/712" target="_blank" rel="noopener"><font color=blue>菜鸟Markdown工具</font></a>&emsp;&emsp;<a href="http://www.ofmonkey.com/front/markdown" target="_blank" rel="noopener"><font color=blue>程序员在线工具</font></a><br>笔记工具：下载安装登录注册使用&emsp;&emsp;如：有道云笔记、印象笔记</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>轻量、简单、通用、易读易写、文档快速排版</td>
-</tr>
-</tbody></table>
-<style>
-table th:nth-of-type(1){width: 10%;}
-table th:nth-of-type(2){width: 90%;}
-</style>
+    <title>Windows技巧</title>
+    <url>/2020/05/win_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Windows技巧开篇！。。。。。。。。。。。常见问题、实用技巧、炫酷搭配、自制工具等等</p>
+]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>台湾将何去何从</title>
+    <url>/2020/05/try_03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>台湾问题是我国一直以来难以解决的问题，其本质上为我国内政问题，实则已经上升到中美问题！</p>
+<p>新冠肺炎成为台湾问题进一步恶化的导火索，台湾民进党代表蔡英文借助此次疫情紧跟美国，加快台湾与大陆两岸关系恶化！大陆是时候有所行动了！</p>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://shortv.cdp.qq.com/szg_2192_50001_0b6bkyaa4aaazyaf2xnr5vpfcvwdbzlaadsa.f622.mp4?dis_k=19794bfecdb6c12c0bb0e5530279721c&dis_t=1589428851&bid=oppo&seqid=1589428851094038&network=1"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
-
-
-
-
-
-
-
-
-
+<p>千年复兴，机遇难得，将强未强，将成未成之际！武统台湾是否可行！</p>
+<div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"theme":"#FADFA3","video":{"url":"https://voppo3.go2yd.com/user_upload/15890208325432c0667b6e6ac8b82302a790117b50c1c.mp4_bd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 
 ]]></content>
-      <categories>
-        <category>实用技术</category>
-        <category>个人博客</category>
-        <category>标记语言</category>
-        <category>Markdown</category>
-      </categories>
       <tags>
-        <tag>Markdown</tag>
+        <tag>2020大事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo进阶之音视频功能插入(一)</title>
+    <url>/2020/05/hexo_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
+      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
+      2. -p 或 --path  自定义新文章的路径
+      3. postpath为项目source的_post的相对路径,没有会直接创建
+      4. fileName 为文件名，会直接创建对应.md文件
+      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
+      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
+-->
+<p><strong>背景</strong></p>
+<blockquote>
+<p> 用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。</p>
+</blockquote>
+<p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
+<h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
+<li>一种外链式音视频插入方式，使用音乐平台各自的外链代码（一般为iframe和embed标签）！</li>
+<li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
+<li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
+</ol>
+<p>外链代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--iframe音频插件--&gt;</span><br><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=430 height=86 </span><br><span class="line"> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=114389&amp;auto=0&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br><span class="line"> &lt;!--flash视频插件--&gt;</span><br><span class="line"> &lt;embed src=<span class="string">"//music.163.com/style/swf/widget.swf?sid=114389&amp;type=2&amp;auto=1&amp;width=320&amp;height=66"</span> </span><br><span class="line"> width=<span class="string">"340"</span> height=<span class="string">"86"</span>  allowNetworking=<span class="string">"all"</span>&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
+ src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
+说明：如果你的浏览器没有安装Falsh或者不支持Falsh的话，点击后是没有视频效果的！
+<embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
+ width="340" height="86"  allowNetworking="all"></embed>
+
+<p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
+<h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
+<h4 id="2-音频插件使用"><a href="#2-音频插件使用" class="headerlink" title="2.音频插件使用"></a>2.音频插件使用</h4><p>说明：md兼容html，可直接使用下面方法！<br><strong>方法一：aplayer简单使用（基本标签）</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "她的睫毛" "周杰伦"   </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3"  </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/jay.jpg" %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
+</ul>
+
+    <div id="aplayer-juuCCNwF" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关aplayer的选项列表如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>title: 曲目标题<br>author: 曲目作者<br>url: 音乐文件 URL 地址<br>picture_url: (可选) 音乐对应的图片地址<br>narrow: （可选）播放器袖珍风格<br>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能<br>width:xxx: (可选) 播放器宽度 (默认: 100%)<br>lrc:xxx: （可选）歌词文件 URL 地址</p>
+</blockquote>
+<p><strong>方法二：支持MetingJS引入使用</strong><br>&emsp;&emsp;MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。<br>&emsp;&emsp;如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;接着就可以通过meting在文章中使用 MetingJS 播放器了：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- 进阶示例 --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+
+    <div id="aplayer-YDYzGkoD" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<ul>
+<li>补充：有关meting的选项列表如下</li>
+</ul>
+<blockquote>
+<p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
+</blockquote>
+<h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
+<li>代码：（此代码已经失效，建议您保存任意视频至本地，然后使用本地链接地址）<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/极乐净土.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/极乐净土.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果：<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4","pic":"https://fp1.fghrsh.net/2016/08/01/d2540b5902a88a64c513f0027253985a.jpg"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+</li>
+</ul>
+<h3 id="三、音视频普通插入"><a href="#三、音视频普通插入" class="headerlink" title="三、音视频普通插入"></a>三、音视频普通插入</h3><p>video标签举例： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>script标签举例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>video效果</li>
+</ul>
+<video width="480" height="320" controls>
+<source src="//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4">
+</video>]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>YAML介绍</title>
+    <url>/2020/05/yml_1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;YAML其实是一种配置文件语言。<br>&emsp;&emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。<br>&emsp;&emsp;YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。<br>&emsp;&emsp;YAML 的配置文件后缀为 .yml，如：config.yml 。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进不允许使用tab，只允许空格</li>
+<li>缩进的空格数不重要，只要相同层级的元素左对齐即可</li>
+<li>‘#’表示注释</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>YAML 支持以下几种数据类型：</p>
+<ul>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li>纯量（scalars）：单个的、不可再分的值</li>
+</ul>
+<h3 id="YAML-对象"><a href="#YAML-对象" class="headerlink" title="YAML 对象"></a>YAML 对象</h3><p>对象键值对使用冒号结构表示 key: value，冒号后面要加一个空格。<br>也可以使用 key:{key1: value1, key2: value2, …}。<br>还可以使用缩进表示层级关系；</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
+<p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
+<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
+<h3 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h3><p>以 - 开头的行表示构成一个数组：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+<p>YAML 支持多维数组，可以使用行内表示：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="string">[value1,</span> <span class="string">value2,</span> <span class="string">...]</span></span><br></pre></td></tr></table></figure>
+<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+<p>一个相对复杂的例子：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
+<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。<br>数组也可以使用流式(flow)的方式表示：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span> <span class="string">[&#123;id:</span> <span class="number">1</span><span class="string">,name:</span> <span class="string">company1,price:</span> <span class="string">200W&#125;,&#123;id:</span> <span class="number">2</span><span class="string">,name:</span> <span class="string">company2,price:</span> <span class="string">500W&#125;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h3><p>数组和对象可以构成复合结构，例：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
+<p>转换为 json 为：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ 'Ruby', 'Perl', 'Python'],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: 'yaml.org',</span><br><span class="line">    Ruby: 'ruby-lang.org',</span><br><span class="line">    Python: 'python.org',</span><br><span class="line">    Perl: 'use.perl.org' </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h3><p>纯量是最基本的，不可再分的值，包括：</p>
+<ul>
+<li><font color=red>字符串布尔值、整数、浮点数、Null、时间、日期</font></li>
+</ul>
+<p>使用一个例子来快速了解纯量的基本使用：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">'node'</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'Hello world'</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018</span><span class="number">-02</span><span class="number">-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018</span><span class="number">-02</span><span class="string">-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&amp; 锚点和 * 别名，可以用来引用:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+<p>相当于:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">defaults:</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">development:</span><br><span class="line">  database: myapp_development</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">  database: myapp_test</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br></pre></td></tr></table></figure>
+<p>&amp; 用来建立锚点（defaults），&lt;&lt; 表示合并到当前数据，* 用来引用锚点。<br>下面是另一个例子:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="meta">*showell</span></span><br></pre></td></tr></table></figure>
+<p>转为 JavaScript 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">[ <span class="string">'Steve'</span>, <span class="string">'Clark'</span>, <span class="string">'Brian'</span>, <span class="string">'Oren'</span>, <span class="string">'Steve'</span> ]</span><br></pre></td></tr></table></figure>
+<p>参考地址：<a href="https://www.runoob.com/w3cnote/yaml-intro.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/yaml-intro.html</a></p>
+]]></content>
+      <tags>
+        <tag>配置文件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>U3D开篇（一）</title>
+    <url>/2020/05/u3d_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Unity3D开始………….</p>
+]]></content>
+      <tags>
+        <tag>Unity3D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌告别Flash</title>
+    <url>/2020/05/try_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>2020年12月底，Chrome将停止支持Falsh</p>
+<p>安东尼·拉福格:Google Chrome产品经理于2017年7月25日发布的原文翻译如下：</p>
+<blockquote>
+<p>&emsp;&emsp;今天，Adobe宣布了其计划在2020年底停止支持Flash的计划。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;20年来，Flash一直帮助您塑造游戏，观看视频和在网络上运行应用程序的方式。但是在最近几年中，Flash变得不那么普遍了。三年前，每天有80％的桌面Chrome用户访问带有Flash的网站。如今，使用量仅为17％，并且继续下降。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;这种趋势表明，网站正在迁移到开放式Web技术，该技术比Flash更快，更节能。它们也更安全，因此您在购物，银行业务或阅读敏感文档时可以更安全。它们还可以在移动设备和台式机上使用，因此您可以在任何地方访问自己喜欢的网站。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;去年下半年，当网站开始需要您的许可才能运行Flash时，这些开放的网络技术已成为Chrome 的默认体验。Chrome会在接下来的几年中继续淘汰Flash，首先会征求您在更多情况下运行Flash的许可，然后默认将其禁用。到2020年底，我们将彻底从Chrome移除Flash。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;如果您今天定期访问使用Flash的网站，您可能想知道这会对您有何影响。如果该网站迁移到开放的Web标准，则除了应该再也看不到在该网站上运行Flash的提示之外，您应该不会注意到太大的差异。如果该站点继续使用Flash，并且您授予该站点运行Flash的权限，则该站点将在2020年底前正常工作。</p>
+</blockquote>
+<blockquote>
+<p>&emsp;&emsp;与Adobe，其他浏览器和主要发行商进行了许多紧密合作，以确保网络准备好不使用Flash。我们支持Adobe今天的公告，我们期待与大家合作，使网络变得更加完善。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>2020大事件</tag>
       </tags>
   </entry>
   <entry>
@@ -2441,170 +2581,60 @@ table th:nth-of-type(2){width: 90%;}
       </tags>
   </entry>
   <entry>
-    <title>U3D开篇（一）</title>
-    <url>/2020/05/u3d_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Unity3D开始………….</p>
-]]></content>
-      <tags>
-        <tag>Unity3D</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>YAML介绍</title>
-    <url>/2020/05/yml_1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;YAML其实是一种配置文件语言。<br>&emsp;&emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。<br>&emsp;&emsp;YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。<br>&emsp;&emsp;YAML 的配置文件后缀为 .yml，如：config.yml 。</p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
-<li>大小写敏感</li>
-<li>使用缩进表示层级关系</li>
-<li>缩进不允许使用tab，只允许空格</li>
-<li>缩进的空格数不重要，只要相同层级的元素左对齐即可</li>
-<li>‘#’表示注释</li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>YAML 支持以下几种数据类型：</p>
-<ul>
-<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
-<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
-<li>纯量（scalars）：单个的、不可再分的值</li>
-</ul>
-<h3 id="YAML-对象"><a href="#YAML-对象" class="headerlink" title="YAML 对象"></a>YAML 对象</h3><p>对象键值对使用冒号结构表示 key: value，冒号后面要加一个空格。<br>也可以使用 key:{key1: value1, key2: value2, …}。<br>还可以使用缩进表示层级关系；</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
-<p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
-<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
-<h3 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h3><p>以 - 开头的行表示构成一个数组：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
-<p>YAML 支持多维数组，可以使用行内表示：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="string">[value1,</span> <span class="string">value2,</span> <span class="string">...]</span></span><br></pre></td></tr></table></figure>
-<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
-<p>一个相对复杂的例子：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
-<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。<br>数组也可以使用流式(flow)的方式表示：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">companies:</span> <span class="string">[&#123;id:</span> <span class="number">1</span><span class="string">,name:</span> <span class="string">company1,price:</span> <span class="string">200W&#125;,&#123;id:</span> <span class="number">2</span><span class="string">,name:</span> <span class="string">company2,price:</span> <span class="string">500W&#125;]</span></span><br></pre></td></tr></table></figure>
-<h3 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h3><p>数组和对象可以构成复合结构，例：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
-<p>转换为 json 为：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ 'Ruby', 'Perl', 'Python'],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: 'yaml.org',</span><br><span class="line">    Ruby: 'ruby-lang.org',</span><br><span class="line">    Python: 'python.org',</span><br><span class="line">    Perl: 'use.perl.org' </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h3><p>纯量是最基本的，不可再分的值，包括：</p>
-<ul>
-<li><font color=red>字符串布尔值、整数、浮点数、Null、时间、日期</font></li>
-</ul>
-<p>使用一个例子来快速了解纯量的基本使用：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">'node'</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'Hello world'</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018</span><span class="number">-02</span><span class="number">-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018</span><span class="number">-02</span><span class="string">-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&amp; 锚点和 * 别名，可以用来引用:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
-<p>相当于:</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">defaults:</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">development:</span><br><span class="line">  database: myapp_development</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">  database: myapp_test</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br></pre></td></tr></table></figure>
-<p>&amp; 用来建立锚点（defaults），&lt;&lt; 表示合并到当前数据，* 用来引用锚点。<br>下面是另一个例子:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="meta">*showell</span></span><br></pre></td></tr></table></figure>
-<p>转为 JavaScript 代码如下:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">[ <span class="string">'Steve'</span>, <span class="string">'Clark'</span>, <span class="string">'Brian'</span>, <span class="string">'Oren'</span>, <span class="string">'Steve'</span> ]</span><br></pre></td></tr></table></figure>
-<p>参考地址：<a href="https://www.runoob.com/w3cnote/yaml-intro.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/yaml-intro.html</a></p>
-]]></content>
-      <tags>
-        <tag>配置文件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>台湾将何去何从</title>
-    <url>/2020/05/try_03/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>台湾问题是我国一直以来难以解决的问题，其本质上为我国内政问题，实则已经上升到中美问题！</p>
-<p>新冠肺炎成为台湾问题进一步恶化的导火索，台湾民进党代表蔡英文借助此次疫情紧跟美国，加快台湾与大陆两岸关系恶化！大陆是时候有所行动了！</p>
-<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://shortv.cdp.qq.com/szg_2192_50001_0b6bkyaa4aaazyaf2xnr5vpfcvwdbzlaadsa.f622.mp4?dis_k=19794bfecdb6c12c0bb0e5530279721c&dis_t=1589428851&bid=oppo&seqid=1589428851094038&network=1"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+    <title>Markdown之于HTML与CSS和Markdown优缺点(二)</title>
+    <url>/2020/04/md_02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>&emsp;&emsp;上篇对Markdown做了简单的了解与介绍，作者本人也在不断尝试使用Markdown来编写自己的博客文章，本来想着第二篇就给大家介绍Markdown标记语法来着，但我发现要想排布好一篇文章，光用Markdown的一些基本标记是不够的，通常需要<strong>Markdown标记与HTML标记与CSS样式结合来弄</strong>。那么，小伙伴可能就有疑问了，还要会HTML与CSS吗，这么麻烦！<br>&emsp;&emsp;其实，完全不需要去学习HTML与CSS的（注：热爱学习的小伙伴除外哦），简单了解一下他们之间的关系与作用就可以了，后面可能会用到的HTML与CSS的内容可以完全当作Markdown自身的语法来使用的，完全没影响，所以这篇就给大家也给作者自己介绍一下这三者的关系以及Markdown的应用优缺点！</p>
+<h4 id="一-Markdown之于HTML与CSS"><a href="#一-Markdown之于HTML与CSS" class="headerlink" title="(一) Markdown之于HTML与CSS"></a>(一) Markdown之于HTML与CSS</h4><h5 id="1-1-HTML与CSS"><a href="#1-1-HTML与CSS" class="headerlink" title="1.1 HTML与CSS"></a>1.1 HTML与CSS</h5><p>&emsp;&emsp;我们先来看一下html与css，我们知道网页就是html也是htm，它也是一个标记语言，称之为超文本标记语言，全拼HyperText Markup Language，名称中的Markup与我们要使用的Markdown肯定是有联系的（下面了解）。<br>&emsp;&emsp;CSS又是什么呢？它是Cascading Style Sheets 的缩写，即层叠式样式表单，它是由W3C协会制定并发布的一个网页排版式标准，是对html语言功能的补充。<br>&emsp;&emsp;虽然，<strong>css是html的功能补充，但两者语法是完全不同的</strong>。html是用来定义文档内容结构，包含用户需要浏览的图文、视频，构成网页的基本元素；css用于定义html文档的样式，即外观，比如网页上的动态文字、文字的色彩、字体、字体背景、字体大小、动画效果、图像及其他各种元素的控制，都可以由css来实现。<br>&emsp;&emsp; All in all，HTML犹如一个人，而CSS则是服饰。通过不同服饰打扮出不同风格人。<br><font color=green>案例：HTML与HTNL+CSS效果比较</font><br><img src="/uploads/images/md/md_2_0.png" alt="image"><br><font color=green>代码：html</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><font color=green>代码：html+css</font></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Otto的HTML+CSS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:<span class="number">#d0e4fe</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:orange;<span class="attribute">text-align</span>:center;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span>&#123;<span class="attribute">font-family</span>:<span class="string">"Times New Roman"</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>啊啊啊！<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;总结，效果与代码比对着瞄一眼就ok了，这主要是了解一下html和css,下面才是重点！</p>
+<h5 id="1-2-Markdown与HTML的关系"><a href="#1-2-Markdown与HTML的关系" class="headerlink" title="1.2 Markdown与HTML的关系"></a>1.2 Markdown与HTML的关系</h5><p>&emsp;&emsp;我们上面讲到HTML中M（markup）是标记的意思，而刚刚与markdown相反，那么两者关系到底是如何呢！开始划重点了！<br>&emsp;&emsp;As a matter of fact，<font color=red>我们使用markdown写的文档之所以能在网站上直接显示，是因为markdown已经转换解析为html或者说是html+css</font>，我想大家已经猜到了吧！所以，一些人说什么”markdown会取代html “，反正我是不会相信的，同样也相信大家的眼睛是雪亮的雪亮的，哈哈！我们其实可以这样理解，<font color=red>markdown就是建立在html或者说html+css之上的</font>。<br>&emsp;&emsp;<font color=red>Markdown与HTML同为标记语言</font>。虽然，标记语言本身本质上也是一门语言，但是和编程语言相比就简单很多了，所以标记语言是没有一点编程经验的小伙伴都是可以直接上手的一类语言。而html作为最早的前端网页标记语言，其目的也是如此。不过没想到的是，html虽然能够通过短时间的学习而迅速上手，但是使用这门语言的人大多数依然还是IT行业人员，因为它对专注于文章内容编辑的非程序职业人来说，使用它来编写自己的文章还不如用word等工具来的舒服！html的什么头啊，体啊，各种前后标签啊，不仅写着不舒，而且看着也不舒服，还容易出错，<font color=red>总之，我又不是搞程序的，你们自己用吧，我才不用，html(好它妈乱)就这这样应运而生了</font>。<br>&emsp;&emsp;好了，苦逼的程序猿只能自己玩了。Over time 随着时间的推移，慢慢的，程序猿也用的烦了（果然HTML好他妈乱），尤其大部分不搞网站的程序猿们，肿么办？<br>&emsp;&emsp;然后，我们的约翰·格鲁伯便在2004年便创建了MarkDown，markdown是在html的基础上创建，在兼容markdown的同时，也使自己的语言更加易读易写，使用起来就更加的方便。markdown兼容html最终更是要解析为html,也就是说，<font color=red>在markdown中是可以写html也可以写css的</font>，不过基本的markdown语法也足够用来书写内容与布局了，要想更炫酷的话就需要三者配合使用了。makerdown也因此而流行起来，深受广大程序猿的喜爱，甚至一些非程序职业的工作者也在使用起来了！</p>
+<h4 id="二-Markdown优缺点"><a href="#二-Markdown优缺点" class="headerlink" title="(二) Markdown优缺点"></a>(二) Markdown优缺点</h4><p>&emsp;&emsp;我们都知道，不管是使用什么工具，多多少少都会有一些这样那样的优缺点，下面说说markdown.</p>
+<p><strong>优点1：易浏览，还可以直接导出为各种格式，word、PDF、图片、HTML等。</strong><br>&emsp;&emsp;我们的电脑和手机上可以没有word等工具，但一定有浏览器！网页浏览即可！在线网页工具也可以编辑！就问你方不方便，你写个word传来传去还不方便看，想让它显示到网站上查看，转换的效果还不一定好，但是由md转换为其他格式，效果挺好。</p>
+<p><strong>优点2：语法简单，易写，易读</strong><br>&emsp;&emsp;其实这个易写易读是相对的，相对于其他如html，它算是比较容易去写于于看的，但是不同人有不同的看法。做为作者，我是这样觉得的，如果你确实只用到了md语法，那么确实挺易读易写的。但是我们知道，要想花里胡哨那么对于支持html与css的md文件在内容上一般也不是那么尽如人意！所以，此处即是优点也是缺点。语法上简单也很直观，但也导致了在许多功能上的无法实现的问题！（既然绝大多数人都同作者一样觉得此处算作优点，就归于优点吧）</p>
+<p><strong>优点3：纯文本、纯键盘操作</strong><br>&emsp;&emsp;只要你是一个喜欢手不离键盘不断敲敲打打的职业人员，我想你会觉得这是优点的，毕竟它不需要你一会敲敲打打一会又这点点那选选的，让你只需专注于敲键盘，并尽情发挥你大脑的想象力、记忆力与创造力啦！（反正我是不可能纯粹只使用键盘操作的，请不要说我菜，不要说，不要说）</p>
+<p><strong>优点4：空间占用小</strong><br>&emsp;&emsp;正所谓，所见即所得，md里写的什么，存的就是什么，内容上就是这么多，但是其他编辑工具，譬如word、富文本等等工具编写的内容与存储的内容是不同的，甚至是有时是倍增的！</p>
+<p><strong>缺点1：语法简单而导致的功能缺陷</strong><br>&emsp;&emsp;为了让用户在编写创作的同时，尽可能忽略md标识，md做到了简单便捷的语法标识，但在有特殊效果需求上，md语法并不支持，需要在md中使用html+css来达到效果！</p>
+<p><strong>缺点2：纯键盘、纯文本操作导致的直观可读性</strong><br>&emsp;&emsp;虽然在编辑md时，我们就可以观察到md的显示结果了，但我们毕竟操作上都在md上，而读md也并不是特别直观，没有特殊工具编辑来的直观。（不过我想既然md能让你看起来像大神一般操作文本，来一把程序体验，从而牺牲你一点直观性也没啥问题，此缺点可忽略，忽略）</p>
+<p><strong>缺点3：有坑不填</strong><br>&emsp;&emsp;不管使用什么工具，多少都有些问题，记得不久前的毕业论文word格式排版……，那可是折磨了我们所有人相当久的一段经历啊！（不想回忆，不想回忆）至于markdown的坑，之后在说吧！</p>
+<center><font color=green>重要的事情说两遍，三遍太累!</font></center>                       
 
-<p>千年复兴，机遇难得，将强未强，将成未成之际！武统台湾是否可行！</p>
-<div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"theme":"#FADFA3","video":{"url":"https://voppo3.go2yd.com/user_upload/15890208325432c0667b6e6ac8b82302a790117b50c1c.mp4_bd.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+
+
 
 
 ]]></content>
+      <categories>
+        <category>实用技术</category>
+        <category>个人博客</category>
+        <category>标记语言</category>
+        <category>Markdown</category>
+      </categories>
       <tags>
-        <tag>2020大事件</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hexo进阶之音视频功能插入(一)</title>
-    <url>/2020/05/hexo_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!--  命令创建的文章模板： hexo new post -p  postpath/fileName "fileName"
-      1. 上面的命名直接确定了文件的分类路径和 使用hexo g 命令后解析为html的存储路径 
-      2. -p 或 --path  自定义新文章的路径
-      3. postpath为项目source的_post的相对路径,没有会直接创建
-      4. fileName 为文件名，会直接创建对应.md文件
-      5. fileName 解析为html后的存储文件夹,与文件名保存一致，方便查看，title再重新写
-      例如：$ hexo new post -r -p fontawesome/FA_5 "FA_5" && hexo g
--->
-<p><strong>背景</strong></p>
-<blockquote>
-<p> 用hexo搭建博客后，并想让自己的站点博客显得更加高端的话。那么，怎么能少的了如此重要的音视频插入的功能呢！既然如此，今天就来把它搞定，开始记录今天的历程。。。。。。</p>
-</blockquote>
-<p><strong>说明</strong><br>&emsp;&emsp;本着“有想法就开干，不懂找度娘！”的宗旨，作者也尝试了诸多方式并归纳总结如下，希望在自己的排坑之旅下总结出的方式对大家有所帮助！下面，管他三七二十几，来跟着我左手右手一个慢动作，开搞！</p>
-<h3 id="一、音视频外链式插入"><a href="#一、音视频外链式插入" class="headerlink" title="一、音视频外链式插入"></a>一、音视频外链式插入</h3><ol>
-<li>一种外链式音视频插入方式，使用音乐平台各自的外链代码（一般为iframe和embed标签）！</li>
-<li>体验差，需要去平台生成外链，尤其一些有版权保护的音乐，没办法生成外链！</li>
-<li>以网易云音乐为例： <a href="https://music.163.com/#/outchain/2/114389/" target="_blank" rel="noopener"><font color=blue>网易云音乐外链</font></a></li>
-</ol>
-<p>外链代码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--iframe音频插件--&gt;</span><br><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=430 height=86 </span><br><span class="line"> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=114389&amp;auto=0&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br><span class="line"> &lt;!--flash视频插件--&gt;</span><br><span class="line"> &lt;embed src=<span class="string">"//music.163.com/style/swf/widget.swf?sid=114389&amp;type=2&amp;auto=1&amp;width=320&amp;height=66"</span> </span><br><span class="line"> width=<span class="string">"340"</span> height=<span class="string">"86"</span>  allowNetworking=<span class="string">"all"</span>&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
-<p>效果如下： 这儿是单歌外链，还有其他效果外链（既然体验差，就不介绍了，感兴趣的自行百度）</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 
- src="//music.163.com/outchain/player?type=2&id=114389&auto=0&height=66"></iframe>
-说明：如果你的浏览器没有安装Falsh或者不支持Falsh的话，点击后是没有视频效果的！
-<embed src="//music.163.com/style/swf/widget.swf?sid=114389&type=2&auto=1&width=320&height=66" 
- width="340" height="86"  allowNetworking="all"></embed>
-
-<p><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8506694&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
-<h3 id="二、音视频插件式插入"><a href="#二、音视频插件式插入" class="headerlink" title="二、音视频插件式插入"></a>二、音视频插件式插入</h3><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>使用GitBush在项目根目录输入下面命令:<br>分别安装<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener"><font color=blue>hexo-tag-aplayer</font></a>音频插件和<a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener"><font color=blue>hexo-tag-dplayer</font></a>视频插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-aplayer --save    </span><br><span class="line">$ npm install hexo-tag-dplayer --save</span><br><span class="line">或</span><br><span class="line">$ npm install --save hexo-tag-aplayer </span><br><span class="line">$ npm install --save hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
-<h4 id="2-音频插件使用"><a href="#2-音频插件使用" class="headerlink" title="2.音频插件使用"></a>2.音频插件使用</h4><p>说明：md兼容html，可直接使用下面方法！<br><strong>方法一：aplayer简单使用（基本标签）</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "她的睫毛" "周杰伦"   </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/%d6%dc%bd%dc%c2%d7%20-%20%cb%fd%b5%c4%bd%de%c3%ab.mp3"  </span><br><span class="line">"http://home.ustc.edu.cn/~mmmwhy/jay.jpg" %&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：其实这里是没有效果的，原谅强迫症的我非要弄个（因为我使用了方法二引入了meting标签，方法一的aplayer标签就失效了，然后试了很多次发现，<font color=red>这两个方法只能在同一篇文章中单用，不能混用</font>）</li>
-</ul>
-
-    <div id="aplayer-XmYgAwvb" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="60198" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-<ul>
-<li>补充：有关aplayer的选项列表如下</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>title: 曲目标题<br>author: 曲目作者<br>url: 音乐文件 URL 地址<br>picture_url: (可选) 音乐对应的图片地址<br>narrow: （可选）播放器袖珍风格<br>autoplay: (可选) 自动播放，移动端浏览器暂时不支持此功能<br>width:xxx: (可选) 播放器宽度 (默认: 100%)<br>lrc:xxx: （可选）歌词文件 URL 地址</p>
-</blockquote>
-<p><strong>方法二：支持MetingJS引入使用</strong><br>&emsp;&emsp;MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。<br>&emsp;&emsp;如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;接着就可以通过meting在文章中使用 MetingJS 播放器了：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简单示例 (id, server, type)  --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- 进阶示例 --&gt;</span></span><br><span class="line">&#123;% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：</li>
-</ul>
-
-    <div id="aplayer-CbIZInlw" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-<ul>
-<li>补充：有关meting的选项列表如下</li>
-</ul>
-<blockquote>
-<p>id:        必须值   歌曲 id / 播放列表 id / 相册 id / 搜索关键字<br>server:     必须值   音乐平台: netease, tencent, kugou, xiami, baidu<br>type:       必须值   song, playlist, album, search, artist<br>fixed:      false    开启固定模式<br>mini:       false    开启迷你模式<br>loop:       all      列表循环模式：all, one,none<br>order:      list     列表播放模式： list, random<br>volume:     0.7      播放器音量<br>lrctype:    0        歌词格式类型<br>listfolded: false    指定音乐播放列表是否折叠<br>storagename:metingjs LocalStorage 中存储播放器设定的键名<br>autoplay:   true     自动播放，移动端浏览器暂时不支持此功能<br>mutex:      true     该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停<br>listmaxheight:340px  播放列表的最大长度<br>preload:    auto     音乐文件预载入模式，可选项： none, metadata, auto<br>theme:      #ad7a86  播放器风格色彩设置</p>
-</blockquote>
-<h4 id="3-视频插件使用"><a href="#3-视频插件使用" class="headerlink" title="3.视频插件使用"></a>3.视频插件使用</h4><ul>
-<li>代码：（此代码已经失效，建议您保存任意视频至本地，然后使用本地链接地址）<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer "url=http://devtest.qiniudn.com/极乐净土.mp4" </span><br><span class="line">"api=http://dplayer.daoapp.io" "pic=http://devtest.qiniudn.com/极乐净土.png" </span><br><span class="line">"id=9E2E3368B56CDBB4" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125;</span><br></pre></td></tr></table></figure></li>
-<li>效果：<div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4","pic":"https://fp1.fghrsh.net/2016/08/01/d2540b5902a88a64c513f0027253985a.jpg"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-
-</li>
-</ul>
-<h3 id="三、音视频普通插入"><a href="#三、音视频普通插入" class="headerlink" title="三、音视频普通插入"></a>三、音视频普通插入</h3><p>video标签举例： </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"320"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>script标签举例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">src</span>=<span class="string">"http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>video效果</li>
-</ul>
-<video width="480" height="320" controls>
-<source src="//media.fghrsh.net/%E3%80%90MMD%E3%80%91%E6%9E%81%E4%B9%90%E5%87%80%E5%9C%9F%E5%85%A5%E4%BE%B5%20MineCraft%20%E6%9C%80%E7%BB%88%E7%89%88_10M%E7%A0%81%E7%8E%87%E5%8E%8B%E5%88%B6.mp4">
-</video>]]></content>
+    <title>七大设计原则与八大设计模式</title>
+    <url>/2020/05/fr_01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>—— 只知其然，不知其所以然！</p>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><strong>什么是设计原则与设计模式?</strong><br>&emsp;&emsp;我们知道对于很多数学问题，经常会有多种不同的解法，而且这其中可能会有一种比较通用简便高效的方法，我们在遇到类似的问题或者同一性质的问题时，也往往采用这一种通用的解法。<br><strong>将话题转移到程序设计中来!</strong><br>&emsp;&emsp;对于软件开发人员， 在软件开发过程中， 面临的一般问题的解决方案就是设计模式（准确的说是OOP中）。当然，如同数学的解题思路一样，设计模式并不是公式一样的存在<br>&emsp;&emsp;设计模式（Design pattern）代表了最佳的实践，是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的宝贵经验，是解决问题的一种思路（思想）。<br>&emsp;&emsp;设计原则是从设计模式中总结演化出来的行为准则，是设计模式的根本，也称面向对象（OOP）设计原则。</p>
+<img title="理解配图" src="http://qal0b1j3s.bkt.clouddn.com/static/img/frame/frame_01.png">
+<h2 id="二、起源"><a href="#二、起源" class="headerlink" title="二、起源"></a>二、起源</h2><p>&emsp;&emsp;随着面向对象编程语言的发展，以及软件开发规模的不断扩大，编写良好的OOP程序变得困难，而编写可复用的OOP程序则更是困难。<br>&emsp;&emsp;在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用面向对象软件的基础）的书，该书首次提到了软件开发中设计模式的概念。 四位作者合称 GOF（四人帮，全拼 Gang of Four），这就是设计模式四个字的起源。<br>&emsp;&emsp;当然，即使在这本书出版之前，肯定也已经有很多有经验的OOP程序员已经在使用自己的经验(设计模式)了，但是这本书将OOP的设计经验作为设计模式记录下来，使我们能够更加简单方便的复用成功的设计经验和体系结构。 </p>
+<h2 id="三、常用七大设计原则"><a href="#三、常用七大设计原则" class="headerlink" title="三、常用七大设计原则"></a>三、常用七大设计原则</h2><p>目的：1.适应变化&emsp;2.提高代码复用率&emsp;3.可维护性&emsp;4.扩展性<br>关系：<br>&emsp;&emsp;1.开闭原则为根本目标原则，其次里氏代换、迪米特。<br>&emsp;&emsp;2.单一职责、接口分隔、依赖倒置、合成复用为基础原则。</p>
+<h5 id="开闭原则（OCP）"><a href="#开闭原则（OCP）" class="headerlink" title="开闭原则（OCP）"></a>开闭原则（OCP）</h5><p>也称开放关闭原则，字如其意，对扩展开放，对修改关闭！<br>解释：一个软件实体应当对扩展开放，对修改关闭，即软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
+<h5 id="里式替换（LSP）"><a href="#里式替换（LSP）" class="headerlink" title="里式替换（LSP）"></a>里式替换（LSP）</h5><p>所有引用基类的地方必须能透明地使用其子类的对象！<br>解释：继承复用的基石，在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常。子类要做到可以完全替代父类，使其继承体系保留基类完整性。（比如：避免子类方法覆盖父类）</p>
+<h4 id="迪米特原则（PLK）"><a href="#迪米特原则（PLK）" class="headerlink" title="迪米特原则（PLK）"></a>迪米特原则（PLK）</h4><p>也叫最小知识原则，让一个类不要过多的依赖牵扯其他的类，减少影响降低耦合度<br>解释：一个软件实体应当尽可能少地与其他实体发生相互作用，也就是一个对象应当对其他对象有尽可能少的了解，避免一个模块的修改影响另一模块的修改。</p>
+<h5 id="单一职责（SRP）"><a href="#单一职责（SRP）" class="headerlink" title="单一职责（SRP）"></a>单一职责（SRP）</h5><p>单一职责，即一个类应该有专用职责！<br>解释：这里的类不光指类，也适用于接口和方法：类的设计尽量做到只有一个原因可以引起它的改变。接口一定做到单一职责。一个方法实现一个功能。</p>
+<h5 id="接口隔离（ISP）"><a href="#接口隔离（ISP）" class="headerlink" title="接口隔离（ISP）"></a>接口隔离（ISP）</h5><p>其实就是接口中的单一原则！<br>解释：使用多个专门的接口，而不使用单一的总接口，即细化接口、单一化接口的意思，一个接口只服务于一个子模块或业务逻辑，不要建立庞大臃肿的接口，尽量细化接口，接口中的方法尽量少。</p>
+<h5 id="依赖倒置（SRP）"><a href="#依赖倒置（SRP）" class="headerlink" title="依赖倒置（SRP）"></a>依赖倒置（SRP）</h5><p>依赖抽象而不依赖具体<br>解释：就是针对接口编程，而不是针对实现编程。由面向过程中，高层模块依赖低层模块，到面向对象的倒置依赖(低层模块依赖高层模块)，二者都不应该去依赖具体，而是去依赖抽象。<br>抽象接口是对低层模块的抽象，低层模块继承或实现该抽象接口。（体现：多态）<br>这样，高层模块不直接依赖低层模块，而是依赖抽象接口层。抽象接口也不依赖低层模块的实现细节，而是低层模块依赖（继承或实现）抽象接口。</p>
+<h5 id="合成复用（CRP）"><a href="#合成复用（CRP）" class="headerlink" title="合成复用（CRP）"></a>合成复用（CRP）</h5><p>合成复用（CRP）又称聚合复用（ARP），能使用现有的类组合 ，就不要创造新的类<br>解释：多用组合复用{对现有类进行引用组合}，少用继承复用{继承会继承到父类的一切，造成一些没必要的浪费，甚至可能导致类膨胀}</p>
+<h2 id="四、常用八大设计模式"><a href="#四、常用八大设计模式" class="headerlink" title="四、常用八大设计模式"></a>四、常用八大设计模式</h2><p>单例模式：<br>代理模式：<br>观察者模式：<br>策略模：<br>工厂模式：<br>中介者模式：<br>门面模式（外观模式）：<br> 组合模式：</p>
+]]></content>
       <tags>
-        <tag>Hexo</tag>
+        <tag>扩展必备</tag>
       </tags>
   </entry>
   <entry>
@@ -2651,27 +2681,6 @@ table th:nth-of-type(2){width: 90%;}
 <p>配置语言：</p>
 <p>前端语言：</p>
 <p>后端语言：</p>
-]]></content>
-      <tags>
-        <tag>扩展必备</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>七大设计原则与八大设计模式</title>
-    <url>/2020/05/fr_01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>—— 只知其然，不知其所以然！</p>
-<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><strong>什么是设计原则与设计模式?</strong><br>&emsp;&emsp;我们知道对于很多数学问题，经常会有多种不同的解法，而且这其中可能会有一种比较通用简便高效的方法，我们在遇到类似的问题或者同一性质的问题时，也往往采用这一种通用的解法。<br><strong>将话题转移到程序设计中来!</strong><br>&emsp;&emsp;对于软件开发人员， 在软件开发过程中， 面临的一般问题的解决方案就是设计模式（准确的说是OOP中）。当然，如同数学的解题思路一样，设计模式并不是公式一样的存在<br>&emsp;&emsp;设计模式（Design pattern）代表了最佳的实践，是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的宝贵经验，是解决问题的一种思路（思想）。<br>&emsp;&emsp;设计原则是从设计模式中总结演化出来的行为准则，是设计模式的根本，也称面向对象（OOP）设计原则。</p>
-<img title="理解配图" src="http://qal0b1j3s.bkt.clouddn.com/static/img/frame/frame_01.png">
-<h2 id="二、起源"><a href="#二、起源" class="headerlink" title="二、起源"></a>二、起源</h2><p>&emsp;&emsp;随着面向对象编程语言的发展，以及软件开发规模的不断扩大，编写良好的OOP程序变得困难，而编写可复用的OOP程序则更是困难。<br>&emsp;&emsp;在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用面向对象软件的基础）的书，该书首次提到了软件开发中设计模式的概念。 四位作者合称 GOF（四人帮，全拼 Gang of Four），这就是设计模式四个字的起源。<br>&emsp;&emsp;当然，即使在这本书出版之前，肯定也已经有很多有经验的OOP程序员已经在使用自己的经验(设计模式)了，但是这本书将OOP的设计经验作为设计模式记录下来，使我们能够更加简单方便的复用成功的设计经验和体系结构。 </p>
-<h2 id="三、常用七大设计原则"><a href="#三、常用七大设计原则" class="headerlink" title="三、常用七大设计原则"></a>三、常用七大设计原则</h2><p>目的：1.适应变化&emsp;2.提高代码复用率&emsp;3.可维护性&emsp;4.扩展性<br>关系：<br>&emsp;&emsp;1.开闭原则为根本目标原则，其次里氏代换、迪米特。<br>&emsp;&emsp;2.单一职责、接口分隔、依赖倒置、合成复用为基础原则。</p>
-<h5 id="开闭原则（OCP）"><a href="#开闭原则（OCP）" class="headerlink" title="开闭原则（OCP）"></a>开闭原则（OCP）</h5><p>也称开放关闭原则，字如其意，对扩展开放，对修改关闭！<br>解释：一个软件实体应当对扩展开放，对修改关闭，即软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
-<h5 id="里式替换（LSP）"><a href="#里式替换（LSP）" class="headerlink" title="里式替换（LSP）"></a>里式替换（LSP）</h5><p>所有引用基类的地方必须能透明地使用其子类的对象！<br>解释：继承复用的基石，在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常。子类要做到可以完全替代父类，使其继承体系保留基类完整性。（比如：避免子类方法覆盖父类）</p>
-<h4 id="迪米特原则（PLK）"><a href="#迪米特原则（PLK）" class="headerlink" title="迪米特原则（PLK）"></a>迪米特原则（PLK）</h4><p>也叫最小知识原则，让一个类不要过多的依赖牵扯其他的类，减少影响降低耦合度<br>解释：一个软件实体应当尽可能少地与其他实体发生相互作用，也就是一个对象应当对其他对象有尽可能少的了解，避免一个模块的修改影响另一模块的修改。</p>
-<h5 id="单一职责（SRP）"><a href="#单一职责（SRP）" class="headerlink" title="单一职责（SRP）"></a>单一职责（SRP）</h5><p>单一职责，即一个类应该有专用职责！<br>解释：这里的类不光指类，也适用于接口和方法：类的设计尽量做到只有一个原因可以引起它的改变。接口一定做到单一职责。一个方法实现一个功能。</p>
-<h5 id="接口隔离（ISP）"><a href="#接口隔离（ISP）" class="headerlink" title="接口隔离（ISP）"></a>接口隔离（ISP）</h5><p>其实就是接口中的单一原则！<br>解释：使用多个专门的接口，而不使用单一的总接口，即细化接口、单一化接口的意思，一个接口只服务于一个子模块或业务逻辑，不要建立庞大臃肿的接口，尽量细化接口，接口中的方法尽量少。</p>
-<h5 id="依赖倒置（SRP）"><a href="#依赖倒置（SRP）" class="headerlink" title="依赖倒置（SRP）"></a>依赖倒置（SRP）</h5><p>依赖抽象而不依赖具体<br>解释：就是针对接口编程，而不是针对实现编程。由面向过程中，高层模块依赖低层模块，到面向对象的倒置依赖(低层模块依赖高层模块)，二者都不应该去依赖具体，而是去依赖抽象。<br>抽象接口是对低层模块的抽象，低层模块继承或实现该抽象接口。（体现：多态）<br>这样，高层模块不直接依赖低层模块，而是依赖抽象接口层。抽象接口也不依赖低层模块的实现细节，而是低层模块依赖（继承或实现）抽象接口。</p>
-<h5 id="合成复用（CRP）"><a href="#合成复用（CRP）" class="headerlink" title="合成复用（CRP）"></a>合成复用（CRP）</h5><p>合成复用（CRP）又称聚合复用（ARP），能使用现有的类组合 ，就不要创造新的类<br>解释：多用组合复用{对现有类进行引用组合}，少用继承复用{继承会继承到父类的一切，造成一些没必要的浪费，甚至可能导致类膨胀}</p>
-<h2 id="四、常用八大设计模式"><a href="#四、常用八大设计模式" class="headerlink" title="四、常用八大设计模式"></a>四、常用八大设计模式</h2><p>单例模式：<br>代理模式：<br>观察者模式：<br>策略模：<br>工厂模式：<br>中介者模式：<br>门面模式（外观模式）：<br> 组合模式：</p>
 ]]></content>
       <tags>
         <tag>扩展必备</tag>

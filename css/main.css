@@ -1125,9 +1125,9 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: normal;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'STXINGKA', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1198,6 +1198,7 @@ pre .javascript .function {
 .menu .menu-item a {
   display: block;
   font-size: 13px;
+  color: #00f !important;
   line-height: inherit;
   border-bottom: 1px solid transparent;
   transition-property: border-color;
@@ -1959,7 +1960,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #daff9e;
+  background: #f534ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3247,10 +3248,6 @@ a#download:hover {
   font-family: STXINGKA;
   src: url("/fonts/STXINGKA.ttf");
 }
-.site-title {
-  font-size: 35px !important;
-  font-family: 'STXINGKA' !important;
-}
 .header {
   width: 80%;
 }
@@ -3289,4 +3286,12 @@ a#download:hover {
   .content-wrap {
     width: 100%;
   }
+}
+#sidebar p,
+#sidebar span,
+#sidebar a {
+  color: #910861;
+}
+.footer-inner {
+  color: #00f;
 }
