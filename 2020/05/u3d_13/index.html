@@ -107,7 +107,7 @@
 
 
 
-  <meta name="keywords" content="配置文件," />
+  <meta name="keywords" content="Unity3D," />
 
 
 
@@ -118,16 +118,16 @@
 
 
 
-<meta name="description" content="定义&amp;emsp;&amp;emsp;YAML其实是一种配置文件语言。&amp;emsp;&amp;emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。&amp;emsp;&amp;emsp;YAML 的语法和其他高级语言类似，并且可以简单表达">
+<meta name="description" content="—— 愿你成长，落落大方，争奇斗艳，不负众望！背景&amp;emsp;&amp;emsp;在前一篇的音频封装中，我们使用了三个必备AudioSource组件，如果同一时刻不止三个音频在播放，那么就会再去动态添加AudioSource组件，并且保证其空闲的不能多于3个（多余的动态销毁）。&amp;emsp;&amp;emsp;我们知道如果不销毁的话就会占用内存，然而销毁与创建的过程依然依赖内存。&amp;emsp;&amp;emsp;不过，对于游">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YAML介绍">
-<meta property="og:url" content="http://yoursite.com/2020/05/yml_1/index.html">
+<meta property="og:title" content="对象池思想">
+<meta property="og:url" content="http://yoursite.com/2020/05/u3d_13/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
-<meta property="og:description" content="定义&amp;emsp;&amp;emsp;YAML其实是一种配置文件语言。&amp;emsp;&amp;emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。&amp;emsp;&amp;emsp;YAML 的语法和其他高级语言类似，并且可以简单表达">
-<meta property="article:published_time" content="2020-05-12T02:33:24.000Z">
-<meta property="article:modified_time" content="2020-05-16T02:41:14.296Z">
+<meta property="og:description" content="—— 愿你成长，落落大方，争奇斗艳，不负众望！背景&amp;emsp;&amp;emsp;在前一篇的音频封装中，我们使用了三个必备AudioSource组件，如果同一时刻不止三个音频在播放，那么就会再去动态添加AudioSource组件，并且保证其空闲的不能多于3个（多余的动态销毁）。&amp;emsp;&amp;emsp;我们知道如果不销毁的话就会占用内存，然而销毁与创建的过程依然依赖内存。&amp;emsp;&amp;emsp;不过，对于游">
+<meta property="article:published_time" content="2020-05-28T04:54:39.000Z">
+<meta property="article:modified_time" content="2020-05-28T07:29:14.256Z">
 <meta property="article:author" content="Otto">
-<meta property="article:tag" content="配置文件">
+<meta property="article:tag" content="Unity3D">
 <meta name="twitter:card" content="summary">
 
 
@@ -158,7 +158,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/yml_1/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/u3d_13/"/>
 
 
 
@@ -174,7 +174,7 @@
     })();
 </script>
 
-  <title>YAML介绍 | Otto的个人空间</title>
+  <title>对象池思想 | Otto的个人空间</title>
   
 
 
@@ -387,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/yml_1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/u3d_13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Otto">
@@ -404,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">YAML介绍</h1>
+          <h1 class="post-title" itemprop="name headline">对象池思想</h1>
         
 
         <div class="post-meta">
@@ -416,8 +416,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-12T10:33:24+08:00">
-                2020-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-28T12:54:39+08:00">
+                2020-05-28
               </time>
             
 
@@ -432,8 +432,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-05-16T10:41:14+08:00">
-                2020-05-16
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-28T15:29:14+08:00">
+                2020-05-28
               </time>
             
           </span>
@@ -447,8 +447,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/05/yml_1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/yml_1/" itemprop="commentCount"></span>
+                <a href="/2020/05/u3d_13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/u3d_13/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -482,54 +482,26 @@
       
 
       
-        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;YAML其实是一种配置文件语言。<br>&emsp;&emsp;YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。<br>&emsp;&emsp;YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。<br>&emsp;&emsp;YAML 的配置文件后缀为 .yml，如：config.yml 。</p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
-<li>大小写敏感</li>
-<li>使用缩进表示层级关系</li>
-<li>缩进不允许使用tab，只允许空格</li>
-<li>缩进的空格数不重要，只要相同层级的元素左对齐即可</li>
-<li>‘#’表示注释</li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>YAML 支持以下几种数据类型：</p>
-<ul>
-<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
-<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
-<li>纯量（scalars）：单个的、不可再分的值</li>
-</ul>
-<h3 id="YAML-对象"><a href="#YAML-对象" class="headerlink" title="YAML 对象"></a>YAML 对象</h3><p>对象键值对使用冒号结构表示 key: value，冒号后面要加一个空格。<br>也可以使用 key:{key1: value1, key2: value2, …}。<br>还可以使用缩进表示层级关系；</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
-<p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
-<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
-<h3 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h3><p>以 - 开头的行表示构成一个数组：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
-<p>YAML 支持多维数组，可以使用行内表示：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="string">[value1,</span> <span class="string">value2,</span> <span class="string">...]</span></span><br></pre></td></tr></table></figure>
-<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
-<p>一个相对复杂的例子：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
-<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。<br>数组也可以使用流式(flow)的方式表示：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span> <span class="string">[&#123;id:</span> <span class="number">1</span><span class="string">,name:</span> <span class="string">company1,price:</span> <span class="string">200W&#125;,&#123;id:</span> <span class="number">2</span><span class="string">,name:</span> <span class="string">company2,price:</span> <span class="string">500W&#125;]</span></span><br></pre></td></tr></table></figure>
-<h3 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h3><p>数组和对象可以构成复合结构，例：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
-<p>转换为 json 为：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ 'Ruby', 'Perl', 'Python'],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: 'yaml.org',</span><br><span class="line">    Ruby: 'ruby-lang.org',</span><br><span class="line">    Python: 'python.org',</span><br><span class="line">    Perl: 'use.perl.org' </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h3><p>纯量是最基本的，不可再分的值，包括：</p>
-<ul>
-<li><font color=red>字符串布尔值、整数、浮点数、Null、时间、日期</font></li>
-</ul>
-<p>使用一个例子来快速了解纯量的基本使用：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">'node'</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'Hello world'</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018</span><span class="number">-02</span><span class="number">-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018</span><span class="number">-02</span><span class="string">-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&amp; 锚点和 * 别名，可以用来引用:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
-<p>相当于:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">defaults:</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">development:</span><br><span class="line">  database: myapp_development</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">  database: myapp_test</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br></pre></td></tr></table></figure>
-<p>&amp; 用来建立锚点（defaults），&lt;&lt; 表示合并到当前数据，* 用来引用锚点。<br>下面是另一个例子:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="meta">*showell</span></span><br></pre></td></tr></table></figure>
-<p>转为 JavaScript 代码如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">'Steve'</span>, <span class="string">'Clark'</span>, <span class="string">'Brian'</span>, <span class="string">'Oren'</span>, <span class="string">'Steve'</span> ]</span><br></pre></td></tr></table></figure>
-<p>参考地址：<a href="https://www.runoob.com/w3cnote/yaml-intro.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/yaml-intro.html</a></p>
+        <p>—— 愿你成长，落落大方，争奇斗艳，不负众望！<br><strong>背景</strong><br>&emsp;&emsp;在前一篇的音频封装中，我们使用了三个必备AudioSource组件，如果同一时刻不止三个音频在播放，那么就会再去动态添加AudioSource组件，并且保证其空闲的不能多于3个（多余的动态销毁）。<br>&emsp;&emsp;<strong>我们知道如果不销毁的话就会占用内存，然而销毁与创建的过程依然依赖内存。</strong><br>&emsp;&emsp;不过，对于游戏中音频播放，不可能会经常很多音频同时播放的，三个必备AudioSource组件已经够用，动态创建也只是应对特殊情况而已，所以，创建与销毁不会太过频繁。故保持场景中AudioSource组件数量最少化是很有必要的，进而达到内存上的优化！<br>&emsp;&emsp;事实上，在游戏中经常会遇到这种情况，比如：大量创建的子弹、敌人AI、食物、特效等等消耗品。不断的创建与销毁的过程不得不说是对内存的一种浪费！这时因为其创建与销毁太过频繁，我们经常会采用对象池思想来进行优化！</p>
+<h3 id="一、对象池思想特点"><a href="#一、对象池思想特点" class="headerlink" title="一、对象池思想特点"></a>一、对象池思想特点</h3><blockquote>
+<p>1.用于频繁创建与销毁的对象。<br>2.在使用的过程中，对象池中的对象最大值将是整个过程中同一时刻该对象的存在的最大数量（避免重复创建与销毁）。<br>3.存入对象池的同一类对象，创建时只管从池子中拿，销毁时只管放回池子。<br>4.放回池子并不是将其销毁，下次需要创建时从池子中拿也并不是一定需要创建，池子中有就直接拿来用，没有才会创建。<br>5.把类似无限的创建与销毁行为变为了一次性创建且暂不销毁的一种行为。</p>
+</blockquote>
+<h3 id="二、对象池管理应用"><a href="#二、对象池管理应用" class="headerlink" title="二、对象池管理应用"></a>二、对象池管理应用</h3><p>首先抽象出一个需要对象池管理的对象的基类ObjBase，提供两个抽象方法：从池子中出来后的初始化方法、进入池子前的格式化方法。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可被对象池管理的游戏对象的基类</span></span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">ObjBase</span> : <span class="title">MonoBehaviour</span>, <span class="title">IObjBase</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">OutPool</span>(<span class="params"></span>)</span>; <span class="comment">//出池子即生成时</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">InPool</span>(<span class="params"></span>)</span>;  <span class="comment">//进池子即回收时</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在这额外提供一个接口，方便日后方法的修改封装（也可以省略，不过下面的使用中要把IObjBase换为ObjBase）</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IObjBase</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OutPool</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InPool</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要一个池子类SubPool来存储需要管理的游戏对象，并具备以下基本功能：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SubPool</span></span><br><span class="line">&#123;   List&lt;GameObject&gt; mySubPool = <span class="keyword">new</span> List&lt;GameObject&gt;(); <span class="comment">//存储此对象的池子</span></span><br><span class="line">    GameObject _prefab; <span class="comment">//池子中对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SubPool</span>(<span class="params">GameObject prefab</span>)</span> &#123; _prefab = prefab; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> GameObject <span class="title">GetObjFromPool</span>(<span class="params"></span>) <span class="comment">//从池子中获取一此对象</span></span></span><br><span class="line"><span class="function"></span>    &#123;   GameObject obj = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">foreach</span> (GameObject item <span class="keyword">in</span> mySubPool)</span><br><span class="line">        &#123;   <span class="keyword">if</span> (!item.activeSelf)</span><br><span class="line">            &#123;   obj = item;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="literal">null</span>)</span><br><span class="line">        &#123;   obj = GameObject.Instantiate(_prefab);</span><br><span class="line">            mySubPool.Add(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        obj.SetActive(<span class="literal">true</span>);</span><br><span class="line">        IObjBase iob = obj.GetComponent&lt;IObjBase&gt;();</span><br><span class="line">        <span class="keyword">if</span> (iob != <span class="literal">null</span>) &#123; iob.OutPool(); &#125;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ObjIntoPool</span>(<span class="params">GameObject obj</span>) <span class="comment">//将一此对象放入池子中</span></span></span><br><span class="line"><span class="function"></span>    &#123;   <span class="keyword">if</span> (mySubPool.Contains(obj))</span><br><span class="line">        &#123;   IObjBase iob = obj.GetComponent&lt;IObjBase&gt;();</span><br><span class="line">            <span class="keyword">if</span> (iob != <span class="literal">null</span>) &#123; iob.InPool(); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        obj.SetActive(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AllObjIntoPool</span>(<span class="params"></span>) <span class="comment">//将所有此对象放入池子中</span></span></span><br><span class="line"><span class="function"></span>    &#123;   <span class="keyword">foreach</span> (GameObject item <span class="keyword">in</span> mySubPool)</span><br><span class="line">            <span class="keyword">if</span> (item.activeSelf) &#123; ObjIntoPool(item); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">IsHaveObj</span>(<span class="params">GameObject obj</span>) <span class="comment">//判断池子中是否有此对象</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> mySubPool.Contains(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>既然，已经有了池子，每个池子管理着各种的对象，那么还需要个管理所有池子的单列类PoolMrg，其也应该具有池子的功能并对外提供接口：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolMrg</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;   <span class="keyword">public</span> <span class="keyword">static</span> PoolMrg Instance;</span><br><span class="line">    Dictionary&lt;<span class="keyword">string</span>, SubPool&gt; pools = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, SubPool&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span> &#123; Instance = <span class="keyword">this</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RegisterSubPool</span>(<span class="params"><span class="keyword">string</span> name</span>) <span class="comment">//为对象注册池子</span></span></span><br><span class="line"><span class="function"></span>    &#123;   GameObject obj = Resources.Load&lt;GameObject&gt;(name);</span><br><span class="line">        SubPool pool = <span class="keyword">new</span> SubPool(obj);</span><br><span class="line">        pools.Add(name, pool);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> GameObject <span class="title">GetObj</span>(<span class="params"><span class="keyword">string</span> name</span>) <span class="comment">//从池子中获取</span></span></span><br><span class="line"><span class="function"></span>    &#123;   SubPool pool;</span><br><span class="line">        <span class="keyword">if</span> (!pools.ContainsKey(name))&#123; RegisterSubPool(name); &#125;</span><br><span class="line">        pool = pools[name];</span><br><span class="line">        <span class="keyword">return</span> pool.GetObjFromPool();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">IntoObj</span>(<span class="params">GameObject obj</span>) <span class="comment">//放回池子</span></span></span><br><span class="line"><span class="function"></span>    &#123;   <span class="keyword">foreach</span> (SubPool pool <span class="keyword">in</span> pools.Values)</span><br><span class="line">        &#123;   <span class="keyword">if</span> (pool.IsHaveObj(obj))</span><br><span class="line">            &#123;   pool.ObjIntoPool(obj);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AllObjInto</span>(<span class="params"></span>)   <span class="comment">//所有对象全部回收到各自池子</span></span></span><br><span class="line"><span class="function"></span>    &#123;   <span class="keyword">foreach</span> (SubPool pool <span class="keyword">in</span> pools.Values)</span><br><span class="line">        &#123;</span><br><span class="line">            pool.AllObjIntoPool();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h3><p>1.先将PoolMrg类和下面的测试脚本都挂载到场景对象上(下篇介绍如何自动挂载单例脚本)。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestPool</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">    GameObject g;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;   </span><br><span class="line">    	<span class="keyword">if</span> (Input.GetKeyDown(KeyCode.C))</span><br><span class="line">        &#123;</span><br><span class="line">            g = PoolMrg.Instance.GetObj(<span class="string">"Cube"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            PoolMrg.Instance.IntoObj(g);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.S))</span><br><span class="line">        &#123;</span><br><span class="line">            g = PoolMrg.Instance.GetObj(<span class="string">"Sphere"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.新建个Cube与Sphere拖拽到文件中保存为prefab预制体，要放在Resources文件夹中，再新建两个脚本分别挂载到这两个预制体身上如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="comment">//Cube与Sphere都可以有自己的逻辑代码及创建与销毁时的设置方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestCube</span> : <span class="title">ObjBase</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">InPool</span>(<span class="params"></span>)</span>&#123; Debug.Log(<span class="string">"Cube进池子啦，正在格式化"</span>); &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OutPool</span>(<span class="params"></span>)</span>&#123; Debug.Log(<span class="string">"Cube出池子啦，正在初始化"</span>); &#125;</span><br><span class="line">    <span class="keyword">float</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;   i += Time.deltaTime;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            i = <span class="number">0</span>; PoolMrg.Instance.IntoObj(gameObject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestSphere</span> : <span class="title">ObjBase</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">InPool</span>(<span class="params"></span>)</span>&#123; Debug.Log(<span class="string">"Sphere进池子啦，正在格式化"</span>); &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OutPool</span>(<span class="params"></span>)</span>&#123; Debug.Log(<span class="string">"Sphere出池子啦，正在初始化"</span>);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、扩展知识"><a href="#四、扩展知识" class="headerlink" title="四、扩展知识"></a>四、扩展知识</h3><blockquote>
+<p><strong>Prefab预制体：</strong>1.方便创建场景中频繁使用到的物体，节省内存&emsp;&emsp;2.模板保存，方便对物体进行操作（属性更改、资源导入导出、加载等）</p>
+</blockquote>
+<blockquote>
+<p><strong>Interface接口与abstract抽象类的区别：</strong><br><strong>语法上:</strong>&emsp;1.抽象类可有字段，接口没有&emsp;&emsp;2.抽象类可有实现成员，接口只包含抽象成员&emsp;&emsp;抽象类可使用所有成员修饰符，接口成员都是对外，不需要修饰符<br><strong>用法上:</strong>&emsp;1.抽象类是概念的抽象，接口关注于行为上抽象&emsp;&emsp;2.抽象类的子类也叫派生类，两者是泛化关系，耦合度较高，而接口与实现类之间是实现关系，耦合度低&emsp;&emsp;3.C#类是单继承，但接口可以实现多个</p>
+</blockquote>
 
       
     </div>
@@ -579,7 +551,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 配置文件</a>
+            <a href="/tags/Unity3D/" rel="tag"><i class="fa fa-tag"></i> Unity3D</a>
           
         </div>
       
@@ -592,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/al_00/" rel="next" title="算法开篇">
-                <i class="fa fa-chevron-left"></i> 算法开篇
+              <a href="/2020/05/u3d_12/" rel="next" title="AudioSource封装思想">
+                <i class="fa fa-chevron-left"></i> AudioSource封装思想
               </a>
             
           </div>
@@ -602,8 +574,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/eg_01/" rel="prev" title="白鹭开篇（一）">
-                白鹭开篇（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2020/05/u3d_14/" rel="prev" title="单例模式思想">
+                单例模式思想 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -777,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML-对象"><span class="nav-text">YAML 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML-数组"><span class="nav-text">YAML 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合结构"><span class="nav-text">复合结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯量"><span class="nav-text">纯量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-text">引用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、对象池思想特点"><span class="nav-text">一、对象池思想特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、对象池管理应用"><span class="nav-text">二、对象池管理应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、测试"><span class="nav-text">三、测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、扩展知识"><span class="nav-text">四、扩展知识</span></a></li></ol></div>
             
 
           </div>
