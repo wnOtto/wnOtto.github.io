@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="扩展必备," />
+  <meta name="keywords" content="Shader," />
 
 
 
@@ -86,17 +86,19 @@
 
 
 
-<meta name="description" content="一、计算机语言发展历程编程语言&amp;emsp;&amp;emsp;自从1946年世界上第一台电子计算机问世，人类和机器的交流方式和语言就成为了软件工程师和计算机从业者的主要研究方向，更有效更简便的编程语言成为了软件工程师的新宠儿，伴随着计算机的飞速发展，计算机的硬件升级速度也越来越快，对编程语言的要求也日益严格。在过去的几十年，编程语言有了长足的发展，至今已经有四代语言问世。大量的编程语言为了满足不同领域的编">
+<meta name="description" content="—— 不要沉沦，在任何环境中都要学会奋起！背景Shader在Unity中称作着色器，其作用相当强大！如现实世界中的物体通过我们的眼睛呈现给我们的必要条件之一就是光与色，而游戏中通过摄像机呈现场景中物体也是如此，必不可少的shader（着色器）、material(材质球)、meshRenderer(渲染)！那么，就先从一个简单的小案例开始我们之后一系列的shader知识吧（兴趣是最好的老师）！ 一、">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机语言介绍">
-<meta property="og:url" content="http://yoursite.com/2020/05/la_01/index.html">
+<meta property="og:title" content="鱼身添加波纹效果">
+<meta property="og:url" content="http://yoursite.com/2020/05/shader_02/index.html">
 <meta property="og:site_name" content="Otto的个人空间">
-<meta property="og:description" content="一、计算机语言发展历程编程语言&amp;emsp;&amp;emsp;自从1946年世界上第一台电子计算机问世，人类和机器的交流方式和语言就成为了软件工程师和计算机从业者的主要研究方向，更有效更简便的编程语言成为了软件工程师的新宠儿，伴随着计算机的飞速发展，计算机的硬件升级速度也越来越快，对编程语言的要求也日益严格。在过去的几十年，编程语言有了长足的发展，至今已经有四代语言问世。大量的编程语言为了满足不同领域的编">
-<meta property="article:published_time" content="2020-05-19T08:24:10.000Z">
-<meta property="article:modified_time" content="2020-05-25T05:54:53.474Z">
+<meta property="og:description" content="—— 不要沉沦，在任何环境中都要学会奋起！背景Shader在Unity中称作着色器，其作用相当强大！如现实世界中的物体通过我们的眼睛呈现给我们的必要条件之一就是光与色，而游戏中通过摄像机呈现场景中物体也是如此，必不可少的shader（着色器）、material(材质球)、meshRenderer(渲染)！那么，就先从一个简单的小案例开始我们之后一系列的shader知识吧（兴趣是最好的老师）！ 一、">
+<meta property="og:image" content="http://qal0b1j3s.bkt.clouddn.com/static/img/gif/fish.gif">
+<meta property="article:published_time" content="2020-05-30T05:09:20.000Z">
+<meta property="article:modified_time" content="2020-05-30T12:01:56.140Z">
 <meta property="article:author" content="Otto">
-<meta property="article:tag" content="扩展必备">
+<meta property="article:tag" content="Shader">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qal0b1j3s.bkt.clouddn.com/static/img/gif/fish.gif">
 
 
 
@@ -126,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/la_01/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/shader_02/"/>
 
 
 
@@ -142,7 +144,7 @@
     })();
 </script>
 
-  <title>计算机语言介绍 | Otto的个人空间</title>
+  <title>鱼身添加波纹效果 | Otto的个人空间</title>
   
 
 
@@ -355,7 +357,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/la_01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/shader_02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Otto">
@@ -372,7 +374,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机语言介绍</h1>
+          <h1 class="post-title" itemprop="name headline">鱼身添加波纹效果</h1>
         
 
         <div class="post-meta">
@@ -384,8 +386,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-19T16:24:10+08:00">
-                2020-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T13:09:20+08:00">
+                2020-05-30
               </time>
             
 
@@ -400,8 +402,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-05-25T13:54:53+08:00">
-                2020-05-25
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-30T20:01:56+08:00">
+                2020-05-30
               </time>
             
           </span>
@@ -415,8 +417,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/05/la_01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/la_01/" itemprop="commentCount"></span>
+                <a href="/2020/05/shader_02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/shader_02/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -450,24 +452,16 @@
       
 
       
-        <h4 id="一、计算机语言发展历程"><a href="#一、计算机语言发展历程" class="headerlink" title="一、计算机语言发展历程"></a>一、计算机语言发展历程</h4><h5 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h5><p>&emsp;&emsp;自从1946年世界上第一台电子计算机问世，人类和机器的交流方式和语言就成为了软件工程师和计算机从业者的主要研究方向，更有效更简便的编程语言成为了软件工程师的新宠儿，伴随着计算机的飞速发展，计算机的硬件升级速度也越来越快，对编程语言的要求也日益严格。在过去的几十年，编程语言有了长足的发展，至今已经有四代语言问世。大量的编程语言为了满足不同领域的编程要求和软件功能，经历 了被修改，被取代，被发展等过程，最终发展成了现在编程语言的多样化。尽管人们多次试图寻找一个能够适应所有编程环境的通用语言，但是却没有一次成功。程序设计语言正在与现代科技日益飞跃，人类的智慧在日益彰显。   </p>
-<h5 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h5><p>&emsp;&emsp;计算机的硬件作为一种电路元件，它的输出和输入只能是有电或者没电，也就是所说的高电平和低电平，所以计算机传递的数据是由“0” 和“1”组成的二进制数，所以说二进制的语言是计算机语言的本质。计算机发明之初，人们为了去控制计算机完成自己的任务或者项目，只能去编写“0”、“ 1”这样的二进制数字串去控制电脑，其实就是控制计算机硬件的高低电平或通路开路，这种语言就是机器语言。直观上看，机器语言十分晦涩难懂，其中的含义往往要通过查表或者手册才能理解， 使用的时候非常痛苦，尤其当你需要修改已经完成的程序时，这种看起来无序的机器语言会让你无从下手，也很难找到程序的错误。而且，不同计算机的运行环境不同，指令方式操作方式也不尽相同，所以当你在这种机器语言就有了特定性，只能在特定的计算机上执行，而一旦换了机器就需要重新编程，这极大的降低了程序的使用和推广效率。但由于机器语言具有特定性，完美适配特定型号的计算机，故而运行效率远远高过其他语言。机器语言，也就是第一代编程语言。</p>
-<h5 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h5><p>&emsp;&emsp;不难看出机器语言作为一种编程语言， 灵活性较差可阅读性也很差，为了减轻机器语言带给软件工程师的不适应，人们对机器语言进行了升级和改进：用一些容易理解和记忆的字母，单词来代替一个特定的指令。通过这种方法，人们很容易去阅读 已经完成的程序或者理解程序正在执行的功能，对现有程序的bug修复以及运营维护都变得更加简单方便，这种语言就是我们所说的汇编语言， 即第二代计算机语言。<br>&emsp;&emsp;比起机器语言，汇编语言具有更高的机器相关性，更加便于记忆和书写，但又同时保留了机器语言高速度和高效率的特点。汇编语言仍是面向机器的语言，很难从其代码上理解程序设计意图，设计出来的程序不易被移植，故不像其他大多数的高级计算机语言一样被广泛应用。所以在高级语言高度发展的今天，它通常被用在底层，通常是程序优化或硬件操作的场合。 </p>
-<h5 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h5><p>&emsp;&emsp;在编程语言经历了机器语言，汇编语言等更新之后，人们发现了限制程序推广的关键因素——程序的可移植性。需要设计一个能够不依赖于计算机硬件，能够在不同机器上运行的程序。这样可以免去很多编程的重复过程，提高效率，同时这种语言又要接近于数学语言或人的自然语言。在计算机还很稀缺的50年代，诞生了第一个高级编程语言。当时计算机的造价不菲，但是每天的计算量有有限，如何有效的利用计算机有限的计算能力成为了当时人们面对的问题。同时，因为资源的稀缺， 计算机的运行效率也成为了那个年代工程师追寻的目标。为了更高效的使用计算机，人们设计出了高级编程语言，来满足人们对于高效简的编程语言的追求。</p>
-<h4 id="二、语言分类介绍"><a href="#二、语言分类介绍" class="headerlink" title="二、语言分类介绍"></a>二、语言分类介绍</h4><p>中间语言：</p>
-<p>即时编译语言：</p>
-<p>强类型语言：</p>
-<p>弱类型语言：</p>
-<p>解析型语言：</p>
-<p>编译型语言：</p>
-<p>动态语言：</p>
-<p>静态语言：</p>
-<p>脚本语言：</p>
-<p>低级语言：</p>
-<p>标记语言：</p>
-<p>配置语言：</p>
-<p>前端语言：</p>
-<p>后端语言：</p>
+        <p>—— 不要沉沦，在任何环境中都要学会奋起！<br><strong>背景</strong><br>Shader在Unity中称作着色器，其作用相当强大！如现实世界中的物体通过我们的眼睛呈现给我们的必要条件之一就是光与色，而游戏中通过摄像机呈现场景中物体也是如此，必不可少的shader（着色器）、material(材质球)、meshRenderer(渲染)！<br>那么，就先从一个简单的小案例开始我们之后一系列的shader知识吧（兴趣是最好的老师）！</p>
+<h3 id="一、效果展示"><a href="#一、效果展示" class="headerlink" title="一、效果展示"></a>一、效果展示</h3><p>案例相当简单，本篇将不会对代码进行讲解(先附简单注释，之后学习的过程再介绍)，直接上效果吧！</p>
+<img title="表面波纹效果" src="http://qal0b1j3s.bkt.clouddn.com/static/img/gif/fish.gif">
+<h3 id="二、操作步骤"><a href="#二、操作步骤" class="headerlink" title="二、操作步骤"></a>二、操作步骤</h3><p><strong>1.导入素材</strong><br>这提供鱼的模型和材质贴图压缩包下载，<a id="download" href="/uploads/Fish.zip" download="Fish.zip"><i class="fa fa-download"></i><span> Download Now</span> </a>下载并解压后拖入Unity工程，把模型拖入场景，材质球选择其贴图即可！<br><strong>2.自定义shader</strong><br>在文件夹中右键新建一shader文件，文件名称可以自定义,如Fish(要与代码里的一致)，将Material材质球上的shader替换，Shader代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"NEW/Fish"</span>  <span class="comment">//定义文件名与文件选择路径</span></span><br><span class="line">&#123;</span><br><span class="line">	Properties <span class="comment">//自定义面板调节属性</span></span><br><span class="line">	&#123;</span><br><span class="line">		_MainTex (<span class="string">"MainTexture"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</span><br><span class="line">		_SubTex(<span class="string">"SubTexture"</span>,<span class="number">2</span>D)=<span class="string">"white"</span> &#123;&#125;</span><br><span class="line">		_Color(<span class="string">"Color"</span>,Color)=(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">		_Speed(<span class="string">"Speed"</span>,range(<span class="number">0</span>,<span class="number">1</span>))=<span class="number">0.5</span></span><br><span class="line">	&#125;</span><br><span class="line">	SubShader</span><br><span class="line">	&#123;</span><br><span class="line">		Pass</span><br><span class="line">		&#123;</span><br><span class="line">			CGPROGRAM     <span class="comment">//CG代码段开始</span></span><br><span class="line">			<span class="meta">#<span class="meta-keyword">pragma</span> vertex vert</span></span><br><span class="line">			<span class="meta">#<span class="meta-keyword">pragma</span> fragment frag</span></span><br><span class="line">			<span class="meta">#include "UnityCG.cginc"</span></span><br><span class="line">			<span class="keyword">struct</span> appdata  <span class="comment">//自定义顶点中使用的结构体</span></span><br><span class="line">			&#123;</span><br><span class="line">				float4 vertex : POSITION;</span><br><span class="line">				float2 uv : TEXCOORD0;</span><br><span class="line">			&#125;;</span><br><span class="line">			<span class="keyword">struct</span> v2f  <span class="comment">//自定义片段中使用的结构体</span></span><br><span class="line">			&#123;</span><br><span class="line">				float2 uv : TEXCOORD0;</span><br><span class="line">				UNITY_FOG_COORDS(<span class="number">1</span>)</span><br><span class="line">				float4 vertex : SV_POSITION;</span><br><span class="line">			&#125;;</span><br><span class="line">			sampler2D _MainTex;</span><br><span class="line">			sampler2D _SubTex;</span><br><span class="line">			float4 _Color;</span><br><span class="line">			half _Speed;</span><br><span class="line">			<span class="function">v2f <span class="title">vert</span> (<span class="params">appdata v</span>)  <span class="comment">//顶点着色器函数</span></span></span><br><span class="line"><span class="function"></span>			&#123;</span><br><span class="line">				v2f o;</span><br><span class="line">				o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">				o.uv=v.uv;</span><br><span class="line">				<span class="keyword">return</span> o;</span><br><span class="line">			&#125;			</span><br><span class="line">			<span class="function">fixed4 <span class="title">frag</span> (<span class="params">v2f i</span>) : SV_Target <span class="comment">//片段着色器函数</span></span></span><br><span class="line"><span class="function"></span>			&#123;</span><br><span class="line">				fixed2 offset=fixed2(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">				offset.x=_Time.y*_Speed;</span><br><span class="line">				offset.y=-_Time.y*_Speed;</span><br><span class="line">			    fixed4 subCol=tex2D(_SubTex,i.uv-offset);  <span class="comment">//纹理采样+uv偏移</span></span><br><span class="line">				fixed4 col = tex2D(_MainTex, i.uv)+ subCol;</span><br><span class="line">				<span class="keyword">return</span> col*_Color;</span><br><span class="line">			&#125;</span><br><span class="line">			ENDCG  <span class="comment">//CG代码段结束</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以直接复制上面代码替换新建的shader里的内容！可任意调节shader属性，运行游戏观看效果！</p>
+<h3 id="三、扩展知识"><a href="#三、扩展知识" class="headerlink" title="三、扩展知识"></a>三、扩展知识</h3><p><strong>Properties</strong></p>
+<blockquote>
+<p>自定义属性块，如：_Color(“颜色”,Color)=(1,1,1,1)<br>[_Color]是可以在下面pass中引用的名字<br>[颜色]是显示在属性面板上的名称<br>[Color]是这一属性的类型，其余的例如Int、Float、Range()、Vector、2D、Cube、3D<br>[=]后面是值<br>不需要分号</p>
+</blockquote>
 
       
     </div>
@@ -517,7 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%89%A9%E5%B1%95%E5%BF%85%E5%A4%87/" rel="tag"><i class="fa fa-tag"></i> 扩展必备</a>
+            <a href="/tags/Shader/" rel="tag"><i class="fa fa-tag"></i> Shader</a>
           
         </div>
       
@@ -530,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/ce_01/" rel="next" title="三种字符编码的理解">
-                <i class="fa fa-chevron-left"></i> 三种字符编码的理解
+              <a href="/2020/05/u3d_14/" rel="next" title="单例模式思想">
+                <i class="fa fa-chevron-left"></i> 单例模式思想
               </a>
             
           </div>
@@ -539,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/hexo_04/" rel="prev" title="Hexo使用七牛云存储资源">
-                Hexo使用七牛云存储资源 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -715,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、计算机语言发展历程"><span class="nav-text">一、计算机语言发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#编程语言"><span class="nav-text">编程语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#机器语言"><span class="nav-text">机器语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#汇编语言"><span class="nav-text">汇编语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#高级语言"><span class="nav-text">高级语言</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、语言分类介绍"><span class="nav-text">二、语言分类介绍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、效果展示"><span class="nav-text">一、效果展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、操作步骤"><span class="nav-text">二、操作步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、扩展知识"><span class="nav-text">三、扩展知识</span></a></li></ol></div>
             
 
           </div>
